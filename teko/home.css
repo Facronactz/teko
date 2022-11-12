@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --pr-color: #315343;
+}
+
+* {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+/* Nvabar */
+
+.navbar {
+    z-index: 3;
+}
+
+.logo {
+    color: var(--pr-color);
+    margin-left: 24px;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.primary-btn {
+    font-weight: 600;
+    color: var(--pr-color);
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+}
+
+.secondary-btn {
+    font-weight: 600;
+    background-color: var(--pr-color);
+    color: white;
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+}
+
+.navbar-toggler {}
+
+/* Hero */
+
+#hero {
+    background-color: black;
+    position: relative;
+    text-align: center;
+}
+
+
+#hero img {
+    width: 100%;
+}
+
+#hero h1 {
+    font-weight: 800;
+    font-size: 1.1em;
+    text-align: left;
+    width: 30%;
+    position: absolute;
+    bottom: 30%;
+    left: 8%;
+    color: var(--pr-color);
+}
+
+/* about */
+#about-container {
+    flex-direction: column;
+    min-width: 320px;
+    align-items: center;
+}
+
+#about-info {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 12px;
+}
+
+#about-info h1 {
+    color: var(--pr-color);
+    font-weight: 800;
+}
+
+.about-image {
+    margin: 32px 12px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.panel {
+    font-size: 0.5em;
+}
+
+/* Status */
+.cover {
+    width: 100%;
+    height: 110vmin;
+    position: relative;
+}
+
+.cover .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cover .content {
+    width: 100%;
+    height: 100%;
+    background: var(--pr-color);
+    padding-top: 19vmin;
+}
+
+.cover .content h1 {
+    font-size: 2em;
+    color: white;
+}
+
+.cover .content p {
+    font-size: 0.8em;
+    color: white;
+}
+
+.type .fiture {
+    border-radius: 2%;
+    position: relative;
+    z-index: 3;
+    background: white;
+    width: 110px;
+    margin-top: 32px;
+    padding: 3vmin;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.type {
+    margin-top: -60vmin;
+}
+
+.type .fiture h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color: var(--pr-color);
+}
+
+.type .fiture p {
+    margin: 0;
+    padding: 0;
+    color: var(--pr-color);
+}
