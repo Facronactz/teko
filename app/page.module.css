@@ -1,0 +1,218 @@
+/* Nvabar */
+
+.navbar {
+    z-index: 5;
+}
+
+.navbar-color {
+    background-color: #315343;
+    transition: all ease-in-out 0.3s;
+}
+
+.bg-transparent {
+    transition: all ease-in-out 0.3s;
+}
+
+
+.logo {
+    color: #315343;
+    margin-left: 24px;
+    font-size: 1.5em;
+    font-weight: 800;
+    transition: all ease-in-out 0.3s;
+
+}
+
+.logo-color {
+    color: white;
+    margin-left: 24px;
+    font-size: 1.5em;
+    font-weight: 800;
+    transition: all ease-in-out 0.3s;
+
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.primary-btn {
+    font-weight: 600;
+    color: #315343;
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+    transition: all ease-in-out 0.3s;
+
+}
+
+.primary-btn-2 {
+    background-color: none;
+    font-weight: 600;
+    color: white;
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+    transition: all ease-in-out 0.3s;
+
+}
+
+.secondary-btn {
+    font-weight: 600;
+    background-color: #315343;
+    color: white;
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+    transition: all ease-in-out 0.3s;
+
+}
+
+.secondary-btn-2 {
+    font-weight: 600;
+    background-color: white;
+    color: #315343;
+    padding: 8px 16px;
+    margin: 12px;
+    border: none;
+    transition: all ease-in-out 0.3s;
+
+}
+
+/* Hero */
+
+#hero {
+    background-color: black;
+    position: relative;
+    text-align: center;
+}
+
+
+#hero img {
+    width: 100%;
+}
+
+#hero h1 {
+    font-weight: 800;
+    font-size: 1.1em;
+    text-align: left;
+    width: 30%;
+    position: absolute;
+    bottom: 30%;
+    left: 8%;
+    color: #315343;
+}
+
+/* about */
+#about-container {
+    flex-direction: column;
+    min-width: 320px;
+    align-items: center;
+}
+
+#about-info {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 12px;
+}
+
+#about-info h1 {
+    color: #315343;
+    font-weight: 800;
+}
+
+.about-image {
+    margin: 32px 12px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.panel {
+    font-size: 0.5em;
+}
+
+/* Status */
+.cover {
+    width: 100%;
+    height: 110vmin;
+    position: relative;
+}
+
+.cover .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cover .content {
+    width: 100%;
+    height: 100%;
+    background: #315343;
+    padding-top: 19vmin;
+}
+
+.cover .content h1 {
+    font-size: 2em;
+    color: white;
+}
+
+.cover .content p {
+    font-size: 0.8em;
+    color: white;
+}
+
+.type .fiture {
+    border-radius: 2%;
+    position: relative;
+    z-index: 3;
+    background: white;
+    width: 110px;
+    margin-top: 32px;
+    padding: 3vmin;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.type {
+    margin-top: -60vmin;
+}
+
+.type .fiture h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color: #315343;
+}
+
+.type .fiture p {
+    margin: 0;
+    padding: 0;
+    color: #315343;
+}
+
+/* name */
+.card {
+    max-width: 1000px;
+    border: none;
+}
+
+/* quote */
+.quote {
+    margin-bottom: 10px;
+}
+
+.quote p {
+    font-size: 1.2em;
+}
+
+.quote q {
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    padding: 5px;
+}
+
+
+.bold-footer {
+    color: white;
+}
