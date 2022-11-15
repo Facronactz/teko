@@ -90,14 +90,18 @@ function BasicExample() {
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="text-3xl text-white">Ada apa aja sih?</h1>
               <p className="text-sm text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, eum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+                eum?
               </p>
             </div>
           </div>
           <Container fluid className="text-center">
             <div className="mt-[-60vmin] flex flex-md-row flex-wrap justify-center">
               {stats.map((stat) => (
-                <div key={stat.name} className="rounded-sm relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg">
+                <div
+                  key={stat.name}
+                  className="rounded-sm relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg"
+                >
                   <h1 className="m-0 p-0 text-3xl text-brand">{stat.value}</h1>
                   <p className="m-0 p-0 text-brand">{stat.name}</p>
                 </div>
