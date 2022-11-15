@@ -90,7 +90,7 @@ function BasicExample() {
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="text-3xl text-white">Ada apa aja sih?</h1>
               <p className="text-sm text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, eum da?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, eum?
               </p>
             </div>
           </div>
