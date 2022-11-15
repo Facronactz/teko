@@ -133,7 +133,8 @@ function BasicExample() {
         <section>
           <Container className="grid">
             <Row className="auto-cols-auto gap-1">
-              <Col>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+                <Col key={item}>
                 <Card>
                   <Card.Img
                     variant="top"
@@ -141,7 +142,7 @@ function BasicExample() {
                     width="200"
                     height="200"
                     alt="..."
-                  />
+                    />
                   <Card.Body>
                     <Card.Title>Nama </Card.Title>
                     <Card.Text>
@@ -151,6 +152,7 @@ function BasicExample() {
                   </Card.Body>
                 </Card>
               </Col>
+              ))}
             </Row>
           </Container>
         </section>
