@@ -83,7 +83,7 @@ function BasicExample() {
         </Navbar>
         <section className="relative">
           <h1 className="font-extrabold	text-base	text-left	w-1/3	absolute bottom-1/3 left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
-            Bersama Membangun Negeri
+            Bersama Membangun Negeri Kita
           </h1>
           <Image className="w-full" src={hero} alt="gambar hero" />
         </section>
