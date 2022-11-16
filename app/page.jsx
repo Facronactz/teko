@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { use } from "react";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,24 +12,19 @@ import hero from "../public/image/hero.jpg";
 import teman from "../public/image/teman.png";
 import { Col } from "react-bootstrap";
 
-const menus = [
-  { name: "Beranda", href: "#", current: true },
-  { name: "Teman", href: "#", current: false },
-  { name: "Kegiatan", href: "#", current: false },
-];
-
-const stats = [
-  { name: "Teman Kita", value: "1000" },
-  { name: "Kegiatan", value: "101" },
-  { name: "Relawan", value: "1052" },
-  { name: "Pengabdian", value: "55" },
-];
+const getData = async (q) => {
+  const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
+  const data = await res.json();
+  return data;
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function BasicExample() {
+  const menus = use(getData("menus"));
+  const stats = use(getData("stats"));
   return (
     <>
       <header>

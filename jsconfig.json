@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-        "jsx": "react-jsx"
-    },
-    "exclude": [
-        "node_modules",
-        ".next"
-    ]
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
 }
