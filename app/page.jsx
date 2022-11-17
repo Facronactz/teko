@@ -19,9 +19,15 @@ const getData = async (q) => {
   return data;
 };
 
+const getStats = async () => {
+  const res = await fetch('http://localhost:3000/api/stats');
+  const data = await res.json();
+  return data;
+};
+
 function BasicExample() {
   const menus = use(getData('menus'));
-  const stats = use(getData('stats'));
+  const stats = use(getStats());
   const team = use(getData('team'));
   return (
     <>
@@ -51,7 +57,6 @@ function BasicExample() {
                         ? 'mx-2 font-bold lg:text-lg'
                         : 'mx-2 lg:text-lg'
                     }
-                    active
                     href={menu.href}
                   >
                     {menu.name}

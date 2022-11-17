@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Stats {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @default(now())
+  teman     Int      @default(0)
+  kegiatan  Int      @default(0)
+  relawan   Int      @default(0)
+  donasi    Int      @default(0)
+  donatur   Int      @default(0)
+  pengguna  Int      @default(0)
+}
