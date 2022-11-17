@@ -83,8 +83,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<div align=center>
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+</div>
 
 Website Teman Komunitas (Teko) adalah sebuah website yang dapat diakses menggunakan browser baik itu menggunakan smartphone maupun personal computer. Tujuan dibuatnya website ini adalah untuk mempermudah akses informasi terhadap komunitas dan organisasi yang bergerak dalam bidang kemanusiaan, sosial, dan lingkungan. 
 
@@ -107,14 +109,33 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 
 <div align="center">
 
+[![Node.js][Node.js]][Nodejs-url]
 [![Next][Next.js]][Next-url]
 [![React][React.js]][React-url]
-[![TurboPack][Turbo.build]][Turbo-url]
-[![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![WebpackPack][Webpack.build]][Webpack-url]
 [![Tailwind][Tailwindcss.com]][Tailwind-url]
-[![JQuery][JQuery.com]][JQuery-url]
+[![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![Prisma][Prisma.com]][Prisma-url]
+[![Sqlite][Sqlite.com]][Sqlite-url]
+
 
 </div>
+
+
+### Tools
+<div align="center">
+
+[![Git][Git.com]][Git-url]
+[![Github][Github.com]][Github-url]
+[![VSCode][VSCode.com]][VSCode-url]
+[![ESLint][ESLint.com]][ESLint-url]
+[![Postman][Postman.com]][Postman-url]
+[![Jira][Jira.com]][Jira-url]
+[![Figma][Figma.com]][Figma-url]
+
+
+</div>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -239,15 +260,35 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: https://i.ibb.co/KhDSRDQ/Screenshot-2022-11-14-at-15-03-49-Teko.png
+
+[Node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+[Nodejs-url]: https://nodejs.org/en/
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Turbo.build]: https://img.shields.io/badge/TurboPack-95509c?style=for-the-badge&logo=Turborepo&logoColor=white
-[Turbo-url]: https://turbo.build/pack
+[Webpack.build]: https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white
+[Webpack-url]: https://webpack.js.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Tailwind.com]: https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[Tailwindcss.com]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 [Tailwind-url]: https://tailwindcss.com/
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[Prisma.com]: https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white
+[Prisma-url]: https://prisma.io/
+[Sqlite.com]:https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
+[Sqlite-url]: https://www.sqlite.org/index.html
+
+[ESLint.com]: https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white
+[ESLint-url]: https://eslint.org/
+[Postman.com]: https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white
+[Postman-url]: https://www.postman.com/
+[Git.com]: https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
+[Git-url]: https://git-scm.com/
+[GitHub.com]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+[GitHub-url]: https://github.com
+[VSCode.com]: https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
+[VSCode-url]: https://code.visualstudio.com/
+[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com/
+[Jira.com]: https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white
+[Jira-url]: https://www.atlassian.com/software/jira
