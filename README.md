@@ -111,6 +111,7 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 [![React][React.js]][React-url]
 [![TurboPack][Turbo.build]][Turbo-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![Tailwind][Tailwindcss.com]][Tailwind-url]
 [![JQuery][JQuery.com]][JQuery-url]
 
 </div>
@@ -245,6 +246,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [Turbo.build]: https://img.shields.io/badge/TurboPack-95509c?style=for-the-badge&logo=Turborepo&logoColor=white
 [Turbo-url]: https://turbo.build/pack
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Tailwind.com]: https://img.shields.io/badge/Tailwind-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[Tailwind-url]: https://tailwindcss.com/
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
