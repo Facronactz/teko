@@ -1,30 +1,28 @@
-"use client";
-import Image from "next/image";
-import { use } from "react";
+'use client';
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
+import Image from 'next/image';
+import { use } from 'react';
 
-import hero from "../public/image/hero.jpg";
-import teman from "../public/image/teman.png";
-import { Col } from "react-bootstrap";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+
+import { Col } from 'react-bootstrap';
+import hero from '../public/image/hero.jpg';
+import teman from '../public/image/teman.png';
 
 const getData = async (q) => {
   const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
   const data = await res.json();
   return data;
-}
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+};
 
 function BasicExample() {
-  const menus = use(getData("menus"));
-  const stats = use(getData("stats"));
+  const menus = use(getData('menus'));
+  const stats = use(getData('stats'));
+  const team = use(getData('team'));
   return (
     <>
       <header>
@@ -50,8 +48,8 @@ function BasicExample() {
                     key={menu.name}
                     className={
                       menu.current
-                        ? "mx-2 font-bold lg:text-lg"
-                        : "mx-2 lg:text-lg"
+                        ? 'mx-2 font-bold lg:text-lg'
+                        : 'mx-2 lg:text-lg'
                     }
                     active
                     href={menu.href}
@@ -78,7 +76,7 @@ function BasicExample() {
           </Container>
         </Navbar>
         <section className="relative">
-          <h1 className="font-extrabold	text-base	text-left	w-1/3	absolute bottom-1/3 left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
+          <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-1/3 left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
             Bersama Membangun Negeri Kita
           </h1>
           <Image className="w-full" src={hero} alt="gambar hero" />
@@ -124,13 +122,13 @@ function BasicExample() {
                   Teman Kita
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
-                  {" "}
+                  {' '}
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Commodi vitae, tenetur quidem eum aliquid vel labore sint
                   placeat ad deserunt consectetur fugit ullam. Eius unde neque
                   ducimus obcaecati ipsum quos vero totam recusandae hic
                   expedita nemo sit, illum harum. Quisquam impedit ullam itaque
-                  facere et ad molestiae quod reprehenderit excepturi!{" "}
+                  facere et ad molestiae quod reprehenderit excepturi!{' '}
                   <span className="font-extrabold">Lihat Teman</span>
                 </p>
               </section>
@@ -201,25 +199,25 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Pitur</h5>
               <p className="sm:mb-1">
                 <a href="#" className="text-white  ">
-                  {" "}
+                  {' '}
                   TheProviders
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   Creativity
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   SourceFiles
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   bootstrap 5 alpha
                 </a>
               </p>
@@ -228,29 +226,14 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Kontak
               </h5>
-              <p className="sm:mb-1">
-                <a href="#" className="text-white ">
-                  {" "}
-                  Farro
-                </a>
-              </p>
-              <p className="sm:mb-1">
-                <a href="#" className="text-white ">
-                  {" "}
-                  Rifqi
-                </a>
-              </p>
-              <p className="sm:mb-1">
-                <a href="#" className="text-white ">
-                  Radya
-                </a>
-              </p>
-              <p className="sm:mb-1">
-                <a href="#" className="text-white ">
-                  {" "}
-                  Citra
-                </a>
-              </p>
+              {team.members.map((member) => (
+                <p key={member.name} className="sm:mb-1">
+                  <a href="#" className="text-white ">
+                    {' '}
+                    {member.name}
+                  </a>
+                </p>
+              ))}
             </div>
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">

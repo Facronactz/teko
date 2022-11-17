@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "next/core-web-vitals"
+  ],
+  "overrides": [
+    {
+      "files": ["*.jsx"],
+      "extends": ["plugin:react/recommended"],
+      "rules": {
+        "indent": ["error", 2],
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": ["error", { "ignore": ["children"], "skipUndeclared": true }]
+      }
+    },
+    {
+      "files": ["*.js"],
+      "rules": {
+        "indent": ["error", 4]
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "eqeqeq": "error",
+    "curly": "error"
+  },
+  "plugins": [
+    "import"
+  ]
 }
