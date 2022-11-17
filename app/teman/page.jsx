@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/Link";
 
 export default function teman() {

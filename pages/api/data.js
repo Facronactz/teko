@@ -25,9 +25,9 @@ const team = {
         {
             name: "Rifqi",
             email: "",
-            github: "",
+            github: "https://github.com/rifqialamsyh",
             linkedin: "",
-            dEmail: "@dicoing.org",
+            dEmail: "rifqialamsyh@gmail.com",
         },
         {
             name: "Radya",
