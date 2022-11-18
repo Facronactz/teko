@@ -32,7 +32,8 @@
   },
   "rules": {
     "eqeqeq": "error",
-    "curly": "error"
+    "curly": "error",
+    "linebreak-style": ["error", "unix"]
   },
   "plugins": [
     "import"

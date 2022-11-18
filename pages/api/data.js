@@ -7,9 +7,9 @@ const stats = [
 ];
 
 const menus = [
-    { name: 'Beranda', href: '#', current: true },
-    { name: 'Teman', href: '#', current: false },
-    { name: 'Kegiatan', href: '#', current: false },
+    { name: 'Beranda', href: '/', current: true },
+    { name: 'Teman', href: '/teman', current: false },
+    { name: 'Kegiatan', href: '/kegiatan', current: false },
 ];
 
 const team = {
@@ -25,9 +25,9 @@ const team = {
         {
             name: 'Rifqi',
             email: '',
-            github: '',
+            github: 'https://github.com/rifqialamsyh',
             linkedin: '',
-            dEmail: '@dicoing.org',
+            dEmail: 'rifqialamsyh@gmail.com',
         },
         {
             name: 'Radya',
@@ -47,7 +47,10 @@ const team = {
 };
 
 export default function handler(req, res) {
-    const { query: { q }, method } = req;
+    const {
+        query: { q },
+        method,
+    } = req;
     if (method !== 'GET') {
         res.status(405).json({ message: 'Method not allowed' });
     }

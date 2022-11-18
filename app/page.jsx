@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { use } from 'react';
 
 import Container from 'react-bootstrap/Container';
@@ -12,6 +13,8 @@ import Card from 'react-bootstrap/Card';
 import { Col } from 'react-bootstrap';
 import hero from '../public/image/hero.jpg';
 import teman from '../public/image/teman.png';
+
+import Example from './masukmodals';
 
 const getData = async (q) => {
   const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
@@ -29,6 +32,7 @@ function BasicExample() {
   const menus = use(getData('menus'));
   const stats = use(getStats());
   const team = use(getData('team'));
+
   return (
     <>
       <header>
@@ -41,7 +45,7 @@ function BasicExample() {
           className="w-full z-50"
         >
           <Container fluid>
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="/">
               <h1 className="text-brand ml-2 text-2xl font-extrabold lg:text-4xl">
                 Teko
               </h1>
@@ -64,18 +68,15 @@ function BasicExample() {
                 ))}
               </Nav>
               <div className="flex flex-col md:flex-row ">
-                <button
+                <Link
+                  href={'/daftar'}
                   id="signIn-button"
-                  className="font-semibold text-brand px-4 py-2 border border-1 border-brand md:mr-6"
+                  className="no-underline font-semibold text-brand px-4 py-2 border border-1 border-brand md:mr-6 hover:bg-[#f8fafc] rounded"
                 >
                   Daftar
-                </button>
-                <button
-                  id="logIn-button"
-                  className="font-semibold text-white bg-brand px-4 py-2 outline-brand"
-                >
-                  Masuk
-                </button>
+                </Link>
+
+                <Example></Example>
               </div>
             </Navbar.Collapse>
           </Container>
@@ -107,7 +108,7 @@ function BasicExample() {
               {stats.map((stat) => (
                 <div
                   key={stat.name}
-                  className="rounded-sm relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
+                  className="rounded-md relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
                 >
                   <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">
                     {stat.value}
