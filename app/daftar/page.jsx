@@ -1,13 +1,14 @@
-"use client";
-import Link from "next/Link";
-import Image from "next/image";
+'use client';
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import formBg from "../../public/image/formBg.jpg";
-import lArrow from "../../public/image/leftarrow.png";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
+import formBg from '../../public/image/formBg.jpg';
+import lArrow from '../../public/image/leftarrow.png';
 
 export default function daftar() {
   return (
@@ -17,7 +18,7 @@ export default function daftar() {
           <div className="flex flex-row">
             <div className="flex flex-col mr-7 relative">
               <Link
-                href={"/"}
+                href={'/'}
                 className="w-10 h-10 rounded bg-white absolute m-3 "
               >
                 <Image
@@ -42,7 +43,7 @@ export default function daftar() {
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Masukan Email" />
                   <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
+                    Well never share your email with anyone else.
                   </Form.Text>
                 </Form.Group>
 

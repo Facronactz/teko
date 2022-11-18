@@ -1,10 +1,11 @@
-"use client";
-import { useState } from "react";
+'use client';
 
-import Link from "next/Link";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import ModalFooter from "react-bootstrap/ModalFooter";
+import { useState } from 'react';
+
+import Link from 'next/link';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import ModalFooter from 'react-bootstrap/ModalFooter';
 
 function Example() {
   const [show, setShow] = useState(false);

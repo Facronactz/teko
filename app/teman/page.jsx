@@ -1,11 +1,12 @@
-"use client";
-import Link from "next/Link";
+'use client';
+
+import Link from 'next/link';
 
 export default function teman() {
   return (
     <>
       <div>Ini halaman teman</div>
-      <Link href={`/`}>HOME</Link>
+      <Link href={'/'}>HOME</Link>
     </>
   );
 }
