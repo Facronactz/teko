@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { use } from 'react';
+// import { use } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -16,16 +16,63 @@ import teman from '../public/image/teman.png';
 
 import Example from './masukmodals';
 
-const getData = async (q) => {
-  const res = await fetch(`https://aws.d1ne18yqb7nog4.amplifyapp.com/api/data?q=${q}`);
-  const data = await res.json();
-  return data;
+const stats = [
+  { name: 'Teman Kita', value: '1001' },
+  { name: 'Kegiatan', value: '101' },
+  { name: 'Relawan', value: '1052' },
+  { name: 'Pengabdian', value: '55' },
+];
+
+const menus = [
+  { name: 'Beranda', href: '/', current: true },
+  { name: 'Teman', href: '/teman', current: false },
+  { name: 'Kegiatan', href: '/kegiatan', current: false },
+];
+
+const team = {
+  name: 'C22-026',
+  members: [
+    {
+      name: 'Farro Axza',
+      email: '',
+      github: '',
+      linkedin: '',
+      dEmail: '@dicoing.org',
+    },
+    {
+      name: 'Rifqi',
+      email: '',
+      github: 'https://github.com/rifqialamsyh',
+      linkedin: '',
+      dEmail: 'rifqialamsyh@gmail.com',
+    },
+    {
+      name: 'Radya',
+      email: '',
+      github: '',
+      linkedin: '',
+      dEmail: '@dicoing.org',
+    },
+    {
+      name: 'Citra',
+      email: '',
+      github: '',
+      linkedin: '',
+      dEmail: '@dicoing.org',
+    },
+  ],
 };
 
+// const getData = async (q) => {
+//   const res = await fetch(`https://aws.d1ne18yqb7nog4.amplifyapp.com/api/data?q=${q}`);
+//   const data = await res.json();
+//   return data;
+// };
+
 function BasicExample() {
-  const menus = use(getData('menus'));
-  const stats = use(getData('stats'));
-  const team = use(getData('team'));
+  // const menus = use(getData('menus'));
+  // const stats = use(getData('stats'));
+  // const team = use(getData('team'));
 
   return (
     <>
