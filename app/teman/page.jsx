@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function teman() {
+export default function TemanPage() {
   return (
     <>
       <div>Ini halaman teman</div>

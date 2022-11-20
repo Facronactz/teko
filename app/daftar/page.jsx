@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 import formBg from '../../public/image/formBg.jpg';
 import lArrow from '../../public/image/leftarrow.png';
 
-export default function daftar() {
+export default function DaftarPage() {
   return (
     <>
       <div>

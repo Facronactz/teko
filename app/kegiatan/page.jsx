@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function kegiatan() {
+export default function KegiatanPage() {
   return (
     <>
       <div>Ini halaman kegiatan</div>
