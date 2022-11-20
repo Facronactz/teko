@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { use } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { use } from 'react';
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 
-import { Col } from "react-bootstrap";
-import hero from "../public/image/hero.png";
-import teman from "../public/image/teman.png";
+import { Col } from 'react-bootstrap';
+import hero from '../public/image/hero.png';
+import teman from '../public/image/teman.png';
 
-import Example from "./masukmodals";
+import Example from './masukmodals';
 
 const getData = async (q) => {
   const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
@@ -23,9 +23,9 @@ const getData = async (q) => {
 };
 
 function BasicExample() {
-  const menus = use(getData("menus"));
-  const stats = use(getData("stats"));
-  const team = use(getData("team"));
+  const menus = use(getData('menus'));
+  const stats = use(getData('stats'));
+  const team = use(getData('team'));
 
   return (
     <>
@@ -52,8 +52,8 @@ function BasicExample() {
                     key={menu.name}
                     className={
                       menu.current
-                        ? "mx-2 font-bold lg:text-lg"
-                        : "mx-2 lg:text-lg"
+                        ? 'mx-2 font-bold lg:text-lg'
+                        : 'mx-2 lg:text-lg'
                     }
                     active
                     href={menu.href}
@@ -64,7 +64,7 @@ function BasicExample() {
               </Nav>
               <div className="flex flex-col md:flex-row ">
                 <Link
-                  href={"/daftar"}
+                  href={'/daftar'}
                   id="signIn-button"
                   className="no-underline font-semibold text-brand px-4 py-2 border border-1 border-brand md:mr-6 hover:bg-[#f8fafc] rounded"
                 >
@@ -123,13 +123,13 @@ function BasicExample() {
                   Teman Kita
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
-                  {" "}
+                  {' '}
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Commodi vitae, tenetur quidem eum aliquid vel labore sint
                   placeat ad deserunt consectetur fugit ullam. Eius unde neque
                   ducimus obcaecati ipsum quos vero totam recusandae hic
                   expedita nemo sit, illum harum. Quisquam impedit ullam itaque
-                  facere et ad molestiae quod reprehenderit excepturi!{" "}
+                  facere et ad molestiae quod reprehenderit excepturi!{' '}
                   <span className="font-extrabold">Lihat Teman</span>
                 </p>
               </section>
@@ -200,25 +200,25 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Pitur</h5>
               <p className="sm:mb-1">
                 <a href="#" className="text-white  ">
-                  {" "}
+                  {' '}
                   TheProviders
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   Creativity
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   SourceFiles
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   bootstrap 5 alpha
                 </a>
               </p>
@@ -230,7 +230,7 @@ function BasicExample() {
               {team.members.map((member) => (
                 <p key={member.name} className="sm:mb-1">
                   <a href="#" className="text-white ">
-                    {" "}
+                    {' '}
                     {member.name}
                   </a>
                 </p>

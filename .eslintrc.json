@@ -33,7 +33,7 @@
   "rules": {
     "eqeqeq": "error",
     "curly": "error",
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": ["warn", "windows"]
   },
   "plugins": [
     "import"
