@@ -17,7 +17,7 @@ import teman from '../public/image/teman.png';
 import Example from './masukmodals';
 
 const getData = async (q) => {
-  const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
+  const res = await fetch(`https://aws.d1ne18yqb7nog4.amplifyapp.com/api/data?q=${q}`);
   const data = await res.json();
   return data;
 };
