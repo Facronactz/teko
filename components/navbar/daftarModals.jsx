@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
 // import { useState } from 'react';
 
-import React from "react";
+import React from 'react';
 
-import Link from "next/link";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Modal from "react-bootstrap/Modal";
+import Link from 'next/link';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Modal from 'react-bootstrap/Modal';
 
-import DaftarUmum from "./DaftarUmum";
-import DaftarLembaga from "./DaftarLembaga";
+import DaftarUmum from './DaftarUmum';
+import DaftarLembaga from './DaftarLembaga';
 
 class DaftarModal extends React.Component {
   constructor(props) {

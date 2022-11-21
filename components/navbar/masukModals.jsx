@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import Link from "next/link";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import ModalFooter from "react-bootstrap/ModalFooter";
+import Link from 'next/link';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import ModalFooter from 'react-bootstrap/ModalFooter';
 
 function MasukModal() {
   const [show, setShow] = useState(false);

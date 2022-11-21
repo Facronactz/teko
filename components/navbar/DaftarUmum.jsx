@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
+// import Link from 'next/link';
+import Image from 'next/image';
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-import formBg from "../../public/image/formBg.jpg";
-import lArrow from "../../public/image/leftarrow.png";
+import formBg from '../../public/image/formBg.jpg';
+// import lArrow from '../../public/image/leftarrow.png';
 
 export default function UmumPage() {
   return (
