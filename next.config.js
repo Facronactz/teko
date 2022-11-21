@@ -9,7 +9,7 @@ const nextConfig = {
     appDir: true,
     modularizeImports: {
       'react-bootstrap': {
-        transform: 'react-bootstrap/lib/{{member}}',
+        transform: 'react-bootstrap/{{member}}',
       },
       'components/?(((\\w*)?/?)*)': {
         transform: 'components/{{ matches.[1] }}/{{member}}',
