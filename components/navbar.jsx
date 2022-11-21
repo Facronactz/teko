@@ -1,6 +1,6 @@
 'use client';
 
-import { use } from 'react';
+// import { use } from 'react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -9,13 +9,20 @@ import Nav from 'react-bootstrap/Nav';
 import MasukModal from './navbar/masukModals';
 import DaftarModal from './navbar/daftarModals';
 
-const getMenus = async (q) => {
-  const res = await fetch(`https://teko-j5ulsvtuk-facronactz.vercel.app/api/menus?current=${q}`);
-  const data = await res.json();
-  return data;
-};
-function CustomNavbar(props) {
-  const menus = use(getMenus(props.current));
+// const getMenus = async (q) => {
+//   const res = await fetch(`https://teko-j5ulsvtuk-facronactz.vercel.app/api/menus?current=${q}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const menus = [
+  { name: 'Beranda', href: '/', current: true },
+  { name: 'Teman', href: '/teman', current: false },
+  { name: 'Kegiatan', href: '/kegiatan', current: false },
+];
+
+function CustomNavbar() {
+  // const menus = use(getMenus(props.current));
   return (
     <>
       <Navbar
