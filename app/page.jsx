@@ -14,7 +14,7 @@ import teman from '../public/image/teman.png';
 import CustomNavbar from '../components/navbar';
 
 const getData = async (q) => {
-  const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
+  const res = await fetch(`https://teko-j5ulsvtuk-facronactz.vercel.app/api/data?q=${q}`);
   const data = await res.json();
   return data;
 };

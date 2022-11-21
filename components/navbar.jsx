@@ -10,7 +10,7 @@ import MasukModal from './navbar/masukModals';
 import DaftarModal from './navbar/daftarModals';
 
 const getMenus = async (q) => {
-  const res = await fetch(`http://localhost:3000/api/menus?current=${q}`);
+  const res = await fetch(`https://teko-j5ulsvtuk-facronactz.vercel.app/api/menus?current=${q}`);
   const data = await res.json();
   return data;
 };
