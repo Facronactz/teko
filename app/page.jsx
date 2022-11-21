@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { use } from "react";
+import Image from 'next/image';
+import { use } from 'react';
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 
-import { Col } from "react-bootstrap";
-import hero from "../public/image/hero.png";
-import teman from "../public/image/teman.png";
+import { Col } from 'react-bootstrap';
+import hero from '../public/image/hero.png';
+import teman from '../public/image/teman.png';
 
-import CustomNavbar from "./navbar";
+import CustomNavbar from '../components/navbar';
 
 const getData = async (q) => {
   const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
@@ -20,13 +20,13 @@ const getData = async (q) => {
 };
 
 function BasicExample() {
-  const stats = use(getData("stats"));
-  const team = use(getData("team"));
+  const stats = use(getData('stats'));
+  const team = use(getData('team'));
 
   return (
     <>
       <header>
-        <CustomNavbar></CustomNavbar>
+        <CustomNavbar current='Beranda'></CustomNavbar>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
             Bersama Membangun Negeri
@@ -74,13 +74,13 @@ function BasicExample() {
                   Teman Kita
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
-                  {" "}
+                  {' '}
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Commodi vitae, tenetur quidem eum aliquid vel labore sint
                   placeat ad deserunt consectetur fugit ullam. Eius unde neque
                   ducimus obcaecati ipsum quos vero totam recusandae hic
                   expedita nemo sit, illum harum. Quisquam impedit ullam itaque
-                  facere et ad molestiae quod reprehenderit excepturi!{" "}
+                  facere et ad molestiae quod reprehenderit excepturi!{' '}
                   <span className="font-extrabold">Lihat Teman</span>
                 </p>
               </section>
@@ -151,25 +151,25 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Pitur</h5>
               <p className="sm:mb-1">
                 <a href="#" className="text-white  ">
-                  {" "}
+                  {' '}
                   TheProviders
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   Creativity
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   SourceFiles
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white ">
-                  {" "}
+                  {' '}
                   bootstrap 5 alpha
                 </a>
               </p>
@@ -181,7 +181,7 @@ function BasicExample() {
               {team.members.map((member) => (
                 <p key={member.name} className="sm:mb-1">
                   <a href="#" className="text-white ">
-                    {" "}
+                    {' '}
                     {member.name}
                   </a>
                 </p>

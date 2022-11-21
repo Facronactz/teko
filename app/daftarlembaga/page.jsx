@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-import formBg from "../../public/image/formBg.jpg";
-import lArrow from "../../public/image/leftarrow.png";
+import formBg from '../../public/image/formBg.jpg';
+import lArrow from '../../public/image/leftarrow.png';
 
 export default function LembagaPage() {
   return (
@@ -18,7 +18,7 @@ export default function LembagaPage() {
           <div className="flex flex-col xl:flex-row">
             <div className="flex flex-col xl:mr-7 relative">
               <Link
-                href={"/"}
+                href={'/'}
                 className="w-10 h-10 rounded bg-white absolute m-3 "
               >
                 <Image
@@ -88,4 +88,3 @@ export default function LembagaPage() {
     </>
   );
 }
-

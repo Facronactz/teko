@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import { Col, Row } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Col, Row } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 
-import CustomNavbar from "../navbar";
+import CustomNavbar from '../../components/navbar';
 
 export default function TemanPage() {
   return (
     <>
       <header></header>
-      <CustomNavbar></CustomNavbar>
+      <CustomNavbar current="Teman"></CustomNavbar>
       <main className="mx-5 my-3">
         <InputGroup className="">
           <Form.Control
@@ -57,7 +57,7 @@ export default function TemanPage() {
         </Container>
       </section>
 
-      <Link href={"/"}>HOME</Link>
+      <Link href={'/'}>HOME</Link>
     </>
   );
 }

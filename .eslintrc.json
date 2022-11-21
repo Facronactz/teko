@@ -28,14 +28,18 @@
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "eqeqeq": "error",
     "curly": "error",
-    "linebreak-style": ["warn", "windows"]
+    "linebreak-style": ["off"]
   },
   "plugins": [
-    "import"
+    "import",
+    "react"
   ]
 }
