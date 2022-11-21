@@ -1,12 +1,63 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import { Col, Row } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+
+import CustomNavbar from "../navbar";
 
 export default function TemanPage() {
   return (
     <>
-      <div>Ini halaman teman</div>
-      <Link href={'/'}>HOME</Link>
+      <header></header>
+      <CustomNavbar></CustomNavbar>
+      <main className="mx-5 my-3">
+        <InputGroup className="">
+          <Form.Control
+            placeholder="Cari Teman"
+            aria-label="Cari Teman"
+            aria-describedby="basic-addon2"
+          />
+          <Button id="button-addon2" className="px-4 py-2">
+            Cari
+          </Button>
+        </InputGroup>
+      </main>
+
+      <section>
+        <Container className="grid p-0">
+          <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <Col className="p-0" key={item}>
+                <Card>
+                  <Card.Img
+                    variant="top"
+                    src="https://via.placeholder.com/200"
+                    width="200"
+                    height="200"
+                    alt="..."
+                  />
+                  <Card.Body>
+                    <Card.Title>Nama </Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the cards content.
+                    </Card.Text>
+                    <Button>Lihat</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      <Link href={"/"}>HOME</Link>
     </>
   );
 }

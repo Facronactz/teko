@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import Link from 'next/link';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import ModalFooter from 'react-bootstrap/ModalFooter';
+import Link from "next/link";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import ModalFooter from "react-bootstrap/ModalFooter";
 
-function Example() {
+function MasukModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -71,4 +71,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default MasukModal;
