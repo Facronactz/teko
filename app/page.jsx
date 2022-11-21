@@ -1,68 +1,28 @@
 'use client';
 
 import Image from 'next/image';
-// import { use } from 'react';
+import { use } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-
 import { Col } from 'react-bootstrap';
+import { assetPrefix } from '../next.config';
+
 import hero from '../public/image/hero.png';
 import teman from '../public/image/teman.png';
 
 import CustomNavbar from '../components/navbar';
 
-const team = {
-  name: 'C22-026',
-  members: [
-    {
-      name: 'Farro Axza',
-      email: '',
-      github: '',
-      linkedin: '',
-      dEmail: '@dicoding.org',
-    },
-    {
-      name: 'Rifqi',
-      email: '',
-      github: 'https://github.com/rifqialamsyh',
-      linkedin: '',
-      dEmail: 'rifqialamsyh@gmail.com',
-    },
-    {
-      name: 'Radya',
-      email: '',
-      github: '',
-      linkedin: '',
-      dEmail: '@dicoding.org',
-    },
-    {
-      name: 'Citra',
-      email: '',
-      github: '',
-      linkedin: '',
-      dEmail: '@dicoding.org',
-    },
-  ],
+const getData = async (q) => {
+  const res = await fetch(`${assetPrefix}/api/data?q=${q}`);
+  const data = await res.json();
+  return data;
 };
 
-const stats = [
-  { name: 'Teman Kita', value: '1001' },
-  { name: 'Kegiatan', value: '101' },
-  { name: 'Relawan', value: '1052' },
-  { name: 'Pengabdian', value: '55' },
-];
-
-// const getData = async (q) => {
-//   const res = await fetch(`https://teko-j5ulsvtuk-facronactz.vercel.app/api/data?q=${q}`);
-//   const data = await res.json();
-//   return data;
-// };
-
 function BasicExample() {
-  // const stats = use(getData('stats'));
-  // const team = use(getData('team'));
+  const stats = use(getData('stats'));
+  const team = use(getData('team'));
 
   return (
     <>

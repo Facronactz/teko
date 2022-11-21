@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://teko.vercel.app' : 'http://localhost:3000',
   compiler: {
     styledComponents: true,
     reactRemoveProperties: true,
