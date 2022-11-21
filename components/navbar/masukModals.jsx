@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import Link from 'next/link';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import ModalFooter from 'react-bootstrap/ModalFooter';
+import Link from "next/link";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import ModalFooter from "react-bootstrap/ModalFooter";
 
 function MasukModal() {
   const [show, setShow] = useState(false);
@@ -18,7 +18,8 @@ function MasukModal() {
       <Link
         href="#"
         onClick={handleShow}
-        className="no-underline font-semibold text-white bg-brand px-4 py-2 outline-brand hover:bg-[#15803d] rounded "
+        className="no-underline font-semibold text-white bg-brand px-4 py-2 mb-2
+        md:mb-0 outline-brand hover:bg-[#15803d] rounded "
       >
         Masuk
       </Link>

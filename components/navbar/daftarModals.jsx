@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
 // import { useState } from 'react';
 
-import React from 'react';
+import React from "react";
 
-import Link from 'next/link';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Modal from 'react-bootstrap/Modal';
+import Link from "next/link";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Modal from "react-bootstrap/Modal";
 
-import DaftarUmum from './DaftarUmum';
-import DaftarLembaga from './DaftarLembaga';
+import DaftarUmum from "./DaftarUmum";
+import DaftarLembaga from "./DaftarLembaga";
 
 class DaftarModal extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class DaftarModal extends React.Component {
         <Link
           href="#"
           onClick={this.handleShow}
-          className="no-underline font-semibold text-brand px-4 py-2 border border-1 border-brand md:mr-6 hover:bg-[#f8fafc] rounded"
+          className="no-underline font-semibold text-brand px-4 py-2 border border-1 mb-2 border-brand md:mb-0 md:mr-6 hover:bg-[#f8fafc] rounded"
         >
           Daftar
         </Link>
@@ -53,10 +53,22 @@ class DaftarModal extends React.Component {
           </Modal.Header>
           <Modal.Body className="flex justify-center flex-col">
             <ButtonGroup size="lg" className="m-2">
-              <Button className="bg-brand hover:bg-blue-500" href="#" onClick={this.showUmum}>Umum</Button>
-              <Button className="bg-brand hover:bg-white" href="#" onClick={this.showLembaga}>Lembaga</Button>
+              <Button
+                className="bg-brand border-white hover:bg-blue-500"
+                href="#"
+                onClick={this.showUmum}
+              >
+                Umum
+              </Button>
+              <Button
+                className="bg-brand border-white hover:bg-white"
+                href="#"
+                onClick={this.showLembaga}
+              >
+                Lembaga
+              </Button>
             </ButtonGroup>
-            {this.state.showUmum && (<DaftarUmum />)}
+            {this.state.showUmum && <DaftarUmum />}
             {this.state.showLembaga && <DaftarLembaga />}
           </Modal.Body>
         </Modal>
