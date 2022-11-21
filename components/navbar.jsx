@@ -6,24 +6,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
-import MasukModal from '../app/masukmodals';
-import DaftarModal from '../app/daftarmodals';
+import MasukModal from './masukmodals';
+import DaftarModal from './daftarmodals';
 
-const getData = async (q) => {
-  const res = await fetch(`http://localhost:3000/api/data?q=${q}`);
+const getMenus = async (q) => {
+  const res = await fetch(`http://localhost:3000/api/menus?current=${q}`);
   const data = await res.json();
   return data;
 };
 function CustomNavbar(props) {
-  const menus = use(getData('menus'));
-  menus.map((menu) => {
-    if (menu.name === props.current) {
-      menu.current = true;
-      return menu;
-    }
-    menu.current = false;
-    return menu;
-  });
+  const menus = use(getMenus(props.current));
   return (
     <>
       <Navbar

@@ -22,7 +22,8 @@
     {
       "files": ["*.js"],
       "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-param-reassign": ["error", { "props": false }]
       }
     }
   ],
