@@ -20,7 +20,7 @@ const team = {
             email: '',
             github: '',
             linkedin: '',
-            dEmail: '@dicoing.org',
+            dEmail: '@dicoding.org',
         },
         {
             name: 'Rifqi',
@@ -34,14 +34,14 @@ const team = {
             email: '',
             github: '',
             linkedin: '',
-            dEmail: '@dicoing.org',
+            dEmail: '@dicoding.org',
         },
         {
             name: 'Citra',
             email: '',
             github: '',
             linkedin: '',
-            dEmail: '@dicoing.org',
+            dEmail: '@dicoding.org',
         },
     ],
 };

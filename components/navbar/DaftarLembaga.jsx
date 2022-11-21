@@ -7,10 +7,10 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import formBg from '../public/image/formBg.jpg';
-import lArrow from '../public/image/leftarrow.png';
+import formBg from '../../public/image/formBg.jpg';
+import lArrow from '../../public/image/leftarrow.png';
 
-export default function UmumPage() {
+export default function DaftarLembaga() {
   return (
     <>
       <div>
@@ -19,7 +19,7 @@ export default function UmumPage() {
             <div className="flex flex-col xl:mr-7 relative">
               <Link
                 href={'/'}
-                className="w-10 h-10 rounded bg-white absolute m-3 "
+                className="w-10 h-10 rounded bg-white absolute m-3"
               >
                 <Image
                   src={lArrow}
@@ -39,7 +39,7 @@ export default function UmumPage() {
             <div className="flex flex-col py-3">
               <Form>
                 <Form.Group className="my-2 mx-3" controlId="formBasicNama">
-                  <Form.Label>Masukan nama</Form.Label>
+                  <Form.Label>Masukan nama Lembaga</Form.Label>
                   <Form.Control type="email" placeholder="Masukan Nama" />
                   <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
@@ -56,10 +56,13 @@ export default function UmumPage() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Laki-Laki" />
+                  <Form.Check type="checkbox" label="Kemanusiaan" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Perempuan" />
+                  <Form.Check type="checkbox" label="Sosial" />
+                </Form.Group>
+                <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Lingkungan" />
                 </Form.Group>
                 <Button
                   type="submit"
@@ -68,9 +71,10 @@ export default function UmumPage() {
                   Daftar
                 </Button>
                 <p className="my-2 mx-3">
-                  Daftar sebagai Lembaga, <br /> <br />
+                  Daftar sebagai Pengguna Umum,
+                  <br /> <br />
                   <a
-                    href="/daftarlembaga"
+                    href="/daftarumum"
                     className="no-underline text-white p-2 bg-brand rounded"
                   >
                     Klik disini

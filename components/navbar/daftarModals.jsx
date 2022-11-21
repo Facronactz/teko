@@ -12,49 +12,6 @@ import Modal from 'react-bootstrap/Modal';
 import DaftarUmum from './DaftarUmum';
 import DaftarLembaga from './DaftarLembaga';
 
-// function DaftarModal() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   const [showUmum, setShowUmum] = useState(false);
-//   const handleCloseUmum = () => setShowUmum(false);
-//   const handleShowUmum = () => setShowUmum(true);
-
-//   const [showLembaga, setShowLembaga] = useState(false);
-//   const handleCloseLembaga = () => setShowLembaga(false);
-//   const handleShowLembaga = () => setShowLembaga(true);
-
-//   return (
-//     <>
-//       <Link
-//         href="#"
-//         onClick={handleShow}
-//         className="no-underline font-semibold text-brand px-4 py-2 border border-1 border-brand md:mr-6 hover:bg-[#f8fafc] rounded"
-//       >
-//         Daftar
-//       </Link>
-
-//       <Modal show={show} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Daftar Sebagai:</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body className=" flex justify-center">
-//           <ButtonGroup size="lg" className="m-2 bg-brand">
-//             <Button href="#" onclick={handleShowUmum && handleCloseLembaga}>Umum</Button>
-//             <Button href="#" onclick={handleShowLembaga && handleCloseUmum}>Lembaga</Button>
-//           </ButtonGroup>
-//           {showUmum && <DaftarUmum />}
-//           {showLembaga && <DaftarLembaga />}
-//         </Modal.Body>
-//       </Modal>
-//     </>
-//   );
-// }
-
-// export default DaftarModal;
-
 class DaftarModal extends React.Component {
   constructor(props) {
     super(props);

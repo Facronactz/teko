@@ -6,8 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
-import MasukModal from './masukmodals';
-import DaftarModal from './daftarmodals';
+import MasukModal from './navbar/masukModals';
+import DaftarModal from './navbar/daftarModals';
 
 const getMenus = async (q) => {
   const res = await fetch(`http://localhost:3000/api/menus?current=${q}`);
