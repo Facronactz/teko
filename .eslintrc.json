@@ -4,11 +4,7 @@
     "es2022": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "airbnb-base",
-    "next/core-web-vitals"
-  ],
+  "extends": ["eslint:recommended", "airbnb-base", "next/core-web-vitals"],
   "overrides": [
     {
       "files": ["*.jsx"],
@@ -16,7 +12,10 @@
       "rules": {
         "indent": ["error", 2],
         "react/react-in-jsx-scope": "off",
-        "react/prop-types": ["error", { "ignore": ["children"], "skipUndeclared": true }]
+        "react/prop-types": [
+          "error",
+          { "ignore": ["children"], "skipUndeclared": true }
+        ]
       }
     },
     {
@@ -43,10 +42,8 @@
   "rules": {
     "eqeqeq": "error",
     "curly": "error",
-    "linebreak-style": ["off"]
+    "linebreak-style": ["off"],
+    "quotes": ["error", "single"]
   },
-  "plugins": [
-    "import",
-    "react"
-  ]
+  "plugins": ["import", "react"]
 }

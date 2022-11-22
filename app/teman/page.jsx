@@ -23,7 +23,10 @@ export default function TemanPage() {
             aria-label="Cari Teman"
             aria-describedby="basic-addon2"
           />
-          <Button id="button-addon2" className="px-4 py-2">
+          <Button
+            id="button-addon2"
+            className="px-4 py-2 bg-brand border-brand"
+          >
             Cari
           </Button>
         </InputGroup>
@@ -48,7 +51,7 @@ export default function TemanPage() {
                       Some quick example text to build on the card title and
                       make up the bulk of the cards content.
                     </Card.Text>
-                    <Button>Lihat</Button>
+                    <Button className="bg-brand border-brand">Lihat</Button>
                   </Card.Body>
                 </Card>
               </Col>
