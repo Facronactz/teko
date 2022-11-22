@@ -54,14 +54,22 @@ class DaftarModal extends React.Component {
           <Modal.Body className="flex justify-center flex-col">
             <ButtonGroup size="lg" className="m-2">
               <Button
-                className="bg-brand border-white hover:bg-blue-500"
+                className={
+                  this.state.showUmum
+                    ? 'bg-[#15803d] border-white hover:bg-blue-500'
+                    : 'bg-brand border-white hover:bg-blue-500'
+                }
                 href="#"
                 onClick={this.showUmum}
               >
                 Umum
               </Button>
               <Button
-                className="bg-brand border-white hover:bg-white"
+                className={
+                  this.state.showLembaga
+                    ? 'bg-[#15803d] border-white hover:bg-blue-500'
+                    : 'bg-brand border-white hover:bg-blue-500'
+                }
                 href="#"
                 onClick={this.showLembaga}
               >

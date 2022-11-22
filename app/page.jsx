@@ -27,7 +27,7 @@ function BasicExample() {
   return (
     <>
       <header>
-        <CustomNavbar current='Beranda'></CustomNavbar>
+        <CustomNavbar current="Beranda"></CustomNavbar>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
             Bersama Membangun Negeri
@@ -135,7 +135,7 @@ function BasicExample() {
         </section>
       </main>
 
-      <footer className="bg-brand text-white pt-5 pb-4">
+      <footer className="bg-brand text-white pt-5 pb-4 no-underline">
         <Container className="text-left">
           <Row className="text-left">
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
