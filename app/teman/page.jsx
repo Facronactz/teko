@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { Col, Row } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 import CustomNavbar from '../../components/navbar';
@@ -14,9 +15,8 @@ import CustomNavbar from '../../components/navbar';
 export default function TemanPage() {
   return (
     <>
-      <header></header>
       <CustomNavbar current="Teman"></CustomNavbar>
-      <main className="mx-5 my-3">
+      <main className="mx-5 mt-3">
         <InputGroup className="">
           <Form.Control
             placeholder="Cari Teman"

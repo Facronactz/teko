@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import formBg from '../../public/image/formBg.jpg';
 // import lArrow from '../../public/image/leftarrow.png';
@@ -46,10 +47,10 @@ export default function UmumPage() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Laki-Laki" />
+                  <Form.Check type="radio" label="Laki-Laki" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Perempuan" />
+                  <Form.Check type="radio" label="Perempuan" />
                 </Form.Group>
                 <Button
                   type="submit"

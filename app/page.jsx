@@ -6,7 +6,7 @@ import { use } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-import { Col } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
 import { assetPrefix } from '../next.config';
 
 import hero from '../public/image/hero.png';
@@ -26,8 +26,8 @@ function BasicExample() {
 
   return (
     <>
+      <CustomNavbar current="Beranda"></CustomNavbar>
       <header>
-        <CustomNavbar current="Beranda"></CustomNavbar>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
             Bersama Membangun Negeri
