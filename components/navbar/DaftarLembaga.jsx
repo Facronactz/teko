@@ -46,6 +46,18 @@ export default function DaftarLembaga() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
+                  {['Kemanusiaan', 'Sosial', 'Lingkungan'].map((type) => (
+                    <Form.Check
+                      key={type}
+                      type="checkbox"
+                      id={`default-${type}`}
+                      label={type}
+                      name="genderRadio"
+                      value={type}
+                    />
+                  ))}
+                </Form.Group>
+                {/* <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Kemanusiaan" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
@@ -53,7 +65,7 @@ export default function DaftarLembaga() {
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Lingkungan" />
-                </Form.Group>
+                </Form.Group> */}
                 <Button
                   type="submit"
                   className="bg-brand border-brand hover:bg-[#14532d] my-2 mx-3"

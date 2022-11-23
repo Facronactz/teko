@@ -52,7 +52,7 @@ export default function UmumPage() {
                       type="radio"
                       id={`default-${type}`}
                       label={type}
-                      name="formHorizontalRadios"
+                      name="genderRadio"
                       value={type}
                     />
                   ))}
