@@ -46,10 +46,18 @@ export default function UmumPage() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Laki-Laki" />
-                </Form.Group>
-                <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Perempuan" />
+                  {['Laki', 'Perempuan'].map((type) => (
+                    <Form.Check
+                      key={type}
+                      type="radio"
+                      id={`default-${type}`}
+                      label={type}
+                      name="formHorizontalRadios"
+                      value={type}
+                    />
+                  ))}
+                  {/* <Form.Check type="radio" name="genderL" label="Laki-Laki" />
+                  <Form.Check type="radio" name="genderP" label="Perempuan" /> */}
                 </Form.Group>
                 <Button
                   type="submit"
