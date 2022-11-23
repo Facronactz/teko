@@ -22,10 +22,9 @@ function CustomNavbar(props) {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="transparent"
         variant="light"
         position="fixed"
-        className="w-full z-50"
+        className="w-full z-50 sticky top-0 bg-white drop-shadow mb-3"
       >
         <Container fluid>
           <Navbar.Brand href="/">
