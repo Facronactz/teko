@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 
 import Image from 'next/image';
@@ -10,11 +11,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Col from 'react-bootstrap/Col';
 // import Card from 'react-bootstrap/Card';
 
-import CustomNavbar from '../../components/navbar';
-import spanduk from '../../public/image/hut-ri-ke-77.png';
-
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
+import CustomNavbar from '../../components/navbar';
+import spanduk from '../../public/image/hut-ri-ke-77.png';
 
 class KegiatanPage extends React.Component {
   render() {
@@ -36,7 +36,7 @@ class KegiatanPage extends React.Component {
           </h5>
           <p className="text-justify lg:text-lg">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            industry. Lorem Ipsum has been the industrys standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
@@ -109,4 +109,3 @@ class KegiatanPage extends React.Component {
 }
 
 export default KegiatanPage;
-

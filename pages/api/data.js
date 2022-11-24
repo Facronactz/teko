@@ -17,10 +17,10 @@ const team = {
     members: [
         {
             name: 'Farro Axza',
-            email: '',
-            github: '',
-            linkedin: '',
-            dEmail: '@dicoding.org',
+            email: 'farroaxza@gmail.com',
+            github: 'https://github.com/facronactz',
+            linkedin: 'https://www.linkedin.com/in/facronactz/',
+            dEmail: 'f284x0682@dicoding.org ',
         },
         {
             name: 'Rifqi',
