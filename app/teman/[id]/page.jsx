@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 
 // import Image from 'next/image';
@@ -10,7 +11,7 @@ import React from 'react';
 // // import Col from 'react-bootstrap/Col';
 // // import Card from 'react-bootstrap/Card';
 
-import CustomNavbar from '../../components/navbar';
+import CustomNavbar from '../../../components/navbar';
 // import spanduk from '../../public/image/hut-ri-ke-77.png';
 
 // import { RiWhatsappFill } from 'react-icons/ri';
@@ -28,4 +29,3 @@ class TemanPage extends React.Component {
 }
 
 export default TemanPage;
-

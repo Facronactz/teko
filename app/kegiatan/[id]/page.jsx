@@ -13,8 +13,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
-import CustomNavbar from '../../components/navbar';
-import spanduk from '../../public/image/hut-ri-ke-77.png';
+import CustomNavbar from '../../../components/navbar';
+import spanduk from '../../../public/image/hut-ri-ke-77.png';
 
 class KegiatanPage extends React.Component {
   render() {
