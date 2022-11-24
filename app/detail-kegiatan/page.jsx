@@ -1,17 +1,20 @@
 'use client';
+import React from 'react';
 
 import Image from 'next/image';
 
 import Container from 'react-bootstrap/Container';
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
 // import Card from 'react-bootstrap/Card';
 
 import CustomNavbar from '../../components/navbar';
 import formBg from '../../public/image/formBg.jpg';
+
+import { RiWhatsappFill } from 'react-icons/ri';
+import { MdEmail } from 'react-icons/md';
 
 class TemanPage extends React.Component {
   render() {
@@ -39,9 +42,17 @@ class TemanPage extends React.Component {
             PageMaker including versions of Lorem Ipsum
           </p>
         </Container>
-        <Container>
-          <h3 className="flex justify-center">Kontak</h3>
-          {/* <FontAwesomeIcon icon="fa-brands fa-square-whatsapp" /> */}
+        <h3 className="flex justify-center">Kontak</h3>
+        <Container className="flex justify-center">
+          <ButtonGroup size="lg" className="mb-2">
+            <Button className="bg-brand border-brand mx-1">
+              {' '}
+              <RiWhatsappFill className="w-full" />
+            </Button>
+            <Button className="bg-brand border-brand mx-1">
+              <MdEmail className="w-full" />
+            </Button>
+          </ButtonGroup>
         </Container>
 
         {/* <main className="mx-5 mt-3">
