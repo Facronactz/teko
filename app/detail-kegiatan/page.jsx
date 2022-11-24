@@ -11,26 +11,30 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Card from 'react-bootstrap/Card';
 
 import CustomNavbar from '../../components/navbar';
-import formBg from '../../public/image/formBg.jpg';
+import spanduk from '../../public/image/hut-ri-ke-77.png';
 
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 
-class TemanPage extends React.Component {
+class KegiatanPage extends React.Component {
   render() {
     return (
       <>
         <CustomNavbar></CustomNavbar>
         <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
-        <Container className="bg-red flex flex-col justify-center">
+        <Container className="bg-red flex flex-col lg:flex-row justify-center">
           <Image
-            className="w-full h-[200px] lg:w-2/5 lg:h-full mb-3"
-            src={formBg}
+            className="w-full h-[200px] lg:h-full mb-3"
+            src={spanduk}
             alt="gambar hero"
           />
-          <h3>Nama Kegiatan</h3>
-          <h5 className="font-light text-sm">Dibuat oleh: Jaya ABadi</h5>
-          <p className="text-justify">
+        </Container>
+        <Container>
+          <h3 className="lg:text-5xl">Nama Kegiatan</h3>
+          <h5 className="font-light text-sm lg:text-base">
+            Dibuat oleh: Jaya ABadi
+          </h5>
+          <p className="text-justify lg:text-lg">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -42,6 +46,7 @@ class TemanPage extends React.Component {
             PageMaker including versions of Lorem Ipsum
           </p>
         </Container>
+
         <h3 className="flex justify-center">Kontak</h3>
         <Container className="flex justify-center">
           <ButtonGroup size="lg" className="mb-2">
@@ -103,5 +108,5 @@ class TemanPage extends React.Component {
   }
 }
 
-export default TemanPage;
+export default KegiatanPage;
 

@@ -33,7 +33,10 @@ export default function KegiatanPage() {
               <Card.Body>
                 <Card.Title>Judul Kegiatan</Card.Title>
                 <Card.Text>Deskripsi Kegiatan</Card.Text>
-                <Button className="bg-brand border-brand">
+                <Button
+                  href="../detail-kegiatan"
+                  className="bg-brand border-brand"
+                >
                   Lihat Selengkapnya
                 </Button>
               </Card.Body>
@@ -45,7 +48,10 @@ export default function KegiatanPage() {
               <Card.Body>
                 <Card.Title>Judul Kegiatan</Card.Title>
                 <Card.Text>Deskripsi Kegiatan</Card.Text>
-                <Button className="bg-brand border-brand">
+                <Button
+                  href="../detail-kegiatan"
+                  className="bg-brand border-brand"
+                >
                   Lihat Selengkapnya
                 </Button>
               </Card.Body>

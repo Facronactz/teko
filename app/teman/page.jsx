@@ -49,7 +49,12 @@ export default function TemanPage() {
                       Some quick example text to build on the card title and
                       make up the bulk of the cards content.
                     </Card.Text>
-                    <Button className="bg-brand border-brand">Lihat</Button>
+                    <Button
+                      href="../detail-teman"
+                      className="bg-brand border-brand"
+                    >
+                      Lihat
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
