@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -59,8 +57,6 @@ export default function TemanPage() {
           </Row>
         </Container>
       </section>
-
-      <Link href={'/'}>HOME</Link>
     </>
   );
 }

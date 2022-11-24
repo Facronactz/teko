@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import ModalFooter from 'react-bootstrap/ModalFooter';
+import { Button } from 'react-bootstrap';
 
 function MasukModal() {
   const [show, setShow] = useState(false);
@@ -15,14 +16,13 @@ function MasukModal() {
 
   return (
     <>
-      <Link
-        href="#"
+      <Button
         onClick={handleShow}
-        className="no-underline font-semibold text-white bg-brand px-4 py-2 mb-2
+        className="no-underline font-semibold text-white bg-brand border-brand px-4 py-2 mb-2
         md:mb-0 outline-brand hover:bg-[#15803d] rounded "
       >
         Masuk
-      </Link>
+      </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

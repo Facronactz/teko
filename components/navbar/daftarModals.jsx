@@ -4,7 +4,6 @@
 
 import React from 'react';
 
-import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Modal from 'react-bootstrap/Modal';
@@ -39,13 +38,12 @@ class DaftarModal extends React.Component {
   render() {
     return (
       <>
-        <Link
-          href="#"
+        <Button
           onClick={this.handleShow}
-          className="no-underline font-semibold text-brand px-4 py-2 border border-1 mb-2 border-brand md:mb-0 md:mr-6 hover:bg-[#f8fafc] rounded"
+          className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 mb-2 md:mb-0 md:mr-6 hover:bg-[#f8fafc] rounded"
         >
           Daftar
-        </Link>
+        </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
