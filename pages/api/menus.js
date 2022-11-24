@@ -1,7 +1,7 @@
 const menus = [
-    { name: 'Beranda', href: '/', current: false },
-    { name: 'Teman', href: '/teman', current: false },
-    { name: 'Kegiatan', href: '/kegiatan', current: false },
+    { name: 'Beranda', href: '/' },
+    { name: 'Teman', href: '/teman' },
+    { name: 'Kegiatan', href: '/kegiatan' },
 ];
 
 export default function handler(req, res) {
@@ -11,6 +11,7 @@ export default function handler(req, res) {
     } = req;
     if (method !== 'GET') {
         res.status(405).json({ message: 'Method not allowed' });
+        return;
     }
     if (current) {
         menus.forEach((menu) => {
