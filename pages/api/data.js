@@ -53,6 +53,7 @@ export default function handler(req, res) {
     } = req;
     if (method !== 'GET') {
         res.status(405).json({ message: 'Method not allowed' });
+        return;
     }
     switch (q) {
     case 'stats':
