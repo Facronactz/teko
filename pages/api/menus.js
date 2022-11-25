@@ -30,15 +30,23 @@ export default async function handler(req, res) {
             res.status(201).json({ message: 'Data berhasil diubah', data });
             return;
         } catch (error) {
-            res.status(400).json({ message: 'Data gagal diubah', error: error.message });
+            res.status(400).json({
+                message: 'Data gagal diubah',
+                error: error.message,
+            });
         }
     }
     if (method === 'DELETE') {
         try {
             await Menu.delete(id);
-            res.status(200).json({ message: `Data dengan id ${id} berhasil dihapus` });
+            res.status(200).json({
+                message: `Data dengan id ${id} berhasil dihapus`,
+            });
         } catch (error) {
-            res.status(500).json({ message: `Data dengan id ${id} tidak ditemukan`, error: error.message });
+            res.status(500).json({
+                message: `Data dengan id ${id} tidak ditemukan`,
+                error: error.message,
+            });
         }
     }
 }

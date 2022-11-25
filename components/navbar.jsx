@@ -41,8 +41,8 @@ function CustomNavbar(props) {
                   key={menu.id}
                   className={
                     menu.current
-                      ? 'mx-2 font-bold lg:text-lg'
-                      : 'mx-2 lg:text-lg'
+                      ? 'mx-2 font-bold no-underline text-brand lg:text-lg'
+                      : 'mx-2 no-underline text-brand lg:text-lg'
                   }
                   active={menu.current.toString()}
                   href={menu.href}
