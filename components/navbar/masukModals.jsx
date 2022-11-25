@@ -45,7 +45,7 @@ function MasukModal() {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="****************"
+                placeholder="**************"
                 autoFocus
               />
             </Form.Group>
@@ -60,7 +60,7 @@ function MasukModal() {
             Batal
           </Link>
           <Link
-            href="#"
+            href="/dashboard/admin"
             onClick={handleClose}
             className="no-underline text-white py-2 px-3 bg-brand hover:bg-light hover:bg-[#15803d] rounded "
           >
