@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 // import Image from 'next/image';
 
 // import Container from 'react-bootstrap/Container';
@@ -17,15 +15,13 @@ import CustomNavbar from '../../../components/navbar';
 // import { RiWhatsappFill } from 'react-icons/ri';
 // import { MdEmail } from 'react-icons/md';
 
-class TemanPage extends React.Component {
-  render() {
-    return (
-      <>
-        <CustomNavbar></CustomNavbar>
-        <p>ini halaman detail teman</p>
-      </>
-    );
-  }
+function TemanPage({ params }) {
+  return (
+    <>
+      <CustomNavbar></CustomNavbar>
+      <p>ini halaman detail teman</p>
+    </>
+  );
 }
 
 export default TemanPage;
