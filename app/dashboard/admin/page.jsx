@@ -3,16 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// eslint-disable-next-line object-curly-newline
+import { Container, Card, Row, Col } from 'react-bootstrap';
 
 import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
-import { RiLogoutBoxRFill } from 'react-icons/ri';
-import { RiMenuFoldFill } from 'react-icons/ri';
-import { RiUserFill } from 'react-icons/ri';
+import { RiLogoutBoxRFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
 import { SiSparkpost } from 'react-icons/si';
 
