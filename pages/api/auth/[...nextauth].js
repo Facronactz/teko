@@ -3,6 +3,8 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
+import FacebookProvider from 'next-auth/providers/facebook';
+import TwitterProvider from 'next-auth/providers/twitter';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import bcrypt from 'bcrypt';
 import { prisma } from '@teko/libs/PrismaClient';
@@ -41,7 +43,26 @@ export const authOptions = {
             clientId: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
         }),
+        FacebookProvider({
+            clientId: process.env.FACEBOOK_CLIENT_ID,
+            clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        }),
+        TwitterProvider({
+            clientId: process.env.TWITTER_ID,
+            clientSecret: process.env.TWITTER_SECRET,
+            version: '2.0', // opt-in to Twitter OAuth 2.0
+        }),
     ],
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.role = user.role;
+                // console.log(token);
+            }
+            return token;
+            // console.log('jwt', token, user);
+        },
+    },
     session: {
         strategy: 'jwt',
     },
