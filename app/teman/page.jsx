@@ -1,14 +1,15 @@
 'use client';
+import Link from 'next/link';
 
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import CustomNavbar from '../../components/navbar';
+import CustomNavbar from '@teko/components/navbar';
 
 export default function TemanPage() {
   return (
@@ -49,12 +50,14 @@ export default function TemanPage() {
                       Some quick example text to build on the card title and
                       make up the bulk of the cards content.
                     </Card.Text>
-                    <Button
-                      href="../detail-teman"
-                      className="bg-brand border-brand"
+                    <Link
+                      href={{
+                        pathname: '/teman/1',
+                      }}
+                      className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
                     >
                       Lihat
-                    </Button>
+                    </Link>
                   </Card.Body>
                 </Card>
               </Col>

@@ -32,6 +32,16 @@
       }
     }
   ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@teko", "."]
+        ],
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
+  },
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",

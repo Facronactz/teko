@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@teko/*": ["./*"]
     },
     "jsx": "react-jsx"
   },

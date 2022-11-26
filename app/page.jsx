@@ -7,12 +7,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import { assetPrefix } from '../next.config';
+import CustomNavbar from '@teko/components/navbar';
+import { assetPrefix } from '@teko/next.config';
 
-import hero from '../public/image/hero.png';
-import teman from '../public/image/teman.png';
-
-import CustomNavbar from '../components/navbar';
+import hero from '@teko/public/image/hero.png';
+import teman from '@teko/public/image/teman.png';
 
 const getData = async (q) => {
   const res = await fetch(`${assetPrefix}/api/data?q=${q}`);

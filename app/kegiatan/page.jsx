@@ -1,8 +1,10 @@
 'use client';
 
-import CustomNavbar from '../../components/navbar';
+import Link from 'next/link';
+import React from 'react';
 
-// import Nav from 'react-bootstrap/Nav';
+import CustomNavbar from '@teko/components/navbar';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,57 +12,106 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
-export default function KegiatanPage() {
-  return (
-    <>
-      <CustomNavbar current="Kegiatan"></CustomNavbar>
+class KegiatanPage extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     kemanusiaan: false,
+  //     sosial: false,
+  //     lingkungan: false,
+  //   };
+  // }
 
-      <h3 className="text-center mb-3 font-bold">Kategori</h3>
+  // componentDidMount() {
+  //   this.setState({ kemanusiaan: false });
+  // }
+  // componentWillUnmount() {
+  //   this.setState({ kemanusiaan: true });
+  // }
 
-      <Form.Group
-        className="m-2 text-xl xs:flex justify-center"
-        controlId="formBasicCheckbox"
-      >
-        <Form.Check type="checkbox" label="Kemanusiaan" className="mx-3 py-2" />
-        <Form.Check type="checkbox" label="Sosial" className="mx-3 py-2" />
-        <Form.Check type="checkbox" label="Lingkungan" className="mx-3 py-2" />
-      </Form.Group>
-      <Container className="grid p-0">
-        <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
-          <Col className="p-0">
-            <Card>
-              <Card.Header>#Kemanusiaan</Card.Header>
-              <Card.Body>
-                <Card.Title>Judul Kegiatan</Card.Title>
-                <Card.Text>Deskripsi Kegiatan</Card.Text>
-                <Button
-                  href="../detail-kegiatan"
-                  className="bg-brand border-brand"
-                >
-                  Lihat Selengkapnya
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col className="p-0">
-            <Card>
-              <Card.Header>#Sosial</Card.Header>
-              <Card.Body>
-                <Card.Title>Judul Kegiatan</Card.Title>
-                <Card.Text>Deskripsi Kegiatan</Card.Text>
-                <Button
-                  href="../detail-kegiatan"
-                  className="bg-brand border-brand"
-                >
-                  Lihat Selengkapnya
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+  // toggleKemanusiaan = () => {
+  //   if (this.state.kemanusiaan) {
+  //     this.setState({ kemanusiaan: false });
+  //   } else {
+  //     this.setState({ kemanusiaan: true });
+  //   }
+  // };
 
-      {/* <Nav
+  render() {
+    return (
+      <>
+        <CustomNavbar current="Kegiatan"></CustomNavbar>
+
+        <h3 className="text-center mb-3 font-bold">Kategori</h3>
+
+        <Container>
+          {/* <Button
+            onClick={this.toggleKemanusiaan()}
+            type="button"
+            className={
+              this.state.kemanusiaan
+                ? 'border-brand bg-brand text-white'
+                : 'border-brand bg-white text-brand '
+            }
+          >
+            Kemanusian
+          </Button> */}
+        </Container>
+
+        <Form.Group
+          className="m-2 text-xl xs:flex justify-center"
+          controlId="formBasicCheckbox"
+        >
+          <Form.Check
+            type="checkbox"
+            label="Kemanusiaan"
+            className="mx-3 py-2"
+          />
+          <Form.Check type="checkbox" label="Sosial" className="mx-3 py-2" />
+          <Form.Check
+            type="checkbox"
+            label="Lingkungan"
+            className="mx-3 py-2"
+          />
+        </Form.Group>
+        <Container className="grid p-0">
+          <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
+            <Col className="p-0">
+              <Card>
+                <Card.Header>#Kemanusiaan</Card.Header>
+                <Card.Body>
+                  <Card.Title>Judul Kegiatan</Card.Title>
+                  <Card.Text>Deskripsi Kegiatan</Card.Text>
+                  <Link
+                    href={{
+                      pathname: '/kegiatan/1',
+                    }}
+                    className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
+                  >
+                    Lihat Selengkapnya
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="p-0">
+              <Card>
+                <Card.Header>#Sosial</Card.Header>
+                <Card.Body>
+                  <Card.Title>Judul Kegiatan</Card.Title>
+                  <Card.Text>Deskripsi Kegiatan</Card.Text>
+                  <Button
+                    href="@teko/detail-kegiatan"
+                    className="bg-brand border-brand"
+                  >
+                    Lihat Selengkapnya
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+
+        {/* <Nav
           className="hidden md:block bg-brand top-0 bottom-0 left-20 min-h-[100vh] z-0"
           activeKey="/home"
           onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
@@ -75,6 +126,9 @@ export default function KegiatanPage() {
             </div>
           </Nav.Item>
         </Nav> */}
-    </>
-  );
+      </>
+    );
+  }
 }
+
+export default KegiatanPage;

@@ -1,12 +1,5 @@
 import bcrypt from 'bcrypt';
-import { prisma } from '../../../libs/PrismaClient';
-
-const body = {
-    name: 'Admin',
-    password: 'teko@dcd.MBKM#2',
-    email: 'admin@teko.com',
-    role: 'ADMIN',
-};
+import { prisma } from '@teko/libs/PrismaClient';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {

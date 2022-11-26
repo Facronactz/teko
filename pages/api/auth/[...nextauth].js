@@ -5,7 +5,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import bcrypt from 'bcrypt';
-import { prisma } from '../../../libs/PrismaClient';
+import { prisma } from '@teko/libs/PrismaClient';
 
 export const authOptions = {
     debug: true,

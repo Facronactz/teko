@@ -1,4 +1,4 @@
-import Menu from '../../functions/menu';
+import Menu from '@teko/functions/menu';
 
 // const menus = [
 //     { name: 'Beranda', href: '/' },
