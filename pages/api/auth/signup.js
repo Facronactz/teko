@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { prisma } from '@teko/libs/PrismaClient';
+import prisma from '@teko/libs/PrismaClient';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {

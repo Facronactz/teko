@@ -1,4 +1,4 @@
-import { prisma } from '@teko/libs/PrismaClient';
+import prisma from '@teko/libs/PrismaClient';
 
 class Menu {
     constructor(name, href) {
