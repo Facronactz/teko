@@ -49,19 +49,24 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  username      String?   @unique
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
-  role          Role      @default(USER)
-  password      String?   @db.Text
-  image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+  id              String            @id @default(cuid())
+  name            String?
+  username        String?           @unique
+  email           String?           @unique
+  emailVerified   DateTime?         @map("email_verified")
+  role            Role              @default(USER)
+  password        String?           @db.Text
+  image           String?
+  createdAt       DateTime          @default(now()) @map(name: "created_at")
+  updatedAt       DateTime          @default(now()) @map(name: "updated_at")
 
-  accounts      Account[]
-  sessions      Session[]
+  accounts        Account[]
+  sessions        Session[]
+  Lembaga         Lembaga[]
+  LembagaMembers  LembagaMembers[]
+  LembagaAdmin    LembagaAdmin[]
+  KegiatanPeserta KegiatanPeserta[]
+  Donasi          Donasi[]
 
   @@map("users")
 }
@@ -79,4 +84,80 @@ enum Role {
   ADMIN
   TEMAN
   USER
+}
+
+model Lembaga {
+  id             Int              @id @default(autoincrement())
+  nama           String
+  owner          User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId        String           @map("owner_id")
+  Kategori       Kategori[]
+  createdAt      DateTime         @default(now()) @map(name: "created_at")
+  updatedAt      DateTime         @default(now()) @map(name: "updated_at")
+  
+  LembagaAdmin   LembagaAdmin[]
+  LembagaMembers LembagaMembers[]
+  Kegiatan       Kegiatan[]
+  Donasi         Donasi[]
+}
+
+model LembagaMembers {
+  lembaga   Lembaga @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
+  lembagaId Int     @map("lembaga_id")
+  member    User    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId  String  @map("member_id")
+
+  @@id([lembagaId, memberId])
+  @@map("lembaga_members")
+}
+
+model LembagaAdmin {
+  lembaga   Lembaga @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
+  lembagaId Int     @map("lembaga_id")
+  admin     User    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  adminId   String  @map("admin_id")
+
+  @@id([lembagaId, adminId])
+  @@map("lembaga_admin")
+}
+
+model Kegiatan {
+  id              Int               @id @default(autoincrement())
+  nama            String
+  lembaga         Lembaga           @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
+  lembagaId       Int               @map("lembaga_id")
+  Kategori        Kategori[]
+  tanggal         DateTime
+  lokasi          String
+  KegiatanPeserta KegiatanPeserta[]
+  createdAt       DateTime          @default(now()) @map(name: "created_at")
+  updatedAt       DateTime          @default(now()) @map(name: "updated_at")
+}
+
+model KegiatanPeserta {
+  kegiatan   Kegiatan @relation(fields: [kegiatanId], references: [id], onDelete: Cascade)
+  kegiatanId Int      @map("kegiatan_id")
+  peserta    User     @relation(fields: [pesertaId], references: [id], onDelete: Cascade)
+  pesertaId  String   @map("peserta_id")
+
+  @@id([kegiatanId, pesertaId])
+  @@map("lembaga_kegiatan_peserta")
+}
+
+model Kategori {
+  id       Int        @id @default(autoincrement())
+  nama     String
+  Lembaga  Lembaga[]
+  Kegiatan Kegiatan[]
+}
+
+model Donasi {
+  id        Int      @id @default(autoincrement())
+  donatur   User     @relation(fields: [donaturId], references: [id], onDelete: Cascade)
+  donaturId String   @map("donatur_id")
+  lembaga   Lembaga  @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
+  lembagaId Int      @map("lembaga_id")
+  jumlah    Int
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 }
