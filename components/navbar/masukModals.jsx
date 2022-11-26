@@ -60,7 +60,7 @@ function MasukModal() {
             Batal
           </Link>
           <Link
-            href="/dashboard/admin"
+            href="/dashboard/teman"
             onClick={handleClose}
             className="no-underline text-white py-2 px-3 bg-brand hover:bg-light hover:bg-[#15803d] rounded "
           >
