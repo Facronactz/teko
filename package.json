@@ -11,12 +11,15 @@
     "lint-fix": "next lint --fix"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.5",
     "@next/font": "^13.0.3",
     "@prisma/client": "^4.6.1",
+    "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.2",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
+    "next-auth": "^4.17.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "18.2.0",

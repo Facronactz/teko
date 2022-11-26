@@ -8,8 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
 import { assetPrefix } from '../next.config';
 
-import MasukModal from './navbar/masukModals';
-import DaftarModal from './navbar/daftarModals';
+import LeftNav from './navbar/leftNav';
 
 const getMenus = async (q) => {
   const res = await fetch(`${assetPrefix}/api/menus?current=${q}`);
@@ -52,8 +51,7 @@ function CustomNavbar(props) {
               ))}
             </Nav>
             <div className="flex flex-col md:flex-row ">
-              <DaftarModal></DaftarModal>
-              <MasukModal></MasukModal>
+              <LeftNav></LeftNav>
             </div>
           </Navbar.Collapse>
         </Container>
