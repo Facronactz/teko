@@ -5,7 +5,7 @@ import Link from 'next/link';
 import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
 
-export default function LeftNav() {
+export default function RightNav() {
   const { data: session } = useSession();
   if (session) {
     return (
