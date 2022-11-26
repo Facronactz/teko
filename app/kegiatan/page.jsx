@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import CustomNavbar from '../../components/navbar';
+import CustomNavbar from '@teko/components/navbar';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -100,7 +100,7 @@ class KegiatanPage extends React.Component {
                   <Card.Title>Judul Kegiatan</Card.Title>
                   <Card.Text>Deskripsi Kegiatan</Card.Text>
                   <Button
-                    href="../detail-kegiatan"
+                    href="@teko/detail-kegiatan"
                     className="bg-brand border-brand"
                   >
                     Lihat Selengkapnya

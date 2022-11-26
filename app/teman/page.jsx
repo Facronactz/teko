@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import CustomNavbar from '../../components/navbar';
+import CustomNavbar from '@teko/components/navbar';
 
 export default function TemanPage() {
   return (

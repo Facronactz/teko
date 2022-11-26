@@ -7,8 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import formBg from '../../public/image/formBg.jpg';
-// import lArrow from '../../public/image/leftarrow.png';
+import formBg from '@teko/public/image/formBg.jpg';
+// import lArrow from '@teko/public/image/leftarrow.png';
 
 export default function UmumPage() {
   return (

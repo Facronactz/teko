@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@teko/*": ["./*"]
+    },
     "jsx": "react-jsx"
   },
   "exclude": [

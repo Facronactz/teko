@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
-import { assetPrefix } from '../next.config';
+import { assetPrefix } from '@teko/next.config';
 
 import MasukModal from './navbar/masukModals';
 import DaftarModal from './navbar/daftarModals';

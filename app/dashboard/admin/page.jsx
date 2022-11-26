@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import spanduk from '../../../public/image/hut-ri-ke-77.png';
+import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 import { RiLogoutBoxRFill } from 'react-icons/ri';
 import { RiMenuFoldFill } from 'react-icons/ri';
