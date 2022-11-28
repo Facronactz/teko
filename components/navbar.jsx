@@ -1,11 +1,10 @@
 'use client';
 
+import Link from 'next/link';
+
 import { use } from 'react';
 
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Link from 'next/link';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { assetPrefix } from '@teko/next.config';
 
 import RightNav from './navbar/rightNav';

@@ -5,3 +5,12 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+
+.swal-overlay {
+    background-color: #315343;
+}
+
+.swal-button {
+    background-color: #315343;
+    border-radius: 5px;
+}

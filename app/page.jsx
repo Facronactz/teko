@@ -3,10 +3,8 @@
 import Image from 'next/image';
 import { use } from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Card, Col } from 'react-bootstrap';
+
 import CustomNavbar from '@teko/components/navbar';
 import { assetPrefix } from '@teko/next.config';
 

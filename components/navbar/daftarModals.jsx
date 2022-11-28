@@ -4,9 +4,7 @@
 
 import React from 'react';
 
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Modal from 'react-bootstrap/Modal';
+import { Button, ButtonGroup, Modal } from 'react-bootstrap';
 
 import DaftarUmum from './DaftarUmum';
 import DaftarLembaga from './DaftarLembaga';

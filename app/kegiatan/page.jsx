@@ -5,12 +5,7 @@ import React from 'react';
 
 import CustomNavbar from '@teko/components/navbar';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
+import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap';
 
 class KegiatanPage extends React.Component {
   // constructor(props) {

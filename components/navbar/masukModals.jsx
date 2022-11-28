@@ -3,11 +3,13 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import ModalFooter from 'react-bootstrap/ModalFooter';
+
+import { Form, Modal, ModalFooter } from 'react-bootstrap';
+
 import { Button } from 'react-bootstrap';
 import { signIn } from 'next-auth/react';
+
+import swal from 'sweetalert';
 // import { getCsrfToken } from 'next-auth/react';
 
 // const getCSRF = async () => {
@@ -38,9 +40,7 @@ const MasukModal = () => {
       password,
     });
     if (result.error) {
-      // TODO buat alert untuk error
-      // eslint-disable-next-line no-alert
-      alert('Email atau password salah');
+      swal('Maaf', 'Email atau Password salah!', 'error');
     }
   };
 

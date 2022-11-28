@@ -1,14 +1,10 @@
 'use client';
 
-// import Link from 'next/link';
 import Image from 'next/image';
 
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Container, Form, Button } from 'react-bootstrap';
 
 import formBg from '@teko/public/image/formBg.jpg';
-// import lArrow from '@teko/public/image/leftarrow.png';
 
 export default function DaftarLembaga() {
   return (
