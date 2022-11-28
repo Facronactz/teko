@@ -6,6 +6,7 @@ import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
 
 export default function RightNav() {
+  // eslint-disable-next-line no-unused-vars
   const { data: session, status } = useSession();
   if (status === 'loading') {
     // TODO style loading
