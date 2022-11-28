@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         method,
         body: { data },
     } = req;
-    // eslint-disable-next-line radix
     const id = parseInt(req.query.id);
     if (method === 'GET') {
         const menus = await Menu.get(current);

@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { assetPrefix } from '@teko/next.config';
+import { use } from 'react';
 // import Image from 'next/image';
 
 import Container from 'react-bootstrap/Container';
@@ -18,7 +20,13 @@ import Table from 'react-bootstrap/Table';
 import { GoCheck } from 'react-icons/go';
 import { ImCross } from 'react-icons/im';
 
+const getMenus = async () => {
+  const data = await fetch(`${assetPrefix}/api/menus`);
+  return data.json();
+};
+
 export default function MenuConfig() {
+  const menus = use(getMenus());
   return (
     <>
       <Container className="m-0 p-0 w-52 bg-brand fixed h-full overflow-auto">
@@ -55,36 +63,24 @@ export default function MenuConfig() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td contenteditable="true">Mark</td>
-              <td contenteditable="true">Otto</td>
-              <td className="flex flex-row my-auto">
-                <Link href={'#'} className="">
-                  <GoCheck className="h-[30px] w-[70px] text-brand" />
-                </Link>
-                <Link href={'#'} className="">
-                  <ImCross className="h-[25px] w-[70px] text-danger" />
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td contenteditable="true">Jacob</td>
-              <td contenteditable="true">Thornton</td>
-              <td className="flex flex-row my-auto">
-                <Link href={'#'} className="">
-                  <GoCheck className="h-[30px] w-[70px] text-brand" />
-                </Link>
-                <Link href={'#'} className="">
-                  <ImCross className="h-[25px] w-[70px] text-danger" />
-                </Link>
-              </td>
-            </tr>
+            {menus.map((menu) => (
+              <tr key={menu.id}>
+                <td>{menu.id}</td>
+                <td contentEditable="true">{menu.name}</td>
+                <td contentEditable="true">{menu.href}</td>
+                <td className="flex flex-row my-auto">
+                  <Link href={'#'} className="">
+                    <GoCheck className="h-[30px] w-[70px] text-brand" />
+                  </Link>
+                  <Link href={'#'} className="">
+                    <ImCross className="h-[25px] w-[70px] text-danger" />
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Container>
     </>
   );
 }
-

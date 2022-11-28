@@ -15,6 +15,7 @@ const getMenus = async (q) => {
   const data = await res.json();
   return data;
 };
+
 function CustomNavbar(props) {
   const menus = use(getMenus(props.current));
   return (

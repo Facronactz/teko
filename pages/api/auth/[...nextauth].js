@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
@@ -57,10 +56,8 @@ export const authOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.role = user.role;
-                // console.log(token);
             }
             return token;
-            // console.log('jwt', token, user);
         },
     },
     session: {

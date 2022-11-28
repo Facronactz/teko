@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         },
     });
     if (user) {
-        // eslint-disable-next-line max-len
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (isPasswordValid) {
             res.status(200).send({ user });
