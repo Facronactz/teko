@@ -4,18 +4,19 @@ import { NextResponse } from 'next/server';
 export default withAuth(
     (req) => {
         // console.log(req.nextauth);
-        if (req.nextauth.token.role === 'ADMIN') {
-            return NextResponse.redirect(new URL(req.nextUrl.pathname, req.nextUrl.origin));
-        }
-        if (req.nextauth.token.role === 'TEMAN') {
-            if (req.nextUrl.pathname.startsWith('/teman')) {
-                return NextResponse.redirect(new URL(req.nextUrl.pathname, req.nextUrl.origin));
+        const { role } = req.nextauth.token;
+        const { pathname, origin } = req.nextUrl;
+        if (pathname === '/dashboard') return NextResponse.redirect(`${origin}${pathname}/${role.toLowerCase()}`);
+        if (role === 'ADMIN') return NextResponse.rewrite(new URL(pathname, origin));
+        if (role === 'TEMAN') {
+            if (pathname.startsWith('/teman')) {
+                return NextResponse.rewrite(new URL(pathname, origin));
             }
-            if (req.nextUrl.pathname.startsWith('/dashboard/teman')) {
-                return NextResponse.redirect(new URL(req.nextUrl.pathname, req.nextUrl.origin));
+            if (pathname.startsWith('/dashboard/teman')) {
+                return NextResponse.rewrite(new URL(pathname, origin));
             }
         }
-        return NextResponse.redirect(new URL('/', req.nextUrl.origin));
+        return NextResponse.rewrite(new URL('/', origin));
     },
     {
         callbacks: {
