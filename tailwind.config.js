@@ -2,35 +2,36 @@
 module.exports = {
   important: true,
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     colors: {
-      brand: "#315343",
-      accent: "#7e5bef",
-      warning: "#ff49db",
-      danger: "#ff7849",
+      brand: '#315343',
+      accent: '#7e5bef',
+      second: '#757575',
+      warning: '#ff49db',
+      danger: '#ff7849',
     },
     screens: {
-      xs: "430px",
+      xs: '430px',
 
-      s: "500px",
+      s: '500px',
 
-      sm: "576px",
+      sm: '576px',
       // => @media (min-width: 640px) { ... }
 
-      md: "768px",
+      md: '768px',
       // => @media (min-width: 768px) { ... }
 
-      lg: "992px",
+      lg: '992px',
       // => @media (min-width: 1024px) { ... }
 
-      xl: "1200px",
+      xl: '1200px',
       // => @media (min-width: 1280px) { ... }
 
-      xxl: "1400px",
+      xxl: '1400px',
       // => @media (min-width: 1536px) { ... }
     },
   },

@@ -20,7 +20,7 @@ class KegiatanPage extends React.Component {
   render() {
     return (
       <>
-        <CustomNavbar></CustomNavbar>
+        <CustomNavbar current="Kegiatan"></CustomNavbar>
         <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
         <Container className="bg-red flex flex-col lg:flex-row justify-center">
           <Image
