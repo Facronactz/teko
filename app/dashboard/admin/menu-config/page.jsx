@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { Container, Table } from 'react-bootstrap/Container';
+import { Container, Table } from 'react-bootstrap';
 
 import { GoCheck } from 'react-icons/go';
 import { ImCross } from 'react-icons/im';
