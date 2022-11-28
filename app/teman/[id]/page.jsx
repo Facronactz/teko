@@ -2,12 +2,7 @@
 
 import Image from 'next/image';
 
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-// import ButtonGroup from 'react-bootstrap/ButtonGroup';
-// // import Row from 'react-bootstrap/Row';
-// // import Col from 'react-bootstrap/Col';
+import { Container, Button, Card } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
 import spanduk from '@teko/public/image/hut-ri-ke-77.png';

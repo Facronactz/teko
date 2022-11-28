@@ -1,20 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-// import Image from 'next/image';
 
-import Container from 'react-bootstrap/Container';
-import Table from 'react-bootstrap/Table';
-// import Card from 'react-bootstrap/Card';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
+import { Container, Table } from 'react-bootstrap/Container';
 
-// import spanduk from '@teko/public/image/hut-ri-ke-77.png';
-
-// import { RiLogoutBoxRFill } from 'react-icons/ri';
-// import { RiMenuFoldFill } from 'react-icons/ri';
-// import { RiUserFill } from 'react-icons/ri';
-// import { GiThreeFriends } from 'react-icons/gi';
 import { GoCheck } from 'react-icons/go';
 import { ImCross } from 'react-icons/im';
 
@@ -87,4 +76,3 @@ export default function MenuConfig() {
     </>
   );
 }
-

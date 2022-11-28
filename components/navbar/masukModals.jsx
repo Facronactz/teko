@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import ModalFooter from 'react-bootstrap/ModalFooter';
+
+import { Form, Modal, ModalFooter } from 'react-bootstrap';
+
 import { Button } from 'react-bootstrap';
 import { signIn } from 'next-auth/react';
 // import { getCsrfToken } from 'next-auth/react';

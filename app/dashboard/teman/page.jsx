@@ -2,8 +2,7 @@
 
 import React from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+import { Container, Button } from 'react-bootstrap';
 
 import ProfilPage from './menus/profil';
 import KegiatanPage from './menus/kegiatan';
