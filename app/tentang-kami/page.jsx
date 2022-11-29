@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import { Container, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
 
