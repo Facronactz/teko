@@ -10,6 +10,7 @@ const menus = [
     { name: 'Beranda', href: '/', current: true },
     { name: 'Teman', href: '/teman', current: false },
     { name: 'Kegiatan', href: '/kegiatan', current: false },
+    { name: 'Tentang Kami', href: '/tentang-kami', current: false },
 ];
 
 const team = {
@@ -24,7 +25,7 @@ const team = {
         },
         {
             name: 'Rifqi',
-            email: '',
+            email: 'rifqialamsyh@gmail.com',
             github: 'https://github.com/rifqialamsyh',
             linkedin: '',
             dEmail: 'rifqialamsyh@gmail.com',
@@ -56,16 +57,16 @@ export default function handler(req, res) {
         return;
     }
     switch (q) {
-    case 'stats':
-        res.status(200).json(stats);
-        break;
-    case 'menus':
-        res.status(200).json(menus);
-        break;
-    case 'team':
-        res.status(200).json(team);
-        break;
-    default:
-        res.status(404).json({ message: 'Not Found' });
+        case 'stats':
+            res.status(200).json(stats);
+            break;
+        case 'menus':
+            res.status(200).json(menus);
+            break;
+        case 'team':
+            res.status(200).json(team);
+            break;
+        default:
+            res.status(404).json({ message: 'Not Found' });
     }
 }
