@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 
-import { Form, Modal, ModalFooter } from 'react-bootstrap';
+import {
+  Form, Modal, ModalFooter, Button,
+} from 'react-bootstrap';
 
-import { Button } from 'react-bootstrap';
 import { signIn } from 'next-auth/react';
 
 import swal from 'sweetalert';

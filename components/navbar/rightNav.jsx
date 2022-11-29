@@ -2,9 +2,9 @@
 
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import Spinner from 'react-bootstrap/Spinner';
 import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
-import Spinner from 'react-bootstrap/Spinner';
 
 export default function RightNav() {
   // eslint-disable-next-line no-unused-vars
