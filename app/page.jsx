@@ -198,7 +198,7 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Kontak
               </h5>
-              {team.map((member) => (
+              {team.members.map((member) => (
                 <p key={member.name} className="sm:mb-1">
                   <a href={member.linkedin} className="text-white no-underline">
                     {' '}

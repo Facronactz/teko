@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Container, Button, Card } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
-import spanduk from '@teko/public/image/hut-ri-ke-77.png';
+// import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 // import { RiWhatsappFill } from 'react-icons/ri';
 // import { MdEmail } from 'react-icons/md';
