@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { use } from 'react';
 
 import {
   Container,
@@ -12,8 +13,16 @@ import {
 } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
+import { assetPrefix } from '@teko/next.config';
+
+const getTeman = async () => {
+  const data = await fetch(`${assetPrefix}/api/teman`);
+  return data.json();
+};
 
 export default function TemanPage() {
+  const temans = use(getTeman());
+
   return (
     <>
       <CustomNavbar current="Teman"></CustomNavbar>
@@ -36,25 +45,23 @@ export default function TemanPage() {
       <section>
         <Container className="grid p-0">
           <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <Col className="p-0" key={item}>
+            {temans.map((teman) => (
+              <Col className="p-0" key={teman.nama}>
                 <Card>
                   <Card.Img
                     variant="top"
-                    src="https://via.placeholder.com/200"
+                    src={teman.logo}
                     width="200"
                     height="200"
                     alt="..."
                   />
                   <Card.Body>
-                    <Card.Title>Nama </Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the cards content.
-                    </Card.Text>
+                    <Card.Title>{teman.nama} </Card.Title>
+                    <Card.Text>{teman.ringkasan}</Card.Text>
                     <Link
                       href={{
-                        pathname: '/teman/1',
+                        pathname: '/teman',
+                        query: { id: teman.id },
                       }}
                       className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
                     >

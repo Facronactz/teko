@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://teko.vercel.app' : 'http://localhost:3000',
+  assetPrefix:
+    process.env.NODE_ENV === 'production'
+      ? 'https://teko.vercel.app'
+      : 'http://localhost:3000',
   compiler: {
     styledComponents: true,
     // reactRemoveProperties: true,
     // removeConsole: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'tekostorage.s3.ap-southeast-1.amazonaws.com',
+        port: '',
+        pathname: '/teko/**',
+      },
+    ],
   },
   experimental: {
     appDir: true,

@@ -10,7 +10,14 @@ import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 // import { RiWhatsappFill } from 'react-icons/ri';
 // import { MdEmail } from 'react-icons/md';
 
-function TemanPage({ params }) {
+const getTeman = async () => {
+  const data = await fetch(`${assetPrefix}/api/teman`);
+  return data.json();
+};
+
+function TemanPage({ params, searchParams }) {
+  const temans = use(getTeman());
+
   return (
     <>
       <CustomNavbar current="Teman"></CustomNavbar>
@@ -18,7 +25,7 @@ function TemanPage({ params }) {
         <Container className="flex justify-center">
           <Image
             className="w-full h-[150px] mb-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
-            src={spanduk}
+            src={temans.logo}
             alt="gambar hero"
           />
         </Container>

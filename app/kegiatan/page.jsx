@@ -3,9 +3,17 @@
 import Link from 'next/link';
 import React from 'react';
 
+// import { assetPrefix } from '@teko/next.config';
+// import { use } from 'react';
+
 import CustomNavbar from '@teko/components/navbar';
 
-import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form } from 'react-bootstrap';
+
+// const getKegiatan = async () => {
+//   const data = await fetch(`${assetPrefix}/api/kegiatan`);
+//   return data.json();
+// };
 
 class KegiatanPage extends React.Component {
   // constructor(props) {
@@ -33,6 +41,7 @@ class KegiatanPage extends React.Component {
   // };
 
   render() {
+    // const kegiatan = use(getKegiatan());
     return (
       <>
         <CustomNavbar current="Kegiatan"></CustomNavbar>
@@ -71,6 +80,7 @@ class KegiatanPage extends React.Component {
         </Form.Group>
         <Container className="grid p-0">
           <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
+            {/* {kegiatan.map((act) => ( */}
             <Col className="p-0">
               <Card>
                 <Card.Header>#Kemanusiaan</Card.Header>
@@ -88,21 +98,7 @@ class KegiatanPage extends React.Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="p-0">
-              <Card>
-                <Card.Header>#Sosial</Card.Header>
-                <Card.Body>
-                  <Card.Title>Judul Kegiatan</Card.Title>
-                  <Card.Text>Deskripsi Kegiatan</Card.Text>
-                  <Button
-                    href="@teko/detail-kegiatan"
-                    className="bg-brand border-brand"
-                  >
-                    Lihat Selengkapnya
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
+            {/* ))} */}
           </Row>
         </Container>
 

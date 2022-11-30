@@ -170,25 +170,25 @@ function BasicExample() {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Pitur</h5>
               <p className="sm:mb-1">
-                <a href="#" className="text-white  ">
+                <a href="#" className="text-white no-underline ">
                   {' '}
                   TheProviders
                 </a>
               </p>
               <p className="sm:mb-1">
-                <a href="#" className="text-white ">
+                <a href="#" className="text-white no-underline">
                   {' '}
                   Creativity
                 </a>
               </p>
               <p className="sm:mb-1">
-                <a href="#" className="text-white ">
+                <a href="#" className="text-white no-underline">
                   {' '}
                   SourceFiles
                 </a>
               </p>
               <p className="sm:mb-1">
-                <a href="#" className="text-white ">
+                <a href="#" className="text-white no-underline">
                   {' '}
                   bootstrap 5 alpha
                 </a>
@@ -198,9 +198,9 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Kontak
               </h5>
-              {team.members.map((member) => (
+              {team.map((member) => (
                 <p key={member.name} className="sm:mb-1">
-                  <a href="#" className="text-white ">
+                  <a href={member.linkedin} className="text-white no-underline">
                     {' '}
                     {member.name}
                   </a>
