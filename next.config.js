@@ -17,7 +17,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'tekostorage.s3.ap-southeast-1.amazonaws.com',
-        port: '',
         pathname: '/teko/**',
       },
     ],

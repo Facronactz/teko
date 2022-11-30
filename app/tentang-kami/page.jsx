@@ -43,7 +43,7 @@ export default function DaftarLembaga() {
         Tim Kami
       </h2>
       <Container className="lg:grid lg:grid-cols-2 lg:gap-3 mb-5">
-        {team.map((member) => (
+        {team.members((member) => (
           <figure
             key={member.name}
             className="md:flex bg-white shadow rounded-xl p-8 md:p-0"

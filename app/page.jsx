@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { use } from 'react';
 
+// eslint-disable-next-line object-curly-newline
 import { Container, Row, Card, Col } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
@@ -198,7 +199,7 @@ function BasicExample() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Kontak
               </h5>
-              {team.map((member) => (
+              {team.members((member) => (
                 <p key={member.name} className="sm:mb-1">
                   <a href={member.linkedin} className="text-white no-underline">
                     {' '}
