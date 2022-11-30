@@ -54,6 +54,7 @@
   "rules": {
     "eqeqeq": "error",
     "curly": "error",
+    "max-len": ["warn", { "code": 180 }],
     "linebreak-style": ["off"],
     "quotes": ["error", "single"]
   },

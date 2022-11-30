@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? 'https://teko.vercel.app' : 'http://localhost:3000',
+  env: {
+    STORAGE_URL: process.env.AWS_BUCKET_URL,
+  },
   compiler: {
     styledComponents: true,
     // reactRemoveProperties: true,
