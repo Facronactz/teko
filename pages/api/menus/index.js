@@ -6,7 +6,7 @@ import Menu from '@teko/functions/menu';
 //     { name: 'Kegiatan', href: '/kegiatan' },
 // ];
 
-export default async function handler(req, res) {
+export default async function MenusHandler(req, res) {
     const {
         query: { current },
         method,
@@ -15,21 +15,18 @@ export default async function handler(req, res) {
     const id = parseInt(req.query.id);
     if (method === 'GET') {
         const menus = await Menu.get(current);
-        res.status(200).json(menus);
-        return;
+        return res.status(200).json(menus);
     }
     if (method === 'POST') {
         await Menu.post(data);
-        res.status(201).json({ message: 'Data berhasil ditambahkan', data });
-        return;
+        return res.status(201).json({ message: 'Data berhasil ditambahkan', data });
     }
     if (method === 'PUT') {
         try {
             await Menu.put(id, data);
-            res.status(201).json({ message: 'Data berhasil diubah', data });
-            return;
+            return res.status(201).json({ message: 'Data berhasil diubah', data });
         } catch (error) {
-            res.status(400).json({
+            return res.status(400).json({
                 message: 'Data gagal diubah',
                 error: error.message,
             });
@@ -38,14 +35,15 @@ export default async function handler(req, res) {
     if (method === 'DELETE') {
         try {
             await Menu.delete(id);
-            res.status(200).json({
+            return res.status(200).json({
                 message: `Data dengan id ${id} berhasil dihapus`,
             });
         } catch (error) {
-            res.status(500).json({
+            return res.status(500).json({
                 message: `Data dengan id ${id} tidak ditemukan`,
                 error: error.message,
             });
         }
     }
+    return res.status(405).json({ message: 'Method not allowed' });
 }

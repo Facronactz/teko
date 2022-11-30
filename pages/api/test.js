@@ -28,5 +28,5 @@ export default function handler(req, res) {
         return;
     }
     console.log(data);
-    res.status(201).json({ message: 'Data berhasil ditambahkan', data });
+    res.status(201).json({ message: 'Data berhasil ditambahkan', ok: req.body });
 }
