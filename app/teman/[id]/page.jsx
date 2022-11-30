@@ -15,7 +15,7 @@ const getTeman = async () => {
   return data.json();
 };
 
-function TemanPage({ params, searchParams }) {
+function TemanPage({ params }) {
   const temans = use(getTeman());
 
   return (
