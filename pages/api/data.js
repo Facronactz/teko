@@ -13,38 +13,44 @@ const menus = [
     { name: 'Tentang Kami', href: '/tentang-kami', current: false },
 ];
 
-const team = {
-    members: [
-        {
-            name: 'Farro Axza',
-            email: 'farroaxza@gmail.com',
-            github: 'https://github.com/facronactz',
-            linkedin: 'https://www.linkedin.com/in/facronactz/',
-            dEmail: 'f284x0682@dicoding.org ',
-        },
-        {
-            name: 'Rifqi',
-            email: 'rifqialamsyh@gmail.com',
-            github: 'https://github.com/rifqialamsyh',
-            linkedin: '',
-            dEmail: 'rifqialamsyh@gmail.com',
-        },
-        {
-            name: 'Radya',
-            email: '',
-            github: '',
-            linkedin: '',
-            dEmail: '@dicoding.org',
-        },
-        {
-            name: 'Citra',
-            email: '',
-            github: '',
-            linkedin: '',
-            dEmail: '@dicoding.org',
-        },
-    ],
-};
+const team = [
+    {
+        name: 'Farro Axza',
+        foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
+        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        email: 'farroaxza@gmail.com',
+        github: 'https://github.com/facronactz',
+        linkedin: 'https://www.linkedin.com/in/facronactz/',
+        dEmail: 'f284x0682@dicoding.org ',
+    },
+    {
+        name: 'Rifqi',
+        foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
+        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        email: 'rifqialamsyh@gmail.com',
+        github: 'https://github.com/rifqialamsyh',
+        linkedin: 'https://www.linkedin.com/in/rifqi-alamsyah-a8a832201/',
+        dEmail: 'rifqialamsyh@gmail.com',
+    },
+    {
+        name: 'Radya',
+        foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
+        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        email: '',
+        github: '',
+        linkedin: '',
+        dEmail: '@dicoding.org',
+    },
+    {
+        name: 'Citra',
+        foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
+        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        email: '',
+        github: '',
+        linkedin: '',
+        dEmail: '@dicoding.org',
+    },
+];
 
 export default function handler(req, res) {
     const {
