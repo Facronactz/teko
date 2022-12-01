@@ -1,11 +1,6 @@
 import prisma from '@teko/libs/PrismaClient';
 
 class Menu {
-    constructor(name, href) {
-        this.name = name;
-        this.href = href;
-    }
-
     static async get(current, id) {
         const menus = await prisma.menu.findMany();
         if (id) {

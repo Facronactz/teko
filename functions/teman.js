@@ -15,7 +15,7 @@ class Teman {
                             Kategori: true,
                         },
                     },
-                    LembagaAdmin: true,
+                    LembagaAdmins: true,
                     LembagaMembers: true,
                     Donasi: true,
                     SosialMedia: true,
@@ -75,6 +75,26 @@ class Teman {
             return result;
         } catch (error) {
             // console.log(error);
+            return { error };
+        }
+    }
+
+    static async put(id, req) {
+        const { data } = req;
+        console.log(req);
+        try {
+            const result = await prisma.lembaga.update({
+                where: {
+                    id,
+                },
+                data,
+            });
+            return result;
+        } catch (error) {
+            console.log(error);
+            if (error.code === 'P2002') {
+                return { error: 'Nama Lembaga sudah ada' };
+            }
             return { error };
         }
     }

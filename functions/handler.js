@@ -14,6 +14,7 @@ class APIHandler {
     }
 
     async post() {
+        if (!this.id && !this.req.body) return this.res.status(400).json({ message: 'Bad Request' });
         const result = await this.func.post(this.req.body);
         if (result.error) {
             return this.res.status(500).json({
@@ -27,20 +28,18 @@ class APIHandler {
     }
 
     async put() {
-        const { data } = this.req.body;
-        if (!this.id && !data) return this.res.status(400).json({ message: 'Bad Request' });
-        try {
-            await this.func.put(this.id, data);
-            return this.res.status(201).json({
-                message: 'Data berhasil diubah',
-                data,
-            });
-        } catch (error) {
+        if (!this.id && !this.req.body) return this.res.status(400).json({ message: 'Bad Request' });
+        const result = await this.func.put(this.id, this.req.body);
+        if (result.error) {
             return this.res.status(400).json({
                 message: 'Data gagal diubah',
-                error,
+                error: result.error,
             });
         }
+        return this.res.status(201).json({
+            message: 'Data berhasil diubah',
+            result,
+        });
     }
 
     async delete() {

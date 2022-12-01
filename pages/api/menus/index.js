@@ -1,11 +1,5 @@
 import Menu from '@teko/functions/menu';
 
-// const menus = [
-//     { name: 'Beranda', href: '/' },
-//     { name: 'Teman', href: '/teman' },
-//     { name: 'Kegiatan', href: '/kegiatan' },
-// ];
-
 export default async function MenusHandler(req, res) {
     const {
         query: { current },
