@@ -46,20 +46,21 @@ class Teman {
         }
         try {
             const lembagaId = result.id;
-            kategori.forEach(async (item) => {
-                await prisma.lembaga.update({
-                    where: {
-                        id: lembagaId,
-                    },
-                    data: {
-                        Kategori: {
-                            connect: {
-                                id: item.id,
-                            },
+            const logo = data.logo ? data.logo : `${process.env.STORAGE_URL}/${lembagaId}`;
+            kategori.forEach(async (item) => prisma.lembaga.update({
+                where: {
+                    id: lembagaId,
+                },
+                data: {
+                    logo,
+                    Kategori: {
+                        connect: {
+                            nama: item.nama,
                         },
                     },
-                });
-            });
+                },
+            }));
+            // console.log(result);
             return result;
         } catch (error) {
             // console.log(error);
