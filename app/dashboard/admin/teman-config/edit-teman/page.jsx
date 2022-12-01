@@ -1,18 +1,18 @@
 'use client';
 
-import { Container, Form, InputGroup, Button } from 'react-bootstrap';
+import {
+  Container, Form, InputGroup, Button,
+} from 'react-bootstrap';
 import Link from 'next/link';
 
 import { useState } from 'react';
 import { assetPrefix } from '@teko/next.config';
 
 const getUploadUrl = async (fileName) => {
-  const res = await fetch(
-    `http://localhost:3000/api/storage?file=${fileName}`,
-    {
-      method: 'POST',
-    }
-  );
+  const res = await fetch(`http://localhost:3000/api/storage?file=${fileName}`, {
+    cache: 'no-cache',
+    method: 'POST',
+  });
   return res.json();
 };
 
@@ -126,4 +126,3 @@ export default function TampilTeman() {
     </>
   );
 }
-

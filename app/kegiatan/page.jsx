@@ -8,10 +8,11 @@ import { assetPrefix } from '@teko/next.config';
 import CustomNavbar from '@teko/components/navbar';
 import CustomFooter from '@teko/components/footer';
 
+// eslint-disable-next-line object-curly-newline
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 
 const getKegiatan = async () => {
-  const data = await fetch(`${assetPrefix}/api/kegiatan`);
+  const data = await fetch(`${assetPrefix}/api/kegiatan`, { cache: 'no-cache' });
   return data.json();
 };
 
@@ -48,7 +49,7 @@ export default function KegiatanPage() {
       <Container className="grid p-0">
         <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
           {kegiatans.map((data) => (
-            <Col className="p-0">
+            <Col key={data.id} className="p-0">
               <Card>
                 <Card.Header>
                   {data.Kategori.map((item) => `#${item.nama} `)}

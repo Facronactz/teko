@@ -10,10 +10,10 @@ import { Container, Button, ButtonGroup } from 'react-bootstrap';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import CustomNavbar from '@teko/components/navbar';
-import spanduk from '@teko/public/image/hut-ri-ke-77.png';
+// import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 const getDetail = async (id) => {
-  const data = await fetch(`${assetPrefix}/api/kegiatan?id=${id}`);
+  const data = await fetch(`${assetPrefix}/api/kegiatan?id=${id}`, { cache: 'no-cache' });
   return data.json();
 };
 

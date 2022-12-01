@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { use } from 'react';
 
@@ -17,7 +18,7 @@ import CustomFooter from '@teko/components/footer';
 import { assetPrefix } from '@teko/next.config';
 
 const getTeman = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`);
+  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
   return data.json();
 };
 

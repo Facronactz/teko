@@ -11,7 +11,7 @@ import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
 
 const getTemans = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`);
+  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
   return data.json();
 };
 
@@ -50,7 +50,7 @@ export default function TemanConfig() {
                 <td className="flex flex-row my-auto">
                   <Link
                     href={{
-                      pathname: `/`,
+                      pathname: '/',
                     }}
                     // TODO blm bisa get data berdasarkan id untuk di edit
 
@@ -70,4 +70,3 @@ export default function TemanConfig() {
     </>
   );
 }
-

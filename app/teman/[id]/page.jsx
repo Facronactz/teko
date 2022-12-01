@@ -16,7 +16,7 @@ import { assetPrefix } from '@teko/next.config';
 // import { MdEmail } from 'react-icons/md';
 
 const getTeman = async (id) => {
-  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
+  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`, { cache: 'no-cache' });
   return data.json();
 };
 
@@ -39,7 +39,7 @@ function TemanPage({ params }) {
         <Container className="flex flex-col justify-center overflow-auto">
           <h1>{temans.nama}</h1>
           {temans.Kategori.map((item) => (
-            <h2 className="text-second">{item.nama}</h2>
+            <h2 key={item.id} className="text-second">{item.nama}</h2>
           ))}
 
           <p className="overflow-clip">
