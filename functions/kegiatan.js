@@ -10,11 +10,15 @@ class Kegiatan {
                 include: {
                     Lembaga: true,
                     Kategori: true,
-                    Donasi: true,
                 },
             });
         }
-        return prisma.kegiatan.findMany();
+        return prisma.kegiatan.findMany({
+            include: {
+                Lembaga: true,
+                Kategori: true,
+            },
+        });
     }
 
     static async post(req) {

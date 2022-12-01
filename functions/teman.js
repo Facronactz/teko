@@ -22,7 +22,12 @@ class Teman {
                 },
             });
         }
-        return prisma.lembaga.findMany();
+        return prisma.lembaga.findMany({
+            include: {
+                owner: true,
+                Kategori: true,
+            },
+        });
     }
 
     static async post(req) {
