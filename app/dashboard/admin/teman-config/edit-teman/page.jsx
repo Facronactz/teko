@@ -8,13 +8,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { assetPrefix } from '@teko/next.config';
 
-// const getUploadUrl = async (fileName) => {
-//   const res = await fetch(`http://localhost:3000/api/storage?file=${fileName}`, {
-//     cache: 'no-cache',
-//     method: 'POST',
-//   });
-//   return res.json();
-// };
+const getUploadUrl = async (fileName) => {
+  const res = await fetch(`${assetPrefix}/api/storage?file=${fileName}`, {
+    cache: 'no-cache',
+    method: 'POST',
+  });
+  return res.json();
+};
 
 const uploadtoS3 = async (url, body) => {
   const res = await fetch(url, {
@@ -24,36 +24,36 @@ const uploadtoS3 = async (url, body) => {
   return res.ok;
 };
 
-// const getTeman = async (id) => {
-//   const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
-//   return data.json();
-// };
+const getTeman = async (id) => {
+  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
+  return data.json();
+};
 
 export default function TampilTeman() {
   // const temans = use(getTeman(params.id));
 
-  // const [uploaded, setUploaded] = useState(false);
-  // const [uploading, setUploading] = useState(false);
-  // const [name, setName] = useState('');
+  const [uploaded, setUploaded] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [name, setName] = useState('');
 
-  // const uploadPhoto = async (e) => {
-  //   setUploading(true);
-  //   const file = e.target.files?.[0];
-  //   const fileName = encodeURIComponent(file.name);
+  const uploadPhoto = async (e) => {
+    setUploading(true);
+    const file = e.target.files?.[0];
+    const fileName = encodeURIComponent(file.name);
 
-  //   const url = await getUploadUrl(fileName);
-  //   const upload = await uploadtoS3(url, file);
+    const url = await getUploadUrl(fileName);
+    const upload = await uploadtoS3(url, file);
 
-  //   const imageURL = `${process.env.STORAGE_URL}/${fileName}`;
+    const imageURL = `${process.env.STORAGE_URL}/${fileName}`;
 
-  //   if (upload) {
-  //     setName(imageURL);
-  //     setUploading(false);
-  //     setUploaded(true);
-  //   } else {
-  //     setUploaded(false);
-  //   }
-  // };
+    if (upload) {
+      setName(imageURL);
+      setUploading(false);
+      setUploaded(true);
+    } else {
+      setUploaded(false);
+    }
+  };
 
   return (
     <>
@@ -109,14 +109,14 @@ export default function TampilTeman() {
           <Form.Control id="logo-url" />
         </InputGroup>
         <Form.Label>atau</Form.Label>
-        {/* <input
+        <input
           onChange={uploadPhoto}
           type="file"
           accept="image/png, image/jpeg"
         />
         {uploading && <p>Uploading...</p>}
         {uploaded && <p>Uploaded!</p>}
-        {name && <img src={name} alt={name} />} */}
+        {name && <img src={name} alt={name} />}
       </Container>
       <Container className="mt-10">
         <Button className="bg-brand border-brand px-4" size="lg">
