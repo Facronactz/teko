@@ -61,8 +61,7 @@ export default function TemanPage() {
                     <Card.Text>{teman.ringkasan}</Card.Text>
                     <Link
                       href={{
-                        pathname: '/teman',
-                        query: { id: teman.id },
+                        pathname: `/teman/${teman.id}`,
                       }}
                       className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
                     >

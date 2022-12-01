@@ -51,17 +51,20 @@ export default function AdminPage() {
                 <Card>
                   <RiUserFill className="h-full w-full" />
                   <Card.Body>
-                    <Card.Title className="text-center">Menu </Card.Title>
+                    <Card.Title className="text-center">Pengguna </Card.Title>
                   </Card.Body>
                 </Card>
               </Col>
             </Link>
-            <Link href={'#'} className="no-underline text-brand">
+            <Link
+              href={'/dashboard/admin/teman-config'}
+              className="no-underline text-brand"
+            >
               <Col className="p-0">
                 <Card>
                   <GiThreeFriends className="h-full w-full" />
                   <Card.Body>
-                    <Card.Title className="text-center">Menu </Card.Title>
+                    <Card.Title className="text-center">Teman </Card.Title>
                   </Card.Body>
                 </Card>
               </Col>
@@ -71,7 +74,7 @@ export default function AdminPage() {
                 <Card>
                   <SiSparkpost className="h-full w-full" />
                   <Card.Body>
-                    <Card.Title className="text-center">Menu </Card.Title>
+                    <Card.Title className="text-center">Apanih </Card.Title>
                   </Card.Body>
                 </Card>
               </Col>

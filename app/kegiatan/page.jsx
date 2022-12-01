@@ -1,56 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
+import { use } from 'react';
 
-// import { assetPrefix } from '@teko/next.config';
-// import { use } from 'react';
+import { assetPrefix } from '@teko/next.config';
 
 import CustomNavbar from '@teko/components/navbar';
 import CustomFooter from '@teko/components/footer';
 
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 
-// const getKegiatan = async () => {
-//   const data = await fetch(`${assetPrefix}/api/kegiatan`);
-//   return data.json();
-// };
+const getKegiatan = async () => {
+  const data = await fetch(`${assetPrefix}/api/kegiatan`);
+  return data.json();
+};
 
-class KegiatanPage extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     kemanusiaan: false,
-  //     sosial: false,
-  //     lingkungan: false,
-  //   };
-  // }
+export default function KegiatanPage() {
+  const kegiatans = use(getKegiatan());
+  return (
+    <>
+      <CustomNavbar current="Kegiatan"></CustomNavbar>
 
-  // componentDidMount() {
-  //   this.setState({ kemanusiaan: false });
-  // }
-  // componentWillUnmount() {
-  //   this.setState({ kemanusiaan: true });
-  // }
+      <h3 className="text-center mb-3 font-bold">Kategori</h3>
 
-  // toggleKemanusiaan = () => {
-  //   if (this.state.kemanusiaan) {
-  //     this.setState({ kemanusiaan: false });
-  //   } else {
-  //     this.setState({ kemanusiaan: true });
-  //   }
-  // };
-
-  render() {
-    // const kegiatan = use(getKegiatan());
-    return (
-      <>
-        <CustomNavbar current="Kegiatan"></CustomNavbar>
-
-        <h3 className="text-center mb-3 font-bold">Kategori</h3>
-
-        <Container>
-          {/* <Button
+      <Container>
+        {/* <Button
             onClick={this.toggleKemanusiaan()}
             type="button"
             className={
@@ -61,36 +35,30 @@ class KegiatanPage extends React.Component {
           >
             Kemanusian
           </Button> */}
-        </Container>
+      </Container>
 
-        <Form.Group
-          className="m-2 text-xl xs:flex justify-center"
-          controlId="formBasicCheckbox"
-        >
-          <Form.Check
-            type="checkbox"
-            label="Kemanusiaan"
-            className="mx-3 py-2"
-          />
-          <Form.Check type="checkbox" label="Sosial" className="mx-3 py-2" />
-          <Form.Check
-            type="checkbox"
-            label="Lingkungan"
-            className="mx-3 py-2"
-          />
-        </Form.Group>
-        <Container className="grid p-0">
-          <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
-            {/* {kegiatan.map((act) => ( */}
+      <Form.Group
+        className="m-2 text-xl xs:flex justify-center"
+        controlId="formBasicCheckbox"
+      >
+        <Form.Check type="checkbox" label="Kemanusiaan" className="mx-3 py-2" />
+        <Form.Check type="checkbox" label="Sosial" className="mx-3 py-2" />
+        <Form.Check type="checkbox" label="Lingkungan" className="mx-3 py-2" />
+      </Form.Group>
+      <Container className="grid p-0">
+        <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
+          {kegiatans.map((data) => (
             <Col className="p-0">
               <Card>
-                <Card.Header>#Kemanusiaan</Card.Header>
+                <Card.Header>
+                  {data.Kategori.map((item) => `#${item.nama} `)}
+                </Card.Header>
                 <Card.Body>
-                  <Card.Title>Judul Kegiatan</Card.Title>
-                  <Card.Text>Deskripsi Kegiatan</Card.Text>
+                  <Card.Title>{data.nama}</Card.Title>
+                  <Card.Text>{data.ringkasan}</Card.Text>
                   <Link
                     href={{
-                      pathname: '/kegiatan/1',
+                      pathname: `/kegiatan/${data.id}`,
                     }}
                     className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
                   >
@@ -99,11 +67,11 @@ class KegiatanPage extends React.Component {
                 </Card.Body>
               </Card>
             </Col>
-            {/* ))} */}
-          </Row>
-        </Container>
+          ))}
+        </Row>
+      </Container>
 
-        {/* <Nav
+      {/* <Nav
           className="hidden md:block bg-brand top-0 bottom-0 left-20 min-h-[100vh] z-0"
           activeKey="/home"
           onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
@@ -118,10 +86,7 @@ class KegiatanPage extends React.Component {
             </div>
           </Nav.Item>
         </Nav> */}
-        <CustomFooter></CustomFooter>
-      </>
-    );
-  }
+      <CustomFooter></CustomFooter>
+    </>
+  );
 }
-
-export default KegiatanPage;
