@@ -64,7 +64,7 @@ model User {
     sessions        Session[]
     Lembaga         Lembaga[]
     LembagaMembers  LembagaMembers[]
-    LembagaAdmin    LembagaAdmin[]
+    LembagaAdmins   LembagaAdmins[]
     PesertaKegiatan PesertaKegiatan[]
     Donasi          Donasi[]
 
@@ -100,11 +100,13 @@ model Lembaga {
     createdAt DateTime   @default(now()) @map(name: "created_at")
     updatedAt DateTime   @default(now()) @map(name: "updated_at")
 
-    LembagaAdmin   LembagaAdmin[]
+    LembagaAdmins  LembagaAdmins[]
     LembagaMembers LembagaMembers[]
     Kegiatan       Kegiatan[]
     Donasi         Donasi[]
     SosialMedia    SosialMedia[]
+
+    @@map("lembaga")
 }
 
 model LembagaMembers {
@@ -114,10 +116,10 @@ model LembagaMembers {
     memberId  String  @map("member_id")
 
     @@id([lembagaId, memberId])
-    @@map("lembaga_members")
+    @@map("lembaga_member")
 }
 
-model LembagaAdmin {
+model LembagaAdmins {
     lembaga   Lembaga @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
     lembagaId String  @map("lembaga_id")
     admin     User    @relation(fields: [adminId], references: [id], onDelete: Cascade)
@@ -142,6 +144,8 @@ model Kegiatan {
     PesertaKegiatan PesertaKegiatan[]
     createdAt       DateTime          @default(now()) @map(name: "created_at")
     updatedAt       DateTime          @default(now()) @map(name: "updated_at")
+
+    @@map("kegiatan")
 }
 
 model PesertaKegiatan {
@@ -151,7 +155,7 @@ model PesertaKegiatan {
     pesertaId  String   @map("peserta_id")
 
     @@id([kegiatanId, pesertaId])
-    @@map("lembaga_kegiatan_peserta")
+    @@map("peserta_kegiatan")
 }
 
 model Kategori {
@@ -159,6 +163,8 @@ model Kategori {
     nama     String     @unique
     Lembaga  Lembaga[]
     Kegiatan Kegiatan[]
+
+    @@map("kategori")
 }
 
 model SosialMedia {
@@ -168,6 +174,8 @@ model SosialMedia {
     platform  String
     lembaga   Lembaga @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
     lembagaId String  @map("lembaga_id")
+
+    @@map("sosial_media")
 }
 
 model Donasi {
@@ -179,4 +187,6 @@ model Donasi {
     jumlah    Int
     createdAt DateTime @default(now()) @map(name: "created_at")
     updatedAt DateTime @default(now()) @map(name: "updated_at")
+
+    @@map("donasi")
 }
