@@ -10,7 +10,11 @@ class Teman {
                 include: {
                     owner: true,
                     Kategori: true,
-                    Kegiatan: true,
+                    Kegiatan: {
+                        include: {
+                            Kategori: true,
+                        },
+                    },
                     LembagaAdmin: true,
                     LembagaMembers: true,
                     Donasi: true,
