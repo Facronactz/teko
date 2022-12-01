@@ -17,13 +17,13 @@ import CustomNavbar from '@teko/components/navbar';
 import CustomFooter from '@teko/components/footer';
 import { assetPrefix } from '@teko/next.config';
 
-const getTeman = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
-  return data.json();
-};
+// const getTeman = async () => {
+//   const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
+//   return data.json();
+// };
 
 export default function TemanPage() {
-  const temans = use(getTeman());
+  // const temans = use(getTeman());
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function TemanPage() {
       <section>
         <Container className="grid p-0">
           <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-            {temans.map((teman) => (
+            {/* {temans.map((teman) => (
               <Col className="p-0" key={teman.nama}>
                 <Card>
                   <Card.Img
@@ -71,7 +71,7 @@ export default function TemanPage() {
                   </Card.Body>
                 </Card>
               </Col>
-            ))}
+            ))} */}
           </Row>
         </Container>
       </section>
