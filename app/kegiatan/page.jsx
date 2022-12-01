@@ -7,6 +7,7 @@ import React from 'react';
 // import { use } from 'react';
 
 import CustomNavbar from '@teko/components/navbar';
+import CustomFooter from '@teko/components/footer';
 
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 
@@ -117,6 +118,7 @@ class KegiatanPage extends React.Component {
             </div>
           </Nav.Item>
         </Nav> */}
+        <CustomFooter></CustomFooter>
       </>
     );
   }

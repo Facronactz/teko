@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 
 import { assetPrefix } from '@teko/next.config';
 import CustomNavbar from '@teko/components/navbar';
+import CustomFooter from '@teko/components/footer';
 
 import { AiFillMail, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
@@ -86,6 +87,7 @@ export default function DaftarLembaga() {
           </figure>
         ))}
       </Container>
+      <CustomFooter></CustomFooter>
     </>
   );
 }

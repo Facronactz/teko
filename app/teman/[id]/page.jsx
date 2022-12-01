@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Container, Button, Card } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
+import CustomFooter from '@teko/components/footer';
 // import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 // import { RiWhatsappFill } from 'react-icons/ri';
@@ -80,6 +81,7 @@ function TemanPage({ params }) {
           <Card.Footer className="text-muted">17 September 2020</Card.Footer>
         </Card>
       </Container>
+      <CustomFooter></CustomFooter>
     </>
   );
 }

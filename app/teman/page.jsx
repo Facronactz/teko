@@ -13,6 +13,7 @@ import {
 } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
+import CustomFooter from '@teko/components/footer';
 import { assetPrefix } from '@teko/next.config';
 
 const getTeman = async () => {
@@ -74,6 +75,7 @@ export default function TemanPage() {
           </Row>
         </Container>
       </section>
+      <CustomFooter></CustomFooter>
     </>
   );
 }
