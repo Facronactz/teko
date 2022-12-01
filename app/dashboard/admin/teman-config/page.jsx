@@ -10,13 +10,13 @@ import { Container, Table } from 'react-bootstrap';
 import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
 
-const getTemans = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
-  return data.json();
-};
+// const getTemans = async () => {
+//   const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
+//   return data.json();
+// };
 
 export default function TemanConfig() {
-  const temans = use(getTemans());
+  // const temans = use(getTemans());
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function TemanConfig() {
             </tr>
           </thead>
           <tbody>
-            {temans.map((teman) => (
+            {/* {temans.map((teman) => (
               <tr key={teman.id}>
                 <td>{teman.id}</td>
                 <td>{teman.nama}</td>
@@ -63,7 +63,7 @@ export default function TemanConfig() {
                   </Link>
                 </td>
               </tr>
-            ))}
+            ))} */}
           </tbody>
         </Table>
       </Container>
