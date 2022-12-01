@@ -65,7 +65,7 @@ model User {
     Lembaga         Lembaga[]
     LembagaMembers  LembagaMembers[]
     LembagaAdmin    LembagaAdmin[]
-    KegiatanPeserta KegiatanPeserta[]
+    PesertaKegiatan PesertaKegiatan[]
     Donasi          Donasi[]
 
     @@map("users")
@@ -139,12 +139,12 @@ model Kegiatan {
     lembaga         Lembaga           @relation(fields: [lembagaId], references: [id], onDelete: Cascade)
     lembagaId       String            @map("lembaga_id")
     Kategori        Kategori[]
-    KegiatanPeserta KegiatanPeserta[]
+    PesertaKegiatan PesertaKegiatan[]
     createdAt       DateTime          @default(now()) @map(name: "created_at")
     updatedAt       DateTime          @default(now()) @map(name: "updated_at")
 }
 
-model KegiatanPeserta {
+model PesertaKegiatan {
     kegiatan   Kegiatan @relation(fields: [kegiatanId], references: [id], onDelete: Cascade)
     kegiatanId String   @map("kegiatan_id")
     peserta    User     @relation(fields: [pesertaId], references: [id], onDelete: Cascade)

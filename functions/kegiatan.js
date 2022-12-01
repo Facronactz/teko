@@ -1,60 +1,55 @@
 import prisma from '@teko/libs/PrismaClient';
 
-class Teman {
+class Kegiatan {
     static async get(id) {
         if (id) {
-            return prisma.lembaga.findUnique({
+            return prisma.kegiatan.findUnique({
                 where: {
                     id,
                 },
                 include: {
-                    owner: true,
+                    Lembaga: true,
                     Kategori: true,
-                    Kegiatan: true,
-                    LembagaAdmin: true,
-                    LembagaMembers: true,
                     Donasi: true,
-                    SosialMedia: true,
                 },
             });
         }
-        return prisma.lembaga.findMany();
+        return prisma.kegiatan.findMany();
     }
 
     static async post(req) {
-        const { data, owner, kategori } = req;
+        const { data, lembaga, kategori } = req;
+        const tanggal = new Date(data.tanggal);
         let result;
         try {
-            result = await prisma.lembaga.create({
+            result = await prisma.kegiatan.create({
                 data: {
                     ...data,
-                    owner: {
+                    tanggal,
+                    lembaga: {
                         connect: {
-                            id: owner.id,
+                            id: lembaga.id,
                         },
                     },
                 },
                 include: {
-                    owner: true,
+                    lembaga: true,
                 },
             });
         } catch (error) {
-            // console.log(error);
-            if (error.code === 'P2002') {
-                return { error: 'Nama Lembaga sudah ada' };
-            }
+            console.log(error);
             return { error };
         }
         try {
-            const lembagaId = result.id;
-            const logo = data.logo ? data.logo : `${process.env.STORAGE_URL}/${lembagaId}`;
-            result.logo = logo;
-            kategori.forEach(async (item) => prisma.lembaga.update({
+            const kegiatanId = result.id;
+            const banner = data.banner ? data.banner : `${process.env.STORAGE_URL}/${kegiatanId}`;
+            result.banner = banner;
+            kategori.forEach(async (item) => prisma.kegiatan.update({
                 where: {
-                    id: lembagaId,
+                    id: kegiatanId,
                 },
                 data: {
-                    logo,
+                    banner,
                     Kategori: {
                         connectOrCreate: {
                             where: { nama: item.nama },
@@ -65,14 +60,13 @@ class Teman {
             }));
             return result;
         } catch (error) {
-            // console.log(error);
             return { error };
         }
     }
 
     static async delete(id) {
         try {
-            const res = await prisma.lembaga.delete({
+            const res = await prisma.kegiatan.delete({
                 where: {
                     id,
                 },
@@ -80,11 +74,11 @@ class Teman {
             return res;
         } catch (error) {
             if (error.code === 'P2025') {
-                return { error: 'Lembaga tidak ditemukan' };
+                return { error: 'Kegiatan tidak ditemukan' };
             }
             return { error };
         }
     }
 }
 
-export default Teman;
+export default Kegiatan;
