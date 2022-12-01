@@ -8,14 +8,14 @@ class Kegiatan {
                     id,
                 },
                 include: {
-                    Lembaga: true,
+                    lembaga: true,
                     Kategori: true,
                 },
             });
         }
         return prisma.kegiatan.findMany({
             include: {
-                Lembaga: true,
+                lembaga: true,
                 Kategori: true,
             },
         });
