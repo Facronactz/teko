@@ -20,15 +20,16 @@ const handler = {
         const { data, owner, kategori } = req.body;
         if (!data) return res.status(400).json({ message: 'Bad Request' });
         const result = await Teman.post(data, owner, kategori);
+        console.log(result);
         if (result.error) return res.status(500).json({ success: 'false', message: result.error });
-        return res.status(200).json(result);
+        return res.status(200).json({ message: 'Lembaga berhasil dibuat', result });
     },
     delete: async (req, res) => {
         const { id } = req.body;
         if (!id) return res.status(400).json({ message: 'Bad Request' });
         const result = await Teman.delete(id);
         if (result.error) return res.status(500).json({ success: 'false', message: result.error });
-        return res.status(200).json(result);
+        return res.status(200).json({ message: 'Lembaga berhasil dihapus', result });
     },
 };
 
