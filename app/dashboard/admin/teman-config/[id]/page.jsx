@@ -77,15 +77,17 @@ export default function TampilTeman({ params }) {
     e.preventDefault();
     const data = {
       id: idRef.current.value,
-      nama: namaRef.current.value,
-      deskripsi: deskripsiRef.current.value,
-      ringkasan: ringkasanRef.current.value,
-      telepon: teleponRef.current.value,
-      alamat: alamatRef.current.value,
-      logo: logoRef.current.value,
+      data: {
+        nama: namaRef.current.value,
+        deskripsi: deskripsiRef.current.value,
+        ringkasan: ringkasanRef.current.value,
+        telp: teleponRef.current.value,
+        alamat: alamatRef.current.value,
+        logo: logoRef.current.value,
+      },
     };
     const uploadData = await uploadtoChange(data);
-    console.log(uploadData);
+    console.log(await uploadData);
   }
 
   return (
