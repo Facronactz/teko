@@ -48,24 +48,32 @@ class Kegiatan {
             const kegiatanId = result.id;
             const banner = data.banner ? data.banner : `${process.env.STORAGE_URL}/${kegiatanId}`;
             result.banner = banner;
-            kategori.forEach(async (item) => prisma.kegiatan.update({
-                where: {
-                    id: kegiatanId,
-                },
-                data: {
-                    banner,
-                    Kategori: {
-                        connectOrCreate: {
-                            where: { nama: item.nama },
-                            create: { nama: item.nama },
-                        },
-                    },
-                },
-            }));
+            if (Array.isArray(kategori)) {
+                kategori.forEach(async (item) => this.updateKategori(kegiatanId, banner, item));
+            } else {
+                result = await this.updateKategori(kegiatanId, banner, kategori);
+            }
             return result;
         } catch (error) {
             return { error };
         }
+    }
+
+    static async updateKategori(id, banner, kategori) {
+        return prisma.kegiatan.update({
+            where: {
+                id,
+            },
+            data: {
+                banner,
+                Kategori: {
+                    connectOrCreate: {
+                        where: { nama: kategori.nama },
+                        create: { nama: kategori.nama },
+                    },
+                },
+            },
+        });
     }
 
     static async delete(id) {

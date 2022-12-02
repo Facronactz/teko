@@ -115,6 +115,8 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 [![WebpackPack][Webpack.build]][Webpack-url]
 [![Tailwind][Tailwindcss.com]][Tailwind-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
+[![AmazonAWS][Amazon.com]][Amazon-url]
 [![Prisma][Prisma.com]][Prisma-url]
 [![Sqlite][Sqlite.com]][Sqlite-url]
 
@@ -130,6 +132,8 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 [![VSCode][VSCode.com]][VSCode-url]
 [![ESLint][ESLint.com]][ESLint-url]
 [![Postman][Postman.com]][Postman-url]
+[![Vercel][Vercel.com]][Vercel-url]
+
 [![Jira][Jira.com]][Jira-url]
 [![Figma][Figma.com]][Figma-url]
 
@@ -238,8 +242,11 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Dicoding Indonesia](https://www.dicoding.com/)
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Font Awesome](https://fontawesome.com)
+* [Next Auth](https://next-auth.js.org/)
 * [React Icons](https://react-icons.github.io/react-icons/search)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Sweet Alert](https://sweetalert.js.org/guides/)
+* [Badge Template](https://github.com/alexandresanlim/Badges4-README.md-Profile#-languages-)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -277,6 +284,12 @@ Use this space to list resources you find helpful and would like to give credit 
 [Prisma-url]: https://prisma.io/
 [Sqlite.com]:https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
 [Sqlite-url]: https://www.sqlite.org/index.html
+
+[Amazon.com]: https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[Amazon-url]: https://aws.amazon.com/
+
+[Vercel.com]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+[Vercel-url]: https://vercel.com/
 
 [ESLint.com]: https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white
 [ESLint-url]: https://eslint.org/
