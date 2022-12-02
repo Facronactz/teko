@@ -3,18 +3,16 @@
 import Link from 'next/link';
 
 import { useState } from 'react';
+import { assetPrefix } from '@teko/next.config';
 
 import { Container, Button } from 'react-bootstrap';
 
 // TODO masih UI belum ada fungsi sama sekali (ubah berdasar id(karena dashboard teman), fungsi put(edit) profil blm berfungsi)
 
 const getUploadUrl = async (fileName) => {
-  const res = await fetch(
-    `http://localhost:3000/api/storage?file=${fileName}`,
-    {
-      method: 'POST',
-    }
-  );
+  const res = await fetch(`${assetPrefix}/api/storage?file=${fileName}`, {
+    method: 'POST',
+  });
   return res.json();
 };
 
