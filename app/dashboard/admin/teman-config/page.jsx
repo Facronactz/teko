@@ -49,9 +49,7 @@ export default function TemanConfig() {
                 <td>{teman.nama}</td>
                 <td className="flex flex-row my-auto">
                   <Link
-                    href={{
-                      pathname: '/',
-                    }}
+                    href={`/dashboard/admin/teman-config/${teman.id}`}
                     // TODO blm bisa get data berdasarkan id untuk di edit
 
                     className="bg-brand text-white border-brand"

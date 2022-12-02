@@ -3,7 +3,7 @@
 import { Container, Form, InputGroup, Button } from 'react-bootstrap';
 import Link from 'next/link';
 
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { assetPrefix } from '@teko/next.config';
 
 const getUploadUrl = async (fileName) => {
@@ -22,13 +22,13 @@ const uploadtoS3 = async (url, body) => {
   return res.ok;
 };
 
-// const getTeman = async (id) => {
-//   const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
-//   return data.json();
-// };
+const getTeman = async (id) => {
+  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
+  return data.json();
+};
 
-export default function TampilTeman() {
-  // const temans = use(getTeman(params.id));
+export default function TampilTeman({ params }) {
+  const teman = use(getTeman(params.id));
 
   const [uploaded, setUploaded] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -74,37 +74,29 @@ export default function TampilTeman() {
           </Button>
         </InputGroup> */}
         <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">id</InputGroup.Text>
-          <Form.Control
-            // value={`${teman.id}`}
-            placeholder="10210ji1dj81d2111-2"
-            aria-label="id"
-          />
-        </InputGroup>
-        <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Nama</InputGroup.Text>
-          <Form.Control placeholder="Lemabaga A" aria-label="nama" />
+          <Form.Control value={teman.nama} placeholder="Lemabaga A" aria-label="nama" />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>Deskripsi</InputGroup.Text>
-          <Form.Control as="textarea" aria-label="Deskripsi" />
+          <Form.Control value={teman.deskripsi} as="textarea" aria-label="Deskripsi" />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>Ringkasan</InputGroup.Text>
-          <Form.Control as="textarea" aria-label="Ringkasan" />
+          <Form.Control value={teman.ringkasan} as="textarea" aria-label="Ringkasan" />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Telepon</InputGroup.Text>
-          <Form.Control placeholder="080000000" aria-label="telepon" />
+          <Form.Control value={teman.telp} placeholder="080000000" aria-label="telepon" />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>Alamat</InputGroup.Text>
-          <Form.Control as="textarea" aria-label="alamat" />
+          <Form.Control value={teman.alamat} as="textarea" aria-label="alamat" />
         </InputGroup>
         <Form.Label htmlFor="logo-url">Logo</Form.Label>
         <InputGroup className="mb-3">
           <InputGroup.Text id="logo">logo url</InputGroup.Text>
-          <Form.Control id="logo-url" />
+          <Form.Control value={teman.logo} id="logo-url" />
         </InputGroup>
         <Form.Label>atau</Form.Label>
         <input
