@@ -1,8 +1,6 @@
 'use client';
 
-import {
-  Container, Form, InputGroup, Button,
-} from 'react-bootstrap';
+import { Container, Form, InputGroup, Button } from 'react-bootstrap';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -24,10 +22,10 @@ const uploadtoS3 = async (url, body) => {
   return res.ok;
 };
 
-const getTeman = async (id) => {
-  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
-  return data.json();
-};
+// const getTeman = async (id) => {
+//   const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
+//   return data.json();
+// };
 
 export default function TampilTeman() {
   // const temans = use(getTeman(params.id));

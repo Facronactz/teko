@@ -45,7 +45,9 @@ class DaftarModal extends React.Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Daftar Sebagai:</Modal.Title>
+            <Modal.Title className="font-bold text-brand text-3xl">
+              Teko <span className="font-light text-lg">| daftar sebagai</span>
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body className="flex justify-center flex-col">
             <ButtonGroup size="lg" className="m-2">

@@ -12,7 +12,7 @@ export default function DaftarLembaga() {
       <div>
         <Container className="bg-white border rounded p-0 w-[95%] my-[20px]">
           <div className="flex flex-col">
-            <div className="flex flex-col relative">
+            <div className="relative">
               <h1 className="font-extrabold text-3xl text-left w-1/3 absolute bottom-[8%] left-[8%] text-white md:text-5xl">
                 Selamat Datang
               </h1>
@@ -33,7 +33,7 @@ export default function DaftarLembaga() {
                   <Form.Label>Alamat Email</Form.Label>
                   <Form.Control type="email" placeholder="Masukan Email" />
                   <Form.Text className="text-muted">
-                    Well never share your email with anyone else.
+                    Kami tidak akan membagikan email Anda.
                   </Form.Text>
                 </Form.Group>
 
@@ -42,6 +42,7 @@ export default function DaftarLembaga() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
+                  <Form.Label>Bergerak di bidang,</Form.Label>
                   {['Kemanusiaan', 'Sosial', 'Lingkungan'].map((type) => (
                     <Form.Check
                       key={type}

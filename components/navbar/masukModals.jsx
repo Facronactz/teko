@@ -3,12 +3,15 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
   Form, Modal, ModalFooter, Button,
 } from 'react-bootstrap';
 
 import { signIn } from 'next-auth/react';
+
+import formBg from '@teko/public/image/formBg.jpg';
 
 import swal from 'sweetalert';
 // import { getCsrfToken } from 'next-auth/react';
@@ -57,16 +60,28 @@ const MasukModal = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Selamat Datang</Modal.Title>
+          <Modal.Title className="font-bold text-brand text-3xl">
+            Teko <span className="font-light text-lg">| masuk</span>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <div className="flex flex-col relative mb-3">
+            <h1 className="font-extrabold text-3xl text-left w-10/12 md:w-3/5 absolute bottom-[8%] left-[8%] text-white md:text-5xl ">
+              Halo di sana &#128075;
+            </h1>
+            <Image
+              className="w-full h-[100px] md:h-[200px] rounded"
+              src={formBg}
+              alt="gambar hero"
+            />
+          </div>
           <Form method="post" action="api/auth/callback/credentials">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 name="email"
                 type="email"
-                placeholder="ucok@example.com"
+                placeholder="nama@contoh.com"
                 onChange={handleInput}
                 value={inputData.email}
                 autoFocus
