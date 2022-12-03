@@ -2,28 +2,28 @@
 
 import Image from 'next/image';
 import { use } from 'react';
+import Fetcher from '@teko/helpers/fetcher';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Row, Card, Col } from 'react-bootstrap';
 
 import CustomNavbar from '@teko/components/navbar';
 import CustomFooter from '@teko/components/footer';
-import { assetPrefix } from '@teko/next.config';
 
 import hero from '@teko/public/image/hero.png';
 import teman from '@teko/public/image/teman.png';
 
-const getData = async (q) => {
-  const res = await fetch(`${assetPrefix}/api/data?q=${q}`);
-  const data = await res.json();
-  return data;
-};
+// TODO: fetch data from API
+// ubah fetcher lain seperti dibawah ini
+const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 
 function BasicExample() {
-  const stats = use(getData('stats'));
+  const stats = use(statsFetcher.get());
+  // const stats = use(getData('stats'));
 
   return (
     <>
+      {/* TODO pindah navbar ke layout dan ganti nama jadi TekoNavbar */}
       <CustomNavbar current="Beranda"></CustomNavbar>
       <header>
         <section className="relative">
@@ -94,7 +94,7 @@ function BasicExample() {
           </div>
         </section>
         <section>
-          {/* buat ini sebagai komponen dinamis */}
+          {/* TODO buat ini sebagai komponen dinamis */}
           <Container className="grid p-0">
             <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
@@ -156,6 +156,7 @@ function BasicExample() {
       </figure> */}
       </main>
 
+      {/* Pindah footer ke layout dan ganti nama jadi TekoFooter */}
       <CustomFooter></CustomFooter>
     </>
   );
