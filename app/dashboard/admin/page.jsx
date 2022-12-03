@@ -10,7 +10,6 @@ import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 import { RiLogoutBoxRFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
-import { SiSparkpost } from 'react-icons/si';
 
 export default function AdminPage() {
   return (
@@ -32,7 +31,7 @@ export default function AdminPage() {
           </Container>
         </Container>
         <Container className="grid p-0">
-          <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
+          <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
             <Link
               href={'/dashboard/admin/menu-config'}
               className="no-underline text-brand"
@@ -65,16 +64,6 @@ export default function AdminPage() {
                   <GiThreeFriends className="h-full w-full" />
                   <Card.Body>
                     <Card.Title className="text-center">Teman </Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Link>
-            <Link href={'#'} className="no-underline text-brand">
-              <Col className="p-0">
-                <Card>
-                  <SiSparkpost className="h-full w-full" />
-                  <Card.Body>
-                    <Card.Title className="text-center">Apanih </Card.Title>
                   </Card.Body>
                 </Card>
               </Col>
