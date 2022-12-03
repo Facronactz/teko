@@ -7,28 +7,17 @@ import Link from 'next/link';
 
 import { Container, Table, Button } from 'react-bootstrap';
 
-import { GiThreeFriends } from 'react-icons/gi';
+import { RiUserFill } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
-import { AiFillEdit } from 'react-icons/ai';
 
-const getTemans = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
+const getUsers = async () => {
+  const data = await fetch(`${assetPrefix}/api/user`, { cache: 'no-cache' });
   return data.json();
 };
 
-const deleteTeman = async () => {
-  const res = await fetch(`${assetPrefix}/api/teman`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data1 = await res.json();
-  return data1;
-};
+export default function UserConfig() {
+  const users = use(getUsers());
 
-export default function TemanConfig() {
-  const temans = use(getTemans());
   return (
     <>
       <Container className="m-0 p-0 w-52 bg-brand fixed h-full overflow-auto">
@@ -58,32 +47,30 @@ export default function TemanConfig() {
       </Container>
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
-          <GiThreeFriends className="mr-2" /> Teman Config
+          <RiUserFill className="mr-2" /> User Config
         </h2>
         <Table striped bordered hover>
           <thead>
             <tr>
               <th className="text-center">id</th>
               <th className="text-center">name</th>
+              <th className="text-center">username</th>
+              <th className="text-center">email</th>
+              <th className="text-center">role</th>
               <th className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
-            {temans.map((teman) => (
-              <tr key={teman.id}>
-                <td className="text-center">{teman.id}</td>
-                <td className="text-center">{teman.nama}</td>
+            {users.map((user) => (
+              <tr key={user.id}>
+                <td className="text-center">{user.id}</td>
+                <td className="text-center">{user.name}</td>
+                <td className="text-center">{user.username}</td>
+                <td className="text-center">{user.email}</td>
+                <td className="text-center">{user.role}</td>
+
                 <td className="flex flex-row justify-center">
-                  <Link
-                    href={`/dashboard/admin/teman-config/${teman.id}`}
-                    className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
-                  >
-                    <AiFillEdit className="h-[25px] w-[70px] text-white" />
-                  </Link>
-                  <Button
-                    onClick={deleteTeman}
-                    className="bg-white border-brand ml-3"
-                  >
+                  <Button className=" bg-white border-brand ml-3">
                     <ImCross className="h-[25px] w-[70px] text-danger" />
                   </Button>
                 </td>
@@ -95,3 +82,4 @@ export default function TemanConfig() {
     </>
   );
 }
+

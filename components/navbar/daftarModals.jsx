@@ -4,18 +4,17 @@
 
 import React from 'react';
 
-import { Button, ButtonGroup, Modal } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
 import DaftarUmum from './DaftarUmum';
-import DaftarLembaga from './DaftarLembaga';
 
 class DaftarModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       show: false,
-      showUmum: false,
-      showLembaga: false,
+      // showUmum: false,
+      // showLembaga: false,
     };
   }
 
@@ -23,15 +22,15 @@ class DaftarModal extends React.Component {
 
   handleShow = () => this.setState({ show: true });
 
-  showUmum = () => {
-    this.setState({ showUmum: true });
-    this.setState({ showLembaga: false });
-  };
+  // showUmum = () => {
+  //   this.setState({ showUmum: true });
+  //   this.setState({ showLembaga: false });
+  // };
 
-  showLembaga = () => {
-    this.setState({ showLembaga: true });
-    this.setState({ showUmum: false });
-  };
+  // showLembaga = () => {
+  //   this.setState({ showLembaga: true });
+  //   this.setState({ showUmum: false });
+  // };
 
   render() {
     return (
@@ -46,11 +45,11 @@ class DaftarModal extends React.Component {
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title className="font-bold text-brand text-3xl">
-              Teko <span className="font-light text-lg">| daftar sebagai</span>
+              Teko <span className="font-light text-lg">| daftar</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="flex justify-center flex-col">
-            <ButtonGroup size="lg" className="m-2">
+            {/* <ButtonGroup size="lg" className="m-2">
               <Button
                 className={
                   this.state.showUmum
@@ -73,9 +72,9 @@ class DaftarModal extends React.Component {
               >
                 Lembaga
               </Button>
-            </ButtonGroup>
-            {this.state.showUmum && <DaftarUmum />}
-            {this.state.showLembaga && <DaftarLembaga />}
+            </ButtonGroup> */}
+            <DaftarUmum></DaftarUmum>
+            {/* {this.state.showLembaga && <DaftarLembaga />} */}
           </Modal.Body>
         </Modal>
       </>
