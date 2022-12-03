@@ -65,7 +65,7 @@ export default function TampilTeman({ params }) {
     }
   };
 
-  const idRef = useRef();
+  // const idRef = useRef();
   const namaRef = useRef();
   const deskripsiRef = useRef();
   const ringkasanRef = useRef();
@@ -76,7 +76,7 @@ export default function TampilTeman({ params }) {
   async function onSubmit(e) {
     e.preventDefault();
     const data = {
-      id: idRef.current.value,
+      id: teman.id,
       data: {
         nama: namaRef.current.value,
         deskripsi: deskripsiRef.current.value,
@@ -101,7 +101,7 @@ export default function TampilTeman({ params }) {
       <Container className="m-auto">
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">id:</label>
-          <input
+          {/* <input
             className="border border-brand my-2 rounded px-2"
             type="text"
             id="first"
@@ -109,7 +109,7 @@ export default function TampilTeman({ params }) {
             defaultValue={teman.id}
             ref={idRef}
             disabled
-          />
+          /> */}
           <label className="font-semibold">Nama:</label>
           <input
             className="border border-brand my-2 rounded px-2"

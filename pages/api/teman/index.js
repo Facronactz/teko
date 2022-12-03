@@ -1,5 +1,5 @@
 import Teman from '@teko/functions/teman';
-import APIHandler from '@teko/functions/handler';
+import APIHandler from '@teko/helpers/api/handler';
 
 export default async function TemanHandler(req, res) {
     const handler = new APIHandler(Teman, req, res);
