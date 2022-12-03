@@ -86,8 +86,7 @@ export default function TampilTeman({ params }) {
         logo: logoRef.current.value,
       },
     };
-    const uploadData = await uploadtoChange(data);
-    console.log(await uploadData);
+    await uploadtoChange(data);
   }
 
   return (

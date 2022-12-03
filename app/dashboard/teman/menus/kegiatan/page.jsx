@@ -58,7 +58,7 @@ export default function KegiatanPage() {
       </Link>
       <Container>
         <form className="grid" action="/send-data-here" method="post">
-          <label for="first" className="font-semibold">
+          <label htmlFor="first" className="font-semibold">
             Nama Kegiatan:
           </label>
           <input
@@ -68,7 +68,7 @@ export default function KegiatanPage() {
             name="first"
           />
           <label className="mb-2 font-semibold">Kategori:</label>
-          <label for="kategori1">
+          <label htmlFor="kategori1">
             {' '}
             Kemanusiaan
             <input
@@ -80,7 +80,7 @@ export default function KegiatanPage() {
             />
           </label>
 
-          <label for="kategori2">
+          <label htmlFor="kategori2">
             {' '}
             Sosial
             <input
@@ -92,7 +92,7 @@ export default function KegiatanPage() {
             />
           </label>
 
-          <label for="kategori3">
+          <label htmlFor="kategori3">
             {' '}
             Lingkungan
             <input
@@ -104,7 +104,7 @@ export default function KegiatanPage() {
             />
           </label>
 
-          <label for="ringkasan" className="my-3 font-semibold">
+          <label htmlFor="ringkasan" className="my-3 font-semibold">
             Ringkasan:
           </label>
           <textarea
@@ -114,7 +114,7 @@ export default function KegiatanPage() {
             cols="3"
             rows="2"
           ></textarea>
-          <label for="deskripsi" className="mb-3 font-semibold">
+          <label htmlFor="deskripsi" className="mb-3 font-semibold">
             Deskripsi:
           </label>
           <textarea
@@ -124,7 +124,7 @@ export default function KegiatanPage() {
             cols="5"
             rows="2"
           ></textarea>
-          <label className="mb-3 font-semibold" for="tanggal">
+          <label className="mb-3 font-semibold" htmlFor="tanggal">
             Tanggal Pelaksanaan:
           </label>
           <input
@@ -133,7 +133,7 @@ export default function KegiatanPage() {
             id="tanggal"
             name="tanggal"
           ></input>
-          <label for="alamat" className="mb-3 font-semibold">
+          <label htmlFor="alamat" className="mb-3 font-semibold">
             Lokasi:
           </label>
           <textarea
@@ -165,4 +165,3 @@ export default function KegiatanPage() {
     </>
   );
 }
-

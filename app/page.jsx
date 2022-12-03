@@ -21,7 +21,6 @@ const getData = async (q) => {
 
 function BasicExample() {
   const stats = use(getData('stats'));
-  const team = use(getData('team'));
 
   return (
     <>
@@ -95,6 +94,7 @@ function BasicExample() {
           </div>
         </section>
         <section>
+          {/* buat ini sebagai komponen dinamis */}
           <Container className="grid p-0">
             <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (

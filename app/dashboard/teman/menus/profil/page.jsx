@@ -58,7 +58,7 @@ export default function ProfilPage() {
       </Link>
       <Container>
         <form className="grid" action="/send-data-here" method="post">
-          <label for="first" className="font-semibold">
+          <label htmlFor="first" className="font-semibold">
             Nama:
           </label>
           <input
@@ -67,7 +67,7 @@ export default function ProfilPage() {
             id="first"
             name="first"
           />
-          <label for="last" className="font-semibold">
+          <label htmlFor="last" className="font-semibold">
             No Telepon:
           </label>
           <input
@@ -77,7 +77,7 @@ export default function ProfilPage() {
             name="last"
           />
           <label className="mb-2 font-semibold">Kategori:</label>
-          <label for="kategori1">
+          <label htmlFor="kategori1">
             {' '}
             Kemanusiaan
             <input
@@ -89,7 +89,7 @@ export default function ProfilPage() {
             />
           </label>
 
-          <label for="kategori2">
+          <label htmlFor="kategori2">
             {' '}
             Sosial
             <input
@@ -101,7 +101,7 @@ export default function ProfilPage() {
             />
           </label>
 
-          <label for="kategori3">
+          <label htmlFor="kategori3">
             {' '}
             Lingkungan
             <input
@@ -113,7 +113,7 @@ export default function ProfilPage() {
             />
           </label>
 
-          <label for="ringkasan" className="my-3 font-semibold">
+          <label htmlFor="ringkasan" className="my-3 font-semibold">
             Ringkasan:
           </label>
           <textarea
@@ -123,7 +123,7 @@ export default function ProfilPage() {
             cols="3"
             rows="2"
           ></textarea>
-          <label for="deskripsi" className="mb-3 font-semibold">
+          <label htmlFor="deskripsi" className="mb-3 font-semibold">
             Deskripsi:
           </label>
           <textarea
@@ -133,7 +133,7 @@ export default function ProfilPage() {
             cols="5"
             rows="2"
           ></textarea>
-          <label for="alamat" className="mb-3 font-semibold">
+          <label htmlFor="alamat" className="mb-3 font-semibold">
             Alamat:
           </label>
           <textarea
@@ -165,4 +165,3 @@ export default function ProfilPage() {
     </>
   );
 }
-
