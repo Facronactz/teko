@@ -1,6 +1,7 @@
 // import ReactLoading from 'react-loading';
 // import { Suspense } from 'react';
 // import { Spinner } from 'react-bootstrap';
+// import LoadingX from '@teko/components/loading';
 import styles from './loading.module.css';
 
 export default function Loading() {

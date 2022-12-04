@@ -2,7 +2,7 @@
 
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Spinner from 'react-bootstrap/Spinner';
+import LoadingX from '@teko/components/loading';
 import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
 
@@ -10,11 +10,7 @@ export default function RightNav() {
   // eslint-disable-next-line no-unused-vars
   const { data: session, status } = useSession();
   if (status === 'loading') {
-    return (
-      <>
-        <Spinner animation="border" variant="success" />
-      </>
-    );
+    return <LoadingX type=''></LoadingX>;
   }
   if (status === 'authenticated') {
     return (

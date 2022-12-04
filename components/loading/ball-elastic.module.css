@@ -1,0 +1,133 @@
+.la_ball_elastic_dots,
+.la_ball_elastic_dots > div {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.la_ball_elastic_dots {
+    display: block;
+    font-size: 0;
+    color: #fff;
+}
+
+.la_ball_elastic_dots.la-dark {
+    color: #333;
+}
+
+.la_ball_elastic_dots > div {
+    display: inline-block;
+    float: none;
+    background-color: currentColor;
+    border: 0 solid currentColor;
+}
+
+.la_ball_elastic_dots {
+    width: 120px;
+    height: 10px;
+    font-size: 0;
+    text-align: center;
+}
+
+.la_ball_elastic_dots > div {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    white-space: nowrap;
+    border-radius: 100%;
+    -webkit-animation: ball_elastic_dots_anim 1s infinite;
+    -moz-animation: ball_elastic_dots_anim 1s infinite;
+    -o-animation: ball_elastic_dots_anim 1s infinite;
+    animation: ball_elastic_dots_anim 1s infinite;
+}
+
+.la_ball_elastic_dots.la-sm {
+    width: 60px;
+    height: 4px;
+}
+
+.la_ball_elastic_dots.la-sm > div {
+    width: 4px;
+    height: 4px;
+}
+
+.la_ball_elastic_dots.la-2x {
+    width: 240px;
+    height: 20px;
+}
+
+.la_ball_elastic_dots.la-2x > div {
+    width: 20px;
+    height: 20px;
+}
+
+.la_ball_elastic_dots.la-3x {
+    width: 360px;
+    height: 30px;
+}
+
+.la_ball_elastic_dots.la-3x > div {
+    width: 30px;
+    height: 30px;
+}
+
+/*
+ * Animation
+ */
+@-webkit-keyframes ball_elastic_dots_anim {
+    0%,
+    100% {
+        margin: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        margin: 0 5%;
+        -webkit-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+}
+@-moz-keyframes ball_elastic_dots_anim {
+    0%,
+    100% {
+        margin: 0;
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        margin: 0 5%;
+        -moz-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+}
+@-o-keyframes ball_elastic_dots_anim {
+    0%,
+    100% {
+        margin: 0;
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        margin: 0 5%;
+        -o-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+}
+@keyframes ball_elastic_dots_anim {
+    0%,
+    100% {
+        margin: 0;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        margin: 0 5%;
+        -webkit-transform: scale(0.65);
+        -moz-transform: scale(0.65);
+        -o-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+}

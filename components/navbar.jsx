@@ -7,13 +7,14 @@ import Fetcher from '@teko/helpers/fetcher';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
+import Skeleton from 'react-loading-skeleton';
 import RightNav from './navbar/rightNav';
 
 function MenuNavbar(props) {
   const menusFetcher = new Fetcher(`menus?current=${props.current}`);
   const { data, error } = useSWR(menusFetcher.url, menusFetcher.fetcher, menusFetcher.swrConfig);
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (!data) return <Skeleton width='100px' containerClassName='flex-grow: 1; flex-direction: row' count={4} />;
   return (
     data.map((menu) => (
       <Link
@@ -23,6 +24,7 @@ function MenuNavbar(props) {
             ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
             : 'mx-2 no-underline text-brand p-2 lg:text-lg'
         }
+        prefetch={true}
         active={menu.current.toString()}
         href={menu.href}
       >
