@@ -1,12 +1,10 @@
-import { assetPrefix } from '../next.config';
-
 class Fetcher {
     // eslint-disable-next-line object-curly-newline
     constructor(object) {
         if (Object.prototype.hasOwnProperty.call(object, 'url')) {
             // eslint-disable-next-line object-curly-newline
             const { url, id, data, ...options } = object;
-            this.url = `${assetPrefix}/api/${url}`;
+            this.url = `/api/${url}`;
             this.id = id;
             this.data = data;
             this.options = options;
@@ -15,7 +13,7 @@ class Fetcher {
             if (typeof object !== 'string') {
                 throw new Error('Invalid URL');
             }
-            this.url = `${assetPrefix}/api/${object}`;
+            this.url = `/api/${object}`;
         }
     }
 
