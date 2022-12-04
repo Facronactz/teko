@@ -6,6 +6,7 @@ import useSWR from 'swr';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Row, Card, Col } from 'react-bootstrap';
+import Skeleton from 'react-loading-skeleton';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
@@ -19,7 +20,11 @@ const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 function Stats() {
   const { data, error } = useSWR(statsFetcher.url, statsFetcher.fetcher, statsFetcher.swrConfig);
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (!data) {
+    return <Skeleton className='rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]'
+      containerClassName='flex-grow: 1; flex-direction: row'
+      count={4} />;
+  }
   return (
     data.map((stat) => (
       <div

@@ -5,15 +5,17 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import Fetcher from '@teko/helpers/fetcher';
 
-import { Navbar, Container, Nav } from 'react-bootstrap';
+// eslint-disable-next-line object-curly-newline
+import { Navbar, Container, Nav, Alert } from 'react-bootstrap';
 
 import Skeleton from 'react-loading-skeleton';
 import RightNav from './navbar/rightNav';
 
 function MenuNavbar(props) {
-  const menusFetcher = new Fetcher(`menus?current=${props.current}`);
+  const menusFetcher = new Fetcher({ url: `menus?current=${props.current}` });
   const { data, error } = useSWR(menusFetcher.url, menusFetcher.fetcher, menusFetcher.swrConfig);
-  if (error) return <div>failed to load</div>;
+  // TODO: ganti semua error lain menjadi seperti dibawah
+  if (error) return <Alert key='danger' variant='danger'> Error fetching data </Alert>;
   if (!data) return <Skeleton width='100px' containerClassName='flex-grow: 1; flex-direction: row' count={4} />;
   return (
     data.map((menu) => (

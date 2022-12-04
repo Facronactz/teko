@@ -1,6 +1,6 @@
 import LoadingX from '@teko/components/loading';
 
-export default function Loading() {
+export default function LoadingPage() {
   return (
     <div className='w-screen h-screen flex align-middle self-center justify-center justify-items-center justify-content-center'>
       <div className='m-auto'>
