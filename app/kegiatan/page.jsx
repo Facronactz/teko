@@ -5,8 +5,8 @@ import { use } from 'react';
 
 import { assetPrefix } from '@teko/next.config';
 
-import CustomNavbar from '@teko/components/navbar';
-import CustomFooter from '@teko/components/footer';
+import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
@@ -20,7 +20,7 @@ export default function KegiatanPage() {
   const kegiatans = use(getKegiatan());
   return (
     <>
-      <CustomNavbar current="Kegiatan"></CustomNavbar>
+      <TekoNavbar current="Kegiatan"></TekoNavbar>
 
       <h3 className="text-center mb-3 font-bold">Kategori</h3>
 
@@ -87,7 +87,7 @@ export default function KegiatanPage() {
             </div>
           </Nav.Item>
         </Nav> */}
-      <CustomFooter></CustomFooter>
+      <TekoFooter></TekoFooter>
     </>
   );
 }

@@ -1,18 +1,27 @@
 'use client';
 
-import { use } from 'react';
-
 import { Container, Row } from 'react-bootstrap';
-import { assetPrefix } from '@teko/next.config';
+import useSWR from 'swr';
+import Fetcher from '@teko/helpers/fetcher';
 
-const getData = async (q) => {
-  const res = await fetch(`${assetPrefix}/api/data?q=${q}`);
-  const data = await res.json();
-  return data;
+const Team = () => {
+  const teamsFetcher = new Fetcher('data?q=team');
+  const { data, error } = useSWR(teamsFetcher.url, teamsFetcher.fetcher, teamsFetcher.swrConfig);
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return (
+    data.map((member) => (
+      <p key={member.name} className="sm:mb-1">
+        <a href={member.linkedin} className="text-white no-underline">
+          {' '}
+          {member.name}
+        </a>
+      </p>
+    ))
+  );
 };
 
-function CustomFooter() {
-  const team = use(getData('team'));
+function TekoFooter() {
   return (
     <>
       <footer className="bg-brand text-white pt-5 pb-4 no-underline">
@@ -20,12 +29,12 @@ function CustomFooter() {
           <Row className="text-left">
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
               <h5 className="uppercase mb-4 font-semibold text-xl sm:text-2xl md:font-bold md:text-3xl">
-                    Teko
+                Teko
               </h5>
               <p>
-                    Here you can use rows and columns to organize your footer
-                    content. Lorem ipsum dolor sit amet, ital consectetur lorem
-                    ipsum dolor sit amet adipisicing elit.
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, ital consectetur lorem
+                ipsum dolor sit amet adipisicing elit.
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -33,44 +42,37 @@ function CustomFooter() {
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline ">
                   {' '}
-                        TheProviders
+                  TheProviders
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline">
                   {' '}
-                        Creativity
+                  Creativity
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline">
                   {' '}
-                        SourceFiles
+                  SourceFiles
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline">
                   {' '}
-                        bootstrap 5 alpha
+                  bootstrap 5 alpha
                 </a>
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
-                    Kontak
+                Kontak
               </h5>
-              {team.map((member) => (
-                <p key={member.name} className="sm:mb-1">
-                  <a href={member.linkedin} className="text-white no-underline">
-                    {' '}
-                    {member.name}
-                  </a>
-                </p>
-              ))}
+              <Team />
             </div>
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
-                    Alamat
+                Alamat
               </h5>
               <p className="sm:mb-1">New York, NY 2333, US</p>
               <p className="sm:mb-1">theproviders98@gmail.com</p>
@@ -88,4 +90,4 @@ function CustomFooter() {
   );
 }
 
-export default CustomFooter;
+export default TekoFooter;

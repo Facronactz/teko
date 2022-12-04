@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { use } from 'react';
 import Fetcher from '@teko/helpers/fetcher';
+import useSWR from 'swr';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Row, Card, Col } from 'react-bootstrap';
 
-import CustomNavbar from '@teko/components/navbar';
-import CustomFooter from '@teko/components/footer';
+import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 
 import hero from '@teko/public/image/hero.png';
 import teman from '@teko/public/image/teman.png';
@@ -16,15 +16,31 @@ import teman from '@teko/public/image/teman.png';
 // TODO: fetch data from API
 // ubah fetcher lain seperti dibawah ini
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
+function Stats() {
+  const { data, error } = useSWR(statsFetcher.url, statsFetcher.fetcher, statsFetcher.swrConfig);
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return (
+    data.map((stat) => (
+      <div
+        key={stat.name}
+        className="rounded-md relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
+      >
+        <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">
+          {stat.value}
+        </h1>
+        <p className="m-0 p-0 text-brand xxl:text-2xl">{stat.name}</p>
+      </div>
+    ))
+  );
+}
 
+// TODO ganti nama
 function BasicExample() {
-  const stats = use(statsFetcher.get());
-  // const stats = use(getData('stats'));
-
   return (
     <>
       {/* TODO pindah navbar ke layout dan ganti nama jadi TekoNavbar */}
-      <CustomNavbar current="Beranda"></CustomNavbar>
+      <TekoNavbar current="Beranda"></TekoNavbar>
       <header>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
@@ -50,17 +66,7 @@ function BasicExample() {
           </div>
           <Container fluid className="text-center">
             <div className="mt-[-60vmin] flex flex-md-row flex-wrap justify-center xs:mt-[-40vmin] s:mt-[-25vmin] sm:mt-[-20vmin]">
-              {stats.map((stat) => (
-                <div
-                  key={stat.name}
-                  className="rounded-md relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
-                >
-                  <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">
-                    {stat.value}
-                  </h1>
-                  <p className="m-0 p-0 text-brand xxl:text-2xl">{stat.name}</p>
-                </div>
-              ))}
+              <Stats />
             </div>
           </Container>
         </Container>
@@ -157,7 +163,7 @@ function BasicExample() {
       </main>
 
       {/* Pindah footer ke layout dan ganti nama jadi TekoFooter */}
-      <CustomFooter></CustomFooter>
+      <TekoFooter></TekoFooter>
     </>
   );
 }

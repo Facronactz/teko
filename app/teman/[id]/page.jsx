@@ -7,8 +7,8 @@ import { use } from 'react';
 
 import { Container, Card } from 'react-bootstrap';
 
-import CustomNavbar from '@teko/components/navbar';
-import CustomFooter from '@teko/components/footer';
+import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 // import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 import { assetPrefix } from '@teko/next.config';
 
@@ -25,7 +25,7 @@ function TemanPage({ params }) {
 
   return (
     <>
-      <CustomNavbar current="Teman"></CustomNavbar>
+      <TekoNavbar current="Teman"></TekoNavbar>
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
           <Image
@@ -71,7 +71,7 @@ function TemanPage({ params }) {
           </Card>
         ))}
       </Container>
-      <CustomFooter></CustomFooter>
+      <TekoFooter></TekoFooter>
     </>
   );
 }
