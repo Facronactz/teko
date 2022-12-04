@@ -9,7 +9,7 @@ import { Container, Button, ButtonGroup } from 'react-bootstrap';
 
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
-import CustomNavbar from '@teko/components/navbar';
+import TekoNavbar from '@teko/components/navbar';
 // import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 const getDetail = async (id) => {
@@ -22,7 +22,7 @@ export default function DetailKegiatanPage({ params }) {
 
   return (
     <>
-      <CustomNavbar current="Kegiatan"></CustomNavbar>
+      <TekoNavbar current="Kegiatan"></TekoNavbar>
       <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
       <Container className="bg-red flex flex-col lg:flex-row justify-center">
         <Image

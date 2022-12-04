@@ -2,16 +2,37 @@
 
 import Link from 'next/link';
 
-import { use } from 'react';
+import useSWR from 'swr';
 import Fetcher from '@teko/helpers/fetcher';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
 import RightNav from './navbar/rightNav';
 
-function CustomNavbar(props) {
+function MenuNavbar(props) {
   const menusFetcher = new Fetcher(`menus?current=${props.current}`);
-  const menus = use(menusFetcher.get());
+  const { data, error } = useSWR(menusFetcher.url, menusFetcher.fetcher, menusFetcher.swrConfig);
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return (
+    data.map((menu) => (
+      <Link
+        key={menu.id}
+        className={
+          menu.current
+            ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
+            : 'mx-2 no-underline text-brand p-2 lg:text-lg'
+        }
+        active={menu.current.toString()}
+        href={menu.href}
+      >
+        {menu.name}
+      </Link>
+    ))
+  );
+}
+
+function TekoNavbar(props) {
   return (
     <>
       <Navbar
@@ -30,20 +51,7 @@ function CustomNavbar(props) {
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav">
             <Nav className="mx-auto">
-              {menus && menus.map((menu) => (
-                <Link
-                  key={menu.id}
-                  className={
-                    menu.current
-                      ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
-                      : 'mx-2 no-underline text-brand p-2 lg:text-lg'
-                  }
-                  active={menu.current.toString()}
-                  href={menu.href}
-                >
-                  {menu.name}
-                </Link>
-              ))}
+              <MenuNavbar current={props.current} />
             </Nav>
             <div className="flex flex-col md:flex-row ">
               <RightNav></RightNav>
@@ -55,4 +63,4 @@ function CustomNavbar(props) {
   );
 }
 
-export default CustomNavbar;
+export default TekoNavbar;

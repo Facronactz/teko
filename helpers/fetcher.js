@@ -4,19 +4,43 @@ class Fetcher {
     // eslint-disable-next-line object-curly-newline
     constructor(object) {
         if (Object.prototype.hasOwnProperty.call(object, 'url')) {
-            console.log('object', object);
             // eslint-disable-next-line object-curly-newline
             const { url, id, data, ...options } = object;
             this.url = `${assetPrefix}/api/${url}`;
             this.id = id;
             this.data = data;
             this.options = options;
+            // this.fetcher = () => this.get();
         } else {
             if (typeof object !== 'string') {
                 throw new Error('Invalid URL');
             }
             this.url = `${assetPrefix}/api/${object}`;
         }
+    }
+
+    swrConfig = {
+        revalidateOnFocus: true,
+        revalidateOnReconnect: true,
+        refreshInterval: 30000,
+        onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+            if (error.status === 401) return;
+            if (error.status === 404) return;
+            if (retryCount >= 10) return;
+            setTimeout(() => revalidate({ retryCount }), 5000);
+        },
+    };
+
+    // eslint-disable-next-line class-methods-use-this
+    async fetcher(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            const error = new Error('An error occurred while fetching the data.');
+            error.info = await response.json();
+            error.status = response.status;
+            throw error;
+        }
+        return response.json();
     }
 
     async get() {

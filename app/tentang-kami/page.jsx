@@ -7,8 +7,8 @@ import { use } from 'react';
 import { Container } from 'react-bootstrap';
 
 import { assetPrefix } from '@teko/next.config';
-import CustomNavbar from '@teko/components/navbar';
-import CustomFooter from '@teko/components/footer';
+import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 
 import { AiFillMail, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
@@ -22,7 +22,7 @@ export default function DaftarLembaga() {
   const team = use(getData('team'));
   return (
     <>
-      <CustomNavbar current="Tentang Kami"></CustomNavbar>
+      <TekoNavbar current="Tentang Kami"></TekoNavbar>
 
       <Container className="my-20 text-center lg:flex lg:flex-row">
         <h1 className="font-bold text-brand text-8xl lg:mr-10 lg:my-auto">
@@ -88,7 +88,7 @@ export default function DaftarLembaga() {
           </figure>
         ))}
       </Container>
-      <CustomFooter></CustomFooter>
+      <TekoFooter></TekoFooter>
     </>
   );
 }

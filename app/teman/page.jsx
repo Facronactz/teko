@@ -13,8 +13,8 @@ import {
   Card,
 } from 'react-bootstrap';
 
-import CustomNavbar from '@teko/components/navbar';
-import CustomFooter from '@teko/components/footer';
+import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 import { assetPrefix } from '@teko/next.config';
 
 const getTeman = async () => {
@@ -27,7 +27,7 @@ export default function TemanPage() {
 
   return (
     <>
-      <CustomNavbar current="Teman"></CustomNavbar>
+      <TekoNavbar current="Teman"></TekoNavbar>
       <main className="mx-5 mt-3">
         <InputGroup className="">
           <Form.Control
@@ -75,7 +75,7 @@ export default function TemanPage() {
           </Row>
         </Container>
       </section>
-      <CustomFooter></CustomFooter>
+      <TekoFooter></TekoFooter>
     </>
   );
 }
