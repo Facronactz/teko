@@ -3,11 +3,9 @@
 import Link from 'next/link';
 
 import { use } from 'react';
-import useFetch from 'use-http';
 import Fetcher from '@teko/helpers/fetcher';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { assetPrefix } from '@teko/next.config';
 
 import RightNav from './navbar/rightNav';
 
