@@ -3,20 +3,17 @@
 import Link from 'next/link';
 
 import { use } from 'react';
+import useFetch from 'use-http';
+import Fetcher from '@teko/helpers/fetcher';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { assetPrefix } from '@teko/next.config';
 
 import RightNav from './navbar/rightNav';
 
-const getMenus = async (q) => {
-  const res = await fetch(`${assetPrefix}/api/menus?current=${q}`);
-  const data = await res.json();
-  return data;
-};
-
 function CustomNavbar(props) {
-  const menus = use(getMenus(props.current));
+  const menusFetcher = new Fetcher(`menus?current=${props.current}`);
+  const menus = use(menusFetcher.get());
   return (
     <>
       <Navbar
@@ -35,7 +32,7 @@ function CustomNavbar(props) {
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav">
             <Nav className="mx-auto">
-              {menus.map((menu) => (
+              {menus && menus.map((menu) => (
                 <Link
                   key={menu.id}
                   className={

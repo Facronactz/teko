@@ -2,11 +2,21 @@ import { assetPrefix } from '../next.config';
 
 class Fetcher {
     // eslint-disable-next-line object-curly-newline
-    constructor({ url, data, id, ...options }) {
-        this.url = `${assetPrefix}/api/${url}`;
-        this.id = id;
-        this.data = data;
-        this.options = options;
+    constructor(object) {
+        if (Object.prototype.hasOwnProperty.call(object, 'url')) {
+            console.log('object', object);
+            // eslint-disable-next-line object-curly-newline
+            const { url, id, data, ...options } = object;
+            this.url = `${assetPrefix}/api/${url}`;
+            this.id = id;
+            this.data = data;
+            this.options = options;
+        } else {
+            if (typeof object !== 'string') {
+                throw new Error('Invalid URL');
+            }
+            this.url = `${assetPrefix}/api/${object}`;
+        }
     }
 
     async get() {
