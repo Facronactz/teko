@@ -10,6 +10,7 @@ import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
 import { RiLogoutBoxRFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
+import Info from './info';
 
 export default function AdminPage() {
   return (
@@ -22,8 +23,8 @@ export default function AdminPage() {
               src={spanduk}
               alt="wokowko"
             />
-            <h3 className="m-auto text-brand">Admin-1</h3>
-
+            {/* TODO desain ini */}
+            <Info />
             <Link href={'/'} className="border-brand w-20 h-20 my-auto">
               {' '}
               <RiLogoutBoxRFill className="h-full w-full text-brand" />

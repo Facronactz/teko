@@ -10,6 +10,7 @@ import { Container, Table, Button } from 'react-bootstrap';
 import { GiThreeFriends } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
+import { GoPlus } from 'react-icons/go';
 
 const getTemans = async () => {
   const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
@@ -59,6 +60,8 @@ export default function TemanConfig() {
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
           <GiThreeFriends className="mr-2" /> Teman Config
+          {/* TODO button new teman ganti link dan arahain ke page new */}
+          <Button>New Teman <GoPlus></GoPlus></Button>
         </h2>
         <Table striped bordered hover>
           <thead>
