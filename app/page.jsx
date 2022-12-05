@@ -2,10 +2,16 @@
 
 import Image from 'next/image';
 import Fetcher from '@teko/helpers/fetcher';
+import Link from 'next/link';
 import useSWR from 'swr';
 
 // eslint-disable-next-line object-curly-newline
-import { Container, Row, Card, Col } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+} from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 
 import TekoNavbar from '@teko/components/navbar';
@@ -40,6 +46,61 @@ function Stats() {
       <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">{stat.value}</h1>
       <p className="m-0 p-0 text-brand xxl:text-2xl">{stat.name}</p>
     </div>
+  ));
+}
+
+const temansFetcher = new Fetcher({ url: 'teman' });
+function Temans() {
+  const { data, error } = useSWR(
+    temansFetcher.url,
+    temansFetcher.fetcher,
+    temansFetcher.swrConfig
+  );
+  if (error) return <div>failed to load</div>;
+  if (!data) {
+    return [1, 2, 3, 4].map(() => (
+      <Col className="p-0">
+        <Card>
+          <Skeleton className="m-3 w-[85%] h-[205px] md:h-[200px]" />
+          <Card.Body>
+            <Card.Title>
+              <Skeleton />
+            </Card.Title>
+            <Card.Text>
+              <Skeleton />
+            </Card.Text>
+            <Link href={'#'} className="rounded">
+              <Skeleton width={60} height={30} />
+            </Link>
+          </Card.Body>
+        </Card>
+      </Col>
+    ));
+  }
+  return data.map((teman) => (
+    <Col className="p-0" key={teman.nama}>
+      <Card>
+        <Card.Img
+          variant="top"
+          src={teman.logo}
+          width="200"
+          height="200"
+          alt="..."
+        />
+        <Card.Body>
+          <Card.Title>{teman.nama} </Card.Title>
+          <Card.Text>{teman.ringkasan}</Card.Text>
+          <Link
+            href={{
+              pathname: `/teman/${teman.id}`,
+            }}
+            className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
+          >
+            Lihat
+          </Link>
+        </Card.Body>
+      </Card>
+    </Col>
   ));
 }
 
@@ -109,26 +170,7 @@ function BerandaPage() {
           {/* TODO buat ini sebagai komponen dinamis */}
           <Container className="grid p-0">
             <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                <Col className="p-0" key={item}>
-                  <Card>
-                    <Card.Img
-                      variant="top"
-                      src="https://via.placeholder.com/200"
-                      width="200"
-                      height="200"
-                      alt="..."
-                    />
-                    <Card.Body>
-                      <Card.Title>Nama </Card.Title>
-                      <Card.Text>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the cards content.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+              <Temans />
             </Row>
           </Container>
         </section>
