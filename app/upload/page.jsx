@@ -1,43 +1,29 @@
 'use client';
 
 import { useState } from 'react';
-
-const getUploadUrl = async (fileName) => {
-  const res = await fetch(`http://localhost:3000/api/storage?file=${fileName}`, {
-    method: 'POST',
-  });
-  return res.json();
-};
-
-const uploadtoS3 = async (url, body) => {
-  const res = await fetch(url, {
-    method: 'PUT',
-    body,
-  });
-  return res.ok;
-};
+import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 
 export default function Upload() {
-  const [uploaded, setUploaded] = useState(false);
-  const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
   const [name, setName] = useState('');
 
   const uploadPhoto = async (e) => {
-    setUploading(true);
+    setLoading(true);
     const file = e.target.files?.[0];
     const fileName = encodeURIComponent(file.name);
 
     const url = await getUploadUrl(fileName);
-    const upload = await uploadtoS3(url, file);
+    const upload = await uploadtoStorage(url, file);
 
-    const imageURL = `${process.env.STORAGE_URL}/${fileName}`;
+    const imageURL = `${process.env.STORAGE_URL}/teko/${fileName}`;
 
     if (upload) {
       setName(imageURL);
-      setUploading(false);
-      setUploaded(true);
+      setLoading(false);
     } else {
-      setUploaded(false);
+      setError('Something went wrong');
+      setLoading(false);
     }
   };
 
@@ -49,8 +35,9 @@ export default function Upload() {
         type="file"
         accept="image/png, image/jpeg"
       />
-      {uploading && <p>Uploading...</p>}
-      {uploaded && <p>Uploaded!</p>}
+      {error && <p>{error}</p>}
+      {loading && <p>Uploading...</p>}
+      {name && <p>Uploaded!</p>}
       {name && <img src={name} alt={name} />}
     </>
   );
