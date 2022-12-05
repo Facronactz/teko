@@ -8,7 +8,7 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 
 import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
-import { RiLogoutBoxRFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
+import { RiArrowGoBackFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
 import Info from './info';
 
@@ -23,11 +23,9 @@ export default function AdminPage() {
               src={spanduk}
               alt="wokowko"
             />
-            {/* TODO desain ini */}
             <Info />
             <Link href={'/'} className="border-brand w-20 h-20 my-auto">
-              {' '}
-              <RiLogoutBoxRFill className="h-full w-full text-brand" />
+              <RiArrowGoBackFill className="h-full w-full text-brand" />
             </Link>
           </Container>
         </Container>
