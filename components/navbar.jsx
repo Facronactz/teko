@@ -16,17 +16,18 @@ function MenuNavbar(props) {
   const { data, error } = useSWR(
     menusFetcher.url,
     menusFetcher.fetcher,
-    menusFetcher.swrConfig
+    menusFetcher.swrConfig,
   );
   // TODO: ganti semua error lain menjadi seperti dibawah
-  if (error)
+  if (error) {
     return (
       <Alert className="m-0" key="danger" variant="danger">
         {' '}
         Terjadi kesalahan saat mengambil data{' '}
       </Alert>
     );
-  if (!data)
+  }
+  if (!data) {
     return (
       <Skeleton
         width="100px"
@@ -34,6 +35,7 @@ function MenuNavbar(props) {
         count={4}
       />
     );
+  }
   return data.map((menu) => (
     <Link
       key={menu.id}
