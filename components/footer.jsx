@@ -32,7 +32,7 @@ function TekoFooter() {
                 Teko
               </h5>
               <p>
-                Platform ini dapat memberikan bantuan untuk pengumpulan dana dan prasana pengenalan untuk komunitas di Indonesia. 
+                Platform ini dapat memberikan bantuan untuk pengumpulan dana dan prasana pengenalan untuk komunitas di Indonesia.
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
