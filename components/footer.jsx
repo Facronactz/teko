@@ -6,19 +6,21 @@ import Fetcher from '@teko/helpers/fetcher';
 
 const Team = () => {
   const teamsFetcher = new Fetcher('data?q=team');
-  const { data, error } = useSWR(teamsFetcher.url, teamsFetcher.fetcher, teamsFetcher.swrConfig);
+  const { data, error } = useSWR(
+    teamsFetcher.url,
+    teamsFetcher.fetcher,
+    teamsFetcher.swrConfig
+  );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) return <div>Loading...</div>;
-  return (
-    data.map((member) => (
-      <p key={member.name} className="sm:mb-1">
-        <a href={member.linkedin} className="text-white no-underline">
-          {' '}
-          {member.name}
-        </a>
-      </p>
-    ))
-  );
+  return data.map((member) => (
+    <p key={member.name} className="sm:mb-1">
+      <a href={member.linkedin} className="text-white no-underline">
+        {' '}
+        {member.name}
+      </a>
+    </p>
+  ));
 };
 
 function TekoFooter() {
@@ -32,7 +34,8 @@ function TekoFooter() {
                 Teko
               </h5>
               <p>
-                Platform ini dapat memberikan bantuan untuk pengumpulan dana dan prasana pengenalan untuk komunitas di Indonesia.
+                Platform yang memberikan informasi mengenai organisasi yang
+                bergerak di Indonesia untuk diketahui masyarakat luas.
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -66,7 +69,10 @@ function TekoFooter() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Alamat
               </h5>
-              <p className="sm:mb-1">Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154</p>
+              <p className="sm:mb-1">
+                Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung,
+                Jawa Barat 40154
+              </p>
               <p className="sm:mb-1">Teko@gmail.com</p>
               <p className="sm:mb-1">+62 8122443398</p>
             </div>

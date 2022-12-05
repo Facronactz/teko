@@ -63,12 +63,12 @@ function BerandaPage() {
             <div className="absolute w-full h-full"></div>
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="mb-2 text-3xl text-white lg:text-4xl xxl:text-5xl">
-                Ada berapa sih TEMAN Kami?
+                Ada apa di Teko?
               </h1>
               <p className="text-sm text-white xs:text-base lg:text-xl xxl:text-2xl">
-                Kami selalu menghadirkan layanan yang menarik yang dapat
-                membantu TEMAN kami <br></br> demi keberhasilan kegiatan yang
-                diselenggarakan oleh komunitas untuk masyarakat
+                Menghadirkan layanan informasi yang dapat membantu TEMAN kami{' '}
+                <br></br> juga keberhasilan bersama yang diselenggarakan oleh
+                TEMAN untuk masyarakat
               </p>
             </div>
           </div>
