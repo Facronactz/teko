@@ -2,33 +2,16 @@
 
 import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-import { use, useState, useRef } from 'react';
-import { assetPrefix } from '@teko/next.config';
-
-const getUploadUrl = async (fileName) => {
-  const res = await fetch(`${assetPrefix}/api/storage?file=${fileName}`, {
-    cache: 'no-cache',
-    method: 'POST',
-  });
-  return res.json();
-};
-
-const uploadtoS3 = async (url, body) => {
-  const res = await fetch(url, {
-    method: 'PUT',
-    body,
-  });
-  return res.ok;
-};
-
-const getTeman = async (id) => {
-  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`);
-  return data.json();
-};
+import { useState, useRef } from 'react';
+import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
+import Fetcher from '@teko/helpers/fetcher';
+import useSWR from 'swr';
+import Image from 'next/image';
 
 const uploadtoChange = async (data) => {
-  const res = await fetch(`${assetPrefix}/api/teman`, {
+  const res = await fetch('/api/teman', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -40,32 +23,33 @@ const uploadtoChange = async (data) => {
 };
 
 export default function TampilTeman({ params }) {
-  const teman = use(getTeman(params.id));
+  const temanFetcher = new Fetcher(`teman?id=${params.id}`);
+  const router = useRouter();
+  const { data } = useSWR(temanFetcher.url, temanFetcher.fetcher);
 
-  const [uploaded, setUploaded] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [name, setName] = useState('');
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+  const [logo, setLogo] = useState(null);
 
   const uploadPhoto = async (e) => {
-    setUploading(true);
+    setLoading(true);
     const file = e.target.files?.[0];
-    const fileName = encodeURIComponent(file.name);
+    const fileName = `teman/${params.id}`;
 
     const url = await getUploadUrl(fileName);
-    const upload = await uploadtoS3(url, file);
+    const upload = await uploadtoStorage(url, file);
 
-    const imageURL = `${process.env.STORAGE_URL}/${fileName}`;
+    const imageURL = `${process.env.STORAGE_URL}/teko/${fileName}`;
 
     if (upload) {
-      setName(imageURL);
-      setUploading(false);
-      setUploaded(true);
+      setLogo(imageURL);
+      setLoading(false);
     } else {
-      setUploaded(false);
+      setError('Something went wrong');
+      setLoading(false);
     }
   };
 
-  // const idRef = useRef();
   const namaRef = useRef();
   const deskripsiRef = useRef();
   const ringkasanRef = useRef();
@@ -75,8 +59,8 @@ export default function TampilTeman({ params }) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const data = {
-      id: teman.id,
+    const upload = {
+      id: data.id,
       data: {
         nama: namaRef.current.value,
         deskripsi: deskripsiRef.current.value,
@@ -86,9 +70,12 @@ export default function TampilTeman({ params }) {
         logo: logoRef.current.value,
       },
     };
-    await uploadtoChange(data);
+    await uploadtoChange(upload);
   }
 
+  // TODO buat loading dan error
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
   return (
     <>
       <Link
@@ -98,24 +85,16 @@ export default function TampilTeman({ params }) {
         Kembali
       </Link>
       <Container className="m-auto">
+        <Image width={150} height={150} key={loading} src={data.logo} alt={data.nama} onClick={() => router.refresh()} />
         <form onSubmit={onSubmit} className="grid">
-          <label className="font-semibold">id:</label>
-          {/* <input
-            className="border border-brand my-2 rounded px-2"
-            type="text"
-            id="first"
-            name="first"
-            defaultValue={teman.id}
-            ref={idRef}
-            disabled
-          /> */}
           <label className="font-semibold">Nama:</label>
           <input
             className="border border-brand my-2 rounded px-2"
             type="text"
             id="first"
+            // FIXME ini name apaan?
             name="first"
-            defaultValue={teman.nama}
+            defaultValue={data.nama}
             ref={namaRef}
           />
           <label className="font-semibold">No Telepon:</label>
@@ -124,7 +103,7 @@ export default function TampilTeman({ params }) {
             type="number"
             id="last"
             name="last"
-            defaultValue={teman.telp}
+            defaultValue={data.telp}
             ref={teleponRef}
           />
 
@@ -135,7 +114,7 @@ export default function TampilTeman({ params }) {
             id="ringkasan"
             cols="3"
             rows="2"
-            defaultValue={teman.ringkasan}
+            defaultValue={data.ringkasan}
             ref={ringkasanRef}
           ></textarea>
           <label className="mb-3 font-semibold">Deskripsi:</label>
@@ -145,7 +124,7 @@ export default function TampilTeman({ params }) {
             id="deskripsi"
             cols="5"
             rows="2"
-            defaultValue={teman.deskripsi}
+            defaultValue={data.deskripsi}
             ref={deskripsiRef}
           ></textarea>
           <label className="mb-3 font-semibold">Alamat:</label>
@@ -155,7 +134,7 @@ export default function TampilTeman({ params }) {
             id="alamat"
             cols="5"
             rows="2"
-            defaultValue={teman.alamat}
+            defaultValue={data.alamat}
             ref={alamatRef}
           ></textarea>
 
@@ -165,7 +144,7 @@ export default function TampilTeman({ params }) {
             type="text"
             id="logoURL"
             name="logoURL"
-            defaultValue={teman.logo}
+            defaultValue={data.logo}
             ref={logoRef}
           />
           <p>atau</p>
@@ -174,9 +153,10 @@ export default function TampilTeman({ params }) {
             type="file"
             accept="image/png, image/jpeg"
           />
-          {uploading && <p>Uploading...</p>}
-          {uploaded && <p>Uploaded!</p>}
-          {name && <img src={name} alt={name} />}
+          {error && <p>{error}</p>}
+          {/* TODO ganti loading */}
+          {loading && <p>Uploading...</p>}
+          {logo && <p>Uploaded!</p>}
 
           <Button
             type="submit"

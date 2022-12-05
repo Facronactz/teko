@@ -46,7 +46,7 @@ class Kegiatan {
         }
         try {
             const kegiatanId = result.id;
-            const banner = data.banner ? data.banner : `${process.env.STORAGE_URL}/${kegiatanId}`;
+            const banner = data.banner ? data.banner : `${process.env.STORAGE_URL}/teko/kegiatan/${kegiatanId}`;
             result.banner = banner;
             if (Array.isArray(kategori)) {
                 kategori.forEach(async (item) => this.updateKategori(kegiatanId, banner, item));

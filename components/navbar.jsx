@@ -31,6 +31,7 @@ function MenuNavbar(props) {
     return (
       <Skeleton
         width="100px"
+        highlightColor='#315343'
         containerClassName="flex flex-row flex-1"
         count={4}
       />

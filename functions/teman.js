@@ -56,7 +56,7 @@ class Teman {
         }
         try {
             const lembagaId = result.id;
-            const logo = data.logo ? data.logo : `${process.env.STORAGE_URL}/${lembagaId}`;
+            const logo = data.logo ? data.logo : `${process.env.STORAGE_URL}/teko/teman/${lembagaId}`;
             result.logo = logo;
             kategori.forEach(async (item) => prisma.lembaga.update({
                 where: {
