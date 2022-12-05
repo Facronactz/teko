@@ -19,7 +19,7 @@ import teman from '@teko/public/image/teman.png';
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 function Stats() {
   const { data, error } = useSWR(statsFetcher.url, statsFetcher.fetcher, statsFetcher.swrConfig);
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
     return <Skeleton className='rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]'
       containerClassName='flex-grow: 1; flex-direction: row'
@@ -49,7 +49,7 @@ function BasicExample() {
       <header>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
-            Bersama Membangun Negeri
+            Bersama Kita Membangun Negeri
           </h1>
           <Image className="w-full" src={hero} alt="gambar hero" />
         </section>
@@ -61,11 +61,10 @@ function BasicExample() {
             <div className="absolute w-full h-full"></div>
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="mb-2 text-3xl text-white lg:text-4xl xxl:text-5xl">
-                Ada apa aja sih?
+                Ada berapa sih TEMAN Kami?
               </h1>
               <p className="text-sm text-white xs:text-base lg:text-xl xxl:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                eum?
+                Kami selalu menghadirkan layanan yang menarik yang dapat membantu TEMAN kami <br></br> demi keberhasilan kegiatan yang diselenggarakan oleh komunitas untuk masyarakat
               </p>
             </div>
           </div>
@@ -85,12 +84,8 @@ function BasicExample() {
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
                   {' '}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi vitae, tenetur quidem eum aliquid vel labore sint
-                  placeat ad deserunt consectetur fugit ullam. Eius unde neque
-                  ducimus obcaecati ipsum quos vero totam recusandae hic
-                  expedita nemo sit, illum harum. Quisquam impedit ullam itaque
-                  facere et ad molestiae quod reprehenderit excepturi!{' '}
+                  Adalah suatu sebutan untuk kami terhadap komunitas yang menjalankan kegiatannya untuk mengabdi kepada masyarakat. Tentunya banyak sekali Teman Kita yang sudah membantu dan terdaftar dalam web kami
+                  {' '}
                   <span className="font-extrabold">Lihat Teman</span>
                 </p>
               </section>
@@ -133,12 +128,12 @@ function BasicExample() {
         </section>
         <section className="flex justify-center my-5">
           <div className="mx-auto">
-            <h2 className="text-2xl xs:text-3xl md:text-4xl">Mari,</h2>
+            <h2 className="text-2xl xs:text-3xl md:text-4xl">Mari kita,</h2>
             <p className="text-xl xs:text-2xl md:text-3xl">
-              bersama membantu, karna
+              bersama membantu, untuk
               <br />
               <q className="bg-brand text-white text-xxl font-bold p-1.5">
-                Kita itu Penting
+                Indonesia yang lebih baik!
               </q>
             </p>
           </div>

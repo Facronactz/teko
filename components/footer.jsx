@@ -7,8 +7,8 @@ import Fetcher from '@teko/helpers/fetcher';
 const Team = () => {
   const teamsFetcher = new Fetcher('data?q=team');
   const { data, error } = useSWR(teamsFetcher.url, teamsFetcher.fetcher, teamsFetcher.swrConfig);
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error) return <div>Gagal untuk memuat</div>;
+  if (!data) return <div>Loading...</div>;
   return (
     data.map((member) => (
       <p key={member.name} className="sm:mb-1">
@@ -32,35 +32,27 @@ function TekoFooter() {
                 Teko
               </h5>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, ital consectetur lorem
-                ipsum dolor sit amet adipisicing elit.
+                Platform ini dapat memberikan bantuan untuk pengumpulan dana dan prasana pengenalan untuk komunitas di Indonesia. 
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h5 className="uppercase mb-6 font-semibold md:text-xl">Pitur</h5>
+              <h5 className="uppercase mb-6 font-semibold md:text-xl">Fitur</h5>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline ">
                   {' '}
-                  TheProviders
+                  Donasi
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline">
                   {' '}
-                  Creativity
+                  Kegiatan Teman
                 </a>
               </p>
               <p className="sm:mb-1">
                 <a href="#" className="text-white no-underline">
                   {' '}
-                  SourceFiles
-                </a>
-              </p>
-              <p className="sm:mb-1">
-                <a href="#" className="text-white no-underline">
-                  {' '}
-                  bootstrap 5 alpha
+                  List Teman
                 </a>
               </p>
             </div>
@@ -74,15 +66,14 @@ function TekoFooter() {
               <h5 className="uppercase mb-6 font-semibold md:text-xl">
                 Alamat
               </h5>
-              <p className="sm:mb-1">New York, NY 2333, US</p>
-              <p className="sm:mb-1">theproviders98@gmail.com</p>
-              <p className="sm:mb-1">+92 3162859445</p>
-              <p className="sm:mb-1">+01 335 633 77</p>
+              <p className="sm:mb-1">Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154</p>
+              <p className="sm:mb-1">Teko@gmail.com</p>
+              <p className="sm:mb-1">+62 8122443398</p>
             </div>
           </Row>
           <hr className="my-3" />
           <div className="text-center">
-            <p> Copyright ©2022 All rights reserved | Teko</p>
+            <p> Copyright ©2022 All rights reserved | Teko&#8482;</p>
           </div>
         </Container>
       </footer>
