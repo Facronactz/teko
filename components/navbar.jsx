@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import useSWR from 'swr';
 import Fetcher from '@teko/helpers/fetcher';
 
 // eslint-disable-next-line object-curly-newline
 import { Navbar, Container, Nav, Alert } from 'react-bootstrap';
+import logo from '@teko/public/image/logo.png';
 
 import Skeleton from 'react-loading-skeleton';
 import RightNav from './navbar/rightNav';
@@ -29,9 +31,9 @@ function MenuNavbar(props) {
   }
   if (!data) {
     return (
+      // highligh skeleton default saja~
       <Skeleton
         width="100px"
-        highlightColor='#315343'
         containerClassName="flex flex-row flex-1"
         count={4}
       />
@@ -65,8 +67,9 @@ function TekoNavbar(props) {
         className="w-full z-50 sticky top-0 bg-white drop-shadow mb-3"
       >
         <Container fluid>
-          <Navbar.Brand href="/">
-            <h1 className="text-brand ml-2 text-2xl font-extrabold lg:text-4xl">
+          <Navbar.Brand href="/" className="flex flex-row m-auto">
+            <Image className="w-[32px] h-[32px] m-auto" src={logo} alt="logo" />
+            <h1 className="text-brand ml-2 mb-0 text-2xl font-extrabold lg:text-4xl">
               Teko
             </h1>
           </Navbar.Brand>

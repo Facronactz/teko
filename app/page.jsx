@@ -6,12 +6,7 @@ import Link from 'next/link';
 import useSWR from 'swr';
 
 // eslint-disable-next-line object-curly-newline
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-} from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 
 import TekoNavbar from '@teko/components/navbar';
@@ -112,7 +107,7 @@ export default function BerandaPage() {
       <header>
         <section className="relative">
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
-            Bersama Kita Membangun Negeri
+            Bersama Membangun Negeri
           </h1>
           <Image className="w-full" src={hero} alt="gambar hero" />
         </section>
@@ -120,7 +115,7 @@ export default function BerandaPage() {
 
       <main>
         <Container fluid className="p-0">
-          <div className="w-full h-[110vmin] relative xs:h-[80vmin] s:h-[60vmin] sm:h-[55vmin]">
+          <div className="w-full h-[110vmin] relative xs:h-[80vmin] s:h-[60vmin]">
             <div className="absolute w-full h-full"></div>
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="mb-2 text-3xl text-white lg:text-4xl xxl:text-5xl">
@@ -134,7 +129,7 @@ export default function BerandaPage() {
             </div>
           </div>
           <Container fluid className="text-center">
-            <div className="mt-[-60vmin] flex flex-md-row flex-wrap justify-center xs:mt-[-40vmin] s:mt-[-25vmin] sm:mt-[-20vmin]">
+            <div className="mt-[-50vmin] flex flex-md-row flex-wrap justify-center xs:mt-[-40vmin] s:mt-[-25vmin] sm:mt-[-17vmin]">
               <Stats />
             </div>
           </Container>
@@ -152,8 +147,14 @@ export default function BerandaPage() {
                   Adalah suatu sebutan untuk kami terhadap komunitas yang
                   menjalankan kegiatannya untuk mengabdi kepada masyarakat.
                   Tentunya banyak sekali Teman Kita yang sudah membantu dan
-                  terdaftar dalam web kami{' '}
-                  <span className="font-extrabold">Lihat Teman</span>
+                  terdaftar dalam web kami
+                  <br />
+                  <Link
+                    href={'/teman'}
+                    className="font-extrabold no-underline text-brand"
+                  >
+                    Lihat Teman
+                  </Link>
                 </p>
               </section>
               <div className="w-full flex justify-center">
