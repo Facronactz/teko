@@ -9,21 +9,14 @@ import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Image from 'next/image';
-
-const uploadtoChange = async (data) => {
-  const res = await fetch('/api/teman', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-  const data2 = await res.json();
-  return data2;
-};
+import Swal from 'sweetalert2';
 
 export default function TampilTeman({ params }) {
-  const temanFetcher = new Fetcher(`teman?id=${params.id}`);
+  const temanFetcher = new Fetcher({
+    id: params.id,
+    url: `teman?id=${params.id}`,
+  });
+
   const router = useRouter();
   const { data } = useSWR(temanFetcher.url, temanFetcher.fetcher);
 
@@ -50,6 +43,10 @@ export default function TampilTeman({ params }) {
     }
   };
 
+  const uploadData = (editedData) => {
+    temanFetcher.put(editedData);
+  };
+
   const namaRef = useRef();
   const deskripsiRef = useRef();
   const ringkasanRef = useRef();
@@ -59,18 +56,35 @@ export default function TampilTeman({ params }) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const upload = {
-      id: data.id,
-      data: {
-        nama: namaRef.current.value,
-        deskripsi: deskripsiRef.current.value,
-        ringkasan: ringkasanRef.current.value,
-        telp: teleponRef.current.value,
-        alamat: alamatRef.current.value,
-        logo: logoRef.current.value,
-      },
-    };
-    await uploadtoChange(upload);
+    const swal = await Swal.fire({
+      // TODO ganti ke bahasa indo
+      title: 'Simpan data',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Save it!',
+    });
+    if (swal.isConfirmed) {
+      const upload = {
+        id: data.id,
+        data: {
+          nama: namaRef.current.value,
+          deskripsi: deskripsiRef.current.value,
+          ringkasan: ringkasanRef.current.value,
+          telp: teleponRef.current.value,
+          alamat: alamatRef.current.value,
+          logo: logoRef.current.value,
+        },
+      };
+      await uploadData(upload);
+      Swal.fire(
+        'Tersimpan!',
+        'Your file has been simpaned.',
+        'success',
+      );
+    }
   }
 
   // TODO buat loading dan error
@@ -85,7 +99,7 @@ export default function TampilTeman({ params }) {
         Kembali
       </Link>
       <Container className="m-auto">
-        <Image width={150} height={150} key={loading} src={data.logo} alt={data.nama} onClick={() => router.refresh()} />
+        <Image width={150} height={150} src={data.logo} alt={data.nama} onClick={() => router.refresh()} />
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
