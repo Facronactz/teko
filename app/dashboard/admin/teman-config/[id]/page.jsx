@@ -10,6 +10,7 @@ import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
+import LoadingX from '@teko/components/loading';
 
 export default function TampilTeman({ params }) {
   const temanFetcher = new Fetcher({
@@ -68,15 +69,12 @@ export default function TampilTeman({ params }) {
     });
     if (swal.isConfirmed) {
       const upload = {
-        id: data.id,
-        data: {
-          nama: namaRef.current.value,
-          deskripsi: deskripsiRef.current.value,
-          ringkasan: ringkasanRef.current.value,
-          telp: teleponRef.current.value,
-          alamat: alamatRef.current.value,
-          logo: logoRef.current.value,
-        },
+        nama: namaRef.current.value,
+        deskripsi: deskripsiRef.current.value,
+        ringkasan: ringkasanRef.current.value,
+        telp: teleponRef.current.value,
+        alamat: alamatRef.current.value,
+        logo: logoRef.current.value,
       };
       await uploadData(upload);
       Swal.fire(
@@ -89,7 +87,7 @@ export default function TampilTeman({ params }) {
 
   // TODO buat loading dan error
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (!data) return <LoadingX />;
   return (
     <>
       <Link

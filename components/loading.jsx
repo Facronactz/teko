@@ -30,6 +30,6 @@ export default function LoadingX(props) {
   case 'ball-clip':
     return <BallClip />;
   default:
-    return <BallElastic />;
+    return <BallClip />;
   }
 }
