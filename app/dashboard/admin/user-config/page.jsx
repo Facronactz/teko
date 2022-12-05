@@ -23,22 +23,11 @@ function ShowUser() {
   if (!data) {
     return (
       <tr>
-        <td>
-          <Skeleton />
-        </td>
-        <td>
-          <Skeleton />
-        </td>
-        <td>
-          <Skeleton />
-        </td>
-        <td>
-          <Skeleton />
-        </td>
-        <td>
-          <Skeleton />
-        </td>
-
+        {[...Array(5)].map((_, i) => (
+          <td className="text-center" key={i}>
+            <Skeleton />
+          </td>
+        ))}
         <td className="flex flex-row justify-center">
           <Link href={'#'} className="ml-3">
             <Skeleton width={60} height={30} />
@@ -75,12 +64,9 @@ export default function UserConfig() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th className="text-center">id</th>
-              <th className="text-center">name</th>
-              <th className="text-center">username</th>
-              <th className="text-center">email</th>
-              <th className="text-center">role</th>
-              <th className="text-center">Action</th>
+              {['id', 'nama', 'username', 'email', 'role', 'action'].map((item) => (
+                <th key={item} className="text-center">{item}</th>
+              ))}
             </tr>
           </thead>
           <tbody>

@@ -21,9 +21,9 @@ function Item({ name, href, children }) {
 }
 
 const menus = [
-  { name: 'Menu', href: '/menu-config', icon: RiMenuFoldFill },
-  { name: 'Pengguna', href: '/teman-config', icon: RiUserFill },
-  { name: 'Teman', href: '/user-config', icon: GiThreeFriends },
+  { name: 'Menu', href: 'menu-config', icon: RiMenuFoldFill },
+  { name: 'Pengguna', href: 'teman-config', icon: RiUserFill },
+  { name: 'Teman', href: 'user-config', icon: GiThreeFriends },
 ];
 
 export default function MenuItem() {
@@ -31,7 +31,7 @@ export default function MenuItem() {
     <>
       {
         menus.map((item) => (
-          <Item key={item.name} name={item.name} href={item.href}>
+          <Item key={item.name} name={item.name} href={`/dashboard/admin/${item.href}`}>
             <item.icon className="h-full w-full" />
           </Item>
         ))
