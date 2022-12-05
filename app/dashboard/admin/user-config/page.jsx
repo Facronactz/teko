@@ -7,6 +7,7 @@ import { Container, Table, Button } from 'react-bootstrap';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
+import SideBar from '@teko/components/sidebar';
 
 import { RiUserFill } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
@@ -16,7 +17,7 @@ function ShowUser() {
   const { data, error } = useSWR(
     userFetcher.url,
     userFetcher.fetcher,
-    userFetcher.swrConfig
+    userFetcher.swrConfig,
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
@@ -66,31 +67,7 @@ function ShowUser() {
 export default function UserConfig() {
   return (
     <>
-      <Container className="m-0 p-0 w-52 bg-brand fixed h-full overflow-auto">
-        <h1 className="text-white p-4 font-bold">Teko</h1>
-        <hr className="text-white mx-3" />
-        <Link className="block text-white p-4 no-underline" href={'/'}>
-          Beranda
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/menu-config'}
-        >
-          Menu
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/user-config'}
-        >
-          Pengguna
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/teman-config'}
-        >
-          Teman
-        </Link>
-      </Container>
+      <SideBar current='pengguna' />
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
           <RiUserFill className="mr-2" /> User Config
@@ -114,4 +91,3 @@ export default function UserConfig() {
     </>
   );
 }
-

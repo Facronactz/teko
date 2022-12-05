@@ -9,18 +9,30 @@ import { Container, Table, Button } from 'react-bootstrap';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
+import SideBar from '@teko/components/sidebar';
 
 import { GiThreeFriends } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
 import { GoPlus } from 'react-icons/go';
 
+const deleteTeman = async () => {
+  const res = await fetch(`${assetPrefix}/api/teman`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data1 = await res.json();
+  return data1;
+};
+
 const temanFetcher = new Fetcher({ url: 'teman' });
 function ShowTeman() {
   const { data, error } = useSWR(
     temanFetcher.url,
     temanFetcher.fetcher,
-    temanFetcher.swrConfig
+    temanFetcher.swrConfig,
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
@@ -65,45 +77,10 @@ function ShowTeman() {
   ));
 }
 
-const deleteTeman = async () => {
-  const res = await fetch(`${assetPrefix}/api/teman`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data1 = await res.json();
-  return data1;
-};
-
 export default function TemanConfig() {
   return (
     <>
-      <Container className="m-0 p-0 w-52 bg-brand fixed h-full overflow-auto">
-        <h1 className="text-white p-4 font-bold">Teko</h1>
-        <hr className="text-white mx-3" />
-        <Link className="block text-white p-4 no-underline" href={'/'}>
-          Beranda
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/menu-config'}
-        >
-          Menu
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/user-config'}
-        >
-          Pengguna
-        </Link>
-        <Link
-          className="block text-white p-4 no-underline"
-          href={'/dashboard/admin/teman-config'}
-        >
-          Teman
-        </Link>
-      </Container>
+      <SideBar current='teman' />
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
           <GiThreeFriends className="mr-2" /> Teman Config

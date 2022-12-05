@@ -52,35 +52,39 @@ class Fetcher {
         return data;
     }
 
-    async post() {
+    async post(data) {
+        this.data = data ?? this.data;
         const response = await fetch(this.url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(this.data),
+            body: JSON.stringify({ data: this.data }),
         });
         return response.json();
     }
 
-    async put(data) {
+    async put(id, data) {
+        this.id = id ?? this.id;
+        this.data = data ?? this.data;
         const response = await fetch(this.url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ id: this.id, data }),
+            body: JSON.stringify({ id: this.id, data: this.data }),
         });
         return response.json();
     }
 
-    async delete() {
+    async delete(id) {
+        this.id = id ?? this.id;
         const response = await fetch(this.url, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(this.id),
+            body: JSON.stringify({ id: this.id }),
         });
         return response.json();
     }

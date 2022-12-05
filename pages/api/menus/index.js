@@ -6,7 +6,7 @@ export default async function MenusHandler(req, res) {
         method,
         body: { data },
     } = req;
-    const id = parseInt(req.query.id);
+    const id = parseInt(req.query.id) || parseInt(req.body.id);
     if (method === 'GET') {
         const menus = await Menu.get(current);
         return res.status(200).json(menus);
@@ -33,6 +33,7 @@ export default async function MenusHandler(req, res) {
                 message: `Data dengan id ${id} berhasil dihapus`,
             });
         } catch (error) {
+            console.log(error);
             return res.status(500).json({
                 message: `Data dengan id ${id} tidak ditemukan`,
                 error: error.message,
