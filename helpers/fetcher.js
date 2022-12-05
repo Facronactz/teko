@@ -69,7 +69,7 @@ class Fetcher {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({ id: this.id, data }),
         });
         return response.json();
     }

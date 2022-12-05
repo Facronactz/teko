@@ -10,7 +10,7 @@ export default function RightNav() {
   // eslint-disable-next-line no-unused-vars
   const { data: session, status } = useSession();
   if (status === 'loading') {
-    return <LoadingX type=''></LoadingX>;
+    return <LoadingX type='ball-elastic'></LoadingX>;
   }
   if (status === 'authenticated') {
     return (
