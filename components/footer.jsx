@@ -9,7 +9,7 @@ const Team = () => {
   const { data, error } = useSWR(
     teamsFetcher.url,
     teamsFetcher.fetcher,
-    teamsFetcher.swrConfig
+    teamsFetcher.swrConfig,
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) return <div>Loading...</div>;
