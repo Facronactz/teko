@@ -34,6 +34,7 @@ function MenuNavbar(props) {
       // highligh skeleton default saja~
       <Skeleton
         width="100px"
+        className="mr-4"
         containerClassName="flex flex-row flex-1"
         count={4}
       />
