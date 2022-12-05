@@ -2,8 +2,6 @@
 
 import { useRef } from 'react';
 
-import Link from 'next/link';
-
 import { Button } from 'react-bootstrap';
 
 import { GoCheck } from 'react-icons/go';
@@ -47,12 +45,12 @@ export default function Menus({ fetcher }) {
           <Skeleton />
         </td>
         <td className="flex flex-row justify-center">
-          <Link href={'#'} className="rounded ml-3 my-auto p-2">
-            <Skeleton width={60} height={30} />
-          </Link>
-          <Link href={'#'} className="ml-3 rounded">
-            <Skeleton width={60} height={30} />
-          </Link>
+          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2" >
+            <GoCheck className="h-[30px] w-[70px] text-white" />
+          </Button>
+          <Button className="bg-white border-brand ml-3">
+            <ImCross className="h-[25px] w-[70px] text-danger" />
+          </Button>
         </td>
       </tr>
     );

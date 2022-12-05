@@ -44,16 +44,13 @@ function ShowTeman() {
         <td className="text-center">
           <Skeleton />
         </td>
-        <td className="text-center">
-          <Skeleton />
-        </td>
         <td className="flex flex-row justify-center">
-          <Link href={'#'} className="rounded ml-3 my-auto p-2">
-            <Skeleton width={60} height={30} />
-          </Link>
-          <Link href={'#'} className="ml-3 rounded">
-            <Skeleton width={60} height={30} />
-          </Link>
+          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2" >
+            <AiFillEdit className="h-[25px] w-[70px] text-white" />
+          </Button>
+          <Button className="bg-white border-brand ml-3">
+            <ImCross className="h-[25px] w-[70px] text-danger" />
+          </Button>
         </td>
       </tr>
     );

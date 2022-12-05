@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { Container, Table, Button } from 'react-bootstrap';
 
 import Fetcher from '@teko/helpers/fetcher';
@@ -29,9 +27,9 @@ function ShowUser() {
           </td>
         ))}
         <td className="flex flex-row justify-center">
-          <Link href={'#'} className="ml-3">
-            <Skeleton width={60} height={30} />
-          </Link>
+          <Button className=" bg-white border-brand ml-3">
+            <ImCross className="h-[25px] w-[70px] text-danger" />
+          </Button>
         </td>
       </tr>
     );
