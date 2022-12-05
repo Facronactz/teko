@@ -15,8 +15,8 @@ function MenuNavbar(props) {
   const menusFetcher = new Fetcher({ url: `menus?current=${props.current}` });
   const { data, error } = useSWR(menusFetcher.url, menusFetcher.fetcher, menusFetcher.swrConfig);
   // TODO: ganti semua error lain menjadi seperti dibawah
-  if (error) return <Alert key='danger' variant='danger'> Error fetching data </Alert>;
-  if (!data) return <Skeleton width='100px' containerClassName='flex-grow: 1; flex-direction: row' count={4} />;
+  if (error) return <Alert className='m-0' key='danger' variant='danger'> Error fetching data </Alert>;
+  if (!data) return <Skeleton width='100px' highlightColor='#315343' containerClassName='flex-grow: 1; flex-direction: row' count={4} />;
   return (
     data.map((menu) => (
       <Link

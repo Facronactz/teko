@@ -66,7 +66,7 @@ export default function DaftarLembaga() {
               </figcaption>
               <div className="flex flex-row justify-center">
                 <Link
-                  href={member.email}
+                  href={`mailto:${member.email}`}
                   className="border p-2 rounded-xl border-brand mx-2"
                 >
                   <AiFillMail className="h-10 w-10 text-brand" />
