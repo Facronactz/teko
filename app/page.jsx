@@ -15,33 +15,35 @@ import hero from '@teko/public/image/hero.png';
 import teman from '@teko/public/image/teman.png';
 
 // TODO: fetch data from API
-// ubah fetcher lain seperti dibawah ini
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 function Stats() {
-  const { data, error } = useSWR(statsFetcher.url, statsFetcher.fetcher, statsFetcher.swrConfig);
+  const { data, error } = useSWR(
+    statsFetcher.url,
+    statsFetcher.fetcher,
+    statsFetcher.swrConfig
+  );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
-    return <Skeleton className='rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]'
-      containerClassName='flex-grow: 1; flex-direction: row'
-      count={4} />;
+    return (
+      <Skeleton
+        className="rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]"
+        containerClassName="flex-grow: 1; flex-direction: row"
+        count={4}
+      />
+    );
   }
-  return (
-    data.map((stat) => (
-      <div
-        key={stat.name}
-        className="rounded-md relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
-      >
-        <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">
-          {stat.value}
-        </h1>
-        <p className="m-0 p-0 text-brand xxl:text-2xl">{stat.name}</p>
-      </div>
-    ))
-  );
+  return data.map((stat) => (
+    <div
+      key={stat.name}
+      className="rounded-md relative z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin] "
+    >
+      <h1 className="m-0 p-0 text-3xl text-brand xxl:text-4xl">{stat.value}</h1>
+      <p className="m-0 p-0 text-brand xxl:text-2xl">{stat.name}</p>
+    </div>
+  ));
 }
 
-// TODO ganti nama
-function BasicExample() {
+function BerandaPage() {
   return (
     <>
       {/* TODO pindah navbar ke layout dan ganti nama jadi TekoNavbar */}
@@ -64,7 +66,9 @@ function BasicExample() {
                 Ada berapa sih TEMAN Kami?
               </h1>
               <p className="text-sm text-white xs:text-base lg:text-xl xxl:text-2xl">
-                Kami selalu menghadirkan layanan yang menarik yang dapat membantu TEMAN kami <br></br> demi keberhasilan kegiatan yang diselenggarakan oleh komunitas untuk masyarakat
+                Kami selalu menghadirkan layanan yang menarik yang dapat
+                membantu TEMAN kami <br></br> demi keberhasilan kegiatan yang
+                diselenggarakan oleh komunitas untuk masyarakat
               </p>
             </div>
           </div>
@@ -84,8 +88,10 @@ function BasicExample() {
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
                   {' '}
-                  Adalah suatu sebutan untuk kami terhadap komunitas yang menjalankan kegiatannya untuk mengabdi kepada masyarakat. Tentunya banyak sekali Teman Kita yang sudah membantu dan terdaftar dalam web kami
-                  {' '}
+                  Adalah suatu sebutan untuk kami terhadap komunitas yang
+                  menjalankan kegiatannya untuk mengabdi kepada masyarakat.
+                  Tentunya banyak sekali Teman Kita yang sudah membantu dan
+                  terdaftar dalam web kami{' '}
                   <span className="font-extrabold">Lihat Teman</span>
                 </p>
               </section>
@@ -168,4 +174,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default BerandaPage;

@@ -1,76 +1,136 @@
 'use client';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
-import { use } from 'react';
-
-import { Container, Card } from 'react-bootstrap';
+import { Container, Card, Alert } from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
-// import spanduk from '@teko/public/image/hut-ri-ke-77.png';
-import { assetPrefix } from '@teko/next.config';
 
-// import { RiWhatsappFill } from 'react-icons/ri';
-// import { MdEmail } from 'react-icons/md';
+import Fetcher from '@teko/helpers/fetcher';
+import useSWR from 'swr';
+import Skeleton from 'react-loading-skeleton';
 
-const getTeman = async (id) => {
-  const data = await fetch(`${assetPrefix}/api/teman?id=${id}`, { cache: 'no-cache' });
-  return data.json();
-};
+function TemanDetail(params) {
+  const temanIdFetcher = new Fetcher({ url: `teman?id=${params.id}` });
+  const { data, error } = useSWR(
+    temanIdFetcher.url,
+    temanIdFetcher.fetcher,
+    temanIdFetcher.swrConfig
+  );
+  if (error)
+    return (
+      <Alert key="danger" variant="danger">
+        {' '}
+        Error fetching data{' '}
+      </Alert>
+    );
+  if (!data)
+    return (
+      <>
+        <Container fluid className="flex flex-col text-center justify-center">
+          <Container className="flex justify-center">
+            <Skeleton className="w-[85%] h-[30%]" />
+          </Container>
+          <Container className="flex flex-col justify-center overflow-auto">
+            <h1>
+              {' '}
+              <Skeleton />
+            </h1>
 
-function TemanPage({ params }) {
-  const temans = use(getTeman(params.id));
+            <h2>
+              <Skeleton />
+            </h2>
 
+            <p>
+              <h1>
+                {' '}
+                <Skeleton />
+              </h1>
+            </p>
+          </Container>
+        </Container>
+
+        <Container className="text-center flex flex-col">
+          <h3 className="w-full text-white py-2 rounded">
+            {' '}
+            <Skeleton />
+          </h3>
+
+          <Card>
+            <Card.Body>
+              <Card.Title></Card.Title>
+              <Card.Text>
+                <Skeleton />
+              </Card.Text>
+              <Link href={'#'} className="rounded">
+                <Skeleton width={60} height={30} />
+              </Link>
+            </Card.Body>
+            <Card.Footer className="text-muted">
+              {' '}
+              <Skeleton />
+            </Card.Footer>
+          </Card>
+        </Container>
+      </>
+    );
   return (
     <>
-      <TekoNavbar current="Teman"></TekoNavbar>
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
-          <Image
+          <img
             width={150}
             height={150}
             className="w-full h-[150px] mb-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
-            src={temans.logo}
+            src={data.logo}
             alt="gambar hero"
           />
         </Container>
         <Container className="flex flex-col justify-center overflow-auto">
-          <h1>{temans.nama}</h1>
-          {temans.Kategori.map((item) => (
-            <h2 key={item.id} className="text-second">{item.nama}</h2>
-          ))}
+          <h1>{data.nama}</h1>
+          <h2 className="text-second">
+            {data.Kategori.map((item) => `#${item.nama} `)}
+          </h2>
 
           <p className="overflow-clip">
-            Deskripsi singkat tentang organisasi, lorem ipsum dolor opmet and
-            dandaskdnasndkqwbdkjqbdb wqdbkqbwdjkwbqdjbqkjbdq wbdqjw
+            <h1>{data.deskripsi}</h1>
           </p>
         </Container>
       </Container>
 
       <Container className="text-center flex flex-col">
         <h3 className="bg-brand w-full text-white py-2 rounded">Kegiatan</h3>
-        {temans.Kegiatan.map((data) => (
-          <Card key={data.id} className="text-center">
+        {data.Kegiatan.map((item) => (
+          <Card key={item.id} className="text-center">
             <Card.Body>
-              <Card.Title>{data.nama}</Card.Title>
+              <Card.Title>{item.nama}</Card.Title>
               <Card.Text className="overflow-hidden">
-                {data.ringkasan}
+                {item.ringkasan}
               </Card.Text>
               <Link
                 href={{
-                  pathname: `/kegiatan/${data.id}`,
+                  pathname: `/kegiatan/${item.id}`,
                 }}
                 className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
               >
                 Selengkapnya
               </Link>
             </Card.Body>
-            <Card.Footer className="text-muted">{data.updatedAt}</Card.Footer>
+            <Card.Footer className="text-muted">{item.updatedAt}</Card.Footer>
           </Card>
         ))}
       </Container>
+    </>
+  );
+}
+
+function TemanPage({ params }) {
+  return (
+    <>
+      <TekoNavbar current="Teman"></TekoNavbar>
+      <TemanDetail id={params.id} />
       <TekoFooter></TekoFooter>
     </>
   );

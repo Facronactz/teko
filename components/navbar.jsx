@@ -13,27 +13,42 @@ import RightNav from './navbar/rightNav';
 
 function MenuNavbar(props) {
   const menusFetcher = new Fetcher({ url: `menus?current=${props.current}` });
-  const { data, error } = useSWR(menusFetcher.url, menusFetcher.fetcher, menusFetcher.swrConfig);
-  // TODO: ganti semua error lain menjadi seperti dibawah
-  if (error) return <Alert className='m-0' key='danger' variant='danger'> Terjadi kesalahan saat mengambil data </Alert>;
-  if (!data) return <Skeleton width='100px' highlightColor='#315343' containerClassName='flex-grow: 1; flex-direction: row' count={4} />;
-  return (
-    data.map((menu) => (
-      <Link
-        key={menu.id}
-        className={
-          menu.current
-            ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
-            : 'mx-2 no-underline text-brand p-2 lg:text-lg'
-        }
-        prefetch={true}
-        active={menu.current.toString()}
-        href={menu.href}
-      >
-        {menu.name}
-      </Link>
-    ))
+  const { data, error } = useSWR(
+    menusFetcher.url,
+    menusFetcher.fetcher,
+    menusFetcher.swrConfig
   );
+  // TODO: ganti semua error lain menjadi seperti dibawah
+  if (error)
+    return (
+      <Alert className="m-0" key="danger" variant="danger">
+        {' '}
+        Terjadi kesalahan saat mengambil data{' '}
+      </Alert>
+    );
+  if (!data)
+    return (
+      <Skeleton
+        width="100px"
+        containerClassName="flex flex-row flex-1"
+        count={4}
+      />
+    );
+  return data.map((menu) => (
+    <Link
+      key={menu.id}
+      className={
+        menu.current
+          ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
+          : 'mx-2 no-underline text-brand p-2 lg:text-lg'
+      }
+      prefetch={true}
+      active={menu.current.toString()}
+      href={menu.href}
+    >
+      {menu.name}
+    </Link>
+  ));
 }
 
 function TekoNavbar(props) {

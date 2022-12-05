@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { use } from 'react';
 
 import {
   Container,
@@ -13,18 +12,69 @@ import {
   Card,
 } from 'react-bootstrap';
 
+import Skeleton from 'react-loading-skeleton';
+
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
-import { assetPrefix } from '@teko/next.config';
+import Fetcher from '@teko/helpers/fetcher';
+import useSWR from 'swr';
 
-const getTeman = async () => {
-  const data = await fetch(`${assetPrefix}/api/teman`, { cache: 'no-cache' });
-  return data.json();
-};
+const temansFetcher = new Fetcher({ url: 'teman' });
+function Temans() {
+  const { data, error } = useSWR(
+    temansFetcher.url,
+    temansFetcher.fetcher,
+    temansFetcher.swrConfig
+  );
+  if (error) return <div>failed to load</div>;
+  if (!data) {
+    return [1, 2, 3, 4].map(() => (
+      <Col className="p-0">
+        <Card>
+          <Skeleton className="m-3 w-[85%] h-[205px] md:h-[200px]" />
+          <Card.Body>
+            <Card.Title>
+              <Skeleton />
+            </Card.Title>
+            <Card.Text>
+              <Skeleton />
+            </Card.Text>
+            <Link href={'#'} className="rounded">
+              <Skeleton width={60} height={30} />
+            </Link>
+          </Card.Body>
+        </Card>
+      </Col>
+    ));
+  }
+  return data.map((teman) => (
+    <Col className="p-0" key={teman.nama}>
+      <Card>
+        <Card.Img
+          variant="top"
+          src={teman.logo}
+          width="200"
+          height="200"
+          alt="..."
+        />
+        <Card.Body>
+          <Card.Title>{teman.nama} </Card.Title>
+          <Card.Text>{teman.ringkasan}</Card.Text>
+          <Link
+            href={{
+              pathname: `/teman/${teman.id}`,
+            }}
+            className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
+          >
+            Lihat
+          </Link>
+        </Card.Body>
+      </Card>
+    </Col>
+  ));
+}
 
 export default function TemanPage() {
-  const temans = use(getTeman());
-
   return (
     <>
       <TekoNavbar current="Teman"></TekoNavbar>
@@ -47,31 +97,7 @@ export default function TemanPage() {
       <section>
         <Container className="grid p-0">
           <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-            {temans.map((teman) => (
-              <Col className="p-0" key={teman.nama}>
-                <Card>
-                  <Card.Img
-                    variant="top"
-                    src={teman.logo}
-                    width="200"
-                    height="200"
-                    alt="..."
-                  />
-                  <Card.Body>
-                    <Card.Title>{teman.nama} </Card.Title>
-                    <Card.Text>{teman.ringkasan}</Card.Text>
-                    <Link
-                      href={{
-                        pathname: `/teman/${teman.id}`,
-                      }}
-                      className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
-                    >
-                      Lihat
-                    </Link>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
+            <Temans />
           </Row>
         </Container>
       </section>
