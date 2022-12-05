@@ -4,13 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // eslint-disable-next-line object-curly-newline
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import { RiArrowGoBackFill } from 'react-icons/ri';
 
 import spanduk from '@teko/public/image/hut-ri-ke-77.png';
 
-import { RiArrowGoBackFill, RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
-import { GiThreeFriends } from 'react-icons/gi';
 import Info from './info';
+import MenuItem from './menu';
 
 export default function AdminPage() {
   return (
@@ -31,42 +31,7 @@ export default function AdminPage() {
         </Container>
         <Container className="grid p-0">
           <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
-            <Link
-              href={'/dashboard/admin/menu-config'}
-              className="no-underline text-brand"
-            >
-              <Col className="p-0">
-                <Card>
-                  <RiMenuFoldFill className="h-full w-full" />
-                  <Card.Body>
-                    <Card.Title className="text-center">Menu </Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Link>
-            <Link href={'#'} className="no-underline text-brand">
-              <Col className="p-0">
-                <Card>
-                  <RiUserFill className="h-full w-full" />
-                  <Card.Body>
-                    <Card.Title className="text-center">Pengguna </Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Link>
-            <Link
-              href={'/dashboard/admin/teman-config'}
-              className="no-underline text-brand"
-            >
-              <Col className="p-0">
-                <Card>
-                  <GiThreeFriends className="h-full w-full" />
-                  <Card.Body>
-                    <Card.Title className="text-center">Teman </Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Link>
+            <MenuItem />
           </Row>
         </Container>
       </Container>
