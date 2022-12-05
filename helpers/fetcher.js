@@ -63,13 +63,13 @@ class Fetcher {
         return response.json();
     }
 
-    async put() {
+    async put(data) {
         const response = await fetch(this.url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ id: this.id, data: this.data }),
+            body: JSON.stringify(data),
         });
         return response.json();
     }

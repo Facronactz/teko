@@ -44,6 +44,7 @@ const MasukModal = () => {
       password,
     });
     if (result.error) {
+      // FIXME ubah ke sweetalert2
       swal('Maaf', 'Email atau Password salah!', 'error');
     }
   };
