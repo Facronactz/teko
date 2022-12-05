@@ -27,6 +27,6 @@ export default function handler(req, res) {
         res.status(405).json({ message: 'Method not allowed' });
         return;
     }
-    console.log(data);
+    // console.log(data);
     res.status(201).json({ message: 'Data berhasil ditambahkan', ok: req.body });
 }

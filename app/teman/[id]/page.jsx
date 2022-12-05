@@ -17,16 +17,17 @@ function TemanDetail(params) {
   const { data, error } = useSWR(
     temanIdFetcher.url,
     temanIdFetcher.fetcher,
-    temanIdFetcher.swrConfig
+    temanIdFetcher.swrConfig,
   );
-  if (error)
+  if (error) {
     return (
       <Alert key="danger" variant="danger">
         {' '}
         Error fetching data{' '}
       </Alert>
     );
-  if (!data)
+  }
+  if (!data) {
     return (
       <>
         <Container fluid className="flex flex-col text-center justify-center">
@@ -76,6 +77,7 @@ function TemanDetail(params) {
         </Container>
       </>
     );
+  }
   return (
     <>
       <Container fluid className="flex flex-col text-center justify-center">

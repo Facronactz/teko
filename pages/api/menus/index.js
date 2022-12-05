@@ -33,7 +33,7 @@ export default async function MenusHandler(req, res) {
                 message: `Data dengan id ${id} berhasil dihapus`,
             });
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return res.status(500).json({
                 message: `Data dengan id ${id} tidak ditemukan`,
                 error: error.message,

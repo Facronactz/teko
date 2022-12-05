@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 
-import { Container, Row, Col, Card, Form } from 'react-bootstrap';
+import {
+  Container, Row, Col, Card, Form,
+} from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
@@ -16,12 +18,12 @@ function Kegiatans() {
   const { data, error } = useSWR(
     kegiatansFetcher.url,
     kegiatansFetcher.fetcher,
-    kegiatansFetcher.swrConfig
+    kegiatansFetcher.swrConfig,
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
-    return [1, 2].map(() => (
-      <Col className="p-0">
+    return [1, 2].map((i) => (
+      <Col key={i} className="p-0">
         <Card>
           <Card.Header>
             <Skeleton />

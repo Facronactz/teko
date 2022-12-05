@@ -19,16 +19,17 @@ function KegiatanDetail(params) {
   const { data, error } = useSWR(
     kegiatanDetailFetcher.url,
     kegiatanDetailFetcher.fetcher,
-    kegiatanDetailFetcher.swrConfig
+    kegiatanDetailFetcher.swrConfig,
   );
-  if (error)
+  if (error) {
     return (
       <Alert key="danger" variant="danger">
         {' '}
         Error fetching data{' '}
       </Alert>
     );
-  if (!data)
+  }
+  if (!data) {
     return (
       <>
         <h3 className="text-center mb-3 font-bold">
@@ -66,6 +67,7 @@ function KegiatanDetail(params) {
         </Container>
       </>
     );
+  }
   return (
     <>
       <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>

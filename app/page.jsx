@@ -13,7 +13,7 @@ import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
 
 import hero from '@teko/public/image/hero.png';
-import teman from '@teko/public/image/teman.png';
+import temanP from '@teko/public/image/teman.png';
 
 // TODO: fetch data from API
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
@@ -21,7 +21,7 @@ function Stats() {
   const { data, error } = useSWR(
     statsFetcher.url,
     statsFetcher.fetcher,
-    statsFetcher.swrConfig
+    statsFetcher.swrConfig,
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
@@ -49,12 +49,12 @@ function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,
     temansFetcher.fetcher,
-    temansFetcher.swrConfig
+    temansFetcher.swrConfig,
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
-    return [1, 2, 3, 4].map(() => (
-      <Col className="p-0">
+    return [1, 2, 3, 4].map((i) => (
+      <Col key={i} className="p-0">
         <Card>
           <Skeleton className="m-3 w-[85%] h-[205px] md:h-[200px]" />
           <Card.Body>
@@ -160,7 +160,7 @@ export default function BerandaPage() {
               <div className="w-full flex justify-center">
                 <Image
                   className="w-3/5 lg:w-fit "
-                  src={teman}
+                  src={temanP}
                   alt="foto about"
                 />
               </div>
