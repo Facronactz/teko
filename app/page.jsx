@@ -104,7 +104,7 @@ function Temans() {
   ));
 }
 
-function BerandaPage() {
+export default function BerandaPage() {
   return (
     <>
       {/* TODO pindah navbar ke layout dan ganti nama jadi TekoNavbar */}
@@ -215,5 +215,3 @@ function BerandaPage() {
     </>
   );
 }
-
-export default BerandaPage;
