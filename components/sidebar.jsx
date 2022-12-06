@@ -27,14 +27,13 @@ const menus = {
 // <Sidebar role='teman' current='beranda' />
 export default function SideBar({ role, current }) {
   return (
-    <Container className="m-0 p-0 w-52 bg-brand fixed h-[550px]">
+    <Container className="m-0 p-0 w-52 bg-brand float float-left h-full rounded">
       <h1 className="text-white p-4 font-bold">Teko</h1>
       <hr className="text-white mx-3" />
       {menus[role].map((menu) => (
         <Link
           key={menu.name}
           className={
-            // TODO style saat menu aktif
             current === menu.name.toLowerCase()
               ? 'block text-white p-4 no-underline bg-[#15803d]'
               : 'block text-white p-4 no-underline hover:bg-black'

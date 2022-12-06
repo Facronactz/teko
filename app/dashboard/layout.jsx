@@ -16,7 +16,7 @@ import Info from './info';
 export default function DashboardLayout({ children }) {
   return (
     <main>
-      <Container className="bg-white shadow mt-[100px] rounded h-[710px]">
+      <Container className="bg-white shadow my-[100px]  rounded h-full clear-both pb-3">
         <Container className="bg-white flex flex-row">
           <Image
             className="w-[100px] h-[100px] object-cover object-center rounded-full m-3"

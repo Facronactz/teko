@@ -24,20 +24,22 @@ function Item({ name, href, children }) {
 
 const menus = [
   { name: 'Menu', href: 'menu-config', icon: RiMenuFoldFill },
-  { name: 'Pengguna', href: 'teman-config', icon: RiUserFill },
-  { name: 'Teman', href: 'user-config', icon: GiThreeFriends },
+  { name: 'Pengguna', href: 'user-config', icon: RiUserFill },
+  { name: 'Teman', href: 'teman-config', icon: GiThreeFriends },
 ];
 
 export default function MenuItem() {
   return (
     <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
-      {
-        menus.map((item) => (
-          <Item key={item.name} name={item.name} href={`/dashboard/admin/${item.href}`}>
-            <item.icon className="h-full w-full" />
-          </Item>
-        ))
-      }
+      {menus.map((item) => (
+        <Item
+          key={item.name}
+          name={item.name}
+          href={`/dashboard/admin/${item.href}`}
+        >
+          <item.icon className="h-full w-full" />
+        </Item>
+      ))}
     </Row>
   );
 }

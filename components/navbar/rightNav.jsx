@@ -44,13 +44,13 @@ export default function RightNav() {
         <>
           <Link
             href="/dashboard"
-            className="mx-2 my-auto font-bold no-underline text-brand lg:text-lg"
+            className="mx-2 my-auto font-bold no-underline bg-white p-2 rounded text-brand border-[1.5px] border-brand lg:text-lg"
           >
             Setting
           </Link>
           <Button
             onClick={logAlert}
-            className="bg-white border-brand mx-2 font-bold no-underline text-brand lg:text-lg"
+            className="bg-brand border-brand mx-2 font-bold no-underline text-white lg:text-lg"
           >
             Keluar
           </Button>
@@ -61,13 +61,13 @@ export default function RightNav() {
       <>
         <Link
           href="/dashboard"
-          className="mx-2 my-auto font-bold no-underline text-brand lg:text-lg"
+          className="mx-2 my-auto font-bold no-underline bg-white p-2 rounded text-brand border-[1.5px] border-brand lg:text-lg"
         >
           Dashboard
         </Link>
         <Button
           onClick={logAlert}
-          className="bg-white border-brand mx-2 font-bold no-underline text-brand lg:text-lg"
+          className="bg-brand border-brand mx-2 font-bold no-underline text-white lg:text-lg"
         >
           Keluar
         </Button>

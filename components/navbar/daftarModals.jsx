@@ -23,14 +23,8 @@ function DaftarUmum() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!nama || !email || !password) {
-      return Swal.fire({
-        icon: 'warning',
-        title: 'Oww..',
-        text: 'Harap isi semua form!',
-        confirmButtonColor: '#315343',
-      });
-    } if (password.current.value !== passwordConfirmation.current.value) {
+
+    if (password.current.value !== passwordConfirmation.current.value) {
       return Swal.fire({
         icon: 'warning',
         title: 'Oww...',
@@ -83,6 +77,7 @@ function DaftarUmum() {
                     ref={nama}
                     type="text"
                     placeholder="Masukan Nama"
+                    required
                   />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicEmail">
@@ -91,6 +86,7 @@ function DaftarUmum() {
                     ref={email}
                     type="email"
                     placeholder="Masukan Email"
+                    required
                   />
                   <Form.Text className="text-muted">
                     Kami tidak akan membagikan email Anda.
@@ -103,6 +99,7 @@ function DaftarUmum() {
                     ref={password}
                     type="password"
                     placeholder="Password"
+                    required
                   />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicPassword">
@@ -111,20 +108,10 @@ function DaftarUmum() {
                     ref={passwordConfirmation}
                     type="password"
                     placeholder="Password"
+                    required
                   />
                 </Form.Group>
-                {/* <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
-                  {['Laki', 'Perempuan'].map((type) => (
-                    <Form.Check
-                      key={type}
-                      type="radio"
-                      id={`default-${type}`}
-                      label={type}
-                      name="genderRadio"
-                      value={type}
-                    />
-                  ))}
-                </Form.Group> */}
+
                 <Button
                   type="submit"
                   className="bg-brand border-brand hover:bg-[#14532d] my-2 mx-3"

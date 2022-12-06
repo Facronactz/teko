@@ -103,14 +103,17 @@ export default function TemanConfig() {
       <SideBar current="teman" role="admin" />
       <Container className="ml-52 mr-10 p-4 w-[85%] h-full">
         <h2 className="flex flex-row">
-          <GiThreeFriends className="mr-2" /> Teman Config
-          <Link
-            href={'/dashboard/admin/teman-config/new'}
-            className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 text-lg rounded"
-          >
-            {/* FIXME new teman taruh di kanan. Icon plus juga masih berantakan */}
-            New Teman <GoPlus></GoPlus>
-          </Link>
+          <Container className="flex flex-row justify-between">
+            <div className="flex flex-row">
+              <GiThreeFriends className="mr-2" /> Teman Config
+            </div>
+            <Link
+              href={'/dashboard/admin/teman-config/new'}
+              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 text-lg rounded"
+            >
+              Tambah Teman <GoPlus className="ml-2 my-auto" />
+            </Link>
+          </Container>
         </h2>
         <Table striped bordered hover>
           <thead>

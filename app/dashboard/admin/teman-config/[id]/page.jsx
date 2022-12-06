@@ -192,6 +192,20 @@ export default function TampilTeman({ params }) {
             Kirim
           </Button>
         </form>
+        <Container className="flex flex-row justify-center">
+          <Link
+            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
+            href={`/dashboard/admin/teman-config/${params.id}/tambah-kegiatan`}
+          >
+            Tambah Kegiatan
+          </Link>
+          <Link
+            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
+            href={`/dashboard/admin/teman-config/${params.id}/tambah-sosmed`}
+          >
+            Tambah Sosmed
+          </Link>
+        </Container>
       </Container>
     </>
   );

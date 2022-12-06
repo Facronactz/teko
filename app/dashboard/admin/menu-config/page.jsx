@@ -14,26 +14,28 @@ const menusFetcher = new Fetcher({ url: 'menus' });
 export default function MenuConfig() {
   return (
     <>
-      <SideBar current="menu" role="admin" />
-      <Container className="ml-52 p-4 w-[85%] h-full">
-        <h2 className="flex flex-row">
-          <RiMenuFoldFill className="mr-2" /> Menus Config
-        </h2>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              {['id', 'name', 'href', 'action'].map((title) => (
-                <th className="text-center" key={title}>
-                  {title}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <Menus fetcher={menusFetcher} />
-            <New fetcher={menusFetcher} />
-          </tbody>
-        </Table>
+      <Container>
+        <SideBar current="menu" role="admin" />
+        <Container className="ml-52 p-4 w-[85%] h-full">
+          <h2 className="flex flex-row">
+            <RiMenuFoldFill className="mr-2" /> Menus Config
+          </h2>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                {['id', 'name', 'href', 'action'].map((title) => (
+                  <th className="text-center" key={title}>
+                    {title}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <Menus fetcher={menusFetcher} />
+              <New fetcher={menusFetcher} />
+            </tbody>
+          </Table>
+        </Container>
       </Container>
     </>
   );
