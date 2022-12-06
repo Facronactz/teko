@@ -13,13 +13,13 @@ export default function Info() {
   if (!data) {
     return (
       <div className="m-auto md:flex md:flex-row">
-        <LoadingX type='ball-elastic' />
+        <LoadingX type="ball-elastic" />
       </div>
     );
   }
   return (
     <div className="m-auto md:flex md:flex-row">
-      <h3 className="text-lg font-bold text-brand mr-4">
+      <h3 className="text-lg font-bold text-brand">
         {data.name} <span className="font-light">| {data.email} </span>
       </h3>
     </div>

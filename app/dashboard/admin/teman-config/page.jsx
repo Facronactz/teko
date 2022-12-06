@@ -91,7 +91,7 @@ export default function TemanConfig() {
   return (
     <>
       <SideBar current="teman" role="admin" />
-      <Container className="ml-52 mr-10 p-4 h-full">
+      <Container className="ml-52 mr-10 p-4 w-[85%] h-full">
         <h2 className="flex flex-row">
           <GiThreeFriends className="mr-2" /> Teman Config
           <Link
