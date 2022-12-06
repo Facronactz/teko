@@ -76,7 +76,7 @@ const MasukModal = () => {
               alt="gambar hero"
             />
           </div>
-          <Form method="post" action="api/auth/callback/credentials">
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email</Form.Label>
               <Form.Control

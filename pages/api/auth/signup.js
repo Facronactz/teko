@@ -16,7 +16,7 @@ export default async function SignUpHandler(req, res) {
         email,
         role,
         adminPW,
-    } = req.body;
+    } = req.body.data;
     if (role === 'ADMIN') {
         if (adminPW !== process.env.ADMIN_PASSWORD) {
             res.status(401).json({ message: 'Unauthorized' });
@@ -30,7 +30,7 @@ export default async function SignUpHandler(req, res) {
                 name,
                 email,
                 password: hashedPassword,
-                role,
+                role: role || 'USER',
                 createdAt: new Date(),
                 updatedAt: new Date(),
             },

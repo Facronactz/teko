@@ -13,7 +13,7 @@ export default function RightNav() {
   const { data: session, status } = useSession();
   const userFetcer = new Fetcher('user');
   const { data } = useSWR(
-    userFetcer.url,
+    status === 'authenticated' ? userFetcer.url : null,
     userFetcer.fetcher,
     userFetcer.swrConfig,
   );
@@ -47,7 +47,7 @@ export default function RightNav() {
           href="/dashboard"
           className="mx-2 font-bold no-underline text-brand lg:text-lg"
         >
-            Dashboard
+          Dashboard
         </Link>
         {/* TODO tambahkan alert untuk signout */}
         <Link
@@ -55,7 +55,7 @@ export default function RightNav() {
           onClick={signOut}
           className="mx-2 font-bold no-underline text-brand lg:text-lg"
         >
-            Keluar
+          Keluar
         </Link>
       </>
     );

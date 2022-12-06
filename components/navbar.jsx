@@ -48,7 +48,6 @@ function MenuNavbar(props) {
           ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'
           : 'mx-2 no-underline text-brand p-2 lg:text-lg'
       }
-      prefetch={true}
       active={menu.current.toString()}
       href={menu.href}
     >
