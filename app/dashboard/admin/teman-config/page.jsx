@@ -55,7 +55,7 @@ function ShowTeman() {
           <Skeleton />
         </td>
         <td className="flex flex-row justify-center">
-          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2" >
+          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
             <AiFillEdit className="h-[25px] w-[70px] text-white" />
           </Button>
           <Button className="bg-white border-brand ml-3">
@@ -76,7 +76,10 @@ function ShowTeman() {
         >
           <AiFillEdit className="h-[25px] w-[70px] text-white" />
         </Link>
-        <Button onClick={() => deleteTeman(teman.id)} className="bg-white border-brand ml-3">
+        <Button
+          onClick={() => deleteTeman(teman.id)}
+          className="bg-white border-brand ml-3"
+        >
           <ImCross className="h-[25px] w-[70px] text-danger" />
         </Button>
       </td>
@@ -87,7 +90,7 @@ function ShowTeman() {
 export default function TemanConfig() {
   return (
     <>
-      <SideBar current='teman' />
+      <SideBar current="teman" role="admin" />
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
           <GiThreeFriends className="mr-2" /> Teman Config

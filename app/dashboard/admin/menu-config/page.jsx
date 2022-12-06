@@ -14,7 +14,7 @@ const menusFetcher = new Fetcher({ url: 'menus' });
 export default function MenuConfig() {
   return (
     <>
-      <SideBar current='menu' />
+      <SideBar current="menu" role="admin" />
       <Container className="ml-52 p-4 h-full">
         <h2 className="flex flex-row">
           <RiMenuFoldFill className="mr-2" /> Menus Config

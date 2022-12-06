@@ -66,7 +66,10 @@ function ShowUser() {
       <td className="text-center">{user.role}</td>
 
       <td className="flex flex-row justify-center">
-        <Button onClick={() => deleteUser(user.id)} className=" bg-white border-brand ml-3">
+        <Button
+          onClick={() => deleteUser(user.id)}
+          className=" bg-white border-brand ml-3"
+        >
           <ImCross className="h-[25px] w-[70px] text-danger" />
         </Button>
       </td>
@@ -77,7 +80,7 @@ function ShowUser() {
 export default function UserConfig() {
   return (
     <>
-      <SideBar current='pengguna' />
+      <SideBar current="pengguna" role="admin" />
       <Container className="ml-52 mr-10 p-4 h-full">
         <h2 className="flex flex-row">
           <RiUserFill className="mr-2" /> User Config
@@ -85,9 +88,13 @@ export default function UserConfig() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              {['id', 'nama', 'username', 'email', 'role', 'action'].map((item) => (
-                <th key={item} className="text-center">{item}</th>
-              ))}
+              {['id', 'nama', 'username', 'email', 'role', 'action'].map(
+                (item) => (
+                  <th key={item} className="text-center">
+                    {item}
+                  </th>
+                ),
+              )}
             </tr>
           </thead>
           <tbody>
