@@ -53,8 +53,8 @@ const MasukModal = () => {
     <>
       <Button
         onClick={handleShow}
-        className="no-underline font-semibold text-white bg-brand border-brand px-4 py-2 mb-2
-        md:mb-0 outline-brand hover:bg-[#15803d] rounded "
+        className="no-underline font-semibold text-white bg-brand border-brand px-4 py-2 my-auto
+        mr-2 outline-brand hover:bg-[#15803d] rounded "
       >
         Masuk
       </Button>

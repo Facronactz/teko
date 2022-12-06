@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { use } from 'react';
 
@@ -29,8 +28,12 @@ export default function DaftarLembaga() {
           Teko
         </h1>
         <p className="text-xl lg:text-left">
-          Platform yang dapat memberikan dukungan bagi suatu komunitas untuk masyarakat, khususnya dalam penggalangan dana dan pengenalan Kegiatan dari komunitas.
-          Teko ini Dibangun menggunakan Next.js sebagai framework, Saat ini banyak sekali komunitas yang terdaftar dan menggunakan platform ini sebagai prasarana pengumpulan dana untuk kegiatan pengabdian mereka.
+          Platform yang dapat memberikan dukungan bagi suatu komunitas untuk
+          masyarakat, khususnya dalam penggalangan dana dan pengenalan Kegiatan
+          dari komunitas. Teko ini Dibangun menggunakan Next.js sebagai
+          framework, Saat ini banyak sekali komunitas yang terdaftar dan
+          menggunakan platform ini sebagai prasarana pengumpulan dana untuk
+          kegiatan pengabdian mereka.
         </p>
       </Container>
 
@@ -43,12 +46,10 @@ export default function DaftarLembaga() {
             key={member.name}
             className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
           >
-            <Image
+            <img
               className="object-cover object-center w-24 h-24 md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
               src={member.foto}
-              alt=""
-              width="384"
-              height="512"
+              alt={`foto ${member.name}`}
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
               <blockquote>

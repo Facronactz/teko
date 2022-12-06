@@ -24,7 +24,7 @@ function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,
     temansFetcher.fetcher,
-    temansFetcher.swrConfig,
+    temansFetcher.swrConfig
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
@@ -55,11 +55,14 @@ function Temans() {
           src={teman.logo}
           width="200"
           height="200"
-          alt="..."
+          alt={`logo ${teman.nama}`}
+          className="aspect-square object-cover object-center"
         />
-        <Card.Body>
+        <Card.Body className="h-[225px]">
           <Card.Title>{teman.nama} </Card.Title>
-          <Card.Text>{teman.ringkasan}</Card.Text>
+          <Card.Text className="h-[120px] overflow-hidden">
+            {teman.ringkasan}
+          </Card.Text>
           <Link
             href={{
               pathname: `/teman/${teman.id}`,

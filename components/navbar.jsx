@@ -68,7 +68,7 @@ function TekoNavbar(props) {
         className="w-full z-50 sticky top-0 bg-white drop-shadow mb-3"
       >
         <Container fluid>
-          <Navbar.Brand href="/" className="flex flex-row m-auto">
+          <Navbar.Brand href="/" className="flex flex-row my-auto ml-3">
             <Image className="w-[32px] h-[32px] m-auto" src={logo} alt="logo" />
             <h1 className="text-brand ml-2 mb-0 text-2xl font-extrabold lg:text-4xl">
               Teko

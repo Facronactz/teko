@@ -19,7 +19,7 @@ function KegiatanDetail(params) {
   const { data, error } = useSWR(
     kegiatanDetailFetcher.url,
     kegiatanDetailFetcher.fetcher,
-    kegiatanDetailFetcher.swrConfig,
+    kegiatanDetailFetcher.swrConfig
   );
   if (error) {
     return (
@@ -73,7 +73,7 @@ function KegiatanDetail(params) {
       <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
       <Container className="bg-red flex flex-col lg:flex-row justify-center">
         <img
-          className="w-full h-[200px] lg:h-full mb-3"
+          className="aspect-video mb-3"
           src={data.banner}
           alt="gambar hero"
         />

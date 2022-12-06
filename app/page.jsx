@@ -21,13 +21,13 @@ function Stats() {
   const { data, error } = useSWR(
     statsFetcher.url,
     statsFetcher.fetcher,
-    statsFetcher.swrConfig,
+    statsFetcher.swrConfig
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
     return (
       <Skeleton
-        className="rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] mx-auto shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]"
+        className="rounded-md z-30 bg-white w-28 mt-8 p-[3vmin] ml-6 shadow-lg sm:w-32 md:w-40 lg:w-52 xl:w-64 xxl:w-80 lg:p-[5vmin] xl:p-[6vmin]"
         containerClassName="flex-grow: 1; flex-direction: row"
         count={4}
       />
@@ -49,7 +49,7 @@ function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,
     temansFetcher.fetcher,
-    temansFetcher.swrConfig,
+    temansFetcher.swrConfig
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
@@ -80,11 +80,14 @@ function Temans() {
           src={teman.logo}
           width="200"
           height="200"
-          alt="..."
+          alt={`logo ${teman.nama}`}
+          className="aspect-square object-cover object-center"
         />
-        <Card.Body>
+        <Card.Body className="h-[225px]">
           <Card.Title>{teman.nama} </Card.Title>
-          <Card.Text>{teman.ringkasan}</Card.Text>
+          <Card.Text className="h-[120px] overflow-hidden">
+            {teman.ringkasan}
+          </Card.Text>
           <Link
             href={{
               pathname: `/teman/${teman.id}`,

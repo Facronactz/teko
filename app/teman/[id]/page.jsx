@@ -17,7 +17,7 @@ function TemanDetail(params) {
   const { data, error } = useSWR(
     temanIdFetcher.url,
     temanIdFetcher.fetcher,
-    temanIdFetcher.swrConfig,
+    temanIdFetcher.swrConfig
   );
   if (error) {
     return (
@@ -83,8 +83,6 @@ function TemanDetail(params) {
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
           <img
-            width={150}
-            height={150}
             className="w-full h-[150px] mb-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
             src={data.logo}
             alt="gambar hero"

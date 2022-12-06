@@ -37,7 +37,7 @@ class DaftarModal extends React.Component {
       <>
         <Button
           onClick={this.handleShow}
-          className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 mb-2 md:mb-0 md:mr-6 hover:bg-[#f8fafc] rounded"
+          className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 my-auto md:mr-6 hover:bg-[#f8fafc] rounded"
         >
           Daftar
         </Button>
