@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 
@@ -11,10 +13,14 @@ export default function Info() {
   if (!data) {
     return (
       <div className="m-auto md:flex md:flex-row">
-        {/* TODO style dibawah ini */}
         <h3 className="text-sm font-bold text-brand mr-4"> Belum Login </h3>
-        <h3 className="text-sm text-brand"> Silahkan Login </h3>
-      </div >
+        <Link
+          href={'/'}
+          className="no-underline text-sm px-3 py-2 b bg-brand text-white"
+        >
+          Silahkan Login
+        </Link>
+      </div>
     );
   }
   return (

@@ -15,7 +15,6 @@ import TekoFooter from '@teko/components/footer';
 import hero from '@teko/public/image/hero.png';
 import temanP from '@teko/public/image/teman.png';
 
-// TODO: fetch data from API
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 function Stats() {
   const { data, error } = useSWR(
@@ -105,7 +104,6 @@ function Temans() {
 export default function BerandaPage() {
   return (
     <>
-      {/* TODO pindah navbar ke layout dan ganti nama jadi TekoNavbar */}
       <TekoNavbar current="Beranda"></TekoNavbar>
       <header>
         <section className="relative">
@@ -171,7 +169,6 @@ export default function BerandaPage() {
           </div>
         </section>
         <section>
-          {/* TODO buat ini sebagai komponen dinamis */}
           <Container className="grid p-0">
             <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
               <Temans />
@@ -214,7 +211,6 @@ export default function BerandaPage() {
       </figure> */}
       </main>
 
-      {/* Pindah footer ke layout dan ganti nama jadi TekoFooter */}
       <TekoFooter></TekoFooter>
     </>
   );

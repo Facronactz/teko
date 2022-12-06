@@ -51,23 +51,13 @@ export default function KegiatanPage() {
   return (
     <>
       <Link
-        href={'/dashboard/admin/teman-config'}
+        href={'/dashboard/user'}
         className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
       >
         Kembali
       </Link>
       <Container>
         <form className="grid">
-          {/* Kan inima nambah teman dari admin bukan user, jadi pasti tau idnya */}
-          <label htmlFor="first" className="font-semibold">
-            Owner Id:
-          </label>
-          <input
-            className="border border-brand my-2 rounded p-2"
-            type="text"
-            id="first"
-            name="first"
-          />
           <label htmlFor="first" className="font-semibold">
             Nama Organisasi:
           </label>
@@ -168,3 +158,4 @@ export default function KegiatanPage() {
     </>
   );
 }
+

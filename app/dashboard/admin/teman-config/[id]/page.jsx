@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -54,9 +54,8 @@ export default function TampilTeman({ params }) {
   async function onSubmit(e) {
     e.preventDefault();
     const swal = await Swal.fire({
-      // TODO ganti ke bahasa indo
       title: 'Simpan data',
-      text: 'You won\'t be able to revert this!',
+      text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -74,23 +73,19 @@ export default function TampilTeman({ params }) {
       };
       const resp = await temanFetcher.put(upload);
       if (!resp.error) {
-        Swal.fire(
-          'Tersimpan!',
-          'Your file has been simpaned.',
-          'success',
-        );
+        Swal.fire('Tersimpan!', 'Your file has been simpaned.', 'success');
       } else {
-        Swal.fire(
-          'Gagal!',
-          'Your file has not been simpaned.',
-          'error',
-        );
+        Swal.fire('Gagal!', 'Your file has not been simpaned.', 'error');
       }
     }
   }
 
-  // TODO buat loading dan error
-  if (error) return <div>failed to load</div>;
+  if (error)
+    return (
+      <Alert className="m-0" key="danger" variant="danger">
+        Terjadi kesalahan saat mengambil data
+      </Alert>
+    );
   if (!data) return <LoadingX />;
   return (
     <>
@@ -101,15 +96,20 @@ export default function TampilTeman({ params }) {
         Kembali
       </Link>
       <Container className="m-auto">
-        <Image width={150} height={150} src={data.logo} alt={data.nama} onClick={() => router.refresh()} />
+        <Image
+          width={150}
+          height={150}
+          src={data.logo}
+          alt={data.nama}
+          onClick={() => router.refresh()}
+        />
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
             className="border border-brand my-2 rounded px-2"
             type="text"
-            id="first"
-            // FIXME ini name apaan?
-            name="first"
+            id="nama"
+            name="nama"
             defaultValue={data.nama}
             ref={namaRef}
           />
