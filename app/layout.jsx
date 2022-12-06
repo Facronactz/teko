@@ -1,4 +1,3 @@
-import AuthContext from '@teko/components/authContext';
 import { Poppins } from '@next/font/google';
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
       <head />
-      <body><AuthContext>
+      <body>
         {children}
-      </AuthContext></body>
+      </body>
     </html>
   );
 }
