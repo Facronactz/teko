@@ -22,7 +22,7 @@ function Kegiatans() {
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
-    return [1, 2].map((i) => (
+    return [...Array(2)].map((i) => (
       <Col key={i} className="p-0">
         <Card>
           <Card.Header>

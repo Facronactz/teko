@@ -28,7 +28,7 @@ function Temans() {
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
-    return [1, 2, 3, 4].map((i) => (
+    return [...Array(4)].map((i) => (
       <Col key={i} className="p-0">
         <Card>
           <Skeleton className="m-3 w-[85%] h-[205px] md:h-[200px]" />
