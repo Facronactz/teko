@@ -31,9 +31,19 @@ const deleteTeman = async (id) => {
   if (swal.isConfirmed) {
     const resp = temanFetcher.delete(id);
     if (!resp.error) {
-      Swal.fire('Terhapus!', 'Data teman telah dihapus.', 'success');
+      Swal.fire({
+        icon: 'success',
+        title: 'Oke,',
+        text: 'Data teman telah dihapus.',
+        confirmButtonColor: '#315343',
+      });
     } else {
-      Swal.fire('Gagal!', 'Data teman gagal dihapus.', 'error');
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal,',
+        text: 'Data teman gagal dihapus.',
+        confirmButtonColor: '#315343',
+      });
     }
   }
 };

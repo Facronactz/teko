@@ -1,12 +1,15 @@
 'use client';
 
 import { signOut, useSession } from 'next-auth/react';
+import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import LoadingX from '@teko/components/loading';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
+
+import Swal from 'sweetalert2';
 
 export default function RightNav() {
   // eslint-disable-next-line no-unused-vars
@@ -17,6 +20,22 @@ export default function RightNav() {
     userFetcer.fetcher,
     userFetcer.swrConfig,
   );
+
+  async function logAlert(e) {
+    e.preventDefault();
+    const swal = await Swal.fire({
+      title: 'Anda yakin untuk keluar?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
+      confirmButtonText: 'Keluar!',
+    });
+    if (swal.isConfirmed) {
+      signOut();
+    }
+  }
+
   if (status === 'loading') {
     return <LoadingX type="ball-elastic"></LoadingX>;
   }
@@ -26,18 +45,16 @@ export default function RightNav() {
         <>
           <Link
             href="/dashboard"
-            className="mx-2 font-bold no-underline text-brand lg:text-lg"
+            className="mx-2 my-auto font-bold no-underline text-brand lg:text-lg"
           >
             Setting
           </Link>
-          {/* TODO tambahkan alert untuk signout */}
-          <Link
-            href="#"
-            onClick={signOut}
-            className="mx-2 font-bold no-underline text-brand lg:text-lg"
+          <Button
+            onClick={logAlert}
+            className="bg-white border-brand mx-2 font-bold no-underline text-brand lg:text-lg"
           >
             Keluar
-          </Link>
+          </Button>
         </>
       );
     }
@@ -45,18 +62,16 @@ export default function RightNav() {
       <>
         <Link
           href="/dashboard"
-          className="mx-2 font-bold no-underline text-brand lg:text-lg"
+          className="mx-2 my-auto font-bold no-underline text-brand lg:text-lg"
         >
           Dashboard
         </Link>
-        {/* TODO tambahkan alert untuk signout */}
-        <Link
-          href="#"
-          onClick={signOut}
-          className="mx-2 font-bold no-underline text-brand lg:text-lg"
+        <Button
+          onClick={logAlert}
+          className="bg-white border-brand mx-2 font-bold no-underline text-brand lg:text-lg"
         >
           Keluar
-        </Link>
+        </Button>
       </>
     );
   }

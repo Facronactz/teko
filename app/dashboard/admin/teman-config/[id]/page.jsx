@@ -60,7 +60,7 @@ export default function TampilTeman({ params }) {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Save it!',
+      confirmButtonText: 'Ya, simpan!',
     });
     if (swal.isConfirmed) {
       const upload = {
@@ -73,9 +73,19 @@ export default function TampilTeman({ params }) {
       };
       const resp = await temanFetcher.put(upload);
       if (!resp.error) {
-        Swal.fire('Tersimpan!', 'Your file has been simpaned.', 'success');
+        Swal.fire({
+          icon: 'success',
+          title: 'Yaay...',
+          text: 'File berhasil disimpan',
+          confirmButtonColor: '#315343',
+        });
       } else {
-        Swal.fire('Gagal!', 'Your file has not been simpaned.', 'error');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'File tidak berhasil disimpan',
+          confirmButtonColor: '#315343',
+        });
       }
     }
   }

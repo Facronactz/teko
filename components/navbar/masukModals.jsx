@@ -5,15 +5,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import {
-  Form, Modal, ModalFooter, Button,
-} from 'react-bootstrap';
+import { Form, Modal, ModalFooter, Button } from 'react-bootstrap';
 
 import { signIn } from 'next-auth/react';
 
 import formBg from '@teko/public/image/formBg.jpg';
 
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 // import { getCsrfToken } from 'next-auth/react';
 
 // const getCSRF = async () => {
@@ -44,8 +42,12 @@ const MasukModal = () => {
       password,
     });
     if (result.error) {
-      // FIXME ubah ke sweetalert2
-      swal('Maaf', 'Email atau Password salah!', 'error');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Email atau Password anda salah!',
+        confirmButtonColor: '#315343',
+      });
     }
   };
 

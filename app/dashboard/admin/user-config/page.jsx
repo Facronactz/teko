@@ -27,9 +27,19 @@ const deleteUser = async (id) => {
   if (swal.isConfirmed) {
     const resp = await userFetcher.delete(id);
     if (!resp.error) {
-      Swal.fire('Terhapus!', 'Data user telah dihapus.', 'success');
+      Swal.fire({
+        icon: 'success',
+        title: 'Yap,',
+        text: 'Data user telah dihapus.',
+        confirmButtonColor: '#315343',
+      });
     } else {
-      Swal.fire('Gagal!', 'Data user gagal dihapus.', 'error');
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal.',
+        text: 'Data user gagal dihapus.',
+        confirmButtonColor: '#315343',
+      });
     }
   }
 };

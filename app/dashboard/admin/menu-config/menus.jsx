@@ -25,12 +25,20 @@ export default function Menus({ fetcher }) {
       href,
     };
     await fetcher.put(updateData, id);
-    Swal.fire('Berhasil!', 'Data berhasil diubah!', 'success');
+    Swal.fire({
+      icon: 'success',
+      text: 'Data berhasil diubah',
+      confirmButtonColor: '#315343',
+    });
   }
 
   async function deleteMenu(id) {
     await fetcher.delete(id);
-    Swal.fire('Berhasil!', 'Data berhasil dihapus!', 'success');
+    Swal.fire({
+      icon: 'success',
+      text: 'Data berhasil dihapus',
+      confirmButtonColor: '#315343',
+    });
   }
 
   if (error) return <div>Gagal untuk memuat</div>;

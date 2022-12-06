@@ -13,11 +13,12 @@ export default function New({ fetcher }) {
       href: href.current.value,
     };
     await fetcher.post(createData);
-    Swal.fire(
-      'Berhasil!',
-      'Data berhasil ditambahkan!',
-      'success',
-    );
+    Swal.fire({
+      icon: 'success',
+      title: 'Yaay...',
+      text: 'Data berhasil ditambahkan',
+      confirmButtonColor: '#315343',
+    });
   }
 
   return (
@@ -38,7 +39,10 @@ export default function New({ fetcher }) {
         />
       </td>
       <td className="flex flex-row justify-center">
-        <Button onClick={createMenu} className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
+        <Button
+          onClick={createMenu}
+          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+        >
           <GoPlus className="h-[30px] w-[70px] text-white" />
         </Button>
       </td>

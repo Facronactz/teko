@@ -1,17 +1,15 @@
 'use client';
 
-// import React from 'react';
-
 import { useState, useRef } from 'react';
 
 import Image from 'next/image';
 
-import {
-  Container, Form, Button, Modal,
-} from 'react-bootstrap';
+import { Container, Form, Button, Modal } from 'react-bootstrap';
 
 import formBg from '@teko/public/image/formBg.jpg';
 import Fetcher from '@teko/helpers/fetcher';
+
+import Swal from 'sweetalert2';
 
 const signupFetcher = new Fetcher({ url: 'auth/signup' });
 
@@ -23,9 +21,20 @@ function DaftarUmum() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password.current.value !== passwordConfirmation.current.value) {
-      // TODO style alert menggunakan sweetalert
-      return alert('Password tidak sama');
+    if (!nama || !email || !password) {
+      return Swal.fire({
+        icon: 'warning',
+        title: 'Oww..',
+        text: 'Harap isi semua form!',
+        confirmButtonColor: '#315343',
+      });
+    } else if (password.current.value !== passwordConfirmation.current.value) {
+      return Swal.fire({
+        icon: 'warning',
+        title: 'Oww...',
+        text: 'Password tidak sama!',
+        confirmButtonColor: '#315343',
+      });
     }
     const data = {
       name: nama.current.value,
@@ -34,11 +43,19 @@ function DaftarUmum() {
     };
     const result = await signupFetcher.post(data);
     if (result.error) {
-      // TODO style alert menggunakan sweetalert
-      return alert(result.message);
+      return Swal.fire({
+        icon: 'error',
+        title: 'Oww...',
+        text: result.message,
+        confirmButtonColor: '#315343',
+      });
     }
-    // TODO style alert menggunakan sweetalert
-    return alert('Berhasil mendaftar');
+    return Swal.fire({
+      icon: 'success',
+      title: 'Yaay...',
+      text: 'Berhasil mendaftar',
+      confirmButtonColor: '#315343',
+    });
   };
 
   return (
