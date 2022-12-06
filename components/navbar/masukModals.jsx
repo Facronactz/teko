@@ -5,7 +5,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Form, Modal, ModalFooter, Button } from 'react-bootstrap';
+import {
+  Form, Modal, ModalFooter, Button,
+} from 'react-bootstrap';
 
 import { signIn } from 'next-auth/react';
 

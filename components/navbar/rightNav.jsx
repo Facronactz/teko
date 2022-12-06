@@ -6,10 +6,9 @@ import Link from 'next/link';
 import LoadingX from '@teko/components/loading';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
+import Swal from 'sweetalert2';
 import DaftarModal from './daftarModals';
 import MasukModal from './masukModals';
-
-import Swal from 'sweetalert2';
 
 export default function RightNav() {
   // eslint-disable-next-line no-unused-vars

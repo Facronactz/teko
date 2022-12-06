@@ -4,7 +4,9 @@ import { useState, useRef } from 'react';
 
 import Image from 'next/image';
 
-import { Container, Form, Button, Modal } from 'react-bootstrap';
+import {
+  Container, Form, Button, Modal,
+} from 'react-bootstrap';
 
 import formBg from '@teko/public/image/formBg.jpg';
 import Fetcher from '@teko/helpers/fetcher';
@@ -28,7 +30,7 @@ function DaftarUmum() {
         text: 'Harap isi semua form!',
         confirmButtonColor: '#315343',
       });
-    } else if (password.current.value !== passwordConfirmation.current.value) {
+    } if (password.current.value !== passwordConfirmation.current.value) {
       return Swal.fire({
         icon: 'warning',
         title: 'Oww...',
