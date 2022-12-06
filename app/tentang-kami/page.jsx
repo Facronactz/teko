@@ -1,24 +1,81 @@
 'use client';
 
 import Link from 'next/link';
-import { use } from 'react';
 
-import { Container } from 'react-bootstrap';
+import { Container, Alert } from 'react-bootstrap';
 
-import { assetPrefix } from '@teko/next.config';
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
 
+import Fetcher from '@teko/helpers/fetcher';
+import useSWR from 'swr';
+import Skeleton from 'react-loading-skeleton';
+
 import { AiFillMail, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
-const getData = async (q) => {
-  const res = await fetch(`${assetPrefix}/api/data?q=${q}`);
-  const data = await res.json();
-  return data;
-};
+const teamFetcher = new Fetcher({ url: 'data?q=team' });
+function Team() {
+  const { data, error } = useSWR(
+    teamFetcher.url,
+    teamFetcher.fetcher,
+    teamFetcher.swrConfig,
+  );
+  if (error) {
+    return (
+      <Alert key="danger" variant="danger">
+        {' '}
+        Error fetching data{' '}
+      </Alert>
+    );
+  }
+  if (!data) {
+    return [1, 2, 3, 4].map(() => (
+      <Skeleton className="flex flex-row justify-center" count={2} />
+    ));
+  }
+  return data.map((member) => (
+    <figure
+      key={member.name}
+      className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
+    >
+      <img
+        className="object-cover object-center w-24 h-24 md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
+        src={member.foto}
+        alt={`foto ${member.name}`}
+      />
+      <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
+        <blockquote>
+          <p className="text-lg lg:text-xl font-medium">{member.quote}</p>
+        </blockquote>
+        <figcaption className="font-medium">
+          <div className="text-brand text-2xl">{member.name}</div>
+        </figcaption>
+        <div className="flex flex-row justify-center">
+          <Link
+            href={`mailto:${member.email}`}
+            className="border p-2 rounded-xl border-brand mx-2"
+          >
+            <AiFillMail className="h-10 w-10 text-brand" />
+          </Link>
+          <Link
+            href={member.github}
+            className="border p-2 rounded-xl border-brand mx-2"
+          >
+            <AiFillGithub className="h-10 w-10 text-brand" />
+          </Link>
+          <Link
+            href={member.linkedin}
+            className="border p-2 rounded-xl border-brand mx-2"
+          >
+            <AiFillLinkedin className="h-10 w-10 text-brand" />
+          </Link>
+        </div>
+      </div>
+    </figure>
+  ));
+}
 
-export default function DaftarLembaga() {
-  const team = use(getData('team'));
+export default function TentangKami() {
   return (
     <>
       <TekoNavbar current="Tentang Kami"></TekoNavbar>
@@ -41,46 +98,7 @@ export default function DaftarLembaga() {
         Tim Kami
       </h2>
       <Container className="lg:grid lg:grid-cols-2 lg:gap-3 mb-5">
-        {team.map((member) => (
-          <figure
-            key={member.name}
-            className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
-          >
-            <img
-              className="object-cover object-center w-24 h-24 md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
-              src={member.foto}
-              alt={`foto ${member.name}`}
-            />
-            <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
-              <blockquote>
-                <p className="text-lg lg:text-xl font-medium">{member.quote}</p>
-              </blockquote>
-              <figcaption className="font-medium">
-                <div className="text-brand text-2xl">{member.name}</div>
-              </figcaption>
-              <div className="flex flex-row justify-center">
-                <Link
-                  href={`mailto:${member.email}`}
-                  className="border p-2 rounded-xl border-brand mx-2"
-                >
-                  <AiFillMail className="h-10 w-10 text-brand" />
-                </Link>
-                <Link
-                  href={member.github}
-                  className="border p-2 rounded-xl border-brand mx-2"
-                >
-                  <AiFillGithub className="h-10 w-10 text-brand" />
-                </Link>
-                <Link
-                  href={member.linkedin}
-                  className="border p-2 rounded-xl border-brand mx-2"
-                >
-                  <AiFillLinkedin className="h-10 w-10 text-brand" />
-                </Link>
-              </div>
-            </div>
-          </figure>
-        ))}
+        <Team />
       </Container>
       <TekoFooter></TekoFooter>
     </>
