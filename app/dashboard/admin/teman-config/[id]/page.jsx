@@ -90,12 +90,13 @@ export default function TampilTeman({ params }) {
     }
   }
 
-  if (error)
+  if (error) {
     return (
       <Alert className="m-0" key="danger" variant="danger">
         Terjadi kesalahan saat mengambil data
       </Alert>
     );
+  }
   if (!data) return <LoadingX />;
   return (
     <>

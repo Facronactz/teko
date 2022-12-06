@@ -2,50 +2,46 @@
 
 import Link from 'next/link';
 
-import { useState } from 'react';
-import { assetPrefix } from '@teko/next.config';
+import { useState, useRef } from 'react';
 
+import Fetcher from '@teko/helpers/fetcher';
 import { Container, Button } from 'react-bootstrap';
+import useSWR from 'swr';
+
+import TagsInput from 'react-tagsinput';
 
 // TODO post belum fungsi sama sekali, untuk post semua input blm ada classnya
-
-const getUploadUrl = async (fileName) => {
-  const res = await fetch(`${assetPrefix}/api/storage?file=${fileName}`, {
-    method: 'POST',
-  });
-  return res.json();
-};
-
-const uploadtoS3 = async (url, body) => {
-  const res = await fetch(url, {
-    method: 'POST',
-    body,
-  });
-  return res.ok;
-};
+const temanFetcher = new Fetcher('teman');
+const userFetcer = new Fetcher('user');
 
 export default function KegiatanPage() {
-  const [uploaded, setUploaded] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [name, setName] = useState('');
+  const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
 
-  const uploadPhoto = async (e) => {
-    setUploading(true);
-    const file = e.target.files?.[0];
-    const fileName = encodeURIComponent(file.name);
+  const namaRef = useRef();
+  const deskripsiRef = useRef();
+  const ringkasanRef = useRef();
+  const teleponRef = useRef();
+  const alamatRef = useRef();
+  const [tags, setTags] = useState([]);
 
-    const url = await getUploadUrl(fileName);
-    const upload = await uploadtoS3(url, file);
+  const handleChange = (tag) => {
+    setTags(tag);
+  };
 
-    const imageURL = `${process.env.STORAGE_URL}/${fileName}`;
-
-    if (upload) {
-      setName(imageURL);
-      setUploading(false);
-      setUploaded(true);
-    } else {
-      setUploaded(false);
-    }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const kategori = tags.map((tag) => ({ nama: tag }));
+    const data = {
+      nama: namaRef.current.value,
+      deskripsi: deskripsiRef.current.value,
+      ringkasan: ringkasanRef.current.value,
+      telp: teleponRef.current.value,
+      alamat: alamatRef.current.value,
+      logo: '',
+      kategori,
+      owner: user.sub,
+    };
+    await temanFetcher.post(data);
   };
 
   return (
@@ -57,9 +53,9 @@ export default function KegiatanPage() {
         Kembali
       </Link>
       <Container>
-        <form className="grid">
+        <form className="grid" onSubmit={onSubmit}>
           {/* Kan inima nambah teman dari admin bukan user, jadi pasti tau idnya */}
-          <label htmlFor="first" className="font-semibold">
+          {/* <label htmlFor="first" className="font-semibold">
             Owner Id:
           </label>
           <input
@@ -67,96 +63,52 @@ export default function KegiatanPage() {
             type="text"
             id="first"
             name="first"
-          />
-          <label htmlFor="first" className="font-semibold">
-            Nama Organisasi:
-          </label>
+          /> */}
+          <label className="font-semibold">Nama Organisasi:</label>
           <input
-            className="border border-brand my-2 rounded p-2"
+            className="border border-brand my-2 rounded px-2"
             type="text"
-            id="first"
-            name="first"
+            id="nama"
+            name="nama"
+            ref={namaRef}
           />
-          <label className="mb-2 font-semibold">Kategori:</label>
-          {/* FIXME Kategori dijadiin kyk tag aja */}
-          {/* <label htmlFor="kategori1">
-            {' '}
-            Kemanusiaan
-            <input
-              type="checkbox"
-              id="kategori1"
-              name="kategori1"
-              value="Kemanusiaan"
-              className=""
-            />
-          </label>
-
-          <label htmlFor="kategori2">
-            {' '}
-            Sosial
-            <input
-              type="checkbox"
-              id="kategori2"
-              name="kategori2"
-              value="Sosial"
-              className=""
-            />
-          </label>
-
-          <label htmlFor="kategori3">
-            {' '}
-            Lingkungan
-            <input
-              type="checkbox"
-              id="kategori3"
-              name="kategori3"
-              value="Lingkungan"
-              className=""
-            />
-          </label> */}
-
-          <label htmlFor="ringkasan" className="my-3 font-semibold">
-            Ringkasan:
-          </label>
+          <label className="my-3 font-semibold">Ringkasan:</label>
           <textarea
-            className="border border-brand rounded mb-3 p-2"
+            className="border border-brand rounded mb-3 px-2"
             name="ringkasan"
             id="ringkasan"
             cols="3"
             rows="2"
+            ref={ringkasanRef}
           ></textarea>
-          <label htmlFor="deskripsi" className="mb-3 font-semibold">
-            Deskripsi:
-          </label>
+          <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
-            className="border border-brand rounded mb-3 p-2"
+            className="border border-brand rounded mb-3 px-2"
             name="deskripsi"
             id="deskripsi"
             cols="5"
             rows="2"
+            ref={deskripsiRef}
           ></textarea>
-
-          <label htmlFor="alamat" className="mb-3 font-semibold">
-            Alamat:
-          </label>
+          <label className="mb-3 font-semibold">Alamat:</label>
           <textarea
-            className="border border-brand rounded mb-3 p-2"
+            className="border border-brand rounded mb-3 px-2"
             name="alamat"
             id="alamat"
             cols="5"
             rows="2"
+            ref={alamatRef}
           ></textarea>
-
-          <p className="font-semibold">Tambah Logo (max 3MB).</p>
+          <label className="font-semibold">No Telepon:</label>
           <input
-            onChange={uploadPhoto}
-            type="file"
-            accept="image/png, image/jpeg"
+            className="border border-brand my-2 rounded px-2"
+            type="number"
+            id="last"
+            name="last"
+            ref={teleponRef}
           />
-          {uploading && <p>Uploading...</p>}
-          {uploaded && <p>Uploaded!</p>}
-          {name && <img src={name} alt={name} />}
-
+          <label className="mb-2 font-semibold">Kategori:</label>
+          <TagsInput value={tags} onChange={handleChange} />
           <Button
             type="submit"
             className="my-3 font-semibold text-lg bg-brand border-brand py-3"

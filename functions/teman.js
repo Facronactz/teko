@@ -31,7 +31,11 @@ class Teman {
     }
 
     static async post(req) {
-        const { data, owner, kategori } = req;
+        const { data } = req;
+        const { owner, kategori } = data;
+        delete data.owner;
+        delete data.kategori;
+        console.log(data, owner, kategori);
         let result;
         try {
             result = await prisma.lembaga.create({
@@ -39,7 +43,7 @@ class Teman {
                     ...data,
                     owner: {
                         connect: {
-                            id: owner.id,
+                            id: owner,
                         },
                     },
                 },
@@ -48,7 +52,7 @@ class Teman {
                 },
             });
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             if (error.code === 'P2002') {
                 return { error: 'Nama Lembaga sudah ada' };
             }
@@ -74,7 +78,7 @@ class Teman {
             }));
             return result;
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             return { error };
         }
     }
