@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 // eslint-disable-next-line object-curly-newline
-import { Card, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import { RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
 
@@ -30,7 +30,7 @@ const menus = [
 
 export default function MenuItem() {
   return (
-    <>
+    <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
       {
         menus.map((item) => (
           <Item key={item.name} name={item.name} href={`/dashboard/admin/${item.href}`}>
@@ -38,6 +38,6 @@ export default function MenuItem() {
           </Item>
         ))
       }
-    </>
+    </Row>
   );
 }

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // eslint-disable-next-line object-curly-newline
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { RiArrowGoBackFill } from 'react-icons/ri';
 
 import spanduk from '@teko/public/image/hut-ri-ke-77.png';
@@ -32,9 +32,7 @@ export default function DashboardLayout({ children }) {
           </Container>
         </Container>
         <Container className="grid p-0">
-          <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
-            {children}
-          </Row>
+          {children}
         </Container>
       </Container>
     </main>
