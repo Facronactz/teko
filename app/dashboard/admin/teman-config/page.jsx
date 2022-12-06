@@ -82,9 +82,24 @@ function ShowTeman() {
       <td className="flex flex-row justify-center">
         <Link
           href={`/dashboard/admin/teman-config/${teman.id}`}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
         >
-          <AiFillEdit className="h-[25px] w-[70px] text-white" />
+          <AiFillEdit className="h-[25px] text-white" />
+          | Teman
+        </Link>
+        <Link
+          href={`/dashboard/admin/teman-config/${teman.id}`}
+          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
+        >
+          <AiFillEdit className="h-[25px] text-white" />
+          | Kegiatan
+        </Link>
+        <Link
+          href={`/dashboard/admin/teman-config/${teman.id}`}
+          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
+        >
+          <AiFillEdit className="h-[25px] text-white" />
+          | Sosmed
         </Link>
         <Button
           onClick={() => deleteTeman(teman.id)}

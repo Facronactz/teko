@@ -4,13 +4,14 @@ import { Container, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
 import LoadingX from '@teko/components/loading';
+import TagsInput from 'react-tagsinput';
 
 export default function TampilTeman({ params }) {
   const temanFetcher = new Fetcher({
@@ -50,6 +51,18 @@ export default function TampilTeman({ params }) {
   const teleponRef = useRef();
   const alamatRef = useRef();
   const logoRef = useRef();
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      const kategori = data.Kategori.map((tag) => tag.nama);
+      setTags(kategori);
+    }
+  }, [data]);
+
+  const handleChangeKategori = (tag) => {
+    setTags(tag);
+  };
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -70,6 +83,7 @@ export default function TampilTeman({ params }) {
         telp: teleponRef.current.value,
         alamat: alamatRef.current.value,
         logo: logoRef.current.value,
+        kategori: tags,
       };
       const resp = await temanFetcher.put(upload);
       if (!resp.error) {
@@ -164,6 +178,9 @@ export default function TampilTeman({ params }) {
             defaultValue={data.alamat}
             ref={alamatRef}
           ></textarea>
+
+          <label className="mb-2 font-semibold">Kategori:</label>
+          <TagsInput value={tags} onChange={handleChangeKategori} />
 
           <p className="font-semibold">Ubah Logo (max 3MB).</p>
           <input

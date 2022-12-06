@@ -85,6 +85,55 @@ class Teman {
 
     static async put(id, req) {
         const { data } = req;
+        const { owner, kategori } = data;
+        delete data.owner;
+        delete data.kategori;
+        if (owner) {
+            try {
+                const result = await prisma.lembaga.update({
+                    where: {
+                        id,
+                    },
+                    data: {
+                        owner: {
+                            connect: {
+                                id: owner,
+                            },
+                        },
+                    },
+                    include: {
+                        owner: true,
+                    },
+                });
+                return result;
+            } catch (error) {
+                console.log(error);
+                if (error.code === 'P2002') {
+                    return { error: 'Nama Lembaga sudah ada' };
+                }
+                return { error };
+            }
+        }
+        if (kategori) {
+            try {
+                kategori.forEach(async (item) => prisma.lembaga.update({
+                    where: {
+                        id,
+                    },
+                    data: {
+                        Kategori: {
+                            connectOrCreate: {
+                                where: { nama: item },
+                                create: { nama: item },
+                            },
+                        },
+                    },
+                }));
+            } catch (error) {
+                console.log(error);
+                return { error };
+            }
+        }
         // console.log(req);
         try {
             const result = await prisma.lembaga.update({
