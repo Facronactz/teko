@@ -56,7 +56,7 @@ export default function TampilTeman({ params }) {
     const swal = await Swal.fire({
       // TODO ganti ke bahasa indo
       title: 'Simpan data',
-      text: 'You won\'t be able to revert this!',
+      text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -74,17 +74,9 @@ export default function TampilTeman({ params }) {
       };
       const resp = await temanFetcher.put(upload);
       if (!resp.error) {
-        Swal.fire(
-          'Tersimpan!',
-          'Your file has been simpaned.',
-          'success',
-        );
+        Swal.fire('Tersimpan!', 'Your file has been simpaned.', 'success');
       } else {
-        Swal.fire(
-          'Gagal!',
-          'Your file has not been simpaned.',
-          'error',
-        );
+        Swal.fire('Gagal!', 'Your file has not been simpaned.', 'error');
       }
     }
   }
@@ -101,7 +93,13 @@ export default function TampilTeman({ params }) {
         Kembali
       </Link>
       <Container className="m-auto">
-        <Image width={150} height={150} src={data.logo} alt={data.nama} onClick={() => router.refresh()} />
+        <Image
+          width={150}
+          height={150}
+          src={data.logo}
+          alt={data.nama}
+          onClick={() => router.refresh()}
+        />
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
