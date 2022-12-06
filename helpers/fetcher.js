@@ -59,7 +59,9 @@ class Fetcher {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ data: this.data }),
+            body: JSON.stringify({
+                data: this.data,
+            }),
         });
         return response.json();
     }
