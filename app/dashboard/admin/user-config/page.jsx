@@ -9,8 +9,31 @@ import SideBar from '@teko/components/sidebar';
 
 import { RiUserFill } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
+import Swal from 'sweetalert2';
 
 const userFetcher = new Fetcher({ url: 'users' });
+
+const deleteUser = async (id) => {
+  const swal = await Swal.fire({
+    title: 'Apakah anda yakin?',
+    text: 'Anda tidak akan dapat mengembalikan data ini!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, hapus!',
+    cancelButtonText: 'Batal',
+  });
+  if (swal.isConfirmed) {
+    const resp = await userFetcher.delete(id);
+    if (!resp.error) {
+      Swal.fire('Terhapus!', 'Data user telah dihapus.', 'success');
+    } else {
+      Swal.fire('Gagal!', 'Data user gagal dihapus.', 'error');
+    }
+  }
+};
+
 function ShowUser() {
   const { data, error } = useSWR(
     userFetcher.url,
@@ -43,7 +66,7 @@ function ShowUser() {
       <td className="text-center">{user.role}</td>
 
       <td className="flex flex-row justify-center">
-        <Button className=" bg-white border-brand ml-3">
+        <Button onClick={() => deleteUser(user.id)} className=" bg-white border-brand ml-3">
           <ImCross className="h-[25px] w-[70px] text-danger" />
         </Button>
       </td>

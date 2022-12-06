@@ -14,11 +14,12 @@ class APIHandler {
     }
 
     async post() {
-        if (!this.id && !this.req.body) return this.res.status(400).json({ message: 'Bad Request' });
+        if (!this.id && !this.req.body) return this.res.status(400).json({ error: 'Bad Request' });
         const result = await this.func.post(this.req.body);
         if (result.error) {
             return this.res.status(500).json({
-                success: 'false', message: result.error,
+                message: 'Data gagal ditambahkan',
+                error: result.error,
             });
         }
         return this.res.status(201).json({
@@ -28,7 +29,7 @@ class APIHandler {
     }
 
     async put() {
-        if (!this.id && !this.req.body) return this.res.status(400).json({ message: 'Bad Request' });
+        if (!this.id && !this.req.body) return this.res.status(400).json({ error: 'Bad Request' });
         const result = await this.func.put(this.id, this.req.body);
         if (result.error) {
             return this.res.status(400).json({
@@ -43,7 +44,7 @@ class APIHandler {
     }
 
     async delete() {
-        if (!this.id) return this.res.status(400).json({ message: 'Bad Request' });
+        if (!this.id) return this.res.status(400).json({ error: 'Bad Request' });
         const result = await this.func.delete(this.id);
         if (result.error) {
             return this.res.status(500).json({

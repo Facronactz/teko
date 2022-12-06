@@ -19,7 +19,7 @@ function KegiatanDetail(params) {
   const { data, error } = useSWR(
     kegiatanDetailFetcher.url,
     kegiatanDetailFetcher.fetcher,
-    kegiatanDetailFetcher.swrConfig
+    kegiatanDetailFetcher.swrConfig,
   );
   if (error) {
     return (

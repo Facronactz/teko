@@ -13,10 +13,30 @@ import { GiThreeFriends } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
 import { GoPlus } from 'react-icons/go';
+import Swal from 'sweetalert2';
 
 const temanFetcher = new Fetcher({ url: 'teman' });
 
-const deleteTeman = (id) => temanFetcher.delete(id);
+const deleteTeman = async (id) => {
+  const swal = await Swal.fire({
+    title: 'Apakah anda yakin?',
+    text: 'Anda tidak akan dapat mengembalikan data ini!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, hapus!',
+    cancelButtonText: 'Batal',
+  });
+  if (swal.isConfirmed) {
+    const resp = temanFetcher.delete(id);
+    if (!resp.error) {
+      Swal.fire('Terhapus!', 'Data teman telah dihapus.', 'success');
+    } else {
+      Swal.fire('Gagal!', 'Data teman gagal dihapus.', 'error');
+    }
+  }
+};
 
 function ShowTeman() {
   const { data, error } = useSWR(

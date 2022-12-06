@@ -1,26 +1,12 @@
-import prisma from '@teko/libs/PrismaClient';
+import APIHandler from '@teko/helpers/api/handler';
+import User from '@teko/functions/users';
 
-export default async function handler(req, res) {
-    if (req.method !== 'GET') return res.status(405).json({ message: 'Method not allowed' });
-    if (req.query) {
-        const { id, role } = req.query;
-        if (id) {
-            const user = await prisma.user.findUnique({
-                where: {
-                    id,
-                },
-            });
-            return res.status(200).json({ message: 'User found', user });
-        }
-        if (role) {
-            const users = await prisma.user.findMany({
-                where: {
-                    role: role.toUpperCase(),
-                },
-            });
-            return res.status(200).json({ message: 'Users found', users });
-        }
+export default async function UserHandler(req, res) {
+    const { method } = req;
+    const handler = new APIHandler(User, req, res);
+    try {
+        return await handler[method.toLowerCase()](req, res);
+    } catch (error) {
+        return res.status(405).json({ message: 'Method not allowed' });
     }
-    const data = await prisma.user.findMany();
-    return res.status(200).json(data);
 }

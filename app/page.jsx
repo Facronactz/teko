@@ -21,7 +21,7 @@ function Stats() {
   const { data, error } = useSWR(
     statsFetcher.url,
     statsFetcher.fetcher,
-    statsFetcher.swrConfig
+    statsFetcher.swrConfig,
   );
   if (error) return <div>Gagal untuk memuat</div>;
   if (!data) {
@@ -49,7 +49,7 @@ function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,
     temansFetcher.fetcher,
-    temansFetcher.swrConfig
+    temansFetcher.swrConfig,
   );
   if (error) return <div>failed to load</div>;
   if (!data) {

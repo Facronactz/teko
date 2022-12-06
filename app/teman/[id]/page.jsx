@@ -17,7 +17,7 @@ function TemanDetail(params) {
   const { data, error } = useSWR(
     temanIdFetcher.url,
     temanIdFetcher.fetcher,
-    temanIdFetcher.swrConfig
+    temanIdFetcher.swrConfig,
   );
   if (error) {
     return (

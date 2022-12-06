@@ -24,7 +24,7 @@ function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,
     temansFetcher.fetcher,
-    temansFetcher.swrConfig
+    temansFetcher.swrConfig,
   );
   if (error) return <div>failed to load</div>;
   if (!data) {
