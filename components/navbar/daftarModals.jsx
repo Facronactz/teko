@@ -60,11 +60,19 @@ function DaftarUmum() {
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="my-2 mx-3" controlId="formBasicNama">
                   <Form.Label>Nama Lengkap</Form.Label>
-                  <Form.Control ref={nama} type="text" placeholder="Masukan Nama" />
+                  <Form.Control
+                    ref={nama}
+                    type="text"
+                    placeholder="Masukan Nama"
+                  />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicEmail">
                   <Form.Label>Alamat Email</Form.Label>
-                  <Form.Control ref={email} type="email" placeholder="Masukan Email" />
+                  <Form.Control
+                    ref={email}
+                    type="email"
+                    placeholder="Masukan Email"
+                  />
                   <Form.Text className="text-muted">
                     Kami tidak akan membagikan email Anda.
                   </Form.Text>
@@ -72,11 +80,19 @@ function DaftarUmum() {
 
                 <Form.Group className="my-2 mx-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control ref={password} type="password" placeholder="Password" />
+                  <Form.Control
+                    ref={password}
+                    type="password"
+                    placeholder="Password"
+                  />
                 </Form.Group>
                 <Form.Group className="my-2 mx-3" controlId="formBasicPassword">
                   <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control ref={passwordConfirmation} type="password" placeholder="Password" />
+                  <Form.Control
+                    ref={passwordConfirmation}
+                    type="password"
+                    placeholder="Password"
+                  />
                 </Form.Group>
                 {/* <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
                   {['Laki', 'Perempuan'].map((type) => (

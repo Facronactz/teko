@@ -33,10 +33,11 @@ export default function SideBar({ role, current }) {
       {menus[role].map((menu) => (
         <Link
           key={menu.name}
-          className={current === menu.name.toLowerCase()
+          className={
             // TODO style saat menu aktif
-            ? 'block text-white p-4 no-underline bg-[#15803d]'
-            : 'block text-white p-4 no-underline hover:bg-black'
+            current === menu.name.toLowerCase()
+              ? 'block text-white p-4 no-underline bg-[#15803d]'
+              : 'block text-white p-4 no-underline hover:bg-black'
           }
           href={menu.href}
         >

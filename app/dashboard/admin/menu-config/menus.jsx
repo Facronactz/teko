@@ -25,20 +25,12 @@ export default function Menus({ fetcher }) {
       href,
     };
     await fetcher.put(updateData, id);
-    Swal.fire(
-      'Berhasil!',
-      'Data berhasil diubah!',
-      'success',
-    );
+    Swal.fire('Berhasil!', 'Data berhasil diubah!', 'success');
   }
 
   async function deleteMenu(id) {
     await fetcher.delete(id);
-    Swal.fire(
-      'Berhasil!',
-      'Data berhasil dihapus!',
-      'success',
-    );
+    Swal.fire('Berhasil!', 'Data berhasil dihapus!', 'success');
   }
 
   if (error) return <div>Gagal untuk memuat</div>;
@@ -56,7 +48,7 @@ export default function Menus({ fetcher }) {
           <Skeleton />
         </td>
         <td className="flex flex-row justify-center">
-          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2" >
+          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
             <GoCheck className="h-[30px] w-[70px] text-white" />
           </Button>
           <Button className="bg-white border-brand ml-3">
@@ -69,22 +61,37 @@ export default function Menus({ fetcher }) {
   return data.map((menu) => (
     <tr key={menu.id}>
       <td className="text-center">{menu.id}</td>
-      <td className="text-center" contentEditable="true" ref={(x) => edittedContent[menu.name] = x}>
+      <td
+        className="text-center"
+        contentEditable="true"
+        ref={(x) => (edittedContent[menu.name] = x)}
+      >
         {menu.name}
       </td>
-      <td className="text-center" contentEditable="true" ref={(x) => edittedContent[menu.href] = x}>
+      <td
+        className="text-center"
+        contentEditable="true"
+        ref={(x) => (edittedContent[menu.href] = x)}
+      >
         {menu.href}
       </td>
       <td className="flex flex-row justify-center">
         <Button
-          // BUG jangan kyk gini soalnya bkn form
-          // type="submit"
-          onClick={() => updateMenu(menu.id, edittedContent[menu.name].innerText, edittedContent[menu.href].innerText)}
+          onClick={() =>
+            updateMenu(
+              menu.id,
+              edittedContent[menu.name].innerText,
+              edittedContent[menu.href].innerText,
+            )
+          }
           className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
         >
           <GoCheck className="h-[30px] w-[70px] text-white" />
         </Button>
-        <Button onClick={() => deleteMenu(menu.id)} className="bg-white border-brand ml-3">
+        <Button
+          onClick={() => deleteMenu(menu.id)}
+          className="bg-white border-brand ml-3"
+        >
           <ImCross className="h-[25px] w-[70px] text-danger" />
         </Button>
       </td>

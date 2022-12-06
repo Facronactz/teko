@@ -24,8 +24,7 @@ function MenuNavbar(props) {
   if (error) {
     return (
       <Alert className="m-0" key="danger" variant="danger">
-        {' '}
-        Terjadi kesalahan saat mengambil data{' '}
+        Terjadi kesalahan saat mengambil data
       </Alert>
     );
   }

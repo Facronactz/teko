@@ -21,8 +21,7 @@ export default function AdminPage() {
             <Image
               className="w-[100px] h-[100px] object-cover object-center rounded-full m-3"
               src={spanduk}
-              // FIXME ganti alt
-              alt="wokowko"
+              alt="foto admin"
             />
             <Info />
             <Link href={'/'} className="border-brand w-20 h-20 my-auto">

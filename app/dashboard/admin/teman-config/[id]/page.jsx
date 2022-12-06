@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -54,7 +54,6 @@ export default function TampilTeman({ params }) {
   async function onSubmit(e) {
     e.preventDefault();
     const swal = await Swal.fire({
-      // TODO ganti ke bahasa indo
       title: 'Simpan data',
       text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
       icon: 'warning',
@@ -81,8 +80,12 @@ export default function TampilTeman({ params }) {
     }
   }
 
-  // TODO buat loading dan error
-  if (error) return <div>failed to load</div>;
+  if (error)
+    return (
+      <Alert className="m-0" key="danger" variant="danger">
+        Terjadi kesalahan saat mengambil data
+      </Alert>
+    );
   if (!data) return <LoadingX />;
   return (
     <>
@@ -105,9 +108,8 @@ export default function TampilTeman({ params }) {
           <input
             className="border border-brand my-2 rounded px-2"
             type="text"
-            id="first"
-            // FIXME ini name apaan?
-            name="first"
+            id="nama"
+            name="nama"
             defaultValue={data.nama}
             ref={namaRef}
           />
