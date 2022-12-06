@@ -44,7 +44,7 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="teko.vercel.app">View Demo</a>
+    <a href="https://teko.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/Facronactz/teko/issues">Report Bug</a>
     ·
