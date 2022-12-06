@@ -97,15 +97,15 @@ export default function TampilTeman({ params }) {
       </Alert>
     );
   }
-  if (!data) return <LoadingX />;
+  if (!data) {
+    return <div className="flex justify-center h-[90vh]">
+      <div className='my-auto'>
+        <LoadingX />
+      </div>
+    </div>;
+  }
   return (
     <>
-      <Link
-        href={'/dashboard/admin/teman-config'}
-        className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
-      >
-        Kembali
-      </Link>
       <Container className="m-auto">
         <Image
           width={150}

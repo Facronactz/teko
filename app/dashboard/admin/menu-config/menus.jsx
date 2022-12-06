@@ -33,6 +33,7 @@ export default function Menus({ fetcher }) {
   }
 
   async function deleteMenu(id) {
+    // TODO tambahkan konfirmasi sebelum hapus
     await fetcher.delete(id);
     Swal.fire({
       icon: 'success',
@@ -73,6 +74,7 @@ export default function Menus({ fetcher }) {
         className="text-center"
         contentEditable="true"
         ref={(x) => (edittedContent[menu.name] = x)}
+        required
       >
         {menu.name}
       </td>
@@ -80,17 +82,17 @@ export default function Menus({ fetcher }) {
         className="text-center"
         contentEditable="true"
         ref={(x) => (edittedContent[menu.href] = x)}
+        required
       >
         {menu.href}
       </td>
       <td className="flex flex-row justify-center">
         <Button
-          onClick={() =>
-            updateMenu(
-              menu.id,
-              edittedContent[menu.name].innerText,
-              edittedContent[menu.href].innerText,
-            )
+          onClick={() => updateMenu(
+            menu.id,
+            edittedContent[menu.name].innerText,
+            edittedContent[menu.href].innerText,
+          )
           }
           className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
         >

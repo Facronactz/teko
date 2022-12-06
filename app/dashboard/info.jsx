@@ -1,3 +1,5 @@
+'use client';
+
 import LoadingX from '@teko/components/loading';
 
 import Fetcher from '@teko/helpers/fetcher';

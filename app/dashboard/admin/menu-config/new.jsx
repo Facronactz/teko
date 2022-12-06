@@ -8,17 +8,25 @@ export default function New({ fetcher }) {
   const href = useRef();
 
   async function createMenu() {
-    const createData = {
-      name: name.current.value,
-      href: href.current.value,
-    };
-    await fetcher.post(createData);
-    Swal.fire({
-      icon: 'success',
-      title: 'Yaay...',
-      text: 'Data berhasil ditambahkan',
-      confirmButtonColor: '#315343',
-    });
+    if (name.current.value === '' || href.current.value === '') {
+      Swal.fire({
+        icon: 'error',
+        text: 'Data tidak boleh ada yang kosong',
+        confirmButtonColor: '#315343',
+      });
+    } else {
+      const createData = {
+        name: name.current.value,
+        href: href.current.value,
+      };
+      await fetcher.post(createData);
+      Swal.fire({
+        icon: 'success',
+        title: 'Yaay...',
+        text: 'Data berhasil ditambahkan',
+        confirmButtonColor: '#315343',
+      });
+    }
   }
 
   return (
