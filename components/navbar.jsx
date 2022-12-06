@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import AuthContext from '@teko/components/authContext';
 import useSWR from 'swr';
 import Fetcher from '@teko/helpers/fetcher';
 
@@ -78,7 +79,9 @@ function TekoNavbar(props) {
               <MenuNavbar current={props.current} />
             </Nav>
             <div className="flex flex-col md:flex-row ">
-              <RightNav></RightNav>
+              <AuthContext>
+                <RightNav></RightNav>
+              </AuthContext>
             </div>
           </Navbar.Collapse>
         </Container>
