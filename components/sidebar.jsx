@@ -17,10 +17,10 @@ const teman = [
   { name: 'Logout', href: '/logout' },
 ];
 
-const menus = [
+const menus = {
   admin,
   teman,
-];
+};
 
 // Cara manggilnya:
 // kanan samadengan diganti
