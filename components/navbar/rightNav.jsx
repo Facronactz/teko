@@ -3,11 +3,10 @@
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import LoadingX from '@teko/components/loading';
-import DaftarModal from './daftarModals';
-import MasukModal from './masukModals';
-
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
+import DaftarModal from './daftarModals';
+import MasukModal from './masukModals';
 
 export default function RightNav() {
   // eslint-disable-next-line no-unused-vars
@@ -41,26 +40,25 @@ export default function RightNav() {
           </Link>
         </>
       );
-    } else {
-      return (
-        <>
-          <Link
-            href="/dashboard"
-            className="mx-2 font-bold no-underline text-brand lg:text-lg"
-          >
-            Dashboard
-          </Link>
-          {/* TODO tambahkan alert untuk signout */}
-          <Link
-            href="#"
-            onClick={signOut}
-            className="mx-2 font-bold no-underline text-brand lg:text-lg"
-          >
-            Keluar
-          </Link>
-        </>
-      );
     }
+    return (
+      <>
+        <Link
+          href="/dashboard"
+          className="mx-2 font-bold no-underline text-brand lg:text-lg"
+        >
+            Dashboard
+        </Link>
+        {/* TODO tambahkan alert untuk signout */}
+        <Link
+          href="#"
+          onClick={signOut}
+          className="mx-2 font-bold no-underline text-brand lg:text-lg"
+        >
+            Keluar
+        </Link>
+      </>
+    );
   }
   return (
     <>
