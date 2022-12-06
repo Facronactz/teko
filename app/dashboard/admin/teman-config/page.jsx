@@ -1,7 +1,5 @@
 'use client';
 
-import { assetPrefix } from '@teko/next.config';
-
 import Link from 'next/link';
 
 import { Container, Table, Button } from 'react-bootstrap';
@@ -16,18 +14,10 @@ import { ImCross } from 'react-icons/im';
 import { AiFillEdit } from 'react-icons/ai';
 import { GoPlus } from 'react-icons/go';
 
-const deleteTeman = async () => {
-  const res = await fetch(`${assetPrefix}/api/teman`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data1 = await res.json();
-  return data1;
-};
-
 const temanFetcher = new Fetcher({ url: 'teman' });
+
+const deleteTeman = (id) => temanFetcher.delete(id);
+
 function ShowTeman() {
   const { data, error } = useSWR(
     temanFetcher.url,
@@ -66,7 +56,7 @@ function ShowTeman() {
         >
           <AiFillEdit className="h-[25px] w-[70px] text-white" />
         </Link>
-        <Button onClick={deleteTeman} className="bg-white border-brand ml-3">
+        <Button onClick={() => deleteTeman(teman.id)} className="bg-white border-brand ml-3">
           <ImCross className="h-[25px] w-[70px] text-danger" />
         </Button>
       </td>
@@ -85,6 +75,7 @@ export default function TemanConfig() {
             href={'/dashboard/admin/teman-config/new'}
             className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 text-lg rounded"
           >
+            {/* FIXME new teman taruh di kanan. Icon plus juga masih berantakan */}
             New Teman <GoPlus></GoPlus>
           </Link>
         </h2>

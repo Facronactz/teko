@@ -58,9 +58,10 @@ export default function KegiatanPage() {
       </Link>
       <Container>
         <form className="grid">
-          <label htmlFor="first" className="font-semibold">
+          {/* TODO owner id kenapa diikutin, dia tau darimana id nya coba? */}
+          {/* <label htmlFor="first" className="font-semibold">
             Owner Id:
-          </label>
+          </label> */}
           <input
             className="border border-brand my-2 rounded p-2"
             type="text"
@@ -77,7 +78,8 @@ export default function KegiatanPage() {
             name="first"
           />
           <label className="mb-2 font-semibold">Kategori:</label>
-          <label htmlFor="kategori1">
+          {/* FIXME Kategori dijadiin kyk tag aja */}
+          {/* <label htmlFor="kategori1">
             {' '}
             Kemanusiaan
             <input
@@ -111,7 +113,7 @@ export default function KegiatanPage() {
               value="Lingkungan"
               className=""
             />
-          </label>
+          </label> */}
 
           <label htmlFor="ringkasan" className="my-3 font-semibold">
             Ringkasan:

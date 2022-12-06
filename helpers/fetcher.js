@@ -64,7 +64,7 @@ class Fetcher {
         return response.json();
     }
 
-    async put(id, data) {
+    async put(data, id) {
         this.id = id ?? this.id;
         this.data = data ?? this.data;
         const response = await fetch(this.url, {

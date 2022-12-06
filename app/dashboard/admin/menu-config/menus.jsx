@@ -9,6 +9,7 @@ import { ImCross } from 'react-icons/im';
 
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
+import Swal from 'sweetalert2';
 
 export default function Menus({ fetcher }) {
   const edittedContent = useRef([]);
@@ -23,11 +24,21 @@ export default function Menus({ fetcher }) {
       name,
       href,
     };
-    await fetcher.put(id, updateData);
+    await fetcher.put(updateData, id);
+    Swal.fire(
+      'Berhasil!',
+      'Data berhasil diubah!',
+      'success',
+    );
   }
 
   async function deleteMenu(id) {
     await fetcher.delete(id);
+    Swal.fire(
+      'Berhasil!',
+      'Data berhasil dihapus!',
+      'success',
+    );
   }
 
   if (error) return <div>Gagal untuk memuat</div>;

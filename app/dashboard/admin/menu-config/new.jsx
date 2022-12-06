@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { GoPlus } from 'react-icons/go';
+import Swal from 'sweetalert2';
 
 export default function New({ fetcher }) {
   const name = useRef();
@@ -12,6 +13,11 @@ export default function New({ fetcher }) {
       href: href.current.value,
     };
     await fetcher.post(createData);
+    Swal.fire(
+      'Berhasil!',
+      'Data berhasil ditambahkan!',
+      'success',
+    );
   }
 
   return (

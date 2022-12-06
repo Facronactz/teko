@@ -44,10 +44,6 @@ export default function TampilTeman({ params }) {
     }
   };
 
-  const uploadData = (editedData) => {
-    temanFetcher.put(editedData);
-  };
-
   const namaRef = useRef();
   const deskripsiRef = useRef();
   const ringkasanRef = useRef();
@@ -76,12 +72,20 @@ export default function TampilTeman({ params }) {
         alamat: alamatRef.current.value,
         logo: logoRef.current.value,
       };
-      await uploadData(upload);
-      Swal.fire(
-        'Tersimpan!',
-        'Your file has been simpaned.',
-        'success',
-      );
+      const resp = await temanFetcher.put(upload);
+      if (!resp.error) {
+        Swal.fire(
+          'Tersimpan!',
+          'Your file has been simpaned.',
+          'success',
+        );
+      } else {
+        Swal.fire(
+          'Gagal!',
+          'Your file has not been simpaned.',
+          'error',
+        );
+      }
     }
   }
 
