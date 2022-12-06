@@ -28,7 +28,7 @@ function DaftarUmum() {
       return alert('Password tidak sama');
     }
     const data = {
-      nama: nama.current.value,
+      name: nama.current.value,
       email: email.current.value,
       password: password.current.value,
     };
