@@ -1,85 +1,135 @@
 'use client';
 
-// import { useState } from 'react';
+// import React from 'react';
 
-import React from 'react';
+import { useState, useRef } from 'react';
 
-import { Button, Modal } from 'react-bootstrap';
+import Image from 'next/image';
 
-import DaftarUmum from './DaftarUmum';
+import {
+  Container, Form, Button, Modal,
+} from 'react-bootstrap';
 
-class DaftarModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false,
-      // showUmum: false,
-      // showLembaga: false,
+import formBg from '@teko/public/image/formBg.jpg';
+import Fetcher from '@teko/helpers/fetcher';
+
+const signupFetcher = new Fetcher({ url: 'auth/signup' });
+
+function DaftarUmum() {
+  const nama = useRef();
+  const email = useRef();
+  const password = useRef();
+  const passwordConfirmation = useRef();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password.current.value !== passwordConfirmation.current.value) {
+      // TODO style alert menggunakan sweetalert
+      return alert('Password tidak sama');
+    }
+    const data = {
+      name: nama.current.value,
+      email: email.current.value,
+      password: password.current.value,
     };
-  }
+    const result = await signupFetcher.post(data);
+    if (result.error) {
+      // TODO style alert menggunakan sweetalert
+      return alert(result.message);
+    }
+    // TODO style alert menggunakan sweetalert
+    return alert('Berhasil mendaftar');
+  };
 
-  handleClose = () => this.setState({ show: false });
+  return (
+    <>
+      <div>
+        <Container className="bg-white border rounded p-0 w-[95%] my-[20px]">
+          <div className="flex flex-col">
+            <div className="relative">
+              <h1 className="font-extrabold text-3xl text-left w-1/3 absolute bottom-[8%] left-[8%] text-white md:text-5xl ">
+                Selamat Datang
+              </h1>
+              <Image
+                className="w-full h-[200px] rounded"
+                src={formBg}
+                alt="gambar hero"
+              />
+            </div>
+            <div className="flex flex-col py-3">
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="my-2 mx-3" controlId="formBasicNama">
+                  <Form.Label>Nama Lengkap</Form.Label>
+                  <Form.Control ref={nama} type="text" placeholder="Masukan Nama" />
+                </Form.Group>
+                <Form.Group className="my-2 mx-3" controlId="formBasicEmail">
+                  <Form.Label>Alamat Email</Form.Label>
+                  <Form.Control ref={email} type="email" placeholder="Masukan Email" />
+                  <Form.Text className="text-muted">
+                    Kami tidak akan membagikan email Anda.
+                  </Form.Text>
+                </Form.Group>
 
-  handleShow = () => this.setState({ show: true });
-
-  // showUmum = () => {
-  //   this.setState({ showUmum: true });
-  //   this.setState({ showLembaga: false });
-  // };
-
-  // showLembaga = () => {
-  //   this.setState({ showLembaga: true });
-  //   this.setState({ showUmum: false });
-  // };
-
-  render() {
-    return (
-      <>
-        <Button
-          onClick={this.handleShow}
-          className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 my-auto md:mr-6 hover:bg-[#f8fafc] rounded"
-        >
-          Daftar
-        </Button>
-
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title className="font-bold text-brand text-3xl">
-              Teko <span className="font-light text-lg">| daftar</span>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="flex justify-center flex-col">
-            {/* <ButtonGroup size="lg" className="m-2">
-              <Button
-                className={
-                  this.state.showUmum
-                    ? 'bg-[#15803d] border-white hover:bg-blue-500'
-                    : 'bg-brand border-white hover:bg-blue-500'
-                }
-                href="#"
-                onClick={this.showUmum}
-              >
-                Umum
-              </Button>
-              <Button
-                className={
-                  this.state.showLembaga
-                    ? 'bg-[#15803d] border-white hover:bg-blue-500'
-                    : 'bg-brand border-white hover:bg-blue-500'
-                }
-                href="#"
-                onClick={this.showLembaga}
-              >
-                Lembaga
-              </Button>
-            </ButtonGroup> */}
-            <DaftarUmum></DaftarUmum>
-            {/* {this.state.showLembaga && <DaftarLembaga />} */}
-          </Modal.Body>
-        </Modal>
-      </>
-    );
-  }
+                <Form.Group className="my-2 mx-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control ref={password} type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="my-2 mx-3" controlId="formBasicPassword">
+                  <Form.Label>Confirm Password</Form.Label>
+                  <Form.Control ref={passwordConfirmation} type="password" placeholder="Password" />
+                </Form.Group>
+                {/* <Form.Group className="my-2 mx-3" controlId="formBasicCheckbox">
+                  {['Laki', 'Perempuan'].map((type) => (
+                    <Form.Check
+                      key={type}
+                      type="radio"
+                      id={`default-${type}`}
+                      label={type}
+                      name="genderRadio"
+                      value={type}
+                    />
+                  ))}
+                </Form.Group> */}
+                <Button
+                  type="submit"
+                  className="bg-brand border-brand hover:bg-[#14532d] my-2 mx-3"
+                >
+                  Daftar
+                </Button>
+              </Form>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </>
+  );
 }
 
-export default DaftarModal;
+export default function DaftarModal() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button
+        onClick={handleShow}
+        className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 my-auto md:mr-6 hover:bg-[#f8fafc] rounded"
+      >
+        Daftar
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className="font-bold text-brand text-3xl">
+            Teko <span className="font-light text-lg">| daftar</span>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="flex justify-center flex-col">
+          <DaftarUmum></DaftarUmum>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
