@@ -14,10 +14,10 @@ const menusFetcher = new Fetcher({ url: 'menus' });
 export default function MenuConfig() {
   return (
     <>
-      <div>
+      <div className="flex row m-3 gap-3">
         <SideBar className="col" current="pengaturan menu" role="admin" />
 
-        <div className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
+        <section className="w-full col h-full p-0">
           <h2 className="flex flex-row">
             <RiMenuFoldFill className="mr-2" /> Menus Config
           </h2>
@@ -36,7 +36,7 @@ export default function MenuConfig() {
               <New fetcher={menusFetcher} />
             </tbody>
           </Table>
-        </div>
+        </section>
       </div>
     </>
   );
