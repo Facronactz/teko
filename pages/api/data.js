@@ -2,8 +2,7 @@
 const stats = [
     { name: 'Teman Kita', value: '1001' },
     { name: 'Kegiatan', value: '101' },
-    { name: 'Relawan', value: '1052' },
-    { name: 'Pengabdian', value: '55' },
+    { name: 'Pengguna', value: '100' },
 ];
 
 const menus = [
@@ -62,16 +61,16 @@ export default function handler(req, res) {
         return;
     }
     switch (q) {
-    case 'stats':
-        res.status(200).json(stats);
-        break;
-    case 'menus':
-        res.status(200).json(menus);
-        break;
-    case 'team':
-        res.status(200).json(team);
-        break;
-    default:
-        res.status(404).json({ message: 'Not Found' });
+        case 'stats':
+            res.status(200).json(stats);
+            break;
+        case 'menus':
+            res.status(200).json(menus);
+            break;
+        case 'team':
+            res.status(200).json(team);
+            break;
+        default:
+            res.status(404).json({ message: 'Not Found' });
     }
 }
