@@ -99,9 +99,12 @@ function TemanDetail(params) {
           </p>
         </Container>
       </Container>
-
-      <Container className="text-center flex flex-col">
-        <h3 className="bg-brand w-full text-white py-2 rounded">Kegiatan</h3>
+      <Container className="flex flex-col text-center">
+        <h3 className="bg-brand w-full center text-white py-2 rounded">
+          Kegiatan
+        </h3>
+      </Container>
+      <Container className="text-center flex flex-col mt-2 mb-4 md:grid md:grid-cols-2 md:gap-4">
         {data.Kegiatan.map((item) => (
           <Card key={item.id} className="text-center">
             <Card.Body>
@@ -122,6 +125,18 @@ function TemanDetail(params) {
           </Card>
         ))}
       </Container>
+      <Container>
+        {data.SosialMedia.map((sosmed) => (
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title>{sosmed.nama}</Card.Title>
+              <Card.Text>{sosmed.platform}</Card.Text>
+              <Link href={sosmed.url}>Go somewhere</Link>
+            </Card.Body>
+          </Card>
+        ))}
+      </Container>
+      {/* fb,ig,twt,web, email*/}
     </>
   );
 }
