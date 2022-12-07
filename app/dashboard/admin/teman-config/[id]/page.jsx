@@ -16,7 +16,7 @@ import TagsInput from 'react-tagsinput';
 export default function TampilTeman({ params }) {
   const temanFetcher = new Fetcher({
     id: params.id,
-    url: `teman?id=${params.id}`,
+    url: 'teman',
   });
 
   const router = useRouter();

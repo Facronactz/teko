@@ -7,14 +7,16 @@ import { Container, Alert } from 'react-bootstrap';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import TekoNavbar from '@teko/components/navbar';
+import TekoFooter from '@teko/components/footer';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
-import Skeleton from 'react-loading-skeleton';
+import LoadingX from '@teko/components/loading';
 
-function KegiatanDetail(params) {
+function KegiatanDetail({ id }) {
   const kegiatanDetailFetcher = new Fetcher({
-    url: `kegiatan?id=${params.id}`,
+    id,
+    url: 'kegiatan',
   });
   const { data, error } = useSWR(
     kegiatanDetailFetcher.url,
@@ -31,46 +33,15 @@ function KegiatanDetail(params) {
   }
   if (!data) {
     return (
-      <>
-        <h3 className="text-center mb-3 font-bold">
-          {' '}
-          <Skeleton />
-        </h3>
-        <Container className="bg-red flex flex-col lg:flex-row justify-center">
-          <Skeleton />
-        </Container>
-        <Container>
-          <h3 className="lg:text-5xl">
-            {' '}
-            <Skeleton />
-          </h3>
-          <h5 className="font-light text-sm lg:text-base">
-            {' '}
-            <Skeleton />
-          </h5>
-          <p className="text-justify lg:text-lg">
-            {' '}
-            <Skeleton />
-          </p>
-        </Container>
-
-        <h3 className="flex justify-center">
-          <Skeleton />
-        </h3>
-        <Container className="flex flex-row justify-center ">
-          <Link href={'#'} className="w-[50%] mx-1">
-            <Skeleton />
-          </Link>
-          <Link href={'#'} className="w-[50%] mx-1">
-            <Skeleton />
-          </Link>
-        </Container>
-      </>
+      <div className='w-screen h-[70vh] flex align-middle self-center justify-center justify-items-center justify-content-center'>
+        <div className='m-auto'>
+          <LoadingX type='ball-clip'></LoadingX>
+        </div>
+      </div>
     );
   }
   return (
     <>
-      <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
       <Container className="bg-red flex flex-col lg:flex-row justify-center">
         <img
           className="aspect-video mb-3"
@@ -104,7 +75,9 @@ export default function DetailKegiatanPage({ params }) {
   return (
     <>
       <TekoNavbar current="Kegiatan"></TekoNavbar>
+      <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
       <KegiatanDetail id={params.id} />
+      <TekoFooter />
     </>
   );
 }
