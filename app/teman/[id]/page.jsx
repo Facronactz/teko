@@ -12,6 +12,28 @@ import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
 
+import {
+  AiFillTwitterCircle,
+  AiFillFacebook,
+  AiFillInstagram,
+} from 'react-icons/ai';
+import { BsGlobe } from 'react-icons/bs';
+import { GrFormNextLink } from 'react-icons/gr';
+
+function Platform({ platform }) {
+  platform = platform.toLowerCase();
+  if (platform === 'facebook') {
+    return <AiFillFacebook className="h-[30px] w-[70px] text-brand" />;
+  }
+  if (platform === 'twitter') {
+    return <AiFillTwitterCircle className="h-[30px] w-[70px] text-brand" />;
+  }
+  if (platform === 'instagram') {
+    return <AiFillInstagram className="h-[30px] w-[70px] text-brand" />;
+  }
+  return <BsGlobe className="h-[20px] w-[20px] text-brand" />;
+}
+
 function TemanDetail(params) {
   const temanIdFetcher = new Fetcher({ url: `teman?id=${params.id}` });
   const { data, error } = useSWR(
@@ -125,13 +147,29 @@ function TemanDetail(params) {
           </Card>
         ))}
       </Container>
-      <Container>
+      <Container className="flex flex-col text-center">
+        <h3 className="bg-brand w-full center text-white py-2 rounded">
+          Media Sosial
+        </h3>
+      </Container>
+      <Container className="grid gap-3 md:grid-cols-3 mb-4">
         {data.SosialMedia.map((sosmed) => (
           <Card style={{ width: '18rem' }}>
             <Card.Body>
-              <Card.Title>{sosmed.nama}</Card.Title>
-              <Card.Text>{sosmed.platform}</Card.Text>
-              <Link href={sosmed.url}>Go somewhere</Link>
+              <Container className="grid grid-cols-2 justify-between p-0">
+                <Container className="flex flex-row">
+                  <Card.Title className="m-auto">
+                    <Platform platform={sosmed.platform} />
+                  </Card.Title>
+                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+                </Container>
+                <Link
+                  href={sosmed.url}
+                  className="bg-white border border-brand rounded text-white m-auto p-2"
+                >
+                  <GrFormNextLink className="h-[30px] w-[30px]" />
+                </Link>
+              </Container>
             </Card.Body>
           </Card>
         ))}
@@ -141,7 +179,7 @@ function TemanDetail(params) {
   );
 }
 
-function TemanPage({ params }) {
+export default function TemanPage({ params }) {
   return (
     <>
       <TekoNavbar current="Teman"></TekoNavbar>
@@ -150,5 +188,3 @@ function TemanPage({ params }) {
     </>
   );
 }
-
-export default TemanPage;
