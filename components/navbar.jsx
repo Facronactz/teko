@@ -42,7 +42,7 @@ function MenuNavbar(props) {
   }
   return data.map((menu) => (
     <Link
-      key={menu.id}
+      key={menu.name}
       className={
         menu.current
           ? 'mx-2 font-bold no-underline text-brand p-2 lg:text-lg'

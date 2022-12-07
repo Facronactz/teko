@@ -74,7 +74,7 @@ function Temans() {
     ));
   }
   return data.map((teman) => (
-    <Col className="p-0" key={teman.nama}>
+    <Col className="p-0" key={teman.id}>
       <Card>
         <Card.Img
           variant="top"
