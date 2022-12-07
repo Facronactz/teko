@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { Container, Table, Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
@@ -113,11 +113,12 @@ function ShowTeman() {
 
 export default function TemanConfig() {
   return (
-    <>
-      <SideBar current="teman" role="admin" />
-      <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
-        <h2 className="flex flex-row">
-          <Container className="flex flex-col xs:flex-row justify-between">
+    // TODO ganti halaman lain yang punya sidebar jadi seperti dibawah
+    <div className="flex row m-3 gap-3">
+      <SideBar className="col" current="teman" role="admin" />
+      <section className="w-full col h-full p-0">
+        <div className="flex flex-row">
+          <div className="flex flex-col xs:flex-row justify-between">
             <div className="flex flex-col xs:flex-row just mb-2">
               <GiThreeFriends className="mr-2" /> Teman Config
             </div>
@@ -127,8 +128,8 @@ export default function TemanConfig() {
             >
               Tambah Teman <GoPlus className="ml-2 my-auto" />
             </Link>
-          </Container>
-        </h2>
+          </div>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -141,7 +142,7 @@ export default function TemanConfig() {
             <ShowTeman />
           </tbody>
         </Table>
-      </Container>
-    </>
+      </section>
+    </div>
   );
 }

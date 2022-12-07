@@ -1,3 +1,5 @@
+'use client';
+
 import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -62,7 +64,7 @@ export default function SideBar({ role, current }) {
         </Offcanvas>
       </Container>
 
-      <Container className="hidden xl:block m-0 p-0 w-52 bg-brand float float-left h-full rounded">
+      <div className="hidden xl:block m-0 p-0 w-52 bg-brand h-screen rounded">
         <h1 className="text-white p-4 font-bold">Teko</h1>
         <hr className="text-white mx-3" />
         {menus[role].map((menu) => (
@@ -78,7 +80,7 @@ export default function SideBar({ role, current }) {
             {menu.name}
           </Link>
         ))}
-      </Container>
+      </div>
     </>
   );
 }
