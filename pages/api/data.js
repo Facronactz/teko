@@ -14,7 +14,7 @@ const menus = [
 
 const team = [
     {
-        name: 'Farro Axza',
+        name: 'Farro Axza Febsinatra',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
         quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
         email: 'farroaxza@gmail.com',
@@ -23,7 +23,7 @@ const team = [
         dEmail: 'f284x0682@dicoding.org ',
     },
     {
-        name: 'Rifqi',
+        name: 'Rifqi Alamsyah',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
         quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
         email: 'rifqialamsyh@gmail.com',
@@ -32,7 +32,7 @@ const team = [
         dEmail: 'rifqialamsyh@gmail.com',
     },
     {
-        name: 'Radya',
+        name: 'Radya Wiguna',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
         quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
         email: 'itsradyaandajis@gmail.com',
@@ -41,7 +41,7 @@ const team = [
         dEmail: 'F299X0772@dicoding.org',
     },
     {
-        name: 'Citra',
+        name: 'Citra Ayu Binangkit',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/Screenshot+2022-07-24+230608.png',
         quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
         email: 'citrabii03@gmail.com',
