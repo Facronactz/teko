@@ -44,10 +44,10 @@ function Team() {
         alt={`foto ${member.name}`}
       />
       <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
-        <blockquote>
-          <p className="text-lg lg:text-xl font-medium">{member.quote}</p>
-        </blockquote>
-        <figcaption className="font-medium">
+        <p className="text-lg lg:text-xl font-light">
+          <q>{member.quote}</q>
+        </p>
+        <figcaption className="font-bold">
           <div className="text-brand text-2xl">{member.name}</div>
         </figcaption>
         <div className="flex flex-row justify-center">
