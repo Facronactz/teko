@@ -95,14 +95,17 @@ export default function TampilTeman({ params }) {
       const resp = await temanFetcher.put(upload);
       // jika berhasil
       if (!resp.error) {
-        Swal.fire({
+        const ok = await Swal.fire({
           icon: 'success',
           title: 'Yaay...',
           text: 'File berhasil disimpan',
           confirmButtonColor: '#315343',
         });
-        // refresh halaman jika berhasil edit
-        router.refresh();
+        // tunggu user untuk menutup swal
+        if (ok.isConfirmed) {
+          // refresh halaman jika berhasil edit
+          router.refresh();
+        }
       // jika gagal
       } else {
         Swal.fire({
