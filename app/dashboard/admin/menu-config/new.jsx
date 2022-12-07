@@ -2,10 +2,12 @@ import { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { GoPlus } from 'react-icons/go';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function New({ fetcher }) {
   const name = useRef();
   const href = useRef();
+  const router = useRouter();
 
   async function createMenu() {
     if (name.current.value === '' || href.current.value === '') {
@@ -26,6 +28,7 @@ export default function New({ fetcher }) {
         text: 'Data berhasil ditambahkan',
         confirmButtonColor: '#315343',
       });
+      router.refresh();
     }
   }
 

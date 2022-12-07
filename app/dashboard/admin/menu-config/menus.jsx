@@ -10,9 +10,12 @@ import { ImCross } from 'react-icons/im';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function Menus({ fetcher }) {
   const edittedContent = useRef([]);
+  const router = useRouter();
+
   const { data, error } = useSWR(
     fetcher.url,
     fetcher.fetcher,
@@ -30,6 +33,7 @@ export default function Menus({ fetcher }) {
       text: 'Data berhasil diubah',
       confirmButtonColor: '#315343',
     });
+    router.refresh();
   }
 
   async function deleteMenu(id) {
@@ -40,6 +44,7 @@ export default function Menus({ fetcher }) {
       text: 'Data berhasil dihapus',
       confirmButtonColor: '#315343',
     });
+    router.refresh();
   }
 
   if (error) return <div>Gagal untuk memuat</div>;

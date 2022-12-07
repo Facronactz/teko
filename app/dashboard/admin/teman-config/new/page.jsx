@@ -1,12 +1,12 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 import Fetcher from '@teko/helpers/fetcher';
 import { Container, Button } from 'react-bootstrap';
 import useSWR from 'swr';
+import Swal from 'sweetalert2';
 
 import TagsInput from 'react-tagsinput';
 
@@ -16,6 +16,7 @@ const userFetcer = new Fetcher('user');
 
 export default function KegiatanPage() {
   const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
+  const router = useRouter();
 
   const namaRef = useRef();
   const deskripsiRef = useRef();
@@ -29,6 +30,15 @@ export default function KegiatanPage() {
   };
 
   const onSubmit = async (e) => {
+    if (!namaRef.current.value) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Nama Organisasi tidak boleh kosong',
+        confirmButtonColor: '#315343',
+      });
+      return;
+    }
     e.preventDefault();
     const kategori = tags.map((tag) => ({ nama: tag }));
     const data = {
@@ -42,16 +52,17 @@ export default function KegiatanPage() {
       owner: user.sub,
     };
     await temanFetcher.post(data);
+    Swal.fire({
+      icon: 'success',
+      title: 'Yaay...',
+      text: 'Data berhasil ditambahkan',
+      confirmButtonColor: '#315343',
+    });
+    router.push('/dashboard/admin/teman-config');
   };
 
   return (
     <>
-      <Link
-        href={'/dashboard/admin/teman-config'}
-        className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
-      >
-        Kembali
-      </Link>
       <Container>
         <form className="grid" onSubmit={onSubmit}>
           {/* Kan inima nambah teman dari admin bukan user, jadi pasti tau idnya */}

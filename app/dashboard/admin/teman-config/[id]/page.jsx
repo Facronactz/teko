@@ -64,8 +64,12 @@ export default function TampilTeman({ params }) {
     setTags(tag);
   };
 
+  // TODO ganti crud di halaman lain seperti dibawah ini
+  // Gunakan swal untuk konfirmasi terlebih dahulu dan,
+  // check data dari api jika error maka tampilkan error menggunakan swal
   async function onSubmit(e) {
     e.preventDefault();
+    // konfirmasi
     const swal = await Swal.fire({
       title: 'Simpan data',
       text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
@@ -75,7 +79,9 @@ export default function TampilTeman({ params }) {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Ya, simpan!',
     });
+    // jika terkonfirmasi
     if (swal.isConfirmed) {
+      // ambil data dari UI
       const upload = {
         nama: namaRef.current.value,
         deskripsi: deskripsiRef.current.value,
@@ -85,7 +91,9 @@ export default function TampilTeman({ params }) {
         logo: logoRef.current.value,
         kategori: tags,
       };
+      // upload data
       const resp = await temanFetcher.put(upload);
+      // jika berhasil
       if (!resp.error) {
         Swal.fire({
           icon: 'success',
@@ -93,11 +101,16 @@ export default function TampilTeman({ params }) {
           text: 'File berhasil disimpan',
           confirmButtonColor: '#315343',
         });
+        // refresh halaman jika berhasil edit
+        router.refresh();
+      // jika gagal
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'File tidak berhasil disimpan',
+          // bisa ditambahkan error message dari api
+          // text: resp.error.message,
           confirmButtonColor: '#315343',
         });
       }
