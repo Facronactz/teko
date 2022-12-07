@@ -36,7 +36,7 @@ export default function SideBar({ role, current }) {
   return (
     <>
       <Container className="xl:hidden">
-        <Button className="bg-brand border-brand" onClick={handleShow}>
+        <Button className="bg-brand border-brand mt-4" onClick={handleShow}>
           Menu
         </Button>
 

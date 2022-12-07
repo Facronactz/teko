@@ -60,8 +60,8 @@ function ShowUser() {
           </td>
         ))}
         <td className="flex flex-row justify-center">
-          <Button className=" bg-white border-brand ml-3">
-            <ImCross className="h-[25px] w-[70px] text-danger" />
+          <Button className=" ml-3">
+            <Skeleton />
           </Button>
         </td>
       </tr>
