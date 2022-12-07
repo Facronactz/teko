@@ -39,7 +39,7 @@ export default function New({ fetcher }) {
         <input
           ref={name}
           type="text"
-          className="text-center border-brand rounded outline-none"
+          className="text-center outline-brand rounded outline-none"
         />
       </td>
       <td className="text-center">
@@ -47,7 +47,7 @@ export default function New({ fetcher }) {
           <input
             ref={href}
             type="text"
-            className="text-center border-brand rounded outline-none"
+            className="text-center outline-brand rounded outline-none"
           />
         </div>
       </td>
@@ -55,7 +55,7 @@ export default function New({ fetcher }) {
         <div>
           <Button
             onClick={createMenu}
-            className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+            className="bg-brand text-white rounded ml-3 my-auto p-2"
           >
             <GoPlus className="h-[30px] w-[70px] text-white" />
           </Button>

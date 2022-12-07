@@ -35,35 +35,22 @@ export default function RightNav() {
     }
   }
 
-  if (status === 'loading') {
-    return <LoadingX type="ball-elastic"></LoadingX>;
+  if (status === 'unauthenticated') {
+    return (
+      <>
+        <DaftarModal></DaftarModal>
+        <MasukModal></MasukModal>
+      </>
+    );
   }
-  if (status === 'authenticated') {
-    if (data && data.role === 'USER') {
-      return (
-        <>
-          <Link
-            href="/dashboard"
-            className="mx-2 my-auto font-bold no-underline bg-white p-2 rounded text-brand border-[1.5px] border-brand lg:text-lg"
-          >
-            Setting
-          </Link>
-          <Button
-            onClick={logAlert}
-            className="bg-brand border-brand mx-2 font-bold no-underline text-white lg:text-lg"
-          >
-            Keluar
-          </Button>
-        </>
-      );
-    }
+  if (status === 'authenticated' && data) {
     return (
       <>
         <Link
-          href="/dashboard"
+          href={`/dashboard/${data.role.toLowerCase()}`}
           className="mx-2 my-auto font-bold no-underline bg-white p-2 rounded text-brand border-[1.5px] border-brand lg:text-lg"
         >
-          Dashboard
+          {data.role === 'USER' ? 'Setting' : 'Dashboard'}
         </Link>
         <Button
           onClick={logAlert}
@@ -74,10 +61,5 @@ export default function RightNav() {
       </>
     );
   }
-  return (
-    <>
-      <DaftarModal></DaftarModal>
-      <MasukModal></MasukModal>
-    </>
-  );
+  return <LoadingX type="ball-elastic"></LoadingX>;
 }

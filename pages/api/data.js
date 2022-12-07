@@ -2,8 +2,7 @@
 const stats = [
     { name: 'Teman Kita', value: '1001' },
     { name: 'Kegiatan', value: '101' },
-    { name: 'Relawan', value: '1052' },
-    { name: 'Pengabdian', value: '55' },
+    { name: 'Pengguna', value: '100' },
 ];
 
 const menus = [

@@ -15,6 +15,8 @@ import TekoFooter from '@teko/components/footer';
 import hero from '@teko/public/image/hero.png';
 import temanP from '@teko/public/image/teman.png';
 
+import { FiArrowUpRight } from 'react-icons/fi';
+
 const statsFetcher = new Fetcher({ url: 'data?q=stats' });
 function Stats() {
   const { data, error } = useSWR(
@@ -72,7 +74,7 @@ function Temans() {
     ));
   }
   return data.map((teman) => (
-    <Col className="p-0" key={teman.nama}>
+    <Col className="p-0" key={teman.id}>
       <Card>
         <Card.Img
           variant="top"
@@ -152,9 +154,10 @@ export default function BerandaPage() {
                   <br />
                   <Link
                     href={'/teman'}
-                    className="font-extrabold no-underline text-brand"
+                    className="font-extrabold no-underline text-brand text-xl lg:text-xxl xl:text-4xl flex justify-center lg:justify-end p-2 lg:p-3"
                   >
                     Lihat Teman
+                    <FiArrowUpRight className="h-[4%] w-[4%] xl:w-[5%] xl:h-[5%] text-brand my-auto" />
                   </Link>
                 </p>
               </section>
@@ -177,11 +180,12 @@ export default function BerandaPage() {
         </section>
         <section className="flex justify-center my-5">
           <div className="mx-auto">
-            <h2 className="text-2xl xs:text-3xl md:text-4xl">Mari kita,</h2>
-            <p className="text-xl xs:text-2xl md:text-3xl">
-              bersama membantu, untuk
+            <p className="text-brand text-xl xs:text-2xl md:text-3xl xl:text-5xl xxl:text-6xl">
+              <span className="font-bold">Mari</span>
               <br />
-              <q className="bg-brand text-white text-xxl font-bold p-1.5">
+              kita bersama membantu untuk
+              <br className="h-2" />
+              <q className="bg-brand text-white text-xxl xl:text-4xl xxl:text-5xl font-bold px-2 py-1 rounded">
                 Indonesia yang lebih baik!
               </q>
             </p>

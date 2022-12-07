@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { Container, Table, Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
@@ -11,7 +11,7 @@ import SideBar from '@teko/components/sidebar';
 
 import { GiThreeFriends } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
-import { AiFillEdit } from 'react-icons/ai';
+import { FiEdit3 } from 'react-icons/fi';
 import { GoPlus } from 'react-icons/go';
 import Swal from 'sweetalert2';
 
@@ -66,7 +66,7 @@ function ShowTeman() {
         </td>
         <td className="flex flex-row justify-center">
           <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
-            <AiFillEdit className="h-[25px] w-[70px] text-white" />
+            <FiEdit3 className="h-[25px] w-[70px] text-white" />
           </Button>
           <Button className="bg-white border-brand ml-3">
             <ImCross className="h-[25px] w-[70px] text-danger" />
@@ -85,19 +85,28 @@ function ShowTeman() {
             href={`/dashboard/admin/teman-config/${teman.id}`}
             className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
-            Edit Teman
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Teman</span>
+            </div>
           </Link>
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
-            className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
+            className="bg-brand py-3 px-2 text-center text-white rounded my-auto no-underline"
           >
-            Edit Kegiatan
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Kegiatan</span>
+            </div>
           </Link>
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
             className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
-            Edit Sosmed
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Sosmed</span>
+            </div>
           </Link>
           <Button
             onClick={() => deleteTeman(teman.id)}
@@ -113,23 +122,23 @@ function ShowTeman() {
 
 export default function TemanConfig() {
   return (
-    <>
-      <SideBar current="teman" role="admin" />
-      <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
-        <h2 className="flex flex-row">
-          <Container className="flex flex-col xs:flex-row justify-between">
+    <div className="flex row m-3 gap-3">
+      <SideBar className="col" current="teman" role="admin" />
+      <section className="w-full col h-full p-0">
+        <div className="flex flex-row">
+          <div className="flex flex-col xs:flex-row justify-between">
             <div className="flex flex-col xs:flex-row just mb-2">
               <GiThreeFriends className="mr-2" /> Teman Config
             </div>
             <Link
               href={'/dashboard/admin/teman-config/new'}
-              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 text-lg rounded"
+              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
             >
               Tambah Teman <GoPlus className="ml-2 my-auto" />
             </Link>
-          </Container>
-        </h2>
-        <Table striped bordered hover>
+          </div>
+        </div>
+        <Table bordered hover className='table-auto'>
           <thead>
             <tr>
               <th className="text-center">id</th>
@@ -141,7 +150,7 @@ export default function TemanConfig() {
             <ShowTeman />
           </tbody>
         </Table>
-      </Container>
-    </>
+      </section>
+    </div>
   );
 }

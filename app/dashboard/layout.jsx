@@ -4,11 +4,9 @@ import DashboardNavbar from './navbar';
 export default function DashboardLayout({ children }) {
   return (
     <main>
-      <div className="bg-white shadow w-full my-[100px] container rounded h-full clear-both pb-3">
+      <div className="bg-white shadow m-3 rounded pb-3">
         <DashboardNavbar />
-        <div className="container">
-          <div className="row">{children}</div>
-        </div>
+        {children}
       </div>
     </main>
   );

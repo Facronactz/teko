@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Table, Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
@@ -60,9 +60,7 @@ function ShowUser() {
           </td>
         ))}
         <td className="flex flex-row justify-center">
-          <Button className=" ml-3">
-            <Skeleton />
-          </Button>
+          <Skeleton />
         </td>
       </tr>
     );
@@ -90,28 +88,30 @@ function ShowUser() {
 export default function UserConfig() {
   return (
     <>
-      <SideBar current="pengguna" role="admin" />
-      <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
-        <h2 className="flex flex-row">
-          <RiUserFill className="mr-2" /> User Config
-        </h2>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              {['id', 'nama', 'username', 'email', 'role', 'action'].map(
-                (item) => (
-                  <th key={item} className="text-center">
-                    {item}
-                  </th>
-                ),
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            <ShowUser />
-          </tbody>
-        </Table>
-      </Container>
+      <div className="flex row m-3 gap-3">
+        <SideBar className="col" current="pengguna" role="admin" />
+        <section className="w-full col h-full p-0">
+          <h2 className="flex flex-row">
+            <RiUserFill className="mr-2" /> User Config
+          </h2>
+          <Table bordered hover className='table-auto'>
+            <thead>
+              <tr>
+                {['id', 'nama', 'username', 'email', 'role', 'action'].map(
+                  (item) => (
+                    <th key={item} className="text-center">
+                      {item}
+                    </th>
+                  ),
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              <ShowUser />
+            </tbody>
+          </Table>
+        </section>
+      </div>
     </>
   );
 }

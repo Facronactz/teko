@@ -14,13 +14,14 @@ const menusFetcher = new Fetcher({ url: 'menus' });
 export default function MenuConfig() {
   return (
     <>
-      <div>
-        <SideBar current="pengaturan menu" role="admin" />
-        <div className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
+      <div className="flex row m-3 gap-3">
+        <SideBar className="col" current="pengaturan menu" role="admin" />
+
+        <section className="w-full col h-full p-0">
           <h2 className="flex flex-row">
             <RiMenuFoldFill className="mr-2" /> Menus Config
           </h2>
-          <Table striped bordered hover className="w-full table-fixed">
+          <Table bordered hover className="w-full table-auto">
             <thead>
               <tr className="padding: .35em">
                 {['id', 'name', 'href', 'action'].map((title) => (
@@ -35,7 +36,7 @@ export default function MenuConfig() {
               <New fetcher={menusFetcher} />
             </tbody>
           </Table>
-        </div>
+        </section>
       </div>
     </>
   );
