@@ -20,8 +20,8 @@ export default function Info() {
     );
   }
   return (
-    <div className="m-auto md:flex md:flex-row">
-      <h3 className="text-lg font-bold text-brand">
+    <div className="m-auto ">
+      <h3 className=" flex flex-col md:flex md:flex-row justify-center text-base md:text-lg font-bold text-brand">
         {data.name} <span className="font-light">| {data.email} </span>
       </h3>
     </div>

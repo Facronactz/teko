@@ -22,6 +22,7 @@
       "files": ["*.js"],
       "rules": {
         "indent": ["error", 4],
+        "no-underscore-dangle": ["error", { "allowAfterThis": true }],
         "no-param-reassign": ["error", { "props": false }],
         "no-console": "off",
         "radix": "off"

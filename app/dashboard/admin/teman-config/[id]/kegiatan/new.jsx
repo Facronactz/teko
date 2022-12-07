@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useState } from 'react';
 import { assetPrefix } from '@teko/next.config';
 
@@ -50,12 +48,6 @@ export default function KegiatanPage() {
 
   return (
     <>
-      <Link
-        href={`/dashboard/admin/teman-config`}
-        className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
-      >
-        Kembali
-      </Link>
       <Container>
         <form className="grid" action="/send-data-here" method="post">
           <label htmlFor="first" className="font-semibold">

@@ -60,8 +60,8 @@ function ShowUser() {
           </td>
         ))}
         <td className="flex flex-row justify-center">
-          <Button className=" bg-white border-brand ml-3">
-            <ImCross className="h-[25px] w-[70px] text-danger" />
+          <Button className=" ml-3">
+            <Skeleton />
           </Button>
         </td>
       </tr>
@@ -91,7 +91,7 @@ export default function UserConfig() {
   return (
     <>
       <SideBar current="pengguna" role="admin" />
-      <Container className="ml-52 mr-10 p-4 w-[85%] h-full">
+      <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
         <h2 className="flex flex-row">
           <RiUserFill className="mr-2" /> User Config
         </h2>

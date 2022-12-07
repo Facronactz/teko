@@ -16,7 +16,7 @@ import TagsInput from 'react-tagsinput';
 export default function TampilTeman({ params }) {
   const temanFetcher = new Fetcher({
     id: params.id,
-    url: `teman?id=${params.id}`,
+    url: 'teman',
   });
 
   const router = useRouter();
@@ -64,8 +64,12 @@ export default function TampilTeman({ params }) {
     setTags(tag);
   };
 
+  // TODO ganti crud di halaman lain seperti dibawah ini
+  // Gunakan swal untuk konfirmasi terlebih dahulu dan,
+  // check data dari api jika error maka tampilkan error menggunakan swal
   async function onSubmit(e) {
     e.preventDefault();
+    // konfirmasi
     const swal = await Swal.fire({
       title: 'Simpan data',
       text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
@@ -75,7 +79,9 @@ export default function TampilTeman({ params }) {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Ya, simpan!',
     });
+    // jika terkonfirmasi
     if (swal.isConfirmed) {
+      // ambil data dari UI
       const upload = {
         nama: namaRef.current.value,
         deskripsi: deskripsiRef.current.value,
@@ -85,19 +91,29 @@ export default function TampilTeman({ params }) {
         logo: logoRef.current.value,
         kategori: tags,
       };
+      // upload data
       const resp = await temanFetcher.put(upload);
+      // jika berhasil
       if (!resp.error) {
-        Swal.fire({
+        const ok = await Swal.fire({
           icon: 'success',
           title: 'Yaay...',
           text: 'File berhasil disimpan',
           confirmButtonColor: '#315343',
         });
+        // tunggu user untuk menutup swal
+        if (ok.isConfirmed) {
+          // refresh halaman jika berhasil edit
+          router.refresh();
+        }
+        // jika gagal
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'File tidak berhasil disimpan',
+          // bisa ditambahkan error message dari api
+          // text: resp.error.message,
           confirmButtonColor: '#315343',
         });
       }
@@ -122,12 +138,16 @@ export default function TampilTeman({ params }) {
     <>
       <Container className="m-auto">
         <Image
+          className="rounded-3 center mx-auto"
           width={150}
           height={150}
           src={data.logo}
           alt={data.nama}
           onClick={() => router.refresh()}
         />
+        {/* tampilkan id sebagai text biasa yang tidak bisa diedit buat di tengah */}
+        {/* <h1 className="text-2xl font-semibold text-center">{data.id}</h1> */}
+        <p className="text-sm text-gray-500 text-center">ID: {data.id}</p>
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
@@ -212,13 +232,13 @@ export default function TampilTeman({ params }) {
         <Container className="flex flex-row justify-center">
           <Link
             className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/teman-config/${params.id}/tambah-kegiatan`}
+            href={`/dashboard/admin/teman-config/${params.id}/kegiatan`}
           >
             Tambah Kegiatan
           </Link>
           <Link
             className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/teman-config/${params.id}/tambah-sosmed`}
+            href={`/dashboard/admin/teman-config/${params.id}/sosmed`}
           >
             Tambah Sosmed
           </Link>

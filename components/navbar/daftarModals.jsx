@@ -137,7 +137,7 @@ export default function DaftarModal() {
     <>
       <Button
         onClick={handleShow}
-        className="bg-white border-brand no-underline font-semibold text-brand px-4 py-2 border border-1 my-auto md:mr-6 hover:bg-[#f8fafc] rounded"
+        className="bg-white border-brand no-underline font-semibold text-brand px-4 py-3 border border-1 md:mb-0 md:mr-6 hover:bg-[#f8fafc] rounded"
       >
         Daftar
       </Button>

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Card, Row, Col } from 'react-bootstrap';
 import { RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
+import { BsListTask } from 'react-icons/bs';
 
 function Item({ name, href, children }) {
   return (
@@ -26,11 +27,12 @@ const menus = [
   { name: 'Menu', href: 'menu-config', icon: RiMenuFoldFill },
   { name: 'Pengguna', href: 'user-config', icon: RiUserFill },
   { name: 'Teman', href: 'teman-config', icon: GiThreeFriends },
+  { name: 'Kegiatan', href: 'kegiatan-config', icon: BsListTask },
 ];
 
 export default function MenuItem() {
   return (
-    <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-3">
+    <Row className="grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
       {menus.map((item) => (
         <Item
           key={item.name}

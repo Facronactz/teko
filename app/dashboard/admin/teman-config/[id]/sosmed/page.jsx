@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { GoPlus } from 'react-icons/go';
@@ -31,12 +29,6 @@ export default function New({ fetcher }) {
 
   return (
     <>
-      <Link
-        href={`/dashboard/admin/teman-config`}
-        className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
-      >
-        Kembali
-      </Link>
       <table className="m-auto">
         <tr className="text-center">
           <th>provider</th>

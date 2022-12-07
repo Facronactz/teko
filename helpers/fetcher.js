@@ -4,7 +4,7 @@ class Fetcher {
         if (Object.prototype.hasOwnProperty.call(object, 'url')) {
             // eslint-disable-next-line object-curly-newline
             const { url, id, data, ...options } = object;
-            this.url = `/api/${url}`;
+            this._url = `/api/${url}`;
             this.id = id;
             this.data = data;
             this.options = options;
@@ -13,7 +13,7 @@ class Fetcher {
             if (typeof object !== 'string') {
                 throw new Error('Invalid URL');
             }
-            this.url = `/api/${object}`;
+            this._url = `/api/${object}`;
         }
     }
 
@@ -28,6 +28,17 @@ class Fetcher {
             setTimeout(() => revalidate({ retryCount }), 5000);
         },
     };
+
+    get url() {
+        if (this.id) {
+            return `${this._url}?id=${this.id}`;
+        }
+        return this._url;
+    }
+
+    set url(url) {
+        this._url = url;
+    }
 
     // eslint-disable-next-line class-methods-use-this
     async fetcher(url) {
@@ -44,9 +55,9 @@ class Fetcher {
     async get() {
         let response;
         if (this.id) {
-            response = await fetch(`${this.url}?id=${this.id}`);
+            response = await fetch(`${this._url}?id=${this.id}`);
         } else {
-            response = await fetch(this.url);
+            response = await fetch(this._url);
         }
         const data = await response.json();
         return data;
@@ -54,7 +65,7 @@ class Fetcher {
 
     async post(data) {
         this.data = data ?? this.data;
-        const response = await fetch(this.url, {
+        const response = await fetch(this._url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +80,7 @@ class Fetcher {
     async put(data, id) {
         this.id = id ?? this.id;
         this.data = data ?? this.data;
-        const response = await fetch(this.url, {
+        const response = await fetch(this._url, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +92,7 @@ class Fetcher {
 
     async delete(id) {
         this.id = id ?? this.id;
-        const response = await fetch(this.url, {
+        const response = await fetch(this._url, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

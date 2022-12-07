@@ -2,10 +2,12 @@ import { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { GoPlus } from 'react-icons/go';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function New({ fetcher }) {
   const name = useRef();
   const href = useRef();
+  const router = useRouter();
 
   async function createMenu() {
     if (name.current.value === '' || href.current.value === '') {
@@ -26,6 +28,7 @@ export default function New({ fetcher }) {
         text: 'Data berhasil ditambahkan',
         confirmButtonColor: '#315343',
       });
+      router.refresh();
     }
   }
 
@@ -40,19 +43,23 @@ export default function New({ fetcher }) {
         />
       </td>
       <td className="text-center">
-        <input
-          ref={href}
-          type="text"
-          className="text-center border-brand rounded outline-none"
-        />
+        <div>
+          <input
+            ref={href}
+            type="text"
+            className="text-center border-brand rounded outline-none"
+          />
+        </div>
       </td>
       <td className="flex flex-row justify-center">
-        <Button
-          onClick={createMenu}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
-        >
-          <GoPlus className="h-[30px] w-[70px] text-white" />
-        </Button>
+        <div>
+          <Button
+            onClick={createMenu}
+            className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+          >
+            <GoPlus className="h-[30px] w-[70px] text-white" />
+          </Button>
+        </div>
       </td>
     </tr>
   );

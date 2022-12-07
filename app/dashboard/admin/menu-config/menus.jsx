@@ -10,9 +10,12 @@ import { ImCross } from 'react-icons/im';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function Menus({ fetcher }) {
   const edittedContent = useRef([]);
+  const router = useRouter();
+
   const { data, error } = useSWR(
     fetcher.url,
     fetcher.fetcher,
@@ -30,16 +33,17 @@ export default function Menus({ fetcher }) {
       text: 'Data berhasil diubah',
       confirmButtonColor: '#315343',
     });
+    router.refresh();
   }
 
   async function deleteMenu(id) {
-    // TODO tambahkan konfirmasi sebelum hapus
     await fetcher.delete(id);
     Swal.fire({
       icon: 'success',
       text: 'Data berhasil dihapus',
       confirmButtonColor: '#315343',
     });
+    router.refresh();
   }
 
   if (error) return <div>Gagal untuk memuat</div>;
@@ -56,13 +60,11 @@ export default function Menus({ fetcher }) {
         <td className="text-center">
           <Skeleton />
         </td>
-        <td className="flex flex-row justify-center">
-          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
-            <GoCheck className="h-[30px] w-[70px] text-white" />
-          </Button>
-          <Button className="bg-white border-brand ml-3">
-            <ImCross className="h-[25px] w-[70px] text-danger" />
-          </Button>
+        <td>
+          <div className="flex flex-row justify-center">
+            <Skeleton />
+            <Skeleton />
+          </div>
         </td>
       </tr>
     );
@@ -88,21 +90,22 @@ export default function Menus({ fetcher }) {
       </td>
       <td className="flex flex-row justify-center">
         <Button
-          onClick={() => updateMenu(
-            menu.id,
-            edittedContent[menu.name].innerText,
-            edittedContent[menu.href].innerText,
-          )
+          onClick={() =>
+            updateMenu(
+              menu.id,
+              edittedContent[menu.name].innerText,
+              edittedContent[menu.href].innerText,
+            )
           }
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+          className="bg-brand text-white border-brand rounded xl:ml-3 my-auto p-2"
         >
-          <GoCheck className="h-[30px] w-[70px] text-white" />
+          <GoCheck className="h-[25px] w-[70px] text-white" />
         </Button>
         <Button
           onClick={() => deleteMenu(menu.id)}
           className="bg-white border-brand ml-3"
         >
-          <ImCross className="h-[25px] w-[70px] text-danger" />
+          <ImCross className="h-[30px] w-[70px] text-danger" />
         </Button>
       </td>
     </tr>
