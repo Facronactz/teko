@@ -123,7 +123,6 @@ function ShowTeman() {
 
 export default function TemanConfig() {
   return (
-    // TODO ganti halaman lain yang punya sidebar jadi seperti dibawah
     <div className="flex row m-3 gap-3">
       <SideBar className="col" current="teman" role="admin" />
       <section className="w-full col h-full p-0">
@@ -134,7 +133,7 @@ export default function TemanConfig() {
             </div>
             <Link
               href={'/dashboard/admin/teman-config/new'}
-              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 text-lg rounded"
+              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
             >
               Tambah Teman <GoPlus className="ml-2 my-auto" />
             </Link>

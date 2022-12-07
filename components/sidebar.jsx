@@ -4,6 +4,8 @@ import { Container, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
+import { signOut } from 'next-auth/react';
 
 const admin = [
   { name: 'Beranda', href: '/' },
@@ -12,7 +14,6 @@ const admin = [
   { name: 'Pengguna', href: '/dashboard/admin/user-config' },
   { name: 'Teman', href: '/dashboard/admin/teman-config' },
   { name: 'Kegiatan', href: '/dashboard/admin/kegiatan-config' },
-  { name: 'Logout', href: '/logout' },
 ];
 
 const teman = [
@@ -38,7 +39,10 @@ export function HiddenMenu({ role, current }) {
   const handleShow = () => setShow(true);
   return (
     <Container className="xl:hidden">
-      <Button className="bg-brand border-brand mt-4" onClick={handleShow}>
+      <Button
+        className="bg-brand border-brand mt-4 w-full text-center"
+        onClick={handleShow}
+      >
         Menu
       </Button>
 
@@ -67,6 +71,20 @@ export function HiddenMenu({ role, current }) {
 }
 
 export default function SideBar({ role, current }) {
+  async function logAlert(e) {
+    e.preventDefault();
+    const swal = await Swal.fire({
+      title: 'Anda yakin untuk keluar?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
+      confirmButtonText: 'Keluar!',
+    });
+    if (swal.isConfirmed) {
+      signOut();
+    }
+  }
   return (
     <>
       <HiddenMenu role={role} current={current} />
@@ -86,6 +104,12 @@ export default function SideBar({ role, current }) {
             {menu.name}
           </Link>
         ))}
+        <Button
+          onClick={logAlert}
+          className="bg-brand border-brand text-white p-4 w-full text-left"
+        >
+          Keluar
+        </Button>
       </div>
     </>
   );
