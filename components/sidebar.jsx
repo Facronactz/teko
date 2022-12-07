@@ -30,40 +30,46 @@ const menus = {
 // Cara manggilnya:
 // kanan samadengan diganti
 // <Sidebar role='teman' current='beranda' />
-export default function SideBar({ role, current }) {
+
+export function HiddenMenu({ role, current }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
+    <Container className="xl:hidden">
+      <Button className="bg-brand border-brand mt-4" onClick={handleShow}>
+        Menu
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Daftar Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body className="bg-brand">
+          {menus[role].map((menu) => (
+            <Link
+              key={menu.name}
+              className={
+                current === menu.name.toLowerCase()
+                  ? 'block text-white p-4 no-underline bg-[#15803d]'
+                  : 'block text-white p-4 no-underline hover:bg-black'
+              }
+              href={menu.href}
+            >
+              {menu.name}
+            </Link>
+          ))}
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Container>
+  );
+}
+
+export default function SideBar({ role, current }) {
+  return (
     <>
-      <Container className="xl:hidden">
-        <Button className="bg-brand border-brand mt-4" onClick={handleShow}>
-          Menu
-        </Button>
-
-        <Offcanvas show={show} onHide={handleClose}>
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Daftar Menu</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body className="bg-brand">
-            {menus[role].map((menu) => (
-              <Link
-                key={menu.name}
-                className={
-                  current === menu.name.toLowerCase()
-                    ? 'block text-white p-4 no-underline bg-[#15803d]'
-                    : 'block text-white p-4 no-underline hover:bg-black'
-                }
-                href={menu.href}
-              >
-                {menu.name}
-              </Link>
-            ))}
-          </Offcanvas.Body>
-        </Offcanvas>
-      </Container>
-
+      <HiddenMenu role={role} current={current} />
       <div className="hidden xl:block m-0 p-0 w-52 bg-brand h-screen rounded">
         <h1 className="text-white p-4 font-bold">Teko</h1>
         <hr className="text-white mx-3" />

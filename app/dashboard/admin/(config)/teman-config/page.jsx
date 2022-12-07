@@ -11,7 +11,7 @@ import SideBar from '@teko/components/sidebar';
 
 import { GiThreeFriends } from 'react-icons/gi';
 import { ImCross } from 'react-icons/im';
-import { AiFillEdit } from 'react-icons/ai';
+import { FiEdit3 } from 'react-icons/fi';
 import { GoPlus } from 'react-icons/go';
 import Swal from 'sweetalert2';
 
@@ -66,7 +66,7 @@ function ShowTeman() {
         </td>
         <td className="flex flex-row justify-center">
           <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
-            <AiFillEdit className="h-[25px] w-[70px] text-white" />
+            <FiEdit3 className="h-[25px] w-[70px] text-white" />
           </Button>
           <Button className="bg-white border-brand ml-3">
             <ImCross className="h-[25px] w-[70px] text-danger" />
@@ -81,23 +81,33 @@ function ShowTeman() {
       <td className="text-center">{teman.nama}</td>
       <td className="">
         <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
+          {/* FIXME icon terlalu kecil saat ukuran halaman besar */}
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}`}
             className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
-            Edit Teman
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Teman</span>
+            </div>
           </Link>
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
-            className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
+            className="bg-brand py-3 px-2 text-center text-white rounded my-auto no-underline"
           >
-            Edit Kegiatan
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Kegiatan</span>
+            </div>
           </Link>
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
             className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
-            Edit Sosmed
+            <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
+              <FiEdit3 className="h-[25px] text-white" />
+              <span className="text-lg">Sosmed</span>
+            </div>
           </Link>
           <Button
             onClick={() => deleteTeman(teman.id)}
