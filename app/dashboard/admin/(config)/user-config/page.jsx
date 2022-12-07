@@ -90,7 +90,8 @@ function ShowUser() {
 export default function UserConfig() {
   return (
     <>
-      <SideBar current="pengguna" role="admin" />
+      <SideBar className="col" current="pengguna" role="admin" />
+
       <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
         <h2 className="flex flex-row">
           <RiUserFill className="mr-2" /> User Config

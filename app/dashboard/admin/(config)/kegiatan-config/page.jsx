@@ -18,7 +18,7 @@ export default function KegiatanConfig() {
 
   return (
     <>
-      <SideBar current="kegiatan" role="admin" />
+      <SideBar className="col" current="kegiatan" role="admin" />
 
       <div className="container w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
         <h1 className="font-semibold text-2xl mb-4">Kegiatan</h1>

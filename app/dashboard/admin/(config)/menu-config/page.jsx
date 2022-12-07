@@ -15,7 +15,8 @@ export default function MenuConfig() {
   return (
     <>
       <div>
-        <SideBar current="pengaturan menu" role="admin" />
+        <SideBar className="col" current="pengaturan menu" role="admin" />
+
         <div className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
           <h2 className="flex flex-row">
             <RiMenuFoldFill className="mr-2" /> Menus Config
