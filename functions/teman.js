@@ -138,6 +138,28 @@ class Teman {
                         },
                     },
                 }));
+                const lembaga = await prisma.lembaga.findUnique({
+                    where: {
+                        id,
+                    },
+                    include: {
+                        Kategori: true,
+                    },
+                });
+                const kategoriLembaga = lembaga.Kategori.map((item) => item.nama);
+                const kategoriToDelete = kategoriLembaga.filter((item) => !kategori.includes(item));
+                kategoriToDelete.forEach(async (item) => prisma.lembaga.update({
+                    where: {
+                        id,
+                    },
+                    data: {
+                        Kategori: {
+                            disconnect: {
+                                nama: item,
+                            },
+                        },
+                    },
+                }));
             } catch (error) {
                 console.log(error);
                 return { error };
