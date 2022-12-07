@@ -192,11 +192,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [x] Prepare Frameworks and Libraries
 - [x] Create UI / UX
-- [ ] Create Database
-- [ ] Frontend
-    - [ ] Create Homepage
-    - [ ] Create Halaman Teman
-    - [ ] Create Halaman Event
+- [x] Create Database
+- [x] Frontend
+    - [x] Create Homepage
+    - [x] Create Halaman Teman
+    - [x] Create Halaman Event
 - [ ] Backend
     - [ ] Create API
     - [ ] Connect API to Database
