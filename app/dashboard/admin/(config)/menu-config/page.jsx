@@ -21,7 +21,7 @@ export default function MenuConfig() {
           <h2 className="flex flex-row">
             <RiMenuFoldFill className="mr-2" /> Menus Config
           </h2>
-          <Table striped bordered hover className="w-full table-fixed">
+          <Table bordered hover className="w-full table-auto">
             <thead>
               <tr className="padding: .35em">
                 {['id', 'name', 'href', 'action'].map((title) => (

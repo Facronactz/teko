@@ -81,7 +81,6 @@ function ShowTeman() {
       <td className="text-center">{teman.nama}</td>
       <td className="">
         <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
-          {/* FIXME icon terlalu kecil saat ukuran halaman besar */}
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}`}
             className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
@@ -139,7 +138,7 @@ export default function TemanConfig() {
             </Link>
           </div>
         </div>
-        <Table striped bordered hover>
+        <Table bordered hover className='table-auto'>
           <thead>
             <tr>
               <th className="text-center">id</th>
