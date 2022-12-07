@@ -9,7 +9,7 @@ import { signOut } from 'next-auth/react';
 
 const admin = [
   { name: 'Beranda', href: '/' },
-  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Dashboard', href: '/dashboard/admin' },
   { name: 'Pengaturan Menu', href: '/dashboard/admin/menu-config' },
   { name: 'Pengguna', href: '/dashboard/admin/user-config' },
   { name: 'Teman', href: '/dashboard/admin/teman-config' },
@@ -18,7 +18,7 @@ const admin = [
 
 const teman = [
   { name: 'Beranda', href: '/' },
-  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Dashboard', href: '/dashboard/teman' },
   { name: 'Teman', href: '/dashboard/admin/teman-config' },
   { name: 'Logout', href: '/logout' },
 ];
