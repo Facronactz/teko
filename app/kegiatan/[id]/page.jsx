@@ -33,9 +33,9 @@ function KegiatanDetail({ id }) {
   }
   if (!data) {
     return (
-      <div className='w-screen h-[70vh] flex align-middle self-center justify-center justify-items-center justify-content-center'>
-        <div className='m-auto'>
-          <LoadingX type='ball-clip'></LoadingX>
+      <div className="w-screen h-[70vh] flex align-middle self-center justify-center justify-items-center justify-content-center">
+        <div className="m-auto">
+          <LoadingX type="ball-clip"></LoadingX>
         </div>
       </div>
     );
@@ -56,7 +56,7 @@ function KegiatanDetail({ id }) {
       </Container>
 
       <h3 className="flex justify-center">Kontak</h3>
-      <Container className="flex flex-row justify-center ">
+      <Container className="flex flex-row justify-center">
         <Link href={'#'} className="w-[50%] bg-brand border-brand mx-1 rounded">
           <RiWhatsappFill className="text-white my-3 w-12 h-12 m-auto" />
         </Link>
@@ -76,7 +76,9 @@ export default function DetailKegiatanPage({ params }) {
     <>
       <TekoNavbar current="Kegiatan"></TekoNavbar>
       <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
-      <KegiatanDetail id={params.id} />
+      <Container className="mb-[10vh]">
+        <KegiatanDetail id={params.id} />
+      </Container>
       <TekoFooter />
     </>
   );

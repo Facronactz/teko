@@ -26,7 +26,7 @@ const Team = () => {
 function TekoFooter() {
   return (
     <>
-      <footer className="bg-brand text-white pt-5 pb-2 no-underline">
+      <footer className="bg-brand text-white pt-5 pb-2 no-underline mt-auto">
         <Container className="text-left">
           <Row className="text-left">
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
