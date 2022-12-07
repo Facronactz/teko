@@ -58,16 +58,25 @@ class Teman {
             }
             return { error };
         }
+        if (!data.logo || data.logo === '') {
+            data.logo = `${process.env.STORAGE_URL}/teko/teman/${result.id}`;
+            await prisma.lembaga.update({
+                where: {
+                    id: result.id,
+                },
+                data: {
+                    logo: data.logo,
+                },
+            });
+            result.logo = data.logo;
+        }
         try {
             const lembagaId = result.id;
-            const logo = data.logo ? data.logo : `${process.env.STORAGE_URL}/teko/teman/${lembagaId}`;
-            result.logo = logo;
             kategori.forEach(async (item) => prisma.lembaga.update({
                 where: {
                     id: lembagaId,
                 },
                 data: {
-                    logo,
                     Kategori: {
                         connectOrCreate: {
                             where: { nama: item.nama },

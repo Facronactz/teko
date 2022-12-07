@@ -106,7 +106,7 @@ export default function TampilTeman({ params }) {
           // refresh halaman jika berhasil edit
           router.refresh();
         }
-      // jika gagal
+        // jika gagal
       } else {
         Swal.fire({
           icon: 'error',
@@ -138,12 +138,16 @@ export default function TampilTeman({ params }) {
     <>
       <Container className="m-auto">
         <Image
+          className="rounded-3 center mx-auto"
           width={150}
           height={150}
           src={data.logo}
           alt={data.nama}
           onClick={() => router.refresh()}
         />
+        {/* tampilkan id sebagai text biasa yang tidak bisa diedit buat di tengah */}
+        {/* <h1 className="text-2xl font-semibold text-center">{data.id}</h1> */}
+        <p className="text-sm text-gray-500 text-center">ID: {data.id}</p>
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
