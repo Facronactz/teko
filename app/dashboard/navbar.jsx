@@ -13,15 +13,23 @@ export default function DashboardNavbar() {
   const router = useRouter();
   return (
     <div className="bg-white flex flex-row container">
-      <button type='button' onClick={() => router.back()} className="border-brand w-20 h-20 my-auto">
+      <button
+        type="button"
+        onClick={() => router.back()}
+        className="border-brand w-20 h-20 my-auto"
+      >
         <IoMdArrowRoundBack className="h-full w-full text-brand ml-2" />
       </button>
-      <button type='button' onClick={() => router.refresh()} className="border-brand w-20 h-20 my-auto">
+      <button
+        type="button"
+        onClick={() => router.refresh()}
+        className="border-brand w-20 h-20 my-auto"
+      >
         <TbRefresh className="h-full w-full text-brand ml-3" />
       </button>
       <Info />
       <Image
-        className="w-[100px] h-[100px] object-cover object-center rounded-full m-3"
+        className="w-[50px] h-[50px] my-auto md:w-[100px] md:h-[100px] object-cover object-center rounded-full md:m-3"
         src={spanduk}
         alt="foto profil"
       />

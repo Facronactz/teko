@@ -37,7 +37,6 @@ export default function Menus({ fetcher }) {
   }
 
   async function deleteMenu(id) {
-    // TODO tambahkan konfirmasi sebelum hapus
     await fetcher.delete(id);
     Swal.fire({
       icon: 'success',
@@ -61,13 +60,11 @@ export default function Menus({ fetcher }) {
         <td className="text-center">
           <Skeleton />
         </td>
-        <td className="flex flex-row justify-center">
-          <Button className="bg-brand text-white border-brand rounded ml-3 my-auto p-2">
-            <GoCheck className="h-[30px] w-[70px] text-white" />
-          </Button>
-          <Button className="bg-white border-brand ml-3">
-            <ImCross className="h-[25px] w-[70px] text-danger" />
-          </Button>
+        <td>
+          <div className="flex flex-row justify-center">
+            <Skeleton />
+            <Skeleton />
+          </div>
         </td>
       </tr>
     );
@@ -93,21 +90,22 @@ export default function Menus({ fetcher }) {
       </td>
       <td className="flex flex-row justify-center">
         <Button
-          onClick={() => updateMenu(
-            menu.id,
-            edittedContent[menu.name].innerText,
-            edittedContent[menu.href].innerText,
-          )
+          onClick={() =>
+            updateMenu(
+              menu.id,
+              edittedContent[menu.name].innerText,
+              edittedContent[menu.href].innerText,
+            )
           }
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+          className="bg-brand text-white border-brand rounded xl:ml-3 my-auto p-2"
         >
-          <GoCheck className="h-[30px] w-[70px] text-white" />
+          <GoCheck className="h-[25px] w-[70px] text-white" />
         </Button>
         <Button
           onClick={() => deleteMenu(menu.id)}
           className="bg-white border-brand ml-3"
         >
-          <ImCross className="h-[25px] w-[70px] text-danger" />
+          <ImCross className="h-[30px] w-[70px] text-danger" />
         </Button>
       </td>
     </tr>

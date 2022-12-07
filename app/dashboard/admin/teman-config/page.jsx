@@ -79,34 +79,33 @@ function ShowTeman() {
     <tr key={teman.id}>
       <td className="text-center">{teman.id}</td>
       <td className="text-center">{teman.nama}</td>
-      <td className="flex flex-row justify-center">
-        <Link
-          href={`/dashboard/admin/teman-config/${teman.id}`}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
-        >
-          <AiFillEdit className="h-[25px] text-white" />
-          | Teman
-        </Link>
-        <Link
-          href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
-        >
-          <AiFillEdit className="h-[25px] text-white" />
-          | Kegiatan
-        </Link>
-        <Link
-          href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
-        >
-          <AiFillEdit className="h-[25px] text-white" />
-          | Sosmed
-        </Link>
-        <Button
-          onClick={() => deleteTeman(teman.id)}
-          className="bg-white border-brand ml-3"
-        >
-          <ImCross className="h-[25px] w-[70px] text-danger" />
-        </Button>
+      <td className="">
+        <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
+          <Link
+            href={`/dashboard/admin/teman-config/${teman.id}`}
+            className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
+          >
+            Edit Teman
+          </Link>
+          <Link
+            href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
+            className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
+          >
+            Edit Kegiatan
+          </Link>
+          <Link
+            href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
+            className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
+          >
+            Edit Sosmed
+          </Link>
+          <Button
+            onClick={() => deleteTeman(teman.id)}
+            className="bg-white border-brand"
+          >
+            <ImCross className="h-[30px] xxl:h-[25px] w-auto m-auto text-danger" />
+          </Button>
+        </div>
       </td>
     </tr>
   ));
@@ -116,10 +115,10 @@ export default function TemanConfig() {
   return (
     <>
       <SideBar current="teman" role="admin" />
-      <Container className="ml-52 mr-10 p-4 w-[85%] h-full">
+      <Container className="w-full xl:ml-52 mr-10 p-4 xl:w-[85%] h-full">
         <h2 className="flex flex-row">
-          <Container className="flex flex-row justify-between">
-            <div className="flex flex-row">
+          <Container className="flex flex-col xs:flex-row justify-between">
+            <div className="flex flex-col xs:flex-row just mb-2">
               <GiThreeFriends className="mr-2" /> Teman Config
             </div>
             <Link

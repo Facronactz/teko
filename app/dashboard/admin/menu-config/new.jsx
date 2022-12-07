@@ -43,19 +43,23 @@ export default function New({ fetcher }) {
         />
       </td>
       <td className="text-center">
-        <input
-          ref={href}
-          type="text"
-          className="text-center border-brand rounded outline-none"
-        />
+        <div>
+          <input
+            ref={href}
+            type="text"
+            className="text-center border-brand rounded outline-none"
+          />
+        </div>
       </td>
       <td className="flex flex-row justify-center">
-        <Button
-          onClick={createMenu}
-          className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
-        >
-          <GoPlus className="h-[30px] w-[70px] text-white" />
-        </Button>
+        <div>
+          <Button
+            onClick={createMenu}
+            className="bg-brand text-white border-brand rounded ml-3 my-auto p-2"
+          >
+            <GoPlus className="h-[30px] w-[70px] text-white" />
+          </Button>
+        </div>
       </td>
     </tr>
   );
