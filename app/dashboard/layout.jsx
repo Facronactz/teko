@@ -6,9 +6,7 @@ export default function DashboardLayout({ children }) {
     <main>
       <div className="bg-white shadow m-3 rounded pb-3">
         <DashboardNavbar />
-        <div className="flex">
-          {children}
-        </div>
+        {children}
       </div>
     </main>
   );
