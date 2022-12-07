@@ -88,14 +88,14 @@ function ShowTeman() {
           | Teman
         </Link>
         <Link
-          href={`/dashboard/admin/teman-config/${teman.id}`}
+          href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
           className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
         >
           <AiFillEdit className="h-[25px] text-white" />
           | Kegiatan
         </Link>
         <Link
-          href={`/dashboard/admin/teman-config/${teman.id}`}
+          href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
           className="bg-brand text-white border-brand rounded ml-3 my-auto p-2 flex no-underline"
         >
           <AiFillEdit className="h-[25px] text-white" />
