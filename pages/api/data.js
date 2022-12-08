@@ -1,9 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const stats = [
-    { name: 'Teman Kita', value: '1001' },
-    { name: 'Kegiatan', value: '101' },
-    { name: 'Pengguna', value: '100' },
-];
+import Data from '@teko/functions/data';
 
 const menus = [
     { name: 'Beranda', href: '/', current: true },
@@ -51,7 +47,7 @@ const team = [
     },
 ];
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     const {
         query: { q },
         method,
@@ -62,7 +58,7 @@ export default function handler(req, res) {
     }
     switch (q) {
     case 'stats':
-        res.status(200).json(stats);
+        res.status(200).json(await Data());
         break;
     case 'menus':
         res.status(200).json(menus);
