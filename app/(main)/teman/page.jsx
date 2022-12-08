@@ -59,7 +59,9 @@ function Temans() {
           className="aspect-square object-cover object-center"
         />
         <Card.Body className="h-[225px]">
-          <Card.Title>{teman.nama} </Card.Title>
+          <h5 className="block text-ellipsis break-words overflow-hidden max-h-fit">
+            {teman.nama}{' '}
+          </h5>
           <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
             {teman.ringkasan}
           </p>

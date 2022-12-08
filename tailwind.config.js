@@ -13,6 +13,7 @@ module.exports = {
       second: '#757575',
       warning: '#ff49db',
       danger: '#ff7849',
+      grey: '#696969',
     },
     screens: {
       xs: '430px',

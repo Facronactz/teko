@@ -85,12 +85,9 @@ export default function TentangKami() {
           Teko
         </h1>
         <p className="text-xl lg:text-left">
-          Platform yang dapat memberikan dukungan bagi suatu komunitas untuk
-          masyarakat, khususnya dalam penggalangan dana dan pengenalan Kegiatan
-          dari komunitas. Teko ini Dibangun menggunakan Next.js sebagai
-          framework, Saat ini banyak sekali komunitas yang terdaftar dan
-          menggunakan platform ini sebagai prasarana pengumpulan dana untuk
-          kegiatan pengabdian mereka.
+          Platform yang memberikan informasi mengenai organisasi yang bergerak
+          di Indonesia untuk diketahui masyarakat luas. Teko diharapkan dapat
+          membantu masyarakat dalam mencari informasi mengenai organisasi
         </p>
       </Container>
 

@@ -16,7 +16,6 @@ const Team = () => {
   return data.map((member) => (
     <p key={member.name} className="sm:mb-1">
       <a href={member.linkedin} className="text-white no-underline">
-        {' '}
         {member.name}
       </a>
     </p>
@@ -41,21 +40,26 @@ function TekoFooter() {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Fitur</h5>
               <p className="sm:mb-1">
-                <a href="#" className="text-white no-underline ">
-                  {' '}
+                <a
+                  href="#"
+                  className="text-grey no-underline pointer-events-none cursor-default"
+                >
                   Donasi
                 </a>
               </p>
               <p className="sm:mb-1">
-                <a href="#" className="text-white no-underline">
-                  {' '}
-                  Kegiatan Teman
+                <a href="/teman" className="text-white no-underline">
+                  Teman
                 </a>
               </p>
               <p className="sm:mb-1">
-                <a href="#" className="text-white no-underline">
-                  {' '}
-                  List Teman
+                <a href="/kegiatan" className="text-white no-underline">
+                  Kegiatan
+                </a>
+              </p>
+              <p className="sm:mb-1">
+                <a href="/tentang-kami" className="text-white no-underline">
+                  Tentang-kami
                 </a>
               </p>
             </div>
