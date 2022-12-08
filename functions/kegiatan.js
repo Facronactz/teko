@@ -34,8 +34,12 @@ class Kegiatan {
     }
 
     static async post(req) {
-        const { data, lembaga, kategori } = req;
+        const { data } = req;
+        const { kategori, lembaga } = data;
+        delete data.kategori;
+        delete data.lembaga;
         const tanggal = new Date(data.tanggal);
+        console.log(tanggal);
         let result;
         try {
             result = await prisma.kegiatan.create({
@@ -44,7 +48,7 @@ class Kegiatan {
                     tanggal,
                     lembaga: {
                         connect: {
-                            id: lembaga.id,
+                            id: lembaga,
                         },
                     },
                 },
@@ -53,7 +57,7 @@ class Kegiatan {
                 },
             });
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             return { error };
         }
         try {

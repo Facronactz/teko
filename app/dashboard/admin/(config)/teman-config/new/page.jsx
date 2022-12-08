@@ -30,6 +30,7 @@ export default function KegiatanPage() {
   };
 
   const onSubmit = async (e) => {
+    e.preventDefault();
     if (!namaRef.current.value) {
       Swal.fire({
         icon: 'error',
@@ -39,7 +40,6 @@ export default function KegiatanPage() {
       });
       return;
     }
-    e.preventDefault();
     const kategori = tags.map((tag) => ({ nama: tag }));
     const data = {
       nama: namaRef.current.value,
