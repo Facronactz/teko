@@ -45,7 +45,7 @@ function Stats() {
   ));
 }
 
-const temansFetcher = new Fetcher({ url: 'teman' });
+const temansFetcher = new Fetcher({ url: 'teman?page=1' });
 function Temans() {
   const { data, error } = useSWR(
     temansFetcher.url,

@@ -8,7 +8,7 @@ class APIHandler {
 
     async get() {
         // const { id } = this.req.query || this.req.body;
-        const data = await this.func.get(this.id);
+        const data = await this.func.get(this.id, this.req.query);
         if (data) return this.res.status(200).json(data);
         return this.res.status(404).json({ error: 'Not Found' });
     }
