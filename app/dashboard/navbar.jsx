@@ -29,7 +29,7 @@ export default function DashboardNavbar() {
       </button> */}
       <Info />
       <Image
-        className="w-[45px] h-[45px] md:w-[70px] md:h-[70px] object-cover object-center rounded-full my-3"
+        className="w-[45px] h-[45px] md:w-[70px] md:h-[70px] object-cover object-center rounded-full m-3"
         src={spanduk}
         alt="foto profil"
       />

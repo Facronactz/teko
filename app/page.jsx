@@ -86,14 +86,14 @@ function Temans() {
         />
         <Card.Body className="h-[225px]">
           <Card.Title>{teman.nama} </Card.Title>
-          <Card.Text className="h-[120px] overflow-hidden">
+          <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
             {teman.ringkasan}
-          </Card.Text>
+          </p>
           <Link
             href={{
               pathname: `/teman/${teman.id}`,
             }}
-            className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
+            className="bg-brand border-brand no-underline absolute bottom-3 px-3 py-2 text-white rounded"
           >
             Lihat
           </Link>

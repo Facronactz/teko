@@ -2,9 +2,7 @@
 
 import Link from 'next/link';
 
-import {
-  Container, Row, Col, Card, Form,
-} from 'react-bootstrap';
+import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
@@ -53,12 +51,12 @@ function Kegiatans() {
         </Card.Header>
         <Card.Body>
           <Card.Title>{kegiatan.nama}</Card.Title>
-          <Card.Text>{kegiatan.ringkasan}</Card.Text>
+          <p className="mb-5">{kegiatan.ringkasan}</p>
           <Link
             href={{
               pathname: `/kegiatan/${kegiatan.id}`,
             }}
-            className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
+            className="bg-brand border-brand no-underline px-3 py-2 mt-5 text-white rounded"
           >
             Lihat Selengkapnya
           </Link>

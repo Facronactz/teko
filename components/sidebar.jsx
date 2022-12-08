@@ -37,6 +37,21 @@ export function HiddenMenu({ role, current }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  async function logAlert(e) {
+    e.preventDefault();
+    const swal = await Swal.fire({
+      title: 'Anda yakin untuk keluar?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
+      confirmButtonText: 'Keluar!',
+    });
+    if (swal.isConfirmed) {
+      signOut();
+    }
+  }
   return (
     <Container className="xl:hidden">
       <Button
@@ -64,6 +79,12 @@ export function HiddenMenu({ role, current }) {
               {menu.name}
             </Link>
           ))}
+          <Button
+            onClick={logAlert}
+            className="bg-brand border-brand text-white p-4 w-full text-left"
+          >
+            Keluar
+          </Button>
         </Offcanvas.Body>
       </Offcanvas>
     </Container>
@@ -88,7 +109,7 @@ export default function SideBar({ role, current }) {
   return (
     <>
       <HiddenMenu role={role} current={current} />
-      <div className="hidden xl:block m-0 p-0 w-52 bg-brand h-screen rounded">
+      <div className="hidden xl:block m-0 p-0 w-52 bg-brand h-screen min-h-[630px] rounded">
         <h1 className="text-white p-4 font-bold">Teko</h1>
         <hr className="text-white mx-3" />
         {menus[role].map((menu) => (
