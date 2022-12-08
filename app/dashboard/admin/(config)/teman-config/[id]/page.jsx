@@ -128,11 +128,13 @@ export default function TampilTeman({ params }) {
     );
   }
   if (!data) {
-    return <div className="flex justify-center h-[90vh]">
-      <div className='my-auto'>
-        <LoadingX />
+    return (
+      <div className="flex justify-center h-[90vh]">
+        <div className="my-auto">
+          <LoadingX />
+        </div>
       </div>
-    </div>;
+    );
   }
   return (
     <>
@@ -218,7 +220,6 @@ export default function TampilTeman({ params }) {
             accept="image/png, image/jpeg"
           />
           {error && <p>{error}</p>}
-          {/* TODO ganti loading */}
           {loading && <p>Uploading...</p>}
           {logo && <p>Uploaded!</p>}
 
@@ -229,20 +230,6 @@ export default function TampilTeman({ params }) {
             Kirim
           </Button>
         </form>
-        <Container className="flex flex-row justify-center">
-          <Link
-            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/teman-config/${params.id}/kegiatan`}
-          >
-            Tambah Kegiatan
-          </Link>
-          <Link
-            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/teman-config/${params.id}/sosmed`}
-          >
-            Tambah Sosmed
-          </Link>
-        </Container>
       </Container>
     </>
   );
