@@ -62,12 +62,23 @@ class Kegiatan {
         }
         try {
             const kegiatanId = result.id;
-            const banner = data.banner ? data.banner : `${process.env.STORAGE_URL}/teko/kegiatan/${kegiatanId}`;
-            result.banner = banner;
+
+            if (!data.banner || data.banner === '') {
+                data.banner = `${process.env.STORAGE_URL}/teko/teman/${result.id}`;
+                await prisma.lembaga.update({
+                    where: {
+                        id: result.id,
+                    },
+                    data: {
+                        banner: data.banner,
+                    },
+                });
+                result.banner = data.banner;
+            }
             if (Array.isArray(kategori)) {
-                kategori.forEach(async (item) => this.updateKategori(kegiatanId, banner, item));
+                kategori.forEach(async (item) => this.updateKategori(kegiatanId, item));
             } else {
-                result = await this.updateKategori(kegiatanId, banner, kategori);
+                result = await this.updateKategori(kegiatanId, kategori);
             }
             return result;
         } catch (error) {
@@ -75,13 +86,12 @@ class Kegiatan {
         }
     }
 
-    static async updateKategori(id, banner, kategori) {
+    static async updateKategori(id, kategori) {
         return prisma.kegiatan.update({
             where: {
                 id,
             },
             data: {
-                banner,
                 Kategori: {
                     connectOrCreate: {
                         where: { nama: kategori.nama },
@@ -108,10 +118,32 @@ class Kegiatan {
                     lembaga: true,
                 },
             });
-            if (Array.isArray(kategori)) {
-                kategori.forEach(async (item) => this.updateKategori(id, result.banner, item));
-            } else {
-                await this.updateKategori(id, result.banner, kategori);
+            if (kategori) {
+                kategori.forEach(async (item) => this.updateKategori(id, item));
+                const kegiatan = await prisma.kegiatan.findUnique({
+                    where: {
+                        id,
+                    },
+                    include: {
+                        Kategori: true,
+                    },
+                });
+                const kategoriKegiatan = kegiatan.Kategori.map((item) => item.nama);
+                const kategoriToDelete = kategoriKegiatan.filter((item) => !kategori.includes(item));
+                kategoriToDelete.forEach(async (item) => {
+                    await prisma.kegiatan.update({
+                        where: {
+                            id,
+                        },
+                        data: {
+                            Kategori: {
+                                disconnect: {
+                                    id: item,
+                                },
+                            },
+                        },
+                    });
+                });
             }
             return result;
         } catch (error) {
