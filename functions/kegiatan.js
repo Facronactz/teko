@@ -92,6 +92,33 @@ class Kegiatan {
         });
     }
 
+    static async put(id, req) {
+        const { kategori } = req.data;
+        delete req.data.kategori;
+
+        try {
+            const result = await prisma.kegiatan.update({
+                where: {
+                    id,
+                },
+                data: {
+                    ...req.data,
+                },
+                include: {
+                    lembaga: true,
+                },
+            });
+            if (Array.isArray(kategori)) {
+                kategori.forEach(async (item) => this.updateKategori(id, result.banner, item));
+            } else {
+                await this.updateKategori(id, result.banner, kategori);
+            }
+            return result;
+        } catch (error) {
+            return { error };
+        }
+    }
+
     static async delete(id) {
         try {
             const res = await prisma.kegiatan.delete({
