@@ -41,7 +41,7 @@ export default function KegiatanItemConfig({ data }) {
   };
 
   return (
-    <Table bordered hover className='table-auto'>
+    <Table bordered hover className="table-auto">
       <thead className="text-center">
         <tr>
           <th>No</th>
@@ -54,21 +54,27 @@ export default function KegiatanItemConfig({ data }) {
       <tbody className="text-center">
         {data.map((item, index) => (
           <tr key={index}>
-            <input
-              type="checkbox"
-              className="w-6 h-6 rounded-lg"
-              checked={item.active}
-            />
-            <td>{index + 1}</td>
-            <td>{item.nama}</td>
-            <td>{Date(item.tanggal)}</td>
-            {/* TODO style Tombol edit dan hapus */}
-            <td>
-              <Link href={`/dashboard/admin/kegiatan-config/${item.id}`} className="bg-brand text-white rounded-lg px-2 py-1">
+            <td className="text-center align-middle">{index + 1}</td>
+            <td className="text-center align-middle">{item.nama}</td>
+            <td className="text-center align-middle">{Date(item.tanggal)}</td>
+            <td className="text-center align-middle">
+              <input
+                type="checkbox"
+                className="w-6 h-6 rounded-lg m-auto"
+                checked={item.active}
+              />
+            </td>
+
+            <td className="flex flex-row justify-center">
+              <Link
+                href={`/dashboard/admin/kegiatan-config/${item.id}`}
+                className="bg-brand text-lg no-underline text-white rounded px-3 py-2"
+              >
                 Edit
               </Link>
-              <button onClick={() => deleteKegiatan(item.id)}
-                className="bg-white border-brand"
+              <button
+                onClick={() => deleteKegiatan(item.id)}
+                className="bg-white border border-brand px-3 rounded ml-4"
               >
                 <ImCross className="h-[30px] xxl:h-[25px] w-auto m-auto text-danger" />
               </button>

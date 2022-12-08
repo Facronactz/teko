@@ -77,9 +77,9 @@ function ShowTeman() {
   }
   return data.map((teman) => (
     <tr key={teman.id}>
-      <td className="text-center">{teman.id}</td>
-      <td className="text-center">{teman.nama}</td>
-      <td className="">
+      <td className="text-center align-middle">{teman.id}</td>
+      <td className="text-center align-middle">{teman.nama}</td>
+      <td>
         <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
           <Link
             href={`/dashboard/admin/teman-config/${teman.id}`}
@@ -127,7 +127,7 @@ export default function TemanConfig() {
       <section className="w-full col h-full p-0">
         <div className="flex flex-row">
           <div className="flex flex-col xs:flex-row justify-between">
-            <div className="flex flex-col xs:flex-row just mb-2">
+            <div className="flex flex-col text-4xl xs:flex-row just mb-2">
               <GiThreeFriends className="mr-2" /> Teman Config
             </div>
             <Link
@@ -138,7 +138,7 @@ export default function TemanConfig() {
             </Link>
           </div>
         </div>
-        <Table bordered hover className='table-auto'>
+        <Table bordered hover className="table-auto">
           <thead>
             <tr>
               <th className="text-center">id</th>

@@ -71,9 +71,9 @@ export default function Menus({ fetcher }) {
   }
   return data.map((menu) => (
     <tr key={menu.id}>
-      <td className="text-center">{menu.id}</td>
+      <td className="text-center align-middle">{menu.id}</td>
       <td
-        className="text-center"
+        className="text-center align-middle"
         contentEditable="true"
         ref={(x) => (edittedContent[menu.name] = x)}
         required
@@ -81,7 +81,7 @@ export default function Menus({ fetcher }) {
         {menu.name}
       </td>
       <td
-        className="text-center"
+        className="text-center align-middle"
         contentEditable="true"
         ref={(x) => (edittedContent[menu.href] = x)}
         required
