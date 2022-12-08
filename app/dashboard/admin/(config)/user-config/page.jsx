@@ -67,11 +67,11 @@ function ShowUser() {
   }
   return data.map((user) => (
     <tr key={user.id}>
-      <td className="text-center">{user.id}</td>
-      <td className="text-center">{user.name}</td>
-      <td className="text-center">{user.username}</td>
-      <td className="text-center">{user.email}</td>
-      <td className="text-center">{user.role}</td>
+      <td className="text-center align-middle">{user.id}</td>
+      <td className="text-center align-middle">{user.name}</td>
+      <td className="text-center align-middle">{user.username}</td>
+      <td className="text-center align-middle">{user.email}</td>
+      <td className="text-center align-middle">{user.role}</td>
 
       <td className="flex flex-row justify-center">
         <Button
@@ -94,7 +94,7 @@ export default function UserConfig() {
           <h2 className="flex flex-row">
             <RiUserFill className="mr-2" /> User Config
           </h2>
-          <Table bordered hover className='table-auto'>
+          <Table bordered hover className="table-auto">
             <thead>
               <tr>
                 {['id', 'nama', 'username', 'email', 'role', 'action'].map(

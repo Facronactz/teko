@@ -34,15 +34,15 @@ export default function New({ fetcher }) {
 
   return (
     <tr>
-      <td className="text-center">-</td>
-      <td className="text-center">
+      <td className="text-center align-middle">+</td>
+      <td className="text-center align-middle">
         <input
           ref={name}
           type="text"
           className="text-center outline-brand rounded outline-none"
         />
       </td>
-      <td className="text-center">
+      <td className="text-center align-middle">
         <div>
           <input
             ref={href}
