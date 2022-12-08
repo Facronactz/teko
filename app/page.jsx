@@ -76,13 +76,13 @@ function Temans() {
   return data.map((teman) => (
     <Col className="p-0" key={teman.id}>
       <Card>
-        <Card.Img
+        <Image
           variant="top"
           src={teman.logo}
           width="200"
           height="200"
           alt={`logo ${teman.nama}`}
-          className="aspect-square object-cover object-center"
+          className="aspect-square object-cover object-center self-center"
         />
         <Card.Body className="h-[225px]">
           <Card.Title>{teman.nama} </Card.Title>
