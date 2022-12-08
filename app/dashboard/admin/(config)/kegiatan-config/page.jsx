@@ -6,6 +6,8 @@ import Link from 'next/link';
 import SideBar from '@teko/components/sidebar';
 
 import { Dropdown } from 'react-bootstrap';
+import LoadingX from '@teko/components/loading';
+import KegiatanItemConfig from '@teko/components/config/kegiatan';
 
 export default function KegiatanConfig() {
   const kegiatanFetcher = new Fetcher('kegiatan');
@@ -14,7 +16,7 @@ export default function KegiatanConfig() {
     kegiatanFetcher.fetcher,
   );
 
-  if (!kegiatans) return <>Loading....</>;
+  if (!kegiatans) return <LoadingX />;
 
   return (
     <>
@@ -42,20 +44,7 @@ export default function KegiatanConfig() {
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {kegiatans?.map((kegiatan) => (
-              <Link
-                className="block bg-white rounded shadow p-4 no-underline text-brand"
-                key={kegiatan.id}
-                href={`/dashboard/admin/kegiatan-config/${kegiatan.id}`}
-              >
-                <h2 className="font-semibold text-xl ">
-                  Edit kegiatan {kegiatan.nama}
-                </h2>
-                <p className="font-light text-lg ">{kegiatan.deskripsi}</p>
-              </Link>
-            ))}
-          </div>
+          <KegiatanItemConfig data={kegiatans} />
         </section>
       </div>
     </>

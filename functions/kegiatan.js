@@ -1,11 +1,23 @@
 import prisma from '@teko/libs/PrismaClient';
 
 class Kegiatan {
-    static async get(id) {
+    static async get(id, req) {
+        const { lembaga } = req;
         if (id) {
             return prisma.kegiatan.findUnique({
                 where: {
                     id,
+                },
+                include: {
+                    lembaga: true,
+                    Kategori: true,
+                },
+            });
+        }
+        if (lembaga) {
+            return prisma.kegiatan.findMany({
+                where: {
+                    lembagaId: lembaga,
                 },
                 include: {
                     lembaga: true,

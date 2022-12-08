@@ -1,15 +1,21 @@
+'use client';
+
 import Fetcher from '@teko/helpers/fetcher';
-import List from './list';
-import Edit from './edit';
-import New from './new';
+import LoadingX from '@teko/components/loading';
+import KegiatanItemConfig from '@teko/components/config/kegiatan';
+import useSwr from 'swr';
 
 export default function Page({ params }) {
   const fetcher = new Fetcher({
-    id: params.id,
-    url: 'teman',
+    url: `kegiatan?lembaga=${params.id}`,
   });
+  const { data: kegiatan } = useSwr(fetcher.url, fetcher.fetcher, fetcher.swrConfig);
+  if (!kegiatan) return <LoadingX />;
 
   return (
-    <List fetcher={fetcher} />
+    <>
+      <button>Tambah Kegiatan</button>
+      <KegiatanItemConfig data={kegiatan} />
+    </>
   );
 }
