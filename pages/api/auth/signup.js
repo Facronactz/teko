@@ -35,6 +35,16 @@ export default async function SignUpHandler(req, res) {
                 updatedAt: new Date(),
             },
         });
+        const image = `${process.env.STORAGE_URL}/teko/teman/${user.id}`;
+        await prisma.user.update({
+            where: {
+                id: user.id,
+            },
+            data: {
+                image,
+            },
+        });
+        delete user.password;
         res.status(200).json({ message: 'User created', user });
     } catch (error) {
         console.error(error);
