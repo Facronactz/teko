@@ -1,7 +1,6 @@
 'use client';
 
 import { Container, Button, Alert } from 'react-bootstrap';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { useState, useRef, useEffect } from 'react';
@@ -64,7 +63,6 @@ export default function TampilTeman({ params }) {
     setTags(tag);
   };
 
-  // TODO ganti crud di halaman lain seperti dibawah ini
   // Gunakan swal untuk konfirmasi terlebih dahulu dan,
   // check data dari api jika error maka tampilkan error menggunakan swal
   async function onSubmit(e) {
@@ -147,8 +145,6 @@ export default function TampilTeman({ params }) {
           alt={data.nama}
           onClick={() => router.refresh()}
         />
-        {/* tampilkan id sebagai text biasa yang tidak bisa diedit buat di tengah */}
-        {/* <h1 className="text-2xl font-semibold text-center">{data.id}</h1> */}
         <p className="text-sm text-gray-500 text-center">ID: {data.id}</p>
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
