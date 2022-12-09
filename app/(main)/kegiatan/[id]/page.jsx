@@ -55,18 +55,23 @@ function KegiatanDetail({ id }) {
         <p className="text-justify lg:text-lg">{data.deskripsi}</p>
       </Container>
 
-      <h3 className="flex justify-center">Kontak</h3>
-      <Container className="flex flex-row justify-center">
-        <Link href={'#'} className="w-[50%] bg-brand border-brand mx-1 rounded">
-          <RiWhatsappFill className="text-white my-3 w-12 h-12 m-auto" />
-        </Link>
+      <h3 className="flex justify-center">Dibuat Oleh:</h3>
+      <div className="flex justify-center">
         <Link
-          href={'#'}
-          className=" bg-brand w-[50%] border-brand mx-1 rounded"
+          href={{
+            pathname: `/teman/${data.lembaga.id}`,
+          }}
+          className="flex flex-col md:flex-row no-underline justify-center border border-brand bg-white shadow w-fit p-3 rounded my-auto text-brand"
         >
-          <MdEmail className="text-white my-3 w-12 h-12 m-auto" />
+          <img
+            className="w-full h-[150px] mr-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
+            src={data.lembaga.logo}
+            alt="logo"
+          />
+          {/* ingin membuat text nya dibawah tetapi belum nemu */}
+          <h3 className="">{data.lembaga.nama}</h3>
         </Link>
-      </Container>
+      </div>
     </>
   );
 }

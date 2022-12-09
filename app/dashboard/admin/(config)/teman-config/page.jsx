@@ -125,18 +125,16 @@ export default function TemanConfig() {
     <div className="flex row m-3 gap-3">
       <SideBar className="col" current="teman" role="admin" />
       <section className="w-full col h-full p-0">
-        <div className="flex flex-row">
-          <div className="flex flex-col xs:flex-row justify-between">
-            <div className="flex flex-col text-4xl xs:flex-row just mb-2">
-              <GiThreeFriends className="mr-2" /> Teman Config
-            </div>
-            <Link
-              href={'/dashboard/admin/teman-config/new'}
-              className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
-            >
-              Tambah Teman <GoPlus className="ml-2 my-auto" />
-            </Link>
+        <div className="flex flex-col xs:flex-row justify-between">
+          <div className="flex flex-col text-4xl xs:flex-row just mb-2">
+            <GiThreeFriends className="mr-2" /> Teman Config
           </div>
+          <Link
+            href={'/dashboard/admin/teman-config/new'}
+            className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
+          >
+            Tambah Teman <GoPlus className="ml-2 my-auto" />
+          </Link>
         </div>
         <Table bordered hover className="table-auto">
           <thead>

@@ -39,7 +39,7 @@ function Team() {
       className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
     >
       <img
-        className="object-cover object-center w-24 h-24 md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
+        className="object-cover aspect-[3/4] object-center w-full h-full md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
         src={member.foto}
         alt={`foto ${member.name}`}
       />

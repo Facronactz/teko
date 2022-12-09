@@ -50,9 +50,9 @@ export default function TemanDetail({ id }) {
   }
   if (!data) {
     return (
-      <div className='w-screen h-[70vh] flex align-middle self-center justify-center justify-items-center justify-content-center'>
-        <div className='m-auto'>
-          <LoadingX type='ball-clip'></LoadingX>
+      <div className="w-screen h-[70vh] flex align-middle self-center justify-center justify-items-center justify-content-center">
+        <div className="m-auto">
+          <LoadingX type="ball-clip"></LoadingX>
         </div>
       </div>
     );
@@ -68,13 +68,13 @@ export default function TemanDetail({ id }) {
           />
         </Container>
         <Container className="flex flex-col justify-center overflow-auto">
-          <h1>{data.nama}</h1>
-          <h2 className="text-second">
+          <h1 className="font-bold">{data.nama}</h1>
+          <h4 className="text-second text-xl font-light">
             {data.Kategori.map((item) => `#${item.nama} `)}
-          </h2>
+          </h4>
 
           <div className="overflow-clip">
-            <h1>{data.deskripsi}</h1>
+            <h5 className="font-light text-2xl">{data.deskripsi}</h5>
           </div>
         </Container>
       </Container>
@@ -110,26 +110,27 @@ export default function TemanDetail({ id }) {
         </h3>
       </Container>
       <Container className="grid gap-3 md:grid-cols-3 mb-4">
-        {data && data.SosialMedia.map((sosmed) => (
-          <Card key={sosmed.id} style={{ width: '18rem' }}>
-            <Card.Body>
-              <Container className="grid grid-cols-2 justify-between p-0">
-                <Container className="flex flex-row">
-                  <Card.Title className="m-auto">
-                    <Platform platform={sosmed.platform} />
-                  </Card.Title>
-                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+        {data &&
+          data.SosialMedia.map((sosmed) => (
+            <Card key={sosmed.id} style={{ width: '18rem' }}>
+              <Card.Body>
+                <Container className="grid grid-cols-2 justify-between p-0">
+                  <Container className="flex flex-row">
+                    <Card.Title className="m-auto">
+                      <Platform platform={sosmed.platform} />
+                    </Card.Title>
+                    <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+                  </Container>
+                  <Link
+                    href={sosmed.url}
+                    className="bg-white border border-brand rounded text-white m-auto p-2"
+                  >
+                    <GrFormNextLink className="h-[30px] w-[30px]" />
+                  </Link>
                 </Container>
-                <Link
-                  href={sosmed.url}
-                  className="bg-white border border-brand rounded text-white m-auto p-2"
-                >
-                  <GrFormNextLink className="h-[30px] w-[30px]" />
-                </Link>
-              </Container>
-            </Card.Body>
-          </Card>
-        ))}
+              </Card.Body>
+            </Card>
+          ))}
       </Container>
       {/* fb,ig,twt,web, email */}
     </>

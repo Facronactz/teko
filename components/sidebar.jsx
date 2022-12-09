@@ -53,9 +53,9 @@ export function HiddenMenu({ role, current }) {
     }
   }
   return (
-    <Container className="xl:hidden">
+    <Container className="xl:hidden p-0 ">
       <Button
-        className="bg-brand border-brand mt-4 w-full text-center"
+        className="bg-brand border-brand text-xl font-semibold mt-4 w-full text-center"
         onClick={handleShow}
       >
         Menu

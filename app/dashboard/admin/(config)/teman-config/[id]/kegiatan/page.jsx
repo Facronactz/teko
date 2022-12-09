@@ -11,7 +11,11 @@ export default function Page({ params }) {
   const fetcher = new Fetcher({
     url: `kegiatan?lembaga=${params.id}`,
   });
-  const { data: kegiatan } = useSwr(fetcher.url, fetcher.fetcher, fetcher.swrConfig);
+  const { data: kegiatan } = useSwr(
+    fetcher.url,
+    fetcher.fetcher,
+    fetcher.swrConfig,
+  );
 
   const [show, setShow] = useState(false);
 
@@ -23,8 +27,14 @@ export default function Page({ params }) {
 
   return (
     <>
-      {/* TODO style button tambah kegiatan */}
-      <button onClick={() => showHandler()}>{show ? 'List' : 'Tambah'} Kegiatan</button>
+      <div className="flex justify-center">
+        <button
+          onClick={() => showHandler()}
+          className=" bg-brand text-white text-lg px-3 py-2 mb-3 mx-3 rounded w-full"
+        >
+          {show ? 'List' : 'Tambah'} Kegiatan
+        </button>
+      </div>
       {show && <NewKegiatan lembaga={params.id} fetcher={fetcher} />}
       {show || <KegiatanItemConfig data={kegiatan} />}
     </>

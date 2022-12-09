@@ -25,7 +25,7 @@ export default function KegiatanConfig() {
         <section className="w-full col h-full p-0">
           <h1 className="font-semibold text-2xl mb-4">Kegiatan</h1>
           <Link
-            className="block no-underline p-4 bg-brand text-white text-center font-semibold mb-10"
+            className="block no-underline px-4 py-2 bg-brand text-white text-lg rounded text-center mb-10"
             href={'/dashboard/admin/kegiatan-config/new'}
           >
             Tambah Kegiatan

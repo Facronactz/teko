@@ -57,7 +57,7 @@ class Kegiatan {
                 },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return { error };
         }
         try {
@@ -82,6 +82,7 @@ class Kegiatan {
             }
             return result;
         } catch (error) {
+            console.error(error);
             return { error };
         }
     }
@@ -147,6 +148,7 @@ class Kegiatan {
             }
             return result;
         } catch (error) {
+            console.error(error);
             return { error };
         }
     }
@@ -160,6 +162,7 @@ class Kegiatan {
             });
             return res;
         } catch (error) {
+            console.error(error);
             if (error.code === 'P2025') {
                 return { error: 'Kegiatan tidak ditemukan' };
             }
