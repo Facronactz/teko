@@ -1,7 +1,6 @@
 'use client';
 
 import { Container, Button, Alert } from 'react-bootstrap';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { useState, useRef, useEffect } from 'react';
@@ -227,7 +226,7 @@ export default function TampilTeman({ params }) {
             type="submit"
             className="my-3 font-semibold text-lg bg-brand border-brand py-3"
           >
-            Kirim
+            Simpan
           </Button>
         </form>
       </Container>

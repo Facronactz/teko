@@ -223,7 +223,7 @@ export default function EditKegiatan({ params }) {
             type="submit"
             className="my-3 font-semibold text-lg bg-brand border-brand py-3"
           >
-            Kirim
+            Simpan
           </Button>
         </form>
         <Container className="flex flex-row justify-center">
