@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { Container, Alert } from 'react-bootstrap';
 
@@ -29,8 +30,8 @@ function Team() {
     );
   }
   if (!data) {
-    return [1, 2, 3, 4].map(() => (
-      <Skeleton className="flex flex-row justify-center" count={2} />
+    return [1, 2, 3, 4].map((i) => (
+      <Skeleton key={i} className="flex flex-row justify-center" count={2} />
     ));
   }
   return data.map((member) => (
@@ -38,7 +39,9 @@ function Team() {
       key={member.name}
       className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
     >
-      <img
+      <Image
+        width={832}
+        height={624}
         className="object-cover aspect-[3/4] object-center w-full h-full md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"
         src={member.foto}
         alt={`foto ${member.name}`}
