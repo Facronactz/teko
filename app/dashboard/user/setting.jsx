@@ -1,12 +1,17 @@
 import { Button } from 'react-bootstrap';
 import Fetcher from '@teko/helpers/fetcher';
 import { useRef } from 'react';
+import LoadingX from '@teko/components/loading';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function FormSetting({ children, user }) {
   const usersFetcer = new Fetcher('users');
   const nameRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
+
+  if (!user) return <LoadingX />;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -16,8 +21,27 @@ export default function FormSetting({ children, user }) {
       username: usernameRef.current.value,
       email: emailRef.current.value,
     };
-    await usersFetcer.put(data);
-    // TODO: add sweetalert
+    const resp = await usersFetcer.put(data);
+
+    if (!resp.error) {
+      const ok = await Swal.fire({
+        icon: 'success',
+        title: 'Yaay...',
+        text: 'Data berhasil diubah',
+        confirmButtonColor: '#315343',
+      });
+      if (ok.isConfirmed) {
+        router.refresh();
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `File tidak berhasil disimpan [${resp.error.message}]`,
+
+        confirmButtonColor: '#315343',
+      });
+    }
   };
 
   return (

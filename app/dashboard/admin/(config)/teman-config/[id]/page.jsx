@@ -73,8 +73,8 @@ export default function TampilTeman({ params }) {
       text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
       confirmButtonText: 'Ya, simpan!',
     });
     // jika terkonfirmasi
