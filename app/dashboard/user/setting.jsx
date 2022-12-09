@@ -3,6 +3,8 @@ import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import { useRef } from 'react';
 import LoadingX from '@teko/components/loading';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function FormSetting({ children }) {
   const userFetcer = new Fetcher('user');
@@ -11,6 +13,7 @@ export default function FormSetting({ children }) {
   const nameRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
+  const router = useRouter();
 
   if (!user) return <LoadingX />;
 
@@ -22,8 +25,27 @@ export default function FormSetting({ children }) {
       username: usernameRef.current.value,
       email: emailRef.current.value,
     };
-    await usersFetcer.put(data);
-    // TODO: add sweetalert
+    const resp = await usersFetcer.put(data);
+
+    if (!resp.error) {
+      const ok = await Swal.fire({
+        icon: 'success',
+        title: 'Yaay...',
+        text: 'Data berhasil diubah',
+        confirmButtonColor: '#315343',
+      });
+      if (ok.isConfirmed) {
+        router.refresh();
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `File tidak berhasil disimpan [${resp.error.message}]`,
+
+        confirmButtonColor: '#315343',
+      });
+    }
   };
 
   return (
