@@ -28,13 +28,21 @@ class User {
 
     static async put(id, req) {
         const { data } = req;
-        const result = await prisma.user.update({
-            where: {
-                id,
-            },
-            data,
-        });
-        return result;
+        // eslint-disable-next-line no-param-reassign
+        if (!id) id = data.id;
+        try {
+            const result = await prisma.user.update({
+                where: {
+                    id,
+                },
+                data,
+            });
+            console.log(result);
+            return result;
+        } catch (error) {
+            console.error(error);
+            return error;
+        }
     }
 
     static async delete(id) {

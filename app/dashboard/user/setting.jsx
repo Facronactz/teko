@@ -6,6 +6,7 @@ import LoadingX from '@teko/components/loading';
 
 export default function FormSetting({ children }) {
   const userFetcer = new Fetcher('user');
+  const usersFetcer = new Fetcher('users');
   const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
   const nameRef = useRef();
   const usernameRef = useRef();
@@ -16,11 +17,13 @@ export default function FormSetting({ children }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     const data = {
+      id: user.sub,
       name: nameRef.current.value,
       username: usernameRef.current.value,
       email: emailRef.current.value,
     };
-    await userFetcer.put(data);
+    await usersFetcer.put(data);
+    // TODO: add sweetalert
   };
 
   return (
