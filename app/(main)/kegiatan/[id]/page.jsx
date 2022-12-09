@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { Container, Alert } from 'react-bootstrap';
 
-import { RiWhatsappFill } from 'react-icons/ri';
-import { MdEmail } from 'react-icons/md';
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
 
@@ -43,7 +42,9 @@ function KegiatanDetail({ id }) {
   return (
     <>
       <Container className="bg-red flex flex-col lg:flex-row justify-center">
-        <img
+        <Image
+          width={854}
+          height={480}
           className="aspect-video mb-3"
           src={data.banner}
           alt="gambar hero"
@@ -63,8 +64,10 @@ function KegiatanDetail({ id }) {
           }}
           className="flex flex-col md:flex-row no-underline justify-center border border-brand bg-white shadow w-fit p-3 rounded my-auto text-brand"
         >
-          <img
-            className="w-full h-[150px] mr-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
+          <Image
+            width={200}
+            height={200}
+            className="mr-3 rounded object-cover object-center"
             src={data.lembaga.logo}
             alt="logo"
           />

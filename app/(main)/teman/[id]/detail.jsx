@@ -1,6 +1,6 @@
 'use client';
 
-// import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Container, Card, Alert } from 'react-bootstrap';
@@ -61,8 +61,10 @@ export default function TemanDetail({ id }) {
     <>
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
-          <img
-            className="w-full h-[150px] mb-3 rounded md:h-[200px] md:w-[200px] object-cover object-center"
+          <Image
+            width={200}
+            height={200}
+            className="mb-3 rounded object-cover object-center"
             src={data.logo}
             alt="gambar hero"
           />
