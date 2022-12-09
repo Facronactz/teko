@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Fetcher from '@teko/helpers/fetcher';
 import Swal from 'sweetalert2';
 
-export default function KegiatanItemConfig({ data }) {
+export default function KegiatanItemConfig({ data, lembaga }) {
   const fetcher = new Fetcher('kegiatan');
   const router = useRouter();
   const deleteKegiatan = async (id) => {
@@ -46,6 +46,7 @@ export default function KegiatanItemConfig({ data }) {
         <tr>
           <th>No</th>
           <th>Nama Kegiatan</th>
+          {lembaga && <th>Lembaga</th>}
           <th>Tanggal</th>
           <th>Aktif</th>
           <th>Actions</th>
@@ -56,6 +57,7 @@ export default function KegiatanItemConfig({ data }) {
           <tr key={index}>
             <td className="text-center align-middle">{index + 1}</td>
             <td className="text-center align-middle">{item.nama}</td>
+            {lembaga && <td className="text-center align-middle">{item.lembaga.nama}</td>}
             <td className="text-center align-middle">{Date(item.tanggal)}</td>
             <td className="text-center align-middle">
               <input
@@ -65,7 +67,7 @@ export default function KegiatanItemConfig({ data }) {
               />
             </td>
 
-            <td className="flex flex-row justify-center">
+            <td className="flex flex-row justify-center text-center align-middle items-center">
               <Link
                 href={`/dashboard/admin/kegiatan-config/${item.id}`}
                 className="bg-brand text-lg no-underline text-white rounded px-3 py-2"

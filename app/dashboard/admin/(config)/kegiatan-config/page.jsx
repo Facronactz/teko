@@ -44,7 +44,7 @@ export default function KegiatanConfig() {
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <KegiatanItemConfig data={kegiatans} />
+          <KegiatanItemConfig lembaga={true} data={kegiatans} />
         </section>
       </div>
     </>
