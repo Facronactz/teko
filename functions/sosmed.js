@@ -53,7 +53,7 @@ class Sosmed {
                 },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return { error };
         }
         return result;
@@ -76,7 +76,7 @@ class Sosmed {
                 },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return { error };
         }
         return result;
@@ -91,7 +91,7 @@ class Sosmed {
                 },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return { error };
         }
         return result;

@@ -5,7 +5,6 @@ class Teman {
         if (id) {
             return this.getById(id);
         }
-        console.log(query);
         const {
             nama, kategori, page, sort, direction, search, beta,
         } = query;
@@ -138,7 +137,7 @@ class Teman {
     }
 
     static async getBySearchBeta(search) {
-        console.log(search);
+        // console.log(search);
         const data = await prisma.lembaga.findMany({
             where: {
                 body: {
@@ -146,7 +145,7 @@ class Teman {
                 },
             },
         });
-        console.log(data);
+        // console.log(data);
         return data;
     }
 
@@ -193,7 +192,7 @@ class Teman {
         const { owner, kategori } = data;
         delete data.owner;
         delete data.kategori;
-        console.log(data, owner, kategori);
+        // console.log(data, owner, kategori);
         let result;
         try {
             result = await prisma.lembaga.create({
@@ -210,7 +209,7 @@ class Teman {
                 },
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             if (error.code === 'P2002') {
                 return { error: 'Nama Lembaga sudah ada' };
             }
@@ -245,7 +244,7 @@ class Teman {
             }));
             return result;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return { error };
         }
     }
@@ -274,7 +273,7 @@ class Teman {
                 });
                 return result;
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 if (error.code === 'P2002') {
                     return { error: 'Nama Lembaga sudah ada' };
                 }
@@ -319,7 +318,7 @@ class Teman {
                     },
                 }));
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 return { error };
             }
         }
@@ -333,7 +332,7 @@ class Teman {
             });
             return result;
         } catch (error) {
-            // console.log(error);
+            console.error(error);
             if (error.code === 'P2002') {
                 return { error: 'Nama Lembaga sudah ada' };
             }
@@ -350,6 +349,7 @@ class Teman {
             });
             return res;
         } catch (error) {
+            console.error(error);
             if (error.code === 'P2025') {
                 return { error: 'Lembaga tidak ditemukan' };
             }

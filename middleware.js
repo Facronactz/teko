@@ -6,12 +6,12 @@ export default withAuth(
         // console.log(req.nextauth);
         const { role } = req.nextauth.token;
         const { pathname, origin } = req.nextUrl;
-        if (pathname === '/dashboard')
+        if (pathname === '/dashboard') {
             return NextResponse.redirect(
                 `${origin}${pathname}/${role.toLowerCase()}`,
             );
-        if (role === 'ADMIN')
-            return NextResponse.rewrite(new URL(pathname, origin));
+        }
+        if (role === 'ADMIN') { return NextResponse.rewrite(new URL(pathname, origin)); }
         if (role === 'TEMAN') {
             if (pathname.startsWith('/teman')) {
                 return NextResponse.rewrite(new URL(pathname, origin));

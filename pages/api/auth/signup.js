@@ -37,6 +37,7 @@ export default async function SignUpHandler(req, res) {
         });
         res.status(200).json({ message: 'User created', user });
     } catch (error) {
+        console.error(error);
         if (error.code === 'P2002') {
             res.status(409).json({ message: 'Email already in use', error });
         } else {

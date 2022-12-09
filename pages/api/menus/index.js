@@ -20,6 +20,7 @@ export default async function MenusHandler(req, res) {
             await Menu.put(id, data);
             return res.status(201).json({ message: 'Data berhasil diubah', data });
         } catch (error) {
+            console.error(error);
             return res.status(400).json({
                 message: 'Data gagal diubah',
                 error: error.message,
@@ -33,7 +34,7 @@ export default async function MenusHandler(req, res) {
                 message: `Data dengan id ${id} berhasil dihapus`,
             });
         } catch (error) {
-            // console.log(error);
+            console.error(error);
             return res.status(500).json({
                 message: `Data dengan id ${id} tidak ditemukan`,
                 error: error.message,

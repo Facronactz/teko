@@ -9,6 +9,6 @@ export default async function Data() {
         { name: 'Kegiatan', value: Kegiatan },
         { name: 'Pengguna', value: Pengguna },
     ];
-    console.log(data);
+    // console.log(data);
     return data;
 }
