@@ -48,34 +48,34 @@ function Temans() {
     ));
   }
   return data.map((teman) => (
-    <Col className="p-0" key={teman.nama}>
-      <Card>
-        <Card.Img
-          variant="top"
-          src={teman.logo}
-          width="200"
-          height="200"
-          alt={`logo ${teman.nama}`}
-          className="aspect-square object-contain object-center"
-        />
-        <Card.Body className="h-[225px]">
-          <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
-            {teman.nama}
-          </Card.Title>
-          <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
-            {teman.ringkasan}
-          </p>
-          <Link
-            href={{
-              pathname: `/teman/${teman.id}`,
-            }}
-            className="bg-brand border-brand no-underline absolute bottom-3 px-3 py-2 text-white rounded"
-          >
-            Lihat
-          </Link>
-        </Card.Body>
-      </Card>
-    </Col>
+    <Link
+      href={{
+        pathname: `/teman/${teman.id}`,
+      }}
+      className="no-underline text-black"
+      key={teman.nama}
+    >
+      <Col className="p-0">
+        <Card>
+          <Card.Img
+            variant="top"
+            src={teman.logo}
+            width="200"
+            height="200"
+            alt={`logo ${teman.nama}`}
+            className="aspect-square object-contain object-center pointer-events-none"
+          />
+          <Card.Body className="h-[225px]">
+            <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+              {teman.nama}
+            </Card.Title>
+            <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
+              {teman.ringkasan}
+            </p>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Link>
   ));
 }
 

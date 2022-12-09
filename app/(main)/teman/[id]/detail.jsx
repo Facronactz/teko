@@ -43,8 +43,7 @@ export default function TemanDetail({ id }) {
   if (error) {
     return (
       <Alert key="danger" variant="danger">
-        {' '}
-        Error fetching data{' '}
+        Error fetching data
       </Alert>
     );
   }
@@ -112,27 +111,26 @@ export default function TemanDetail({ id }) {
         </h3>
       </Container>
       <Container className="grid gap-3 md:grid-cols-3 mb-4">
-        {data &&
-          data.SosialMedia.map((sosmed) => (
-            <Card key={sosmed.id} style={{ width: '18rem' }}>
-              <Card.Body>
-                <Container className="grid grid-cols-2 justify-between p-0">
-                  <Container className="flex flex-row">
-                    <Card.Title className="m-auto">
-                      <Platform platform={sosmed.platform} />
-                    </Card.Title>
-                    <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
-                  </Container>
-                  <Link
-                    href={sosmed.url}
-                    className="bg-white border border-brand rounded text-white m-auto p-2"
-                  >
-                    <GrFormNextLink className="h-[30px] w-[30px]" />
-                  </Link>
+        {data && data.SosialMedia.map((sosmed) => (
+          <Card key={sosmed.id} style={{ width: '18rem' }}>
+            <Card.Body>
+              <Container className="grid grid-cols-2 justify-between p-0">
+                <Container className="flex flex-row">
+                  <Card.Title className="m-auto">
+                    <Platform platform={sosmed.platform} />
+                  </Card.Title>
+                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
                 </Container>
-              </Card.Body>
-            </Card>
-          ))}
+                <Link
+                  href={sosmed.url}
+                  className="bg-white border border-brand rounded text-white m-auto p-2"
+                >
+                  <GrFormNextLink className="h-[30px] w-[30px]" />
+                </Link>
+              </Container>
+            </Card.Body>
+          </Card>
+        ))}
       </Container>
       {/* fb,ig,twt,web, email */}
     </>

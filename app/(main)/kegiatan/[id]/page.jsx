@@ -25,8 +25,7 @@ function KegiatanDetail({ id }) {
   if (error) {
     return (
       <Alert key="danger" variant="danger">
-        {' '}
-        Error fetching data{' '}
+        Error fetching data
       </Alert>
     );
   }

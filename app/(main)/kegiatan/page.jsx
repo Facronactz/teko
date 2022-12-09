@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+// eslint-disable-next-line object-curly-newline
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
@@ -28,11 +29,9 @@ function Kegiatans() {
           </Card.Header>
           <Card.Body>
             <Card.Title>
-              {' '}
               <Skeleton />
             </Card.Title>
             <Card.Text>
-              {' '}
               <Skeleton />
             </Card.Text>
             <Link href={'#'} className="rounded">

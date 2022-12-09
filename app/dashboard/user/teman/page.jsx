@@ -44,7 +44,7 @@ class DashboardTeman extends React.Component {
           <h1 className="text-white p-2 font-bold">
             <Link className="text-white no-underline" href={'/'}>
               Teko
-            </Link>{' '}
+            </Link>
           </h1>
           <h5 className="text-white p-2 font-bold">Dashborad Teman</h5>
           <hr className="text-white text-center" />

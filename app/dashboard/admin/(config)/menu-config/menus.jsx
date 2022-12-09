@@ -51,7 +51,6 @@ export default function Menus({ fetcher }) {
     return (
       <tr>
         <td className="text-center">
-          {' '}
           <Skeleton />
         </td>
         <td className="text-center">
@@ -90,12 +89,11 @@ export default function Menus({ fetcher }) {
       </td>
       <td className="flex flex-row justify-center">
         <Button
-          onClick={() =>
-            updateMenu(
-              menu.id,
-              edittedContent[menu.name].innerText,
-              edittedContent[menu.href].innerText,
-            )
+          onClick={() => updateMenu(
+            menu.id,
+            edittedContent[menu.name].innerText,
+            edittedContent[menu.href].innerText,
+          )
           }
           className="bg-brand text-white border-brand rounded xl:ml-3 my-auto p-2"
         >

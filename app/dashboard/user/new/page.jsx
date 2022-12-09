@@ -70,7 +70,6 @@ export default function KegiatanPage() {
           <label className="mb-2 font-semibold">Kategori:</label>
           {/* FIXME Kategori dijadiin kyk tag aja */}
           {/* <label htmlFor="kategori1">
-            {' '}
             Kemanusiaan
             <input
               type="checkbox"
@@ -82,7 +81,6 @@ export default function KegiatanPage() {
           </label>
 
           <label htmlFor="kategori2">
-            {' '}
             Sosial
             <input
               type="checkbox"
@@ -94,7 +92,6 @@ export default function KegiatanPage() {
           </label>
 
           <label htmlFor="kategori3">
-            {' '}
             Lingkungan
             <input
               type="checkbox"

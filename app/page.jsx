@@ -125,7 +125,7 @@ export default function BerandaPage() {
                 Ada apa di Teko?
               </h1>
               <p className="text-sm text-white xs:text-base lg:text-xl xxl:text-2xl">
-                Menghadirkan layanan informasi yang dapat membantu TEMAN kami{' '}
+                Menghadirkan layanan informasi yang dapat membantu TEMAN kami
                 <br></br> juga keberhasilan bersama yang diselenggarakan oleh
                 TEMAN untuk masyarakat
               </p>
@@ -146,7 +146,6 @@ export default function BerandaPage() {
                   Teman Kita
                 </h1>
                 <p className="m-1 md:text-base lg:text-xl lg:text-right xl:text-3xl">
-                  {' '}
                   Adalah suatu sebutan untuk kami terhadap komunitas yang
                   menjalankan kegiatannya untuk mengabdi kepada masyarakat.
                   Tentunya banyak sekali Teman Kita yang sudah membantu dan
