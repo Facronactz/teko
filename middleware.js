@@ -1,6 +1,27 @@
 import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
 
+const Response = {
+    ADMIN: (req) => {
+        const { origin, pathname } = req.nextUrl;
+        return NextResponse.rewrite(new URL(pathname, origin));
+    },
+    TEMAN: (req) => {
+        const { origin, pathname } = req.nextUrl;
+        if (pathname.startsWith('/dashboard/teman')) {
+            return NextResponse.rewrite(new URL(pathname, origin));
+        }
+        return NextResponse.rewrite(new URL('/dashboard/teman', origin));
+    },
+    USER: (req) => {
+        const { origin, pathname } = req.nextUrl;
+        if (pathname.startsWith('/dashboard/user')) {
+            return NextResponse.rewrite(new URL(pathname, origin));
+        }
+        return NextResponse.rewrite(new URL('/dashboard/user', origin));
+    },
+};
+
 export default withAuth(
     (req) => {
         // console.log(req.nextauth);
@@ -11,24 +32,11 @@ export default withAuth(
                 `${origin}${pathname}/${role.toLowerCase()}`,
             );
         }
-        if (role === 'ADMIN') { return NextResponse.rewrite(new URL(pathname, origin)); }
-        if (role === 'TEMAN') {
-            if (pathname.startsWith('/teman')) {
-                return NextResponse.rewrite(new URL(pathname, origin));
-            }
-            if (pathname.startsWith('/dashboard/teman')) {
-                return NextResponse.rewrite(new URL(pathname, origin));
-            }
+        try {
+            return Response[role.toUpperCase()](req);
+        } catch (error) {
+            return NextResponse.rewrite(new URL('/', origin));
         }
-        if (role === 'USER') {
-            if (pathname.startsWith('/user')) {
-                return NextResponse.rewrite(new URL(pathname, origin));
-            }
-            if (pathname.startsWith('/dashboard/user')) {
-                return NextResponse.rewrite(new URL(pathname, origin));
-            }
-        }
-        return NextResponse.rewrite(new URL('/', origin));
     },
     {
         callbacks: {
