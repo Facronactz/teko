@@ -88,7 +88,7 @@ class Kegiatan {
         }
     }
 
-    static async updateKategori(id, kategori) {
+    static async updateKategori(id, nama) {
         return prisma.kegiatan.update({
             where: {
                 id,
@@ -96,8 +96,8 @@ class Kegiatan {
             data: {
                 Kategori: {
                     connectOrCreate: {
-                        where: { nama: kategori.nama },
-                        create: { nama: kategori.nama },
+                        where: { nama },
+                        create: { nama },
                     },
                 },
             },
@@ -140,7 +140,7 @@ class Kegiatan {
                         data: {
                             Kategori: {
                                 disconnect: {
-                                    id: item,
+                                    nama: item,
                                 },
                             },
                         },
