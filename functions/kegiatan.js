@@ -77,9 +77,9 @@ class Kegiatan {
                 result.banner = data.banner;
             }
             if (Array.isArray(kategori)) {
-                kategori.forEach(async (item) => this.updateKategori(kegiatanId, item));
+                kategori.forEach(async (item) => this.updateKategori(kegiatanId, item.nama));
             } else {
-                result = await this.updateKategori(kegiatanId, kategori);
+                result = await this.updateKategori(kegiatanId, kategori.nama);
             }
             return result;
         } catch (error) {
