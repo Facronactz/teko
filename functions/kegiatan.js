@@ -64,8 +64,9 @@ class Kegiatan {
             const kegiatanId = result.id;
 
             if (!data.banner || data.banner === '') {
+                console.log(data.banner);
                 data.banner = `${process.env.STORAGE_URL}/teko/teman/${result.id}`;
-                await prisma.lembaga.update({
+                await prisma.kegiatan.update({
                     where: {
                         id: result.id,
                     },
