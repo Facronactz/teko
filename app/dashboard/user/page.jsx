@@ -4,55 +4,25 @@ import Link from 'next/link';
 
 import { Container, Button } from 'react-bootstrap';
 
+import Fetcher from '@teko/helpers/fetcher';
 import { useState } from 'react';
+import useSWR from 'swr';
+import LoadingX from '@teko/components/loading';
 import FormSetting from './setting';
+import FormPassword from './password';
 import UploadImage from './upload';
 
-// TODO @vang rona, belum memiliki fungsi & logika sama sekali
-// FIXME buat yang password bingung klo pake state nanti di react component in
-
-function FormPassword() {
-  return (
-    <form action="" id="change-pass" className="flex flex-col">
-      <label className="my-3 font-semibold">Password Lama:</label>
-      <input
-        className="border border-brand rounded mb-3 px-2 py-1"
-        name="username"
-        type="text"
-        id="username"
-      ></input>
-      <label className="my-3 font-semibold">Password Baru:</label>
-      <input
-        className="border border-brand rounded mb-3 px-2 py-1"
-        name="username"
-        type="text"
-        id="username"
-      ></input>
-      <label className="my-3 font-semibold">
-        Konfirmasi Password Baru:
-      </label>
-      <input
-        className="border border-brand rounded mb-3 px-2 py-1"
-        name="username"
-        type="text"
-        id="username"
-      ></input>
-      <Button
-        type="submit"
-        className="my-3 font-semibold text-lg bg-brand border-brand py-3"
-      >
-        Ubah Password
-      </Button>
-    </form>
-  );
-}
-
 export default function SettingUser() {
+  const userFetcer = new Fetcher('user');
   const [show, setShow] = useState(false);
+
+  const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
 
   const showHandler = () => {
     setShow(!show);
   };
+
+  if (!user) return <LoadingX />;
 
   return (
     <>
@@ -66,7 +36,7 @@ export default function SettingUser() {
         </Link>
       </div>
       <div className="container">
-        <FormSetting>
+        <FormSetting user={user}>
           <UploadImage type='user' />
         </FormSetting>
       </div>
@@ -74,7 +44,7 @@ export default function SettingUser() {
         <Button onClick={() => showHandler()} className="bg-white border-brand text-brand">
           Ubah Password
         </Button>
-        {show && <FormPassword />}
+        {show && <FormPassword id={user.sub} />}
       </Container>
     </>
   );

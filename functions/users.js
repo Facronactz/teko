@@ -1,4 +1,5 @@
 import prisma from '@teko/libs/PrismaClient';
+import bcrypt from 'bcrypt';
 
 class User {
     static async get(id) {
@@ -30,6 +31,24 @@ class User {
         const { data } = req;
         // eslint-disable-next-line no-param-reassign
         if (!id) id = data.id;
+        delete data.id;
+        if (data.password) {
+            // check if password is valid
+            const user = await prisma.user.findUnique({
+                where: {
+                    id,
+                },
+            });
+            // use bcrypt to compare password
+            const valid = await bcrypt.compare(data.password, user.password);
+            if (!valid) {
+                return {
+                    error: 'Password tidak valid',
+                };
+            }
+            data.password = await bcrypt.hash(data.newPassword, 10);
+            delete data.newPassword;
+        }
         try {
             const result = await prisma.user.update({
                 where: {
@@ -37,7 +56,6 @@ class User {
                 },
                 data,
             });
-            console.log(result);
             return result;
         } catch (error) {
             console.error(error);

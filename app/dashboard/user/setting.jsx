@@ -1,18 +1,12 @@
 import { Button } from 'react-bootstrap';
 import Fetcher from '@teko/helpers/fetcher';
-import useSWR from 'swr';
 import { useRef } from 'react';
-import LoadingX from '@teko/components/loading';
 
-export default function FormSetting({ children }) {
-  const userFetcer = new Fetcher('user');
+export default function FormSetting({ children, user }) {
   const usersFetcer = new Fetcher('users');
-  const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
   const nameRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
-
-  if (!user) return <LoadingX />;
 
   const onSubmit = async (e) => {
     e.preventDefault();
