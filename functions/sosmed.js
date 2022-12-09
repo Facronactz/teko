@@ -4,7 +4,7 @@ class Sosmed {
     static async get(id, req) {
         const { lembaga } = req;
         if (id) {
-            return prisma.sosmed.findUnique({
+            return prisma.sosialMedia.findUnique({
                 where: {
                     id,
                 },
@@ -14,7 +14,7 @@ class Sosmed {
             });
         }
         if (lembaga) {
-            return prisma.sosmed.findMany({
+            return prisma.sosialMedia.findMany({
                 where: {
                     lembagaId: lembaga,
                 },
@@ -23,7 +23,7 @@ class Sosmed {
                 },
             });
         }
-        return prisma.sosmed.findMany({
+        return prisma.sosialMedia.findMany({
             include: {
                 lembaga: true,
             },
@@ -33,10 +33,13 @@ class Sosmed {
     static async post(req) {
         const { data } = req;
         const { lembaga } = data;
+        if (!lembaga) {
+            return { error: 'Lembaga is required' };
+        }
         delete data.lembaga;
         let result;
         try {
-            result = await prisma.sosmed.create({
+            result = await prisma.sosialMedia.create({
                 data: {
                     ...data,
                     lembaga: {
@@ -58,21 +61,15 @@ class Sosmed {
 
     static async put(id, req) {
         const { data } = req;
-        const { lembaga } = data;
         delete data.lembaga;
         let result;
         try {
-            result = await prisma.sosmed.update({
+            result = await prisma.sosialMedia.update({
                 where: {
                     id,
                 },
                 data: {
                     ...data,
-                    lembaga: {
-                        connect: {
-                            id: lembaga,
-                        },
-                    },
                 },
                 include: {
                     lembaga: true,
@@ -85,12 +82,10 @@ class Sosmed {
         return result;
     }
 
-    static async delete(req) {
-        const { data } = req;
-        const { id } = data;
+    static async delete(id) {
         let result;
         try {
-            result = await prisma.sosmed.delete({
+            result = await prisma.sosialMedia.delete({
                 where: {
                     id,
                 },
