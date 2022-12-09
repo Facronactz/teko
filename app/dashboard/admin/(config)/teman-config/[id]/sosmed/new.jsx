@@ -17,13 +17,25 @@ export default function NewSosmed({ fetcher, id }) {
       url: url.current.value,
       lembaga: id,
     };
-    await fetcher.post(createData);
-    Swal.fire({
-      icon: 'success',
-      title: 'Yaay...',
-      text: 'Data berhasil ditambahkan',
-      confirmButtonColor: '#315343',
-    });
+    if (
+      nama.current.value === '' ||
+      platform.current.value === '' ||
+      url.current.value === ''
+    ) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Data tidak boleh ada yang kosong',
+        confirmButtonColor: '#315343',
+      });
+    } else {
+      await fetcher.post(createData);
+      Swal.fire({
+        icon: 'success',
+        title: 'Yaay...',
+        text: 'Data berhasil ditambahkan',
+        confirmButtonColor: '#315343',
+      });
+    }
   }
 
   return (
