@@ -3,36 +3,59 @@
 import Fetcher from '@teko/helpers/fetcher';
 import { Button } from 'react-bootstrap';
 import { useRef } from 'react';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function FormPassword({ id }) {
   const userFetcer = new Fetcher('users');
   const passwordRef = useRef();
   const newPasswordRef = useRef();
   const confirmNewPasswordRef = useRef();
-
-  // TODO swal
+  const router = useRouter();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (newPasswordRef.current.value !== confirmNewPasswordRef.current.value) {
-      alert('Password baru tidak sama');
-      return;
-    }
     const data = {
       id,
       password: passwordRef.current.value,
       newPassword: newPasswordRef.current.value,
     };
-    const res = await userFetcer.put(data);
-    if (res.status === 201) {
-      alert('Password berhasil diubah');
+    if (newPasswordRef.current.value !== confirmNewPasswordRef.current.value) {
+      Swal.fire({
+        icon: 'error',
+        text: 'Password baru tidak sama',
+        confirmButtonColor: '#315343',
+      });
     } else {
-      alert('Password gagal diubah');
+      const res = await userFetcer.put(data);
+      if (res.status === 201) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Okee...',
+          text: 'Password gagal diubah',
+          confirmButtonColor: '#315343',
+        });
+      } else {
+        const ok = Swal.fire({
+          icon: 'success',
+          title: 'Okee...',
+          text: 'Password berhasil diubah',
+          confirmButtonColor: '#315343',
+        });
+        if (ok.isConfirmed) {
+          router.refresh();
+        }
+      }
     }
   };
 
   return (
-    <form action="" id="change-pass" className="flex flex-col" onSubmit={submitHandler}>
+    <form
+      action=""
+      id="change-pass"
+      className="flex flex-col"
+      onSubmit={submitHandler}
+    >
       <label className="my-3 font-semibold">Password Lama:</label>
       <input
         ref={passwordRef}
@@ -49,9 +72,7 @@ export default function FormPassword({ id }) {
         type="text"
         id="username"
       ></input>
-      <label className="my-3 font-semibold">
-        Konfirmasi Password Baru:
-      </label>
+      <label className="my-3 font-semibold">Konfirmasi Password Baru:</label>
       <input
         ref={confirmNewPasswordRef}
         className="border border-brand rounded mb-3 px-2 py-1"
