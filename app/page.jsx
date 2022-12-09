@@ -82,7 +82,7 @@ function Temans() {
           width="200"
           height="200"
           alt={`logo ${teman.nama}`}
-          className="aspect-square object-cover object-center self-center"
+          className="aspect-square object-contain object-center self-center"
         />
         <Card.Body className="h-[225px]">
           <Card.Title>{teman.nama} </Card.Title>
