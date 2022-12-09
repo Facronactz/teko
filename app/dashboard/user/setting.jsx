@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export default function FormSetting({ children, user }) {
   const usersFetcer = new Fetcher('users');
+  const router = useRouter();
   const nameRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
