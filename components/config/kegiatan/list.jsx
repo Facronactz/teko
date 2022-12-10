@@ -4,10 +4,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Fetcher from '@teko/helpers/fetcher';
 import Swal from 'sweetalert2';
+import { useRef } from 'react';
 
 export default function KegiatanItemConfig({ data, lembaga, role }) {
   const fetcher = new Fetcher('kegiatan');
   const router = useRouter();
+  const aktif = useRef(null);
   const deleteKegiatan = async (id) => {
     const swal = await Swal.fire({
       title: 'Apakah anda yakin?',
@@ -41,23 +43,40 @@ export default function KegiatanItemConfig({ data, lembaga, role }) {
   };
 
   const swapActive = async (id) => {
-    const resp = fetcher.patch(id, { active: !data.active });
-    if (!resp.error) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Oke,',
-        text: 'Data teman telah dihapus.',
-        confirmButtonColor: '#315343',
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal,',
-        text: 'Data teman gagal dihapus.',
-        confirmButtonColor: '#315343',
-      });
+    const swal = await Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: 'Anda tidak akan dapat mengembalikan data ini!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
+      confirmButtonText: 'Ya, hapus!',
+      cancelButtonText: 'Batal',
+    });
+    if (!swal.isConfirmed) {
+      aktif.current.checked = !aktif.current.checked;
     }
-    router.refresh();
+    if (swal.isConfirmed) {
+      const resp = await fetcher.put({
+        active: aktif.current.checked,
+      }, id);
+      if (!resp.error) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Oke,',
+          text: 'Kegiatan telah dinonaktifkan.',
+          confirmButtonColor: '#315343',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Gagal,',
+          text: 'Kegiatan gagal dinonaktifkan.',
+          confirmButtonColor: '#315343',
+        });
+      }
+      router.refresh();
+    }
   };
 
   return (
@@ -85,8 +104,9 @@ export default function KegiatanItemConfig({ data, lembaga, role }) {
               <input
                 type="checkbox"
                 className="w-6 h-6 rounded-lg m-auto"
-                checked={item.active}
-                onChange={() => {}}
+                ref={aktif}
+                defaultChecked={item.active}
+                onChange={() => swapActive(item.id)}
               />
             </td>
 
