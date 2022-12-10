@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
@@ -24,12 +25,19 @@ function ListTemans({ data }) {
     );
   }
   if (data.length === 0) {
-    return (
+    return [...Array(4)].map(() => (
       <div className="flex justify-center items-center">
-        <Image className="w-full" src={nodata} alt="404 - Tidak Ditemukan" />
-        <p className="text-center text-2xl">Tidak ada Teman</p>
+        <Image
+          width={288}
+          height={162}
+          src={nodata}
+          alt="404 - Tidak Ditemukan"
+        />
+        <p className="text-center text-base md:text-2xl font-bold">
+          Tidak ada kegiatan
+        </p>
       </div>
-    );
+    ));
   }
   return data.map((teman) => (
     <Link
@@ -101,19 +109,19 @@ export default function TemanPage() {
     <>
       <TekoNavbar current="Teman"></TekoNavbar>
       <main className="mx-5 mt-3">
-        <form onSubmit={cariTemans} className="flex flex-row">
+        <form onSubmit={cariTemans} className="flex flex-col md:flex-row">
           <Form.Control
             placeholder="Cari Teman"
             aria-label="Cari Teman"
             aria-describedby="basic-addon2"
-            className="w-full mr-4"
+            className="w-full mr-4 mb-2"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <Button
             type="submit"
             id="button-addon2"
-            className="px-4 py-2 mr-4 bg-brand border-brand"
+            className="px-4 py-2 mb-2 md:mr-4 text-lg bg-brand border-brand"
             onClick={cariTemans}
           >
             Cari
@@ -121,7 +129,7 @@ export default function TemanPage() {
           <Button
             type="reset"
             id="button-addon2"
-            className="px-4 py-2 bg-brand border-brand"
+            className="px-4 py-2 mb-2 text-lg bg-brand border-brand"
             onClick={() => setQuery('')}
           >
             Reset

@@ -36,12 +36,19 @@ function ListKegiatans({ data }) {
     );
   }
   if (data.length === 0) {
-    return (
+    return [...Array(2)].map(() => (
       <div className="flex justify-center items-center">
-        <Image className="w-full" src={nodata} alt="404 - Tidak Ditemukan" />
-        <p className="text-center text-2xl">Tidak ada kegiatan</p>
+        <Image
+          width={288}
+          height={162}
+          src={nodata}
+          alt="404 - Tidak Ditemukan"
+        />
+        <p className="text-center text-base md:text-2xl font-bold">
+          Tidak ada kegiatan
+        </p>
       </div>
-    );
+    ));
   }
   return data.map((kegiatan) => (
     <Link
