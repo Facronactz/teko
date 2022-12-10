@@ -28,7 +28,7 @@ export default function SettingUser() {
       </div>
       <div className="container">
         <FormSetting id={user.sub}>
-          <UploadImage type="user" />
+          <UploadImage id={user.sub} type="user" />
         </FormSetting>
       </div>
       <Container className="flex flex-col">

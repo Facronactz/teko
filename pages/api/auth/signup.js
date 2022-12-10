@@ -35,7 +35,7 @@ export default async function SignUpHandler(req, res) {
                 updatedAt: new Date(),
             },
         });
-        const image = `${process.env.STORAGE_URL}/teko/teman/${user.id}`;
+        const image = `${process.env.STORAGE_URL}/teko/user/${user.id}`;
         await prisma.user.update({
             where: {
                 id: user.id,

@@ -1,7 +1,7 @@
 import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 import { useState } from 'react';
 
-export default function UploadImage({ type }) {
+export default function UploadImage({ id, type }) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
   const [name, setName] = useState('');
@@ -9,12 +9,11 @@ export default function UploadImage({ type }) {
   const uploadPhoto = async (e) => {
     setLoading(true);
     const file = e.target.files?.[0];
-    const fileName = encodeURIComponent(file.name);
 
-    const url = await getUploadUrl(fileName);
+    const url = await getUploadUrl(`${type}/${id}`);
     const upload = await uploadtoStorage(url, file);
 
-    const imageURL = `${process.env.STORAGE_URL}/${type}/${fileName}`;
+    const imageURL = `${process.env.STORAGE_URL}/teko/${type}/${id}`;
 
     if (upload) {
       setName(imageURL);
