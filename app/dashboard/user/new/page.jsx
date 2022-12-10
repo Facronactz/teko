@@ -10,7 +10,7 @@ const userFetcer = new Fetcher('user');
 export default function KegiatanPage() {
   const { data: user } = useSWR(userFetcer.url, userFetcer.fetcher);
 
-  if (!user) <LoadingX />;
+  if (!user) return <LoadingX />;
 
   return (
     <>
