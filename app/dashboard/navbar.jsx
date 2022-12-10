@@ -20,7 +20,7 @@ export default function DashboardNavbar() {
       <button
         type="button"
         onClick={() => router.refresh()}
-        className="border-brand my-auto"
+        className="border-brand w-[54px] h-[54px] xl:w-[74px] xl:h-[74px] my-auto"
       >
         <TbRefresh className="h-full w-full text-brand ml-3" />
       </button>
