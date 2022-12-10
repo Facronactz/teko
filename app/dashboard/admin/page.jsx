@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card, Row, Col } from 'react-bootstrap';
 import { RiMenuFoldFill, RiUserFill } from 'react-icons/ri';
 import { GiThreeFriends } from 'react-icons/gi';
-import { BsListTask } from 'react-icons/bs';
+import { BsListTask, BsFillGearFill } from 'react-icons/bs';
 
 function Item({ name, href, children }) {
   return (
@@ -28,7 +28,7 @@ const menus = [
   { name: 'Pengguna', href: 'user-config', icon: RiUserFill },
   { name: 'Teman', href: 'teman-config', icon: GiThreeFriends },
   { name: 'Kegiatan', href: 'kegiatan-config', icon: BsListTask },
-  { name: 'Setting', href: 'setting', icon: BsListTask },
+  { name: 'Setting', href: 'setting', icon: BsFillGearFill },
 ];
 
 export default function MenuItem() {

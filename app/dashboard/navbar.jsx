@@ -17,7 +17,6 @@ export default function DashboardNavbar() {
       >
         <IoMdArrowRoundBack className="h-full w-full text-brand ml-2" />
       </button>
-      {/* TODO tambahin home juga ditengah */}
       <button
         type="button"
         onClick={() => router.refresh()}
