@@ -55,7 +55,7 @@ export default function New({ fetcher }) {
         <div>
           <Button
             onClick={createMenu}
-            className="bg-brand text-white rounded ml-3 my-auto p-2"
+            className="bg-brand border-brand text-white rounded ml-3 my-auto p-2"
           >
             <GoPlus className="h-[30px] w-[70px] text-white" />
           </Button>

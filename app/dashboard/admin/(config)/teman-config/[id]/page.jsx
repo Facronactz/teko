@@ -138,9 +138,9 @@ export default function TampilTeman({ params }) {
     <>
       <Container className="m-auto">
         <Image
-          className="rounded-3 center mx-auto"
-          width={150}
-          height={150}
+          className="rounded-3 center mx-auto object-cover object-center"
+          width={250}
+          height={250}
           src={data.logo}
           alt={data.nama}
           onClick={() => router.refresh()}
@@ -149,7 +149,7 @@ export default function TampilTeman({ params }) {
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-2 rounded px-2 py-1"
             type="text"
             id="nama"
             name="nama"
@@ -158,7 +158,7 @@ export default function TampilTeman({ params }) {
           />
           <label className="font-semibold">No Telepon:</label>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-2 rounded px-2 py-1"
             type="tel"
             id="last"
             name="last"
@@ -168,7 +168,7 @@ export default function TampilTeman({ params }) {
 
           <label className="my-3 font-semibold">Ringkasan:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             name="ringkasan"
             id="ringkasan"
             cols="3"
@@ -178,7 +178,7 @@ export default function TampilTeman({ params }) {
           ></textarea>
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             type="textarea"
             name="deskripsi"
             id="deskripsi"
@@ -189,7 +189,7 @@ export default function TampilTeman({ params }) {
           ></textarea>
           <label className="mb-3 font-semibold">Alamat:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             name="alamat"
             id="alamat"
             cols="5"
@@ -201,16 +201,16 @@ export default function TampilTeman({ params }) {
           <label className="mb-2 font-semibold">Kategori:</label>
           <TagsInput value={tags} onChange={handleChangeKategori} />
 
-          <p className="font-semibold">Ubah Logo (max 3MB).</p>
+          <p className="font-semibold mt-3">Ubah Logo (max 3MB).</p>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-2 rounded px-2 py-1"
             type="text"
             id="logoURL"
             name="logoURL"
             defaultValue={data.logo}
             ref={logoRef}
           />
-          <p>atau</p>
+          <p className="mt-2">atau</p>
           <input
             onChange={uploadPhoto}
             type="file"

@@ -57,7 +57,9 @@ export default function KegiatanItemConfig({ data, lembaga }) {
           <tr key={index}>
             <td className="text-center align-middle">{index + 1}</td>
             <td className="text-center align-middle">{item.nama}</td>
-            {lembaga && <td className="text-center align-middle">{item.lembaga.nama}</td>}
+            {lembaga && (
+              <td className="text-center align-middle">{item.lembaga.nama}</td>
+            )}
             <td className="text-center align-middle">{Date(item.tanggal)}</td>
             <td className="text-center align-middle">
               <input
@@ -67,16 +69,16 @@ export default function KegiatanItemConfig({ data, lembaga }) {
               />
             </td>
 
-            <td className="flex flex-row justify-center text-center align-middle items-center">
+            <td className="flex flex-row justify-center py-4">
               <Link
                 href={`/dashboard/admin/kegiatan-config/${item.id}`}
-                className="bg-brand text-lg no-underline text-white rounded px-3 py-2"
+                className="bg-brand text-lg my-auto no-underline text-white rounded px-3 py-2"
               >
                 Edit
               </Link>
               <button
                 onClick={() => deleteKegiatan(item.id)}
-                className="bg-white border border-brand px-3 rounded ml-4"
+                className="bg-white border border-brand px-3 py-2 rounded my-auto ml-4"
               >
                 <ImCross className="h-[30px] xxl:h-[25px] w-auto m-auto text-danger" />
               </button>

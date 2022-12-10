@@ -63,9 +63,6 @@ export default function EditKegiatan({ params }) {
     setTags(tag);
   };
 
-  // TODO ganti crud di halaman lain seperti dibawah ini
-  // Gunakan swal untuk konfirmasi terlebih dahulu dan,
-  // check data dari api jika error maka tampilkan error menggunakan swal
   async function onSubmit(e) {
     e.preventDefault();
     // konfirmasi
@@ -126,18 +123,20 @@ export default function EditKegiatan({ params }) {
     );
   }
   if (!data) {
-    return <div className="flex justify-center h-[90vh]">
-      <div className='my-auto'>
-        <LoadingX />
+    return (
+      <div className="flex justify-center h-[90vh]">
+        <div className="my-auto">
+          <LoadingX />
+        </div>
       </div>
-    </div>;
+    );
   }
   return (
     <>
       <Container className="m-auto">
         <Image
-          className="rounded-3 center mx-auto"
-          width={150}
+          className="rounded-3 center mx-auto aspect-video object-cover object-center"
+          width={300}
           height={150}
           src={data.banner}
           alt={data.nama}
@@ -145,11 +144,11 @@ export default function EditKegiatan({ params }) {
         />
         {/* tampilkan id sebagai text biasa yang tidak bisa diedit buat di tengah */}
         {/* <h1 className="text-2xl font-semibold text-center">{data.id}</h1> */}
-        <p className="text-sm text-gray-500 text-center">ID: {data.id}</p>
+        <p className="text-lg text-gray-500 text-center">ID: {data.id}</p>
         <form onSubmit={onSubmit} className="grid">
           <label className="font-semibold">Nama:</label>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-2 rounded px-2 py-1"
             type="text"
             id="nama"
             name="nama"
@@ -158,7 +157,7 @@ export default function EditKegiatan({ params }) {
           />
           <label className="font-semibold">Active:</label>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-2 rounded   "
             type="checkbox"
             id="active"
             name="active"
@@ -167,7 +166,7 @@ export default function EditKegiatan({ params }) {
 
           <label className="my-3 font-semibold">Ringkasan:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             name="ringkasan"
             id="ringkasan"
             cols="3"
@@ -177,7 +176,7 @@ export default function EditKegiatan({ params }) {
           ></textarea>
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             type="textarea"
             name="deskripsi"
             id="deskripsi"
@@ -188,7 +187,7 @@ export default function EditKegiatan({ params }) {
           ></textarea>
           <label className="mb-3 font-semibold">Lokasi:</label>
           <textarea
-            className="border border-brand rounded mb-3 px-2"
+            className="border border-brand rounded mb-3 px-2 py-1"
             name="lokasi"
             id="lokasi"
             cols="5"
@@ -200,47 +199,32 @@ export default function EditKegiatan({ params }) {
           <label className="mb-2 font-semibold">Kategori:</label>
           <TagsInput value={tags} onChange={handleChangeKategori} />
 
-          <p className="font-semibold">Ubah Banner (max 3MB).</p>
+          <p className="font-semibold mt-3">Ubah Banner (max 3MB).</p>
           <input
-            className="border border-brand my-2 rounded px-2"
+            className="border border-brand my-1 rounded px-2 py-1"
             type="text"
             id="bannerURL"
             name="bannerURL"
             defaultValue={data.banner}
             ref={bannerRef}
           />
-          <p>atau</p>
+          <p className="mt-3">atau</p>
           <input
             onChange={uploadPhoto}
             type="file"
             accept="image/png, image/jpeg"
           />
           {error && <p>{error}</p>}
-          {/* TODO ganti loading */}
           {loading && <p>Uploading...</p>}
           {banner && <p>Uploaded!</p>}
 
           <Button
             type="submit"
-            className="my-3 font-semibold text-lg bg-brand border-brand py-3"
+            className="my-3 font-semibold text-lg bg-brand border-brand py-3 px-1"
           >
             Simpan
           </Button>
         </form>
-        <Container className="flex flex-row justify-center">
-          <Link
-            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/kegiatan-config/${params.id}/kegiatan`}
-          >
-            Tambah Kegiatan
-          </Link>
-          <Link
-            className="py-2 px-4 no-underline bg-brand text-white mx-2 rounded"
-            href={`/dashboard/admin/kegiatan-config/${params.id}/sosmed`}
-          >
-            Tambah Sosmed
-          </Link>
-        </Container>
       </Container>
     </>
   );
