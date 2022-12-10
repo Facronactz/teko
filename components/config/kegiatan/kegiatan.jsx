@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Fetcher from '@teko/helpers/fetcher';
 import Swal from 'sweetalert2';
 
-export default function KegiatanItemConfig({ data, lembaga }) {
+export default function KegiatanItemConfig({ data, lembaga, role }) {
   const fetcher = new Fetcher('kegiatan');
   const router = useRouter();
   const deleteKegiatan = async (id) => {
@@ -71,7 +71,7 @@ export default function KegiatanItemConfig({ data, lembaga }) {
 
             <td className="flex flex-row justify-center py-4">
               <Link
-                href={`/dashboard/admin/kegiatan-config/${item.id}`}
+                href={`/dashboard/${role}/kegiatan-config/${item.id}`}
                 className="bg-brand text-lg my-auto no-underline text-white rounded px-3 py-2"
               >
                 Edit

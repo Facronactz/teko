@@ -36,7 +36,7 @@ export default function Page({ params }) {
         </button>
       </div>
       {show && <NewKegiatan lembaga={params.id} fetcher={fetcher} />}
-      {show || <KegiatanItemConfig data={kegiatan} />}
+      {show || <KegiatanItemConfig data={kegiatan} role='teman' />}
     </>
   );
 }
