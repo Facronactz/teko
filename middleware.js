@@ -24,7 +24,7 @@ const Response = {
 
 export default withAuth(
     (req) => {
-        // console.log(req.nextauth);
+        // console.log(req.nextauth.token);
         const { role } = req.nextauth.token;
         const { pathname, origin } = req.nextUrl;
         if (pathname === '/dashboard') {
