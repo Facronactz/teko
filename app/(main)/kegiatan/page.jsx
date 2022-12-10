@@ -53,37 +53,37 @@ function Kegiatans() {
     ));
   }
   return data.map((kegiatan) => (
-    <Col key={kegiatan.id} className="p-0">
-      <Card>
-        <Image
-          variant="top"
-          width={854}
-          height={480}
-          src={kegiatan.banner}
-          alt={`banner ${kegiatan.nama}`}
-          className="aspect-video object-cover object-center pointer-events-none"
-        />
-        <Card.Header>
-          {kegiatan.Kategori.map((item) => `#${item.nama} `)}
-        </Card.Header>
-        <Card.Body className="h-[235px]">
-          <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
-            {kegiatan.nama}
-          </Card.Title>
-          <p className="block text-ellipsis break-words overflow-hidden max-h-[100px] mb-5">
-            {kegiatan.ringkasan}
-          </p>
-          <Link
-            href={{
-              pathname: `/kegiatan/${kegiatan.id}`,
-            }}
-            className="bg-brand border-brand no-underline absolute bottom-3 px-3 py-2 mt-5 text-white rounded"
-          >
-            Lihat Selengkapnya
-          </Link>
-        </Card.Body>
-      </Card>
-    </Col>
+    <Link
+      key={kegiatan.id}
+      href={{
+        pathname: `/kegiatan/${kegiatan.id}`,
+      }}
+      className="border-brand no-underline text-black"
+    >
+      <Col className="p-0">
+        <Card>
+          <Image
+            variant="top"
+            width={854}
+            height={480}
+            src={kegiatan.banner}
+            alt={`banner ${kegiatan.nama}`}
+            className="aspect-video object-cover object-center pointer-events-none"
+          />
+          <Card.Body className="h-[235px]">
+            <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+              {kegiatan.nama}
+            </Card.Title>
+            <p className="block text-ellipsis break-words overflow-hidden max-h-[100px] mb-5">
+              {kegiatan.ringkasan}
+            </p>
+          </Card.Body>
+          {kegiatan.Kategorio && <Card.Footer>
+            {kegiatan.Kategori.map((item) => `#${item.nama} `)}
+          </Card.Footer>}
+        </Card>
+      </Col>
+    </Link>
   ));
 }
 
