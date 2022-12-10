@@ -1,4 +1,5 @@
 'use client';
+
 import SideBar from '@teko/components/sidebar';
 import { Table, Button } from 'react-bootstrap';
 import Link from 'next/link';
@@ -48,7 +49,7 @@ function FuncShowTeman() {
       <td>
         <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
           <Link
-            href={`/dashboard/admin/teman-config/`}
+            href={'/dashboard/admin/teman-config/'}
             className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
@@ -57,7 +58,7 @@ function FuncShowTeman() {
             </div>
           </Link>
           <Link
-            href={`/dashboard/admin/teman-config//kegiatan`}
+            href={'/dashboard/admin/teman-config//kegiatan'}
             className="bg-brand py-3 px-2 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
@@ -66,7 +67,7 @@ function FuncShowTeman() {
             </div>
           </Link>
           <Link
-            href={`/dashboard/admin/teman-config//sosmed`}
+            href={'/dashboard/admin/teman-config//sosmed'}
             className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
@@ -100,7 +101,7 @@ export default function ShowTeman() {
             <GiThreeFriends className="mr-2" /> Teman Config
           </div>
           <Link
-            href={'/dashboard/admin/teman-config/new'}
+            href={'/dashboard/teman/teman-config/new'}
             className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
           >
             Tambah Teman <GoPlus className="ml-2 my-auto" />
@@ -122,4 +123,3 @@ export default function ShowTeman() {
     </div>
   );
 }
-
