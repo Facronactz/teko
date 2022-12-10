@@ -12,7 +12,7 @@ import { ImCross } from 'react-icons/im';
 import { FiEdit3 } from 'react-icons/fi';
 import Swal from 'sweetalert2';
 
-export default function ShowTeman({ owner }) {
+export default function ShowTeman({ owner, role }) {
   const temanFetcher = new Fetcher({
     url: owner ? `teman?owner=${owner}` : 'teman',
   });
@@ -89,7 +89,7 @@ export default function ShowTeman({ owner }) {
       <td>
         <div className="grid grid-cols-2 gap-2 m-auto text-center xxl:grid-cols-4">
           <Link
-            href={`/dashboard/admin/teman-config/${teman.id}`}
+            href={`/dashboard/${role}/teman-config/${teman.id}`}
             className=" bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
@@ -98,7 +98,7 @@ export default function ShowTeman({ owner }) {
             </div>
           </Link>
           <Link
-            href={`/dashboard/admin/teman-config/${teman.id}/kegiatan`}
+            href={`/dashboard/${role}/teman-config/${teman.id}/kegiatan`}
             className="bg-brand py-3 px-2 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">
@@ -107,7 +107,7 @@ export default function ShowTeman({ owner }) {
             </div>
           </Link>
           <Link
-            href={`/dashboard/admin/teman-config/${teman.id}/sosmed`}
+            href={`/dashboard/${role}/teman-config/${teman.id}/sosmed`}
             className="bg-brand py-3 text-center text-white rounded my-auto no-underline"
           >
             <div className="flex flex-row justify-center md:gap-3 lg:gap-0">

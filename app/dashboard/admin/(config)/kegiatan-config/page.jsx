@@ -2,10 +2,10 @@
 
 import useSWR from 'swr';
 import Fetcher from '@teko/helpers/fetcher';
-import Link from 'next/link';
+// import Link from 'next/link';
 import SideBar from '@teko/components/sidebar';
 
-import { Dropdown } from 'react-bootstrap';
+// import { Dropdown } from 'react-bootstrap';
 import LoadingX from '@teko/components/loading';
 import KegiatanItemConfig from '@teko/components/config/kegiatan/kegiatan';
 
@@ -24,12 +24,12 @@ export default function KegiatanConfig() {
         <SideBar className="col" current="kegiatan" role="admin" />
         <section className="w-full col h-full p-0">
           <h1 className="font-semibold text-2xl mb-4">Kegiatan</h1>
-          <Link
+          {/* <Link
             className="block no-underline px-4 py-2 bg-brand text-white text-lg rounded text-center mb-10"
             href={'/dashboard/admin/kegiatan-config/new'}
           >
             Tambah Kegiatan
-          </Link>
+          </Link> */}
           {/* TODO ini didisabledulubuatrecord */}
           {/* <Dropdown className="mb-3">
             <Dropdown.Toggle

@@ -1,4 +1,13 @@
-export default function New({}) {
+'use client';
+
+import Fetcher from '@teko/helpers/fetcher';
+import NewSosmed from './new';
+import ListSosmed from './sosmed';
+
+export default function New({ params }) {
+  const sosmedFetcher = new Fetcher({
+    url: `sosmed?lembaga=${params.id}`,
+  });
   return (
     <>
       <table className="m-auto">
@@ -11,12 +20,8 @@ export default function New({}) {
           </tr>
         </thead>
         <tbody>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          {/* <ListSosmed id={params.id} fetcher={sosmedFetcher} />
-            <NewSosmed id={params.id} fetcher={sosmedFetcher} /> */}
+          <ListSosmed id={params.id} fetcher={sosmedFetcher} />
+          <NewSosmed id={params.id} fetcher={sosmedFetcher} />
         </tbody>
       </table>
     </>

@@ -43,7 +43,7 @@ export default function TemanConfig() {
             </tr>
           </thead>
           <tbody>
-            <ListTeman owner={id} />
+            <ListTeman owner={id} role='teman' />
           </tbody>
         </Table>
       </section>
