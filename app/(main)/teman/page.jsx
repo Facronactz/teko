@@ -6,46 +6,27 @@ import {
   Container,
   Form,
   Button,
-  InputGroup,
   Row,
   Col,
   Card,
 } from 'react-bootstrap';
 
-import Skeleton from 'react-loading-skeleton';
-
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
+import { useState, useEffect } from 'react';
 
-const temansFetcher = new Fetcher({ url: 'teman' });
-function Temans() {
-  const { data, error } = useSWR(
-    temansFetcher.url,
-    temansFetcher.fetcher,
-    temansFetcher.swrConfig,
-  );
-  if (error) return <div>failed to load</div>;
+import LoadingX from '@teko/components/loading';
+
+function ListTemans({ data }) {
   if (!data) {
-    return [...Array(4)].map((i) => (
-      <Col key={i} className="p-0">
-        <Card>
-          <Skeleton className="m-3 w-[85%] h-[205px] md:h-[200px]" />
-          <Card.Body>
-            <Card.Title>
-              <Skeleton />
-            </Card.Title>
-            <Card.Text>
-              <Skeleton />
-            </Card.Text>
-            <Link href={'#'} className="rounded">
-              <Skeleton width={60} height={30} />
-            </Link>
-          </Card.Body>
-        </Card>
-      </Col>
-    ));
+    return (
+      // TODO style loading biar center
+      <div className="flex justify-center items-center">
+        <LoadingX className="self-center" />
+      </div>
+    );
   }
   return data.map((teman) => (
     <Link
@@ -80,29 +61,76 @@ function Temans() {
 }
 
 export default function TemanPage() {
+  const temansFetcher = new Fetcher({ url: 'teman' });
+  const [url, setUrl] = useState(temansFetcher.url);
+  const { data, error } = useSWR(
+    url,
+    temansFetcher.fetcher,
+    temansFetcher.swrConfig,
+  );
+
+  const [temans, setTemans] = useState(data);
+  const [query, setQuery] = useState('');
+
+  const cariTemans = (e) => {
+    e.preventDefault();
+    const q = query.trim();
+    setQuery(q);
+  };
+
+  useEffect(() => {
+    if (query) {
+      setUrl(`${temansFetcher.url}?search=${query}`);
+    } else {
+      setUrl(temansFetcher.url);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    if (data) {
+      setTemans(data);
+    } else {
+      setTemans(null);
+    }
+  }, [url, data]);
+
+  if (error) return <div>failed to load</div>;
   return (
     <>
       <TekoNavbar current="Teman"></TekoNavbar>
       <main className="mx-5 mt-3">
-        <InputGroup className="">
+        <form onSubmit={cariTemans}>
           <Form.Control
             placeholder="Cari Teman"
             aria-label="Cari Teman"
             aria-describedby="basic-addon2"
+            className="w-full"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <Button
+            type="submit"
             id="button-addon2"
             className="px-4 py-2 bg-brand border-brand"
+            onClick={cariTemans}
           >
             Cari
           </Button>
-        </InputGroup>
+          <Button
+            type="reset"
+            id="button-addon2"
+            className="px-4 py-2 bg-brand border-brand"
+            onClick={() => setQuery('')}
+          >
+            Reset
+          </Button>
+        </form>
       </main>
 
       <section>
         <Container className="grid p-0">
           <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-            <Temans />
+            <ListTemans data={temans} />
           </Row>
         </Container>
       </section>
