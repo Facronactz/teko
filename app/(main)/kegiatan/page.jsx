@@ -13,6 +13,8 @@ import {
   Button,
 } from 'react-bootstrap';
 
+import Image from 'next/image';
+
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
 
@@ -53,8 +55,10 @@ function Kegiatans() {
   return data.map((kegiatan) => (
     <Col key={kegiatan.id} className="p-0">
       <Card>
-        <Card.Img
+        <Image
           variant="top"
+          width={854}
+          height={480}
           src={kegiatan.banner}
           alt={`banner ${kegiatan.nama}`}
           className="aspect-video object-cover object-center pointer-events-none"
