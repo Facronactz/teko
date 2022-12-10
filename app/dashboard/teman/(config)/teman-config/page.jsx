@@ -28,7 +28,7 @@ export default function TemanConfig() {
             <GiThreeFriends className="mr-2" /> Teman Config
           </div>
           <Link
-            href={'/dashboard/admin/teman-config/new'}
+            href={'/dashboard/teman/teman-config/new'}
             className="no-underline flex flex-row text-white bg-brand p-2 my-auto ml-3 mb-3 text-lg rounded"
           >
             Tambah Teman <GoPlus className="ml-2 my-auto" />

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { Table, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
