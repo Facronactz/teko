@@ -7,8 +7,6 @@ import { assetPrefix } from '@teko/next.config';
 
 import { Container, Button } from 'react-bootstrap';
 
-// TODO masih UI belum ada fungsi sama sekali (ubah berdasar id(karena dashboard teman), fungsi post(add) kegiatan blm berfungsi)
-
 const getUploadUrl = async (fileName) => {
   const res = await fetch(`${assetPrefix}/api/storage?file=${fileName}`, {
     method: 'POST',

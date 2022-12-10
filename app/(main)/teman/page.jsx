@@ -10,8 +10,8 @@ import TekoFooter from '@teko/components/footer';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import { useState, useEffect } from 'react';
-
 import LoadingX from '@teko/components/loading';
+import nodata from '@teko/public/image/no-data.png';
 
 const temansFetcher = new Fetcher({ url: 'teman' });
 
@@ -25,9 +25,9 @@ function ListTemans({ data }) {
   }
   if (data.length === 0) {
     return (
-      // TODO style tidak ketemu ato tidak ada data
       <div className="flex justify-center items-center">
-        <p className="text-center text-2xl">Tidak ada kegiatan</p>
+        <Image className="w-full" src={nodata} alt="404 - Tidak Ditemukan" />
+        <p className="text-center text-2xl">Tidak ada Teman</p>
       </div>
     );
   }

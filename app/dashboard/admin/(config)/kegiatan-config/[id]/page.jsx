@@ -71,7 +71,7 @@ export default function EditKegiatan({ params }) {
       text: 'Kamu tidak bisa mengembalikan apa yang telah diubah!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#315343',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Ya, simpan!',
     });

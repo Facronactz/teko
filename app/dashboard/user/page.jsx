@@ -26,22 +26,24 @@ export default function SettingUser() {
 
   return (
     <>
-      {/* TODO style button dibawah ini */}
       <div className="flex gap-3 justify-center">
         <Link
           href={'/dashboard/user/new'}
-          className="block w-auto no-underline p-4 bg-brand text-white text-center font-semibold mb-10 rounded mt-3"
+          className="block w-full mx-5 text-lg no-underline p-4 bg-brand text-white text-center font-semibold mb-10 rounded mt-3"
         >
           Buat {'“Teman”'}
         </Link>
       </div>
       <div className="container">
         <FormSetting user={user}>
-          <UploadImage type='user' />
+          <UploadImage type="user" />
         </FormSetting>
       </div>
       <Container className="flex flex-col">
-        <Button onClick={() => showHandler()} className="bg-white border-brand text-brand">
+        <Button
+          onClick={() => showHandler()}
+          className="bg-white border-brand text-brand"
+        >
           Ubah Password
         </Button>
         {show && <FormPassword id={user.sub} />}

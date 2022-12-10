@@ -4,7 +4,15 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // eslint-disable-next-line object-curly-newline
-import { Container, Row, Col, Card, Form, InputGroup, Button } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Form,
+  InputGroup,
+  Button,
+} from 'react-bootstrap';
 
 import Image from 'next/image';
 
@@ -14,6 +22,8 @@ import TekoFooter from '@teko/components/footer';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import LoadingX from '@teko/components/loading';
+
+import nodata from '@teko/public/image/no-data.png';
 
 const kegiatansFetcher = new Fetcher({ url: 'kegiatan' });
 function ListKegiatans({ data }) {
@@ -27,8 +37,8 @@ function ListKegiatans({ data }) {
   }
   if (data.length === 0) {
     return (
-      // TODO style tidak ketemu ato tidak ada data
       <div className="flex justify-center items-center">
+        <Image className="w-full" src={nodata} alt="404 - Tidak Ditemukan" />
         <p className="text-center text-2xl">Tidak ada kegiatan</p>
       </div>
     );
@@ -59,9 +69,11 @@ function ListKegiatans({ data }) {
               {kegiatan.ringkasan}
             </p>
           </Card.Body>
-          {kegiatan.Kategorio && <Card.Footer>
-            {kegiatan.Kategori.map((item) => `#${item.nama} `)}
-          </Card.Footer>}
+          {kegiatan.Kategorio && (
+            <Card.Footer>
+              {kegiatan.Kategori.map((item) => `#${item.nama} `)}
+            </Card.Footer>
+          )}
         </Card>
       </Col>
     </Link>

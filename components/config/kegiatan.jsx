@@ -14,8 +14,8 @@ export default function KegiatanItemConfig({ data, lembaga }) {
       text: 'Anda tidak akan dapat mengembalikan data ini!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#315343',
       confirmButtonText: 'Ya, hapus!',
       cancelButtonText: 'Batal',
     });

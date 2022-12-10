@@ -21,7 +21,6 @@ function MenuNavbar(props) {
     menusFetcher.fetcher,
     menusFetcher.swrConfig,
   );
-  // TODO: ganti semua error lain menjadi seperti dibawah
   if (error) {
     return (
       <Alert className="m-0" key="danger" variant="danger">
