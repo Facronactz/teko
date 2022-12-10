@@ -101,7 +101,8 @@ export default function TemanDetail({ id }) {
                 Selengkapnya
               </Link>
             </Card.Body>
-            <Card.Footer className="text-muted">{item.updatedAt}</Card.Footer>
+            {/* TODO setiap tanggal ganti spt dibawah */}
+            <Card.Footer className="text-muted">{new Date(item.tanggal).toLocaleString()}</Card.Footer>
           </Card>
         ))}
       </Container>
