@@ -45,7 +45,7 @@ function Team() {
         src={member.foto}
         alt={`foto ${member.name}`}
       />
-      <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
+      <div className="pt-6 md:p-8 text-center md:text-left space-y-4 my-auto">
         <p className="text-lg lg:text-xl font-light">
           <q>{member.quote}</q>
         </p>
