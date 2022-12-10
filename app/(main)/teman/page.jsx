@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+// eslint-disable-next-line object-curly-newline
 import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
@@ -19,6 +20,14 @@ function ListTemans({ data }) {
     return (
       <div className="flex justify-center items-center">
         <LoadingX className="self-center" />
+      </div>
+    );
+  }
+  if (data.length === 0) {
+    return (
+      // TODO style tidak ketemu ato tidak ada data
+      <div className="flex justify-center items-center">
+        <p className="text-center text-2xl">Tidak ada kegiatan</p>
       </div>
     );
   }

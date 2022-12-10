@@ -4,15 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // eslint-disable-next-line object-curly-newline
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Form,
-  InputGroup,
-  Button,
-} from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, InputGroup, Button } from 'react-bootstrap';
 
 import Image from 'next/image';
 
@@ -30,6 +22,14 @@ function ListKegiatans({ data }) {
       // TODO style loading biar center
       <div className="flex justify-center items-center">
         <LoadingX className="self-center" />
+      </div>
+    );
+  }
+  if (data.length === 0) {
+    return (
+      // TODO style tidak ketemu ato tidak ada data
+      <div className="flex justify-center items-center">
+        <p className="text-center text-2xl">Tidak ada kegiatan</p>
       </div>
     );
   }
