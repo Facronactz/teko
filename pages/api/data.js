@@ -30,7 +30,7 @@ const team = [
     {
         name: 'Radya Wiguna',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/team/radya.png',
-        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        quote: 'Berusaha semaksimal mungkin walaupun usahamu terlihat sia sia, tetapi dirimu tau kalau kamu lah yang terbaik.',
         email: 'itsradyaandajis@gmail.com',
         github: 'https://github.com/AYNSFW/',
         linkedin: 'https://www.linkedin.com/in/muhammad-radya-4b3303256/',
@@ -57,16 +57,16 @@ export default async function handler(req, res) {
         return;
     }
     switch (q) {
-    case 'stats':
-        res.status(200).json(await Data());
-        break;
-    case 'menus':
-        res.status(200).json(menus);
-        break;
-    case 'team':
-        res.status(200).json(team);
-        break;
-    default:
-        res.status(404).json({ message: 'Not Found' });
+        case 'stats':
+            res.status(200).json(await Data());
+            break;
+        case 'menus':
+            res.status(200).json(menus);
+            break;
+        case 'team':
+            res.status(200).json(team);
+            break;
+        default:
+            res.status(404).json({ message: 'Not Found' });
     }
 }
