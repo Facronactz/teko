@@ -5,23 +5,14 @@ import TekoImage from '@teko/components/image';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
-import teko from '@teko/public/image/teko.png';
-import { useState, useEffect } from 'react';
 
 export default function Info() {
   const userFetcer = new Fetcher('user');
-  const [src, setSrc] = useState('');
   const { data } = useSWR(
     userFetcer.url,
     userFetcer.fetcher,
     userFetcer.swrConfig,
   );
-
-  useEffect(() => {
-    if (data) {
-      setSrc(data.picture);
-    }
-  }, [data]);
 
   if (!data) {
     return (
@@ -40,11 +31,10 @@ export default function Info() {
 
       <TekoImage
         className="w-[45px] h-[45px] md:w-[70px] md:h-[70px] object-cover object-center rounded-full m-3"
-        src={src}
+        src={data.picture}
         width={45}
         height={45}
         alt="foto profil"
-        onError={() => setSrc(teko)}
       />
     </>
   );
