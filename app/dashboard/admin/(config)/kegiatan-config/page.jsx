@@ -7,7 +7,7 @@ import SideBar from '@teko/components/sidebar';
 
 // import { Dropdown } from 'react-bootstrap';
 import LoadingX from '@teko/components/loading';
-import KegiatanItemConfig from '@teko/components/config/kegiatan/kegiatan';
+import KegiatanItemConfig from '@teko/components/config/kegiatan/list';
 
 export default function KegiatanConfig() {
   const kegiatanFetcher = new Fetcher('kegiatan');

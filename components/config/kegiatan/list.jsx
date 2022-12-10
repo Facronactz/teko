@@ -40,6 +40,26 @@ export default function KegiatanItemConfig({ data, lembaga, role }) {
     router.refresh();
   };
 
+  const swapActive = async (id) => {
+    const resp = fetcher.patch(id, { active: !data.active });
+    if (!resp.error) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Oke,',
+        text: 'Data teman telah dihapus.',
+        confirmButtonColor: '#315343',
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal,',
+        text: 'Data teman gagal dihapus.',
+        confirmButtonColor: '#315343',
+      });
+    }
+    router.refresh();
+  };
+
   return (
     <Table bordered hover className="table-auto">
       <thead className="text-center">
@@ -66,6 +86,7 @@ export default function KegiatanItemConfig({ data, lembaga, role }) {
                 type="checkbox"
                 className="w-6 h-6 rounded-lg m-auto"
                 checked={item.active}
+                onChange={() => {}}
               />
             </td>
 
