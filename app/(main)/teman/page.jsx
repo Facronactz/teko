@@ -60,7 +60,7 @@ function ListTemans({ data }) {
                   alt={`logo ${teman.nama}`}
                   className="aspect-square object-contain object-center self-center pointer-events-none"
                 />
-                <Card.Body className="h-[200px]">
+                <Card.Body className="h-[200px] border border-brand">
                   <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
                     {teman.nama}
                   </Card.Title>
@@ -70,7 +70,8 @@ function ListTemans({ data }) {
                 </Card.Body>
               </Card>
             </Col>
-          </Link>))}
+          </Link>
+        ))}
       </Row>
     </Container>
   );

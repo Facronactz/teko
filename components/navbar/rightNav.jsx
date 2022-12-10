@@ -46,11 +46,13 @@ export default function RightNav() {
   }
   if (status === 'authenticated' && data) {
     return (
-      <OverlayTrigger trigger="click" placement="bottom"
+      <OverlayTrigger
+        trigger="click"
+        placement="bottom"
         overlay={
           <Popover id="popover-basic">
             <Popover.Body>
-              <div className='flex flex-col gap-3'>
+              <div className="flex flex-col gap-3">
                 <Link
                   href={`/dashboard/${data.role.toLowerCase()}`}
                   className="mx-2 my-auto font-bold no-underline bg-white p-2 rounded text-brand border-[1.5px] border-brand lg:text-lg"
@@ -68,20 +70,19 @@ export default function RightNav() {
           </Popover>
         }
       >
-
-        {/* TODO style */}
-        <div className='flex mx-auto cursor-pointer outline-1 outline-brand border-brand hover:text-white hover:bg-brand p-1 rounded'>
-          <div className='self-center'>
-            {data.name ?? data.username}<br />
-            {data.email}
-          </div>
+        <div className="flex mx-auto cursor-pointer border border-brand p-2 rounded">
           <TekoImage
-            className="w-[45px] h-[45px] md:w-[45px] md:h-[45px] object-cover object-center rounded-full mx-3 pointer-events-none"
+            className="w-[45px] h-[45px] object-cover object-center rounded-full mr-3 pointer-events-none my-auto"
             src={data.picture}
             width={45}
             height={45}
             alt="foto profil"
           />
+          <div className="self-center mr-1">
+            <span className="font-bold">{data.name ?? data.username}</span>
+            <br />
+            {data.email}
+          </div>
         </div>
       </OverlayTrigger>
     );

@@ -9,11 +9,12 @@ module.exports = {
   theme: {
     colors: {
       brand: '#315343',
-      accent: '#7e5bef',
+      accent: '#cce1d7',
       second: '#757575',
       warning: '#ff49db',
       danger: '#ff7849',
       grey: '#696969',
+      white: '#ffffff',
     },
     screens: {
       xs: '430px',

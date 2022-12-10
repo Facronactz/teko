@@ -70,22 +70,21 @@ function ListKegiatans({ data }) {
                   alt={`banner ${kegiatan.nama}`}
                   className="aspect-video object-cover object-center pointer-events-none"
                 />
-                <Card.Body className="h-[235px]">
-                  <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+                <Card.Body className="h-fit">
+                  <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-[25px]">
                     {kegiatan.nama}
                   </Card.Title>
-                  <p className="block text-ellipsis break-words overflow-hidden max-h-[100px] mb-5">
+                  <p className="block text-ellipsis break-words overflow-hidden m-0 h-[100px] ">
                     {kegiatan.ringkasan}
                   </p>
                 </Card.Body>
-                {kegiatan.Kategorio && (
-                  <Card.Footer>
-                    {kegiatan.Kategori.map((item) => `#${item.nama} `)}
-                  </Card.Footer>
-                )}
+                <Card.Footer>
+                  {new Date(kegiatan.tanggal).toLocaleString()}
+                </Card.Footer>
               </Card>
             </Col>
-          </Link>))}
+          </Link>
+        ))}
       </Row>
     </Container>
   );
@@ -128,23 +127,32 @@ export default function KegiatanPage() {
   return (
     <>
       <TekoNavbar current="Kegiatan"></TekoNavbar>
-      <div className="mx-5">
-        <InputGroup className="">
+      <main className="mx-5 mt-3">
+        <form className="flex flex-col md:flex-row">
           <Form.Control
             placeholder="Cari Kegiatan"
             aria-label="Cari Kegiatan"
             aria-describedby="basic-addon2"
+            className="w-full mr-4 mb-2"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <Button
             id="button-addon2"
-            className="px-4 py-2 bg-brand border-brand"
+            className="px-4 py-2 mb-2 md:mr-4 text-lg bg-brand border-brand"
           >
             Cari
           </Button>
-        </InputGroup>
-      </div>
+          <Button
+            type="reset"
+            id="button-addon2"
+            className="px-4 py-2 mb-2 text-lg bg-brand border-brand"
+            onClick={() => setQuery('')}
+          >
+            Reset
+          </Button>
+        </form>
+      </main>
 
       <h3 className="text-center text-3xl my-3 font-bold">Kegiatan</h3>
       <ListKegiatans data={kegiatans} />
