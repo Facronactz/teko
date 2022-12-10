@@ -57,16 +57,16 @@ export default async function handler(req, res) {
         return;
     }
     switch (q) {
-        case 'stats':
-            res.status(200).json(await Data());
-            break;
-        case 'menus':
-            res.status(200).json(menus);
-            break;
-        case 'team':
-            res.status(200).json(team);
-            break;
-        default:
-            res.status(404).json({ message: 'Not Found' });
+    case 'stats':
+        res.status(200).json(await Data());
+        break;
+    case 'menus':
+        res.status(200).json(menus);
+        break;
+    case 'team':
+        res.status(200).json(team);
+        break;
+    default:
+        res.status(404).json({ message: 'Not Found' });
     }
 }
