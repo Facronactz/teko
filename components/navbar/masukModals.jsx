@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import {
   Form, Modal, ModalFooter, Button,
@@ -74,7 +74,7 @@ const MasukModal = () => {
             <h1 className="font-extrabold text-3xl text-left w-10/12 md:w-3/5 absolute bottom-[8%] left-[8%] text-white md:text-5xl ">
               Halo di sana &#128075;
             </h1>
-            <Image
+            <TekoImage
               className="w-full h-[100px] md:h-[200px] rounded"
               src={formBg}
               alt="gambar hero"

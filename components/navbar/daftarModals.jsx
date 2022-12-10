@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import {
   Container, Form, Button, Modal,
@@ -63,7 +63,7 @@ function DaftarUmum() {
               <h1 className="font-extrabold text-3xl text-left w-1/3 absolute bottom-[8%] left-[8%] text-white md:text-5xl ">
                 Selamat Datang
               </h1>
-              <Image
+              <TekoImage
                 className="w-full h-[200px] rounded"
                 src={formBg}
                 alt="gambar hero"

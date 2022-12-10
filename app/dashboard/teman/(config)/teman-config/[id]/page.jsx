@@ -7,7 +7,7 @@ import { useRef } from 'react';
 // import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 // import Fetcher from '@teko/helpers/fetcher';
 // import useSWR from 'swr';
-// import Image from 'next/image';
+// import TekoImage from '@teko/components/image';
 // import Swal from 'sweetalert2';
 // import LoadingX from '@teko/components/loading';
 // import TagsInput from 'react-tagsinput';

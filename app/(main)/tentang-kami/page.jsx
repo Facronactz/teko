@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import { Container, Alert } from 'react-bootstrap';
 
@@ -38,7 +38,7 @@ function Team() {
       key={member.name}
       className="md:flex bg-white shadow rounded-xl p-8 md:p-0"
     >
-      <Image
+      <TekoImage
         width={832}
         height={624}
         className="object-cover aspect-[3/4] object-center w-full h-full md:w-48 md:h-auto md:rounded-xl rounded-full mx-auto"

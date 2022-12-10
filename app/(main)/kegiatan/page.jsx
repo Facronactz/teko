@@ -14,7 +14,7 @@ import {
   Button,
 } from 'react-bootstrap';
 
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
@@ -37,7 +37,7 @@ function ListKegiatans({ data }) {
   if (data.length === 0) {
     return (
       <div className="flex justify-center items-center">
-        <Image
+        <TekoImage
           width={288}
           height={162}
           src={nodata}
@@ -62,7 +62,7 @@ function ListKegiatans({ data }) {
           >
             <Col className="p-0">
               <Card>
-                <Image
+                <TekoImage
                   variant="top"
                   width={854}
                   height={480}

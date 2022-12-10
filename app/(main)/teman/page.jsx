@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 // eslint-disable-next-line object-curly-newline
 import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
@@ -27,7 +27,7 @@ function ListTemans({ data }) {
   if (data.length === 0) {
     return (
       <div className="flex justify-center items-center">
-        <Image
+        <TekoImage
           width={288}
           height={162}
           src={nodata}
@@ -52,13 +52,13 @@ function ListTemans({ data }) {
           >
             <Col className="p-0">
               <Card>
-                <Card.Img
+                <TekoImage
                   variant="top"
                   src={teman.logo}
                   width="200"
                   height="200"
                   alt={`logo ${teman.nama}`}
-                  className="aspect-square object-contain object-center pointer-events-none"
+                  className="aspect-square object-contain object-center self-center pointer-events-none"
                 />
                 <Card.Body className="h-[200px]">
                   <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 import Fetcher from '@teko/helpers/fetcher';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -76,7 +76,7 @@ function Temans() {
   return data.map((teman) => (
     <Col className="p-0" key={teman.id}>
       <Card>
-        <Image
+        <TekoImage
           variant="top"
           src={teman.logo}
           width="200"
@@ -112,7 +112,7 @@ export default function BerandaPage() {
           <h1 className="font-extrabold text-base text-left w-1/3 absolute bottom-[14%] left-[8%] text-brand xs:text-xl sm:text-2xl md:text-5xl xxl:text-7xl">
             Bersama Membangun Negeri
           </h1>
-          <Image className="w-full" src={hero} alt="gambar hero" />
+          <TekoImage className="w-full" src={hero} alt="gambar hero" />
         </section>
       </header>
 
@@ -161,7 +161,7 @@ export default function BerandaPage() {
                 </p>
               </section>
               <div className="w-full flex justify-center">
-                <Image
+                <TekoImage
                   className="w-3/5 lg:w-fit "
                   src={temanP}
                   alt="foto about"

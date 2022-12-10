@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from 'react';
 import { getUploadUrl, uploadtoStorage } from '@teko/helpers/storage';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 import Swal from 'sweetalert2';
 import LoadingX from '@teko/components/loading';
 import TagsInput from 'react-tagsinput';
@@ -134,7 +134,7 @@ export default function EditKegiatan({ params }) {
   return (
     <>
       <Container className="m-auto">
-        <Image
+        <TekoImage
           className="rounded-3 center mx-auto aspect-video object-cover object-center"
           width={300}
           height={150}

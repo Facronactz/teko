@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import AuthContext from '@teko/components/authContext';
 import useSWR from 'swr';
@@ -67,7 +67,7 @@ function TekoNavbar(props) {
       >
         <Container fluid>
           <Navbar.Brand href="/" className="flex flex-row my-auto ml-3">
-            <Image className="w-[32px] h-[32px] m-auto" src={logo} alt="logo" />
+            <TekoImage className="w-[32px] h-[32px] m-auto" src={logo} alt="logo" />
             <h1 className="text-brand ml-2 mb-0 text-2xl font-extrabold lg:text-4xl">
               Teko
             </h1>

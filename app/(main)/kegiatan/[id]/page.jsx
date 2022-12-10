@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 
 import { Container, Alert } from 'react-bootstrap';
 
@@ -41,7 +41,7 @@ function KegiatanDetail({ id }) {
   return (
     <>
       <Container className="bg-red flex flex-col lg:flex-row justify-center">
-        <Image
+        <TekoImage
           width={854}
           height={480}
           className="aspect-video mb-3 object-cover object-center"
@@ -63,7 +63,7 @@ function KegiatanDetail({ id }) {
           }}
           className="flex flex-col md:flex-row no-underline justify-center border border-brand bg-white shadow w-fit p-3 rounded my-auto text-brand"
         >
-          <Image
+          <TekoImage
             width={200}
             height={200}
             className="mr-3 rounded object-cover object-center"

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import TekoImage from '@teko/components/image';
 import Link from 'next/link';
 
 import { Container, Card, Alert } from 'react-bootstrap';
@@ -60,7 +60,7 @@ export default function TemanDetail({ id }) {
     <>
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
-          <Image
+          <TekoImage
             width={200}
             height={200}
             className="mb-3 rounded object-cover object-center"
