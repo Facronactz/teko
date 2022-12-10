@@ -6,13 +6,16 @@ class Teman {
             return this.getById(id);
         }
         const {
-            nama, kategori, page, sort, direction, search, beta,
+            nama, kategori, page, sort, direction, search, beta, owner,
         } = query;
         if (nama) {
             return this.getByNama(nama);
         }
         if (page) {
             return this.getByPage(page);
+        }
+        if (owner) {
+            return this.getByOwner(owner);
         }
         if (search) {
             if (beta) {
@@ -81,6 +84,29 @@ class Teman {
             where: {
                 nama: {
                     contains: nama,
+                },
+            },
+            include: {
+                owner: true,
+                Kategori: true,
+                Kegiatan: {
+                    include: {
+                        Kategori: true,
+                    },
+                },
+                LembagaAdmins: true,
+                LembagaMembers: true,
+                Donasi: true,
+                SosialMedia: true,
+            },
+        });
+    }
+
+    static async getByOwner(owner) {
+        return prisma.lembaga.findMany({
+            where: {
+                owner: {
+                    id: owner,
                 },
             },
             include: {

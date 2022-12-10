@@ -1,6 +1,6 @@
 'use client';
 
-import NewTeman from '@teko/components/config/newTeman';
+import NewTeman from '@teko/components/config/kegiatan/newTeman';
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
 import LoadingX from '@teko/components/loading';

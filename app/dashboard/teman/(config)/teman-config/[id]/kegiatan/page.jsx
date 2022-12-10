@@ -2,7 +2,7 @@
 
 import Fetcher from '@teko/helpers/fetcher';
 import LoadingX from '@teko/components/loading';
-import KegiatanItemConfig from '@teko/components/config/kegiatan';
+import KegiatanItemConfig from '@teko/components/config/kegiatan/kegiatan';
 import useSwr from 'swr';
 import { useState } from 'react';
 import NewKegiatan from './new';
