@@ -2,14 +2,7 @@
 
 import Link from 'next/link';
 
-import {
-  Container,
-  Form,
-  Button,
-  Row,
-  Col,
-  Card,
-} from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
 
 import TekoNavbar from '@teko/components/navbar';
 import TekoFooter from '@teko/components/footer';
@@ -24,7 +17,6 @@ const temansFetcher = new Fetcher({ url: 'teman' });
 function ListTemans({ data }) {
   if (!data) {
     return (
-      // TODO style loading biar center
       <div className="flex justify-center items-center">
         <LoadingX className="self-center" />
       </div>
@@ -100,19 +92,19 @@ export default function TemanPage() {
     <>
       <TekoNavbar current="Teman"></TekoNavbar>
       <main className="mx-5 mt-3">
-        <form onSubmit={cariTemans}>
+        <form onSubmit={cariTemans} className="flex flex-row">
           <Form.Control
             placeholder="Cari Teman"
             aria-label="Cari Teman"
             aria-describedby="basic-addon2"
-            className="w-full"
+            className="w-full mr-4"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <Button
             type="submit"
             id="button-addon2"
-            className="px-4 py-2 bg-brand border-brand"
+            className="px-4 py-2 mr-4 bg-brand border-brand"
             onClick={cariTemans}
           >
             Cari
