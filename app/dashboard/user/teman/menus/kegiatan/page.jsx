@@ -116,6 +116,7 @@ export default function KegiatanPage() {
           </label>
           <textarea
             className="border border-brand rounded mb-3 px-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"
@@ -126,7 +127,7 @@ export default function KegiatanPage() {
           </label>
           <input
             className="border border-brand rounded mb-3 px-2"
-            type="date"
+            type="datetime-local"
             id="tanggal"
             name="tanggal"
           ></input>

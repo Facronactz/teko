@@ -18,9 +18,9 @@ export default function NewSosmed({ fetcher, id }) {
       lembaga: id,
     };
     if (
-      nama.current.value === '' ||
-      platform.current.value === '' ||
-      url.current.value === ''
+      nama.current.value === ''
+      || platform.current.value === ''
+      || url.current.value === ''
     ) {
       Swal.fire({
         icon: 'error',
@@ -58,7 +58,9 @@ export default function NewSosmed({ fetcher, id }) {
         <td className="text-center border border-brand">
           <input
             ref={url}
-            type="text"
+            type="url"
+            pattern="https://.*"
+            placeholder="https://example.com"
             className="text-center border-brand rounded outline-none"
           />
         </td>

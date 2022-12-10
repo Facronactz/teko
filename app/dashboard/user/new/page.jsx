@@ -117,6 +117,7 @@ export default function KegiatanPage() {
           </label>
           <textarea
             className="border border-brand rounded mb-3 p-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"

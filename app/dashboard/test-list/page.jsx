@@ -109,6 +109,7 @@ export default function EditKegiatanPage() {
           </label>
           <textarea
             className="border border-brand rounded mb-3 px-2 py-1"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"
@@ -119,7 +120,7 @@ export default function EditKegiatanPage() {
           </label>
           <input
             className="border border-brand rounded mb-3 px-2 py-1"
-            type="date"
+            type="datetime-local"
             id="tanggal"
             name="tanggal"
           ></input>

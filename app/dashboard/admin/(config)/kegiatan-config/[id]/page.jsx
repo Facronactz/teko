@@ -178,6 +178,7 @@ export default function EditKegiatan({ params }) {
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
             className="border border-brand rounded mb-3 px-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"

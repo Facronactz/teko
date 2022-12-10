@@ -80,51 +80,52 @@ export default function ListSosmed({ fetcher, id }) {
 
   return (
     <>
-      {sosmed &&
-        sosmed?.map((item) => (
-          <tr key={item.id}>
-            <td className="text-center border border-brand">
-              <input
-                ref={platform}
-                defaultValue={item.platform}
-                type="text"
-                className="text-center border-brand rounded outline-none"
-              />
-            </td>
-            <td className="text-center border border-brand">
-              <input
-                ref={nama}
-                defaultValue={item.nama}
-                type="text"
-                className="text-center border-brand rounded outline-none"
-              />
-            </td>
-            <td className="text-center border border-brand">
-              <input
-                ref={url}
-                defaultValue={item.url}
-                type="text"
-                className="text-center border-brand rounded outline-none"
-              />
-            </td>
-            <td className="flex flex-row justify-center">
-              <Button
-                onClick={() => editSosmed(item.id)}
-                className="bg-brand text-white border-brand rounded ml-3 my-auto py-2 px-3 flex"
-              >
-                <FiEdit3 className="h-[25px] w-[50px] mr-2 text-white" />
-                Edit
-              </Button>
-              <Button
-                onClick={() => deleteSosmed(item.id)}
-                className="bg-danger text-white border-danger text-center rounded ml-3 my-auto p-2 flex"
-              >
-                <FiDelete className="h-[25px] w-[50px] mr-2 text-white" />
-                Hapus
-              </Button>
-            </td>
-          </tr>
-        ))}
+      {sosmed && sosmed?.map((item) => (
+        <tr key={item.id}>
+          <td className="text-center border border-brand">
+            <input
+              ref={platform}
+              defaultValue={item.platform}
+              type="text"
+              className="text-center border-brand rounded outline-none"
+            />
+          </td>
+          <td className="text-center border border-brand">
+            <input
+              ref={nama}
+              defaultValue={item.nama}
+              type="text"
+              className="text-center border-brand rounded outline-none"
+            />
+          </td>
+          <td className="text-center border border-brand">
+            <input
+              ref={url}
+              defaultValue={item.url}
+              type="url"
+              pattern="https://.*"
+              placeholder="https://example.com"
+              className="text-center border-brand rounded outline-none"
+            />
+          </td>
+          <td className="flex flex-row justify-center">
+            <Button
+              onClick={() => editSosmed(item.id)}
+              className="bg-brand text-white border-brand rounded ml-3 my-auto py-2 px-3 flex"
+            >
+              <FiEdit3 className="h-[25px] w-[50px] mr-2 text-white" />
+              Edit
+            </Button>
+            <Button
+              onClick={() => deleteSosmed(item.id)}
+              className="bg-danger text-white border-danger text-center rounded ml-3 my-auto p-2 flex"
+            >
+              <FiDelete className="h-[25px] w-[50px] mr-2 text-white" />
+              Hapus
+            </Button>
+          </td>
+        </tr>
+      ))}
     </>
   );
 }

@@ -159,7 +159,7 @@ export default function TampilTeman({ params }) {
           <label className="font-semibold">No Telepon:</label>
           <input
             className="border border-brand my-2 rounded px-2"
-            type="number"
+            type="tel"
             id="last"
             name="last"
             defaultValue={data.telp}
@@ -179,6 +179,7 @@ export default function TampilTeman({ params }) {
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
             className="border border-brand rounded mb-3 px-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"

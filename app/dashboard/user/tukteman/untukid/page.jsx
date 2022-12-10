@@ -12,7 +12,7 @@ import { useRef } from 'react';
 // import LoadingX from '@teko/components/loading';
 // import TagsInput from 'react-tagsinput';
 
-export default function TampilTeman({}) {
+export default function TampilTeman() {
   //   const temanFetcher = new Fetcher({
   //     id: params.id,
   //     url: 'teman',
@@ -59,7 +59,7 @@ export default function TampilTeman({}) {
           <label className="font-semibold">No Telepon:</label>
           <input
             className="border border-brand my-2 rounded px-2"
-            type="number"
+            type="tel"
             id="last"
             name="last"
             defaultValue={'2'}
@@ -79,6 +79,7 @@ export default function TampilTeman({}) {
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
             className="border border-brand rounded mb-3 px-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"
@@ -130,4 +131,3 @@ export default function TampilTeman({}) {
     </>
   );
 }
-

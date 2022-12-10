@@ -78,6 +78,7 @@ export default function NewKegiatan({ fetcher, lembaga }) {
           <label className="mb-3 font-semibold">Deskripsi:</label>
           <textarea
             className="border border-brand rounded mb-3 px-2"
+            type="textarea"
             name="deskripsi"
             id="deskripsi"
             cols="5"
@@ -96,7 +97,7 @@ export default function NewKegiatan({ fetcher, lembaga }) {
           <label className="mb-3 font-semibold">Tanggal:</label>
           <input
             className="border border-brand my-2 rounded px-2"
-            type="date"
+            type="datetime-local"
             id="last"
             name="last"
             ref={tanggalRef}
