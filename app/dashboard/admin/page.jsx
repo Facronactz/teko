@@ -28,6 +28,7 @@ const menus = [
   { name: 'Pengguna', href: 'user-config', icon: RiUserFill },
   { name: 'Teman', href: 'teman-config', icon: GiThreeFriends },
   { name: 'Kegiatan', href: 'kegiatan-config', icon: BsListTask },
+  { name: 'Setting', href: 'setting', icon: BsListTask },
 ];
 
 export default function MenuItem() {
