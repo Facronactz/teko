@@ -19,13 +19,13 @@ const temansFetcher = new Fetcher({ url: 'teman' });
 function ListTemans({ data }) {
   if (!data) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center my-4">
         <LoadingX className="self-center" />
       </div>
     );
   }
   if (data.length === 0) {
-    return [...Array(4)].map(() => (
+    return (
       <div className="flex justify-center items-center">
         <Image
           width={288}
@@ -34,41 +34,46 @@ function ListTemans({ data }) {
           alt="404 - Tidak Ditemukan"
         />
         <p className="text-center text-base md:text-2xl font-bold">
-          Tidak ada kegiatan
+          Teman tidak ditemukan
         </p>
       </div>
-    ));
+    );
   }
-  return data.map((teman) => (
-    <Link
-      href={{
-        pathname: `/teman/${teman.id}`,
-      }}
-      className="no-underline text-black"
-      key={teman.nama}
-    >
-      <Col className="p-0">
-        <Card>
-          <Card.Img
-            variant="top"
-            src={teman.logo}
-            width="200"
-            height="200"
-            alt={`logo ${teman.nama}`}
-            className="aspect-square object-contain object-center pointer-events-none"
-          />
-          <Card.Body className="h-[200px]">
-            <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
-              {teman.nama}
-            </Card.Title>
-            <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
-              {teman.ringkasan}
-            </p>
-          </Card.Body>
-        </Card>
-      </Col>
-    </Link>
-  ));
+  return (
+    <Container className="grid p-0">
+      <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
+        {data.map((teman) => (
+          <Link
+            href={{
+              pathname: `/teman/${teman.id}`,
+            }}
+            className="no-underline text-black"
+            key={teman.nama}
+          >
+            <Col className="p-0">
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={teman.logo}
+                  width="200"
+                  height="200"
+                  alt={`logo ${teman.nama}`}
+                  className="aspect-square object-contain object-center pointer-events-none"
+                />
+                <Card.Body className="h-[200px]">
+                  <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+                    {teman.nama}
+                  </Card.Title>
+                  <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
+                    {teman.ringkasan}
+                  </p>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Link>))}
+      </Row>
+    </Container>
+  );
 }
 
 export default function TemanPage() {
@@ -138,11 +143,7 @@ export default function TemanPage() {
       </main>
 
       <section>
-        <Container className="grid p-0">
-          <Row className=" grid m-4 gap-4 s:grid-cols-2 lg:grid-cols-4">
-            <ListTemans data={temans} />
-          </Row>
-        </Container>
+        <ListTemans data={temans} />
       </section>
       <TekoFooter></TekoFooter>
     </>

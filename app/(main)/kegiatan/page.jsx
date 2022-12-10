@@ -29,14 +29,13 @@ const kegiatansFetcher = new Fetcher({ url: 'kegiatan' });
 function ListKegiatans({ data }) {
   if (!data) {
     return (
-      // TODO style loading biar center
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center my-4">
         <LoadingX className="self-center" />
       </div>
     );
   }
   if (data.length === 0) {
-    return [...Array(2)].map(() => (
+    return (
       <div className="flex justify-center items-center">
         <Image
           width={288}
@@ -45,46 +44,51 @@ function ListKegiatans({ data }) {
           alt="404 - Tidak Ditemukan"
         />
         <p className="text-center text-base md:text-2xl font-bold">
-          Tidak ada kegiatan
+          Kegiatan tidak ditemukan
         </p>
       </div>
-    ));
+    );
   }
-  return data.map((kegiatan) => (
-    <Link
-      key={kegiatan.id}
-      href={{
-        pathname: `/kegiatan/${kegiatan.id}`,
-      }}
-      className="border-brand no-underline text-black"
-    >
-      <Col className="p-0">
-        <Card>
-          <Image
-            variant="top"
-            width={854}
-            height={480}
-            src={kegiatan.banner}
-            alt={`banner ${kegiatan.nama}`}
-            className="aspect-video object-cover object-center pointer-events-none"
-          />
-          <Card.Body className="h-[235px]">
-            <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
-              {kegiatan.nama}
-            </Card.Title>
-            <p className="block text-ellipsis break-words overflow-hidden max-h-[100px] mb-5">
-              {kegiatan.ringkasan}
-            </p>
-          </Card.Body>
-          {kegiatan.Kategorio && (
-            <Card.Footer>
-              {kegiatan.Kategori.map((item) => `#${item.nama} `)}
-            </Card.Footer>
-          )}
-        </Card>
-      </Col>
-    </Link>
-  ));
+  return (
+    <Container className="grid p-0">
+      <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
+        {data.map((kegiatan) => (
+          <Link
+            key={kegiatan.id}
+            href={{
+              pathname: `/kegiatan/${kegiatan.id}`,
+            }}
+            className="border-brand no-underline text-black"
+          >
+            <Col className="p-0">
+              <Card>
+                <Image
+                  variant="top"
+                  width={854}
+                  height={480}
+                  src={kegiatan.banner}
+                  alt={`banner ${kegiatan.nama}`}
+                  className="aspect-video object-cover object-center pointer-events-none"
+                />
+                <Card.Body className="h-[235px]">
+                  <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+                    {kegiatan.nama}
+                  </Card.Title>
+                  <p className="block text-ellipsis break-words overflow-hidden max-h-[100px] mb-5">
+                    {kegiatan.ringkasan}
+                  </p>
+                </Card.Body>
+                {kegiatan.Kategorio && (
+                  <Card.Footer>
+                    {kegiatan.Kategori.map((item) => `#${item.nama} `)}
+                  </Card.Footer>
+                )}
+              </Card>
+            </Col>
+          </Link>))}
+      </Row>
+    </Container>
+  );
 }
 
 export default function KegiatanPage() {
@@ -143,11 +147,7 @@ export default function KegiatanPage() {
       </div>
 
       <h3 className="text-center text-3xl my-3 font-bold">Kegiatan</h3>
-      <Container className="grid p-0">
-        <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
-          <ListKegiatans data={kegiatans} />
-        </Row>
-      </Container>
+      <ListKegiatans data={kegiatans} />
 
       <TekoFooter></TekoFooter>
     </>
