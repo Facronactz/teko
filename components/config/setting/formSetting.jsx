@@ -3,10 +3,15 @@ import Fetcher from '@teko/helpers/fetcher';
 import { useRef } from 'react';
 import LoadingX from '@teko/components/loading';
 import Swal from 'sweetalert2';
+import useSWR from 'swr';
 import { useRouter } from 'next/navigation';
 
-export default function FormSetting({ children, user }) {
-  const usersFetcer = new Fetcher('users');
+export default function FormSetting({ children, id }) {
+  const usersFetcer = new Fetcher({
+    id,
+    url: 'users',
+  });
+  const { data: user } = useSWR(usersFetcer.url, usersFetcer.fetcher);
   const router = useRouter();
   const nameRef = useRef();
   const usernameRef = useRef();
@@ -17,7 +22,7 @@ export default function FormSetting({ children, user }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      id: user.sub,
+      id,
       name: nameRef.current.value,
       username: usernameRef.current.value,
       email: emailRef.current.value,
@@ -28,7 +33,7 @@ export default function FormSetting({ children, user }) {
       const ok = await Swal.fire({
         icon: 'success',
         title: 'Yaay...',
-        text: 'Data berhasil diubah',
+        text: 'Data berhasil diubah, silahkan login kembali untuk melihat perubahan',
         confirmButtonColor: '#315343',
       });
       if (ok.isConfirmed) {
