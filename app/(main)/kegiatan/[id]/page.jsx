@@ -44,7 +44,7 @@ function KegiatanDetail({ id }) {
         <Image
           width={854}
           height={480}
-          className="aspect-video mb-3"
+          className="aspect-video mb-3 object-cover object-center"
           src={data.banner}
           alt="gambar hero"
         />
@@ -70,8 +70,7 @@ function KegiatanDetail({ id }) {
             src={data.lembaga.logo}
             alt="logo"
           />
-          {/* ingin membuat text nya dibawah tetapi belum nemu */}
-          <h3 className="">{data.lembaga.nama}</h3>
+          <h3 className="my-auto">{data.lembaga.nama}</h3>
         </Link>
       </div>
     </>

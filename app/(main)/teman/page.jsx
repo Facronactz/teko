@@ -65,7 +65,7 @@ function Temans() {
             alt={`logo ${teman.nama}`}
             className="aspect-square object-contain object-center pointer-events-none"
           />
-          <Card.Body className="h-[225px]">
+          <Card.Body className="h-[200px]">
             <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
               {teman.nama}
             </Card.Title>

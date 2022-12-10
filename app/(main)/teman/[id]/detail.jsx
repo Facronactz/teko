@@ -102,7 +102,9 @@ export default function TemanDetail({ id }) {
               </Link>
             </Card.Body>
             {/* TODO setiap tanggal ganti spt dibawah */}
-            <Card.Footer className="text-muted">{new Date(item.tanggal).toLocaleString()}</Card.Footer>
+            <Card.Footer className="text-muted">
+              {new Date(item.tanggal).toLocaleString()}
+            </Card.Footer>
           </Card>
         ))}
       </Container>
@@ -112,26 +114,27 @@ export default function TemanDetail({ id }) {
         </h3>
       </Container>
       <Container className="grid gap-3 md:grid-cols-3 mb-4">
-        {data && data.SosialMedia.map((sosmed) => (
-          <Card key={sosmed.id} style={{ width: '18rem' }}>
-            <Card.Body>
-              <Container className="grid grid-cols-2 justify-between p-0">
-                <Container className="flex flex-row">
-                  <Card.Title className="m-auto">
-                    <Platform platform={sosmed.platform} />
-                  </Card.Title>
-                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+        {data &&
+          data.SosialMedia.map((sosmed) => (
+            <Card key={sosmed.id} style={{ width: '18rem' }}>
+              <Card.Body>
+                <Container className="grid grid-cols-2 justify-between p-0">
+                  <Container className="flex flex-row">
+                    <Card.Title className="m-auto">
+                      <Platform platform={sosmed.platform} />
+                    </Card.Title>
+                    <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+                  </Container>
+                  <Link
+                    href={sosmed.url}
+                    className="bg-white border border-brand rounded text-white m-auto p-2"
+                  >
+                    <GrFormNextLink className="h-[30px] w-[30px]" />
+                  </Link>
                 </Container>
-                <Link
-                  href={sosmed.url}
-                  className="bg-white border border-brand rounded text-white m-auto p-2"
-                >
-                  <GrFormNextLink className="h-[30px] w-[30px]" />
-                </Link>
-              </Container>
-            </Card.Body>
-          </Card>
-        ))}
+              </Card.Body>
+            </Card>
+          ))}
       </Container>
       {/* fb,ig,twt,web, email */}
     </>
