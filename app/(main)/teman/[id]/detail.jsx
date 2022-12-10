@@ -27,7 +27,7 @@ function Platform({ platform }) {
   if (platform === 'instagram') {
     return <AiFillInstagram className="h-[30px] w-[70px] text-brand" />;
   }
-  return <BsGlobe className="h-[20px] w-[20px] text-brand" />;
+  return <BsGlobe className="h-[20px] w-[70px] text-brand" />;
 }
 
 export default function TemanDetail({ id }) {
@@ -114,29 +114,27 @@ export default function TemanDetail({ id }) {
         </h3>
       </Container>
       <Container className="grid gap-3 md:grid-cols-3 mb-4">
-        {data &&
-          data.SosialMedia.map((sosmed) => (
-            <Card key={sosmed.id} style={{ width: '18rem' }}>
-              <Card.Body>
-                <Container className="grid grid-cols-2 justify-between p-0">
-                  <Container className="flex flex-row">
-                    <Card.Title className="m-auto">
-                      <Platform platform={sosmed.platform} />
-                    </Card.Title>
-                    <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
-                  </Container>
-                  <Link
-                    href={sosmed.url}
-                    className="bg-white border border-brand rounded text-white m-auto p-2"
-                  >
-                    <GrFormNextLink className="h-[30px] w-[30px]" />
-                  </Link>
-                </Container>
-              </Card.Body>
-            </Card>
-          ))}
+        {data.SosialMedia.map((sosmed) => (
+          <Card key={sosmed.id}>
+            <Card.Body>
+              <div className="flex flex-cols-2">
+                <div className="flex flex-row">
+                  <Card.Title className="m-auto">
+                    <Platform platform={sosmed.platform} />
+                  </Card.Title>
+                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+                </div>
+                <Link
+                  href={sosmed.url}
+                  className="bg-white border border-brand rounded text-white m-auto p-2"
+                >
+                  <GrFormNextLink className="h-[30px] w-[30px]" />
+                </Link>
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
       </Container>
-      {/* fb,ig,twt,web, email */}
     </>
   );
 }
