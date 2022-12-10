@@ -106,6 +106,14 @@ const MasukModal = () => {
                 autoFocus
               />
             </Form.Group>
+
+            <Button
+              hidden
+              type="submit"
+              className="bg-brand border-brand hover:bg-[#14532d] my-2 mx-3"
+            >
+              Masuk
+            </Button>
           </Form>
         </Modal.Body>
         <ModalFooter>
