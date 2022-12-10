@@ -109,6 +109,11 @@ class Teman {
                         },
                     },
                     {
+                        ringkasan: {
+                            contains: search,
+                        },
+                    },
+                    {
                         deskripsi: {
                             contains: search,
                         },
@@ -116,6 +121,15 @@ class Teman {
                     {
                         alamat: {
                             contains: search,
+                        },
+                    },
+                    {
+                        Kegiatan: {
+                            some: {
+                                nama: {
+                                    contains: search,
+                                },
+                            },
                         },
                     },
                     {

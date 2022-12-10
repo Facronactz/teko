@@ -19,6 +19,8 @@ import { useState, useEffect } from 'react';
 
 import LoadingX from '@teko/components/loading';
 
+const temansFetcher = new Fetcher({ url: 'teman' });
+
 function ListTemans({ data }) {
   if (!data) {
     return (
@@ -61,7 +63,6 @@ function ListTemans({ data }) {
 }
 
 export default function TemanPage() {
-  const temansFetcher = new Fetcher({ url: 'teman' });
   const [url, setUrl] = useState(temansFetcher.url);
   const { data, error } = useSWR(
     url,

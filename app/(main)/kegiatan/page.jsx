@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 // eslint-disable-next-line object-curly-newline
 import {
@@ -20,37 +21,17 @@ import TekoFooter from '@teko/components/footer';
 
 import Fetcher from '@teko/helpers/fetcher';
 import useSWR from 'swr';
-import Skeleton from 'react-loading-skeleton';
+import LoadingX from '@teko/components/loading';
 
 const kegiatansFetcher = new Fetcher({ url: 'kegiatan' });
-function Kegiatans() {
-  const { data, error } = useSWR(
-    kegiatansFetcher.url,
-    kegiatansFetcher.fetcher,
-    kegiatansFetcher.swrConfig,
-  );
-  if (error) return <div>failed to load</div>;
+function ListKegiatans({ data }) {
   if (!data) {
-    return [...Array(2)].map((i) => (
-      <Col key={i} className="p-0">
-        <Card>
-          <Card.Header>
-            <Skeleton />
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>
-              <Skeleton />
-            </Card.Title>
-            <Card.Text>
-              <Skeleton />
-            </Card.Text>
-            <Link href={'#'} className="rounded">
-              <Skeleton width={60} height={30} />
-            </Link>
-          </Card.Body>
-        </Card>
-      </Col>
-    ));
+    return (
+      // TODO style loading biar center
+      <div className="flex justify-center items-center">
+        <LoadingX className="self-center" />
+      </div>
+    );
   }
   return data.map((kegiatan) => (
     <Link
@@ -88,15 +69,50 @@ function Kegiatans() {
 }
 
 export default function KegiatanPage() {
+  const [url, setUrl] = useState(kegiatansFetcher.url);
+  const { data, error } = useSWR(
+    url,
+    kegiatansFetcher.fetcher,
+    kegiatansFetcher.swrConfig,
+  );
+
+  const [kegiatans, setKegiatans] = useState(data);
+  const [query, setQuery] = useState('');
+
+  // const cariKegiatans = (e) => {
+  //   e.preventDefault();
+  //   const q = query.trim();
+  //   setQuery(q);
+  // };
+
+  useEffect(() => {
+    if (query) {
+      setUrl(`${kegiatansFetcher.url}?search=${query}`);
+    } else {
+      setUrl(kegiatansFetcher.url);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    if (data) {
+      setKegiatans(data);
+    } else {
+      setKegiatans(null);
+    }
+  }, [url, data]);
+
+  if (error) return <div>failed to load</div>;
   return (
     <>
       <TekoNavbar current="Kegiatan"></TekoNavbar>
       <div className="mx-5">
         <InputGroup className="">
           <Form.Control
-            placeholder="Cari Teman"
-            aria-label="Cari Teman"
+            placeholder="Cari Kegiatan"
+            aria-label="Cari Kegiatan"
             aria-describedby="basic-addon2"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <Button
             id="button-addon2"
@@ -107,10 +123,10 @@ export default function KegiatanPage() {
         </InputGroup>
       </div>
 
-      <h3 className="text-center text-3xl my-3 font-bold">Kategori</h3>
+      <h3 className="text-center text-3xl my-3 font-bold">Kegiatan</h3>
       <Container className="grid p-0">
         <Row className=" grid m-4 gap-3 s:grid-cols-1 lg:grid-cols-2 lg:gap-5">
-          <Kegiatans />
+          <ListKegiatans data={kegiatans} />
         </Row>
       </Container>
 

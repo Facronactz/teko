@@ -2,7 +2,7 @@ import prisma from '@teko/libs/PrismaClient';
 
 class Kegiatan {
     static async get(id, req) {
-        const { lembaga } = req;
+        const { lembaga, search } = req;
         if (id) {
             return prisma.kegiatan.findUnique({
                 where: {
@@ -25,10 +25,60 @@ class Kegiatan {
                 },
             });
         }
+        if (search) {
+            return this.getBySearch(search);
+        }
         return prisma.kegiatan.findMany({
             include: {
                 lembaga: true,
                 Kategori: true,
+            },
+        });
+    }
+
+    static async getBySearch(search) {
+        return prisma.kegiatan.findMany({
+            where: {
+                OR: [
+                    {
+                        nama: {
+                            contains: search,
+                        },
+                    },
+                    {
+                        ringkasan: {
+                            contains: search,
+                        },
+                    },
+                    {
+                        deskripsi: {
+                            contains: search,
+                        },
+                    },
+                    {
+                        lokasi: {
+                            contains: search,
+                        },
+                    },
+                    {
+                        lembaga: {
+                            is: {
+                                nama: {
+                                    contains: search,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        Kategori: {
+                            some: {
+                                nama: {
+                                    contains: search,
+                                },
+                            },
+                        },
+                    },
+                ],
             },
         });
     }
