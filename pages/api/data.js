@@ -39,7 +39,7 @@ const team = [
     {
         name: 'Citra Ayu Binangkit',
         foto: 'https://tekostorage.s3.ap-southeast-1.amazonaws.com/teko/team/citra.png',
-        quote: 'Tailwind CSS is the only framework that Ive seen scale on large teams. Its easy to customize, adapts to any design, and the build size is tiny.',
+        quote: 'Terus berubah menjadi lebih baik dan jangan pernah menyerah jika bertemu kesulitan, karena di balik kesulitan pasti akan ada kemudahan.',
         email: 'citrabii03@gmail.com',
         github: 'https://github.com/Citra-B',
         linkedin: 'https://www.linkedin.com/in/citra-ayu/',
