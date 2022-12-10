@@ -20,7 +20,6 @@ const teman = [
   { name: 'Beranda', href: '/' },
   { name: 'Dashboard', href: '/dashboard/teman' },
   { name: 'Teman', href: '/dashboard/admin/teman-config' },
-  { name: 'Logout', href: '/logout' },
 ];
 
 const menus = {
