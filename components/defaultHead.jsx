@@ -8,7 +8,6 @@ export default function DefaultHead({ title }) {
       <meta name="dicoding:email" content="f284x0682@dicoding.org"></meta>
       <meta name="description" content="Teman Komunitas - Penghubung Komunitas dengan Masyarakat" />
       <link rel="shortcut icon" href="/favicon.ico" />
-      <link rel="icon" href="/favicon.ico" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
