@@ -9,7 +9,7 @@ import NewKegiatan from './new';
 
 export default function Page({ params }) {
   const fetcher = new Fetcher({
-    url: `kegiatan?lembaga=${params.id}`,
+    url: `kegiatan?lembaga=${params.id}&all=true`,
   });
   const { data: kegiatan } = useSwr(
     fetcher.url,

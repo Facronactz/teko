@@ -2,33 +2,56 @@ import prisma from '@teko/libs/PrismaClient';
 
 class Kegiatan {
     static async get(id, req) {
-        const { lembaga, search } = req;
+        const { lembaga, search, all } = req;
         if (id) {
-            return prisma.kegiatan.findUnique({
-                where: {
-                    id,
-                },
-                include: {
-                    lembaga: true,
-                    Kategori: true,
-                },
-            });
+            return this.getById(id);
         }
         if (lembaga) {
-            return prisma.kegiatan.findMany({
-                where: {
-                    lembagaId: lembaga,
-                },
-                include: {
-                    lembaga: true,
-                    Kategori: true,
-                },
-            });
+            return this.getByLembaga(lembaga);
         }
         if (search) {
             return this.getBySearch(search);
         }
+        if (all) {
+            return this.getAll();
+        }
         return prisma.kegiatan.findMany({
+            where: {
+                active: true,
+            },
+            include: {
+                lembaga: true,
+                Kategori: true,
+            },
+        });
+    }
+
+    static async getAll() {
+        return prisma.kegiatan.findMany({
+            include: {
+                lembaga: true,
+                Kategori: true,
+            },
+        });
+    }
+
+    static async getById(id) {
+        return prisma.kegiatan.findUnique({
+            where: {
+                id,
+            },
+            include: {
+                lembaga: true,
+                Kategori: true,
+            },
+        });
+    }
+
+    static async getByLembaga(id) {
+        return prisma.kegiatan.findMany({
+            where: {
+                lembagaId: id,
+            },
             include: {
                 lembaga: true,
                 Kategori: true,

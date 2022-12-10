@@ -10,7 +10,7 @@ import LoadingX from '@teko/components/loading';
 import KegiatanItemConfig from '@teko/components/config/kegiatan/list';
 
 export default function KegiatanConfig() {
-  const kegiatanFetcher = new Fetcher('kegiatan');
+  const kegiatanFetcher = new Fetcher('kegiatan?all=true');
   const { data: kegiatans } = useSWR(
     kegiatanFetcher.url,
     kegiatanFetcher.fetcher,
