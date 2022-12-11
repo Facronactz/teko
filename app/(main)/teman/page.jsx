@@ -47,7 +47,7 @@ function ListTemans({ data }) {
             href={{
               pathname: `/teman/${teman.id}`,
             }}
-            className="no-underline text-black"
+            className="no-underline text-black hover:scale-105 transform transition duration-300 ease-in-out"
             key={teman.nama}
           >
             <Col className="p-0">
@@ -60,7 +60,7 @@ function ListTemans({ data }) {
                   alt={`logo ${teman.nama}`}
                   className="aspect-square object-contain object-center self-center pointer-events-none"
                 />
-                <Card.Body className="h-[200px] border border-brand">
+                <Card.Body className="h-[200px]">
                   <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
                     {teman.nama}
                   </Card.Title>
