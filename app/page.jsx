@@ -78,7 +78,7 @@ function Temans() {
       href={{
         pathname: `/teman/${teman.id}`,
       }}
-      className="no-underline text-black"
+      className="no-underline text-black hover:scale-105 transform transition duration-300 ease-in-out"
       key={teman.nama}
     >
       <Col className="p-0" key={teman.id}>
