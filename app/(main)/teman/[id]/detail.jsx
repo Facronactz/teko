@@ -119,29 +119,28 @@ export default function TemanDetail({ id }) {
             </h3>
           </Container>
           <Container className="grid gap-3 md:grid-cols-3 mb-4">
-            {data.SosialMedia &&
-              data.SosialMedia.map((sosmed) => (
-                <Card key={sosmed.id}>
-                  <Card.Body>
-                    <div className="flex flex-cols-2">
-                      <div className="flex flex-row">
-                        <Card.Title className="m-auto">
-                          <Platform platform={sosmed.platform} />
-                        </Card.Title>
-                        <Card.Title className="m-auto">
-                          {sosmed.nama}
-                        </Card.Title>
-                      </div>
-                      <Link
-                        href={sosmed.url}
-                        className="bg-white border border-brand rounded text-white m-auto p-2"
-                      >
-                        <GrFormNextLink className="h-[30px] w-[30px]" />
-                      </Link>
+            {data.SosialMedia.map((sosmed) => (
+              <Card key={sosmed.id}>
+                <Card.Body>
+                  <div className="flex flex-cols-2">
+                    <div className="flex flex-row">
+                      <Card.Title className="m-auto">
+                        <Platform platform={sosmed.platform} />
+                      </Card.Title>
+                      <Card.Title className="m-auto">
+                        {sosmed.nama}
+                      </Card.Title>
                     </div>
-                  </Card.Body>
-                </Card>
-              ))}
+                    <Link
+                      href={sosmed.url}
+                      className="bg-white border border-brand rounded text-white m-auto p-2"
+                    >
+                      <GrFormNextLink className="h-[30px] w-[30px]" />
+                    </Link>
+                  </div>
+                </Card.Body>
+              </Card>
+            ))}
           </Container>
         </>
       )}

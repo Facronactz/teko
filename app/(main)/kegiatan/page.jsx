@@ -10,7 +10,6 @@ import {
   Col,
   Card,
   Form,
-  InputGroup,
   Button,
 } from 'react-bootstrap';
 
@@ -58,10 +57,10 @@ function ListKegiatans({ data }) {
             href={{
               pathname: `/kegiatan/${kegiatan.id}`,
             }}
-            className="border-brand no-underline text-black"
+            className="border-brand no-underline text-black hover:scale-105 transform transition duration-300 ease-in-out"
           >
             <Col className="p-0">
-              <Card>
+              <Card className='hover:text-white hover:bg-brand'>
                 <TekoImage
                   variant="top"
                   width={854}
