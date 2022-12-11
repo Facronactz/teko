@@ -74,26 +74,34 @@ function Temans() {
     ));
   }
   return data.map((teman) => (
-    <Col className="p-0" key={teman.id}>
-      <Card>
-        <TekoImage
-          variant="top"
-          src={teman.logo}
-          width="200"
-          height="200"
-          alt={`logo ${teman.nama}`}
-          className="aspect-square object-contain object-center self-center"
-        />
-        <Card.Body className="h-[200px] border border-brand">
-          <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
-            {teman.nama}{' '}
-          </Card.Title>
-          <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
-            {teman.ringkasan}
-          </p>
-        </Card.Body>
-      </Card>
-    </Col>
+    <Link
+      href={{
+        pathname: `/teman/${teman.id}`,
+      }}
+      className="no-underline text-black"
+      key={teman.nama}
+    >
+      <Col className="p-0" key={teman.id}>
+        <Card className="border-brand drop-shadow">
+          <TekoImage
+            variant="top"
+            src={teman.logo}
+            width="200"
+            height="200"
+            alt={`logo ${teman.nama}`}
+            className="aspect-square object-contain object-center self-center"
+          />
+          <Card.Body className="h-[200px] border border-brand">
+            <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+              {teman.nama}{' '}
+            </Card.Title>
+            <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
+              {teman.ringkasan}
+            </p>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Link>
   ));
 }
 

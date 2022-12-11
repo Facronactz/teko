@@ -51,7 +51,7 @@ function ListTemans({ data }) {
             key={teman.nama}
           >
             <Col className="p-0">
-              <Card>
+              <Card className="border-brand drop-shadow">
                 <TekoImage
                   variant="top"
                   src={teman.logo}
