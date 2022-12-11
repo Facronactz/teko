@@ -118,7 +118,7 @@ export default function BerandaPage() {
 
       <main>
         <Container fluid className="p-0">
-          <div className="w-full h-[110vmin] relative xs:h-[80vmin] s:h-[70vmin]">
+          <div className="w-full h-[110vmin] relative xs:h-[80vmin] s:h-[60vmin]">
             <div className="absolute w-full h-full"></div>
             <div className="w-full h-full bg-brand pt-[19vmin] text-center">
               <h1 className="mb-2 text-3xl text-white lg:text-4xl xxl:text-5xl">
@@ -132,7 +132,7 @@ export default function BerandaPage() {
             </div>
           </div>
           <Container fluid className="text-center">
-            <div className="mt-[-50vmin] flex flex-md-row flex-wrap justify-center xs:mt-[-25vmin] s:mt-[-25vmin] sm:mt-[-17vmin]">
+            <div className="mt-[-50vmin] flex flex-md-row flex-wrap justify-center xs:mt-[-30vmin] s:mt-[-10vmin] sm:mt-[-17vmin]">
               <Stats />
             </div>
           </Container>

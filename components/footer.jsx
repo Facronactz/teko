@@ -74,11 +74,9 @@ function TekoFooter() {
                 Alamat
               </h5>
               <p className="sm:mb-1">
-                Jl. Dr. Setiabudi No.229, Isola, Kec. Sukasari, Kota Bandung,
-                Jawa Barat 40154
+                Desa Bojongmanggu, Kec. Pameungpeuk, Kab. Bandung, Jawa Barat
+                40376
               </p>
-              <p className="sm:mb-1">Teko@gmail.com</p>
-              <p className="sm:mb-1">+62 8122443398</p>
             </div>
           </Row>
           <hr className="my-3" />

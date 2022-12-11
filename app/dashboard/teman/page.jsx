@@ -5,7 +5,7 @@ import Link from 'next/link';
 // eslint-disable-next-line object-curly-newline
 import { Card, Row, Col } from 'react-bootstrap';
 import { GiThreeFriends } from 'react-icons/gi';
-import { BsListTask } from 'react-icons/bs';
+import { BsListTask, BsFillGearFill } from 'react-icons/bs';
 
 function Item({ name, href, children }) {
   return (
@@ -25,7 +25,7 @@ function Item({ name, href, children }) {
 const menus = [
   { name: 'Teman', href: 'teman-config', icon: GiThreeFriends },
   { name: 'Kegiatan', href: 'kegiatan-config', icon: BsListTask },
-  { name: 'Setting', href: 'setting', icon: BsListTask },
+  { name: 'Setting', href: 'setting', icon: BsFillGearFill },
 ];
 
 export default function MenuItem() {
