@@ -82,9 +82,7 @@ export default function DetailKegiatanPage({ params }) {
     <>
       <TekoNavbar current="Kegiatan"></TekoNavbar>
       <h3 className="text-center mb-3 font-bold">Detail Kegiatan</h3>
-      <Container className="mb-[10vh]">
-        <KegiatanDetail id={params.id} />
-      </Container>
+      <KegiatanDetail id={params.id} />
       <TekoFooter />
     </>
   );
