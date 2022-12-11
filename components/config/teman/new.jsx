@@ -10,7 +10,6 @@ import upgradeUser from '@teko/helpers/utils/upgradeUser';
 
 import TagsInput from 'react-tagsinput';
 
-// TODO post belum fungsi sama sekali, untuk post semua input blm ada classnya
 const temanFetcher = new Fetcher('teman');
 
 export default function NewTeman({ id, role }) {
@@ -74,7 +73,7 @@ export default function NewTeman({ id, role }) {
 
   return (
     <>
-      <div className='md:container md:mx-auto'>
+      <div className="md:container md:mx-auto">
         <form className="grid" onSubmit={onSubmit}>
           <label className="font-semibold">Nama Organisasi:</label>
           <input

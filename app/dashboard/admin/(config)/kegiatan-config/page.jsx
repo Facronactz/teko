@@ -30,7 +30,6 @@ export default function KegiatanConfig() {
           >
             Tambah Kegiatan
           </Link> */}
-          {/* TODO ini didisabledulubuatrecord */}
           {/* <Dropdown className="mb-3">
             <Dropdown.Toggle
               className="bg-brand border-brand"
@@ -45,7 +44,7 @@ export default function KegiatanConfig() {
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown> */}
-          <KegiatanItemConfig role='admin' lembaga={true} data={kegiatans} />
+          <KegiatanItemConfig role="admin" lembaga={true} data={kegiatans} />
         </section>
       </div>
     </>
