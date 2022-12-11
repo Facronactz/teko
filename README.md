@@ -99,10 +99,10 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 
 * Informasi komunitas dan organisasi
 * Informasi kegiatan atau event
-* Informasi donasi
 * Pencarian komunitas dan organisasi
 * Pencarian kegiatan atau event
-* Penggalangan dana atau donasi untuk komunitas dan organisasi
+<!-- * ~~Informasi donasi~~ -->
+<!-- * ~~Penggalangan dana atau donasi untuk komunitas dan organisasi~~ -->
 
 
 ### Built With
@@ -115,10 +115,8 @@ Website ini mempromosikan masyarakat yang damai dan inklusif untuk pembangunan b
 [![WebpackPack][Webpack.build]][Webpack-url]
 [![Tailwind][Tailwindcss.com]][Tailwind-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-
 [![AmazonAWS][Amazon.com]][Amazon-url]
 [![Prisma][Prisma.com]][Prisma-url]
-[![Sqlite][Sqlite.com]][Sqlite-url]
 
 
 </div>
@@ -163,7 +161,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Facronactz/teko.git
    ```
 2. Install NPM packages
    ```sh
@@ -178,12 +176,12 @@ To get a local copy up and running follow these simple steps.
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- USAGE -->
+<!-- ## Usage
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
@@ -196,17 +194,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Frontend
     - [x] Create Homepage
     - [x] Create Halaman Teman
-    - [x] Create Halaman Event
-- [ ] Backend
-    - [ ] Create API
-    - [ ] Connect API to Database
-    - [ ] Connect API to Frontend
-- [ ] Create Dashboard
-- [ ] Create Admin Panel
-- [ ] Deploy Website
-- [ ] English Support
+    - [x] Create Halaman Kegiatan
+- [x] Backend
+    - [x] Create API
+    - [x] Connect API to Database
+    - [x] Connect API to Frontend
+- [x] Create Dashboard
+- [x] Create Admin Panel
+- [x] Deploy Website
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -237,16 +234,21 @@ Project Link: [https://github.com/facronactz/teko](https://github.com/facronactz
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-* [Dicoding Indonesia](https://www.dicoding.com/)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Next Auth](https://next-auth.js.org/)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-* [React Bootstrap](https://react-bootstrap.github.io/)
-* [Sweet Alert](https://sweetalert.js.org/guides/)
-* [Badge Template](https://github.com/alexandresanlim/Badges4-README.md-Profile#-languages-)
+<!-- 
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off! -->
+* [Dicoding Indonesia](https://www.dicoding.com)
+* [Next Auth](https://next-auth.js.org)
+* [SWR](https://swr.vercel.app)
+* [Bcypt](https://github.com/kelektiv/node.bcrypt.js)
+* [React Icons](https://react-icons.github.io/react-icons)
+* [React Bootstrap](https://react-bootstrap.github.io)
+* [React Loading Skeleton](https://github.com/dvtng/react-loading-skeleton)
+* [Sweet Alert2](https://sweetalert2.github.io/)
+* [React Tags Input](https://github.com/olahol/react-tagsinput)
+* [Google Fonts](https://fonts.google.com)
+* [Undraw](https://undraw.co/illustrations)
+* [Load Awsome](https://labs.danielcardoso.net/load-awesome)
+* [Badge Template](https://github.com/alexandresanlim/Badges4-README.md-Profile)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
