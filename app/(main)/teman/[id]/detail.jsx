@@ -79,62 +79,66 @@ export default function TemanDetail({ id }) {
           </div>
         </Container>
       </Container>
-      <Container className="flex flex-col text-center">
-        <h3 className="bg-brand w-full center text-white py-2 rounded">
-          Kegiatan
-        </h3>
-      </Container>
-      <Container className="text-center flex flex-col mt-2 mb-4 md:grid md:grid-cols-2 md:gap-4">
-        {data.Kegiatan.map((item) => (
-          <Card key={item.id} className="text-center">
-            <Card.Body>
-              <Card.Title>{item.nama}</Card.Title>
-              <Card.Text className="overflow-hidden">
-                {item.ringkasan}
-              </Card.Text>
-              <Link
-                href={{
-                  pathname: `/kegiatan/${item.id}`,
-                }}
-                className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
-              >
-                Selengkapnya
-              </Link>
-            </Card.Body>
-            {/* TODO setiap tanggal ganti spt dibawah */}
-            <Card.Footer className="text-muted">
-              {new Date(item.tanggal).toLocaleString()}
-            </Card.Footer>
-          </Card>
-        ))}
-      </Container>
-      <Container className="flex flex-col text-center">
-        <h3 className="bg-brand w-full center text-white py-2 rounded">
-          Media Sosial
-        </h3>
-      </Container>
-      <Container className="grid gap-3 md:grid-cols-3 mb-4">
-        {data.SosialMedia.map((sosmed) => (
-          <Card key={sosmed.id}>
-            <Card.Body>
-              <div className="flex flex-cols-2">
-                <div className="flex flex-row">
-                  <Card.Title className="m-auto">
-                    <Platform platform={sosmed.platform} />
-                  </Card.Title>
-                  <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
-                </div>
+      {data.Kegiatan.length > 0 && <>
+        <Container className="flex flex-col text-center">
+          <h3 className="bg-brand w-full center text-white py-2 rounded">
+            Kegiatan
+          </h3>
+        </Container>
+        <Container className="text-center flex flex-col mt-2 mb-4 md:grid md:grid-cols-2 md:gap-4">
+          {data.Kegiatan.map((item) => (
+            <Card key={item.id} className="text-center">
+              <Card.Body>
+                <Card.Title>{item.nama}</Card.Title>
+                <Card.Text className="overflow-hidden">
+                  {item.ringkasan}
+                </Card.Text>
                 <Link
-                  href={sosmed.url}
-                  className="bg-white border border-brand rounded text-white m-auto p-2"
+                  href={{
+                    pathname: `/kegiatan/${item.id}`,
+                  }}
+                  className="bg-brand border-brand no-underline px-3 py-2 text-white rounded"
                 >
-                  <GrFormNextLink className="h-[30px] w-[30px]" />
+                  Selengkapnya
                 </Link>
-              </div>
-            </Card.Body>
-          </Card>
-        ))}
-      </Container>
+              </Card.Body>
+              {/* TODO setiap tanggal ganti spt dibawah */}
+              <Card.Footer className="text-muted">
+                {new Date(item.tanggal).toLocaleString()}
+              </Card.Footer>
+            </Card>
+          ))}
+        </Container>
+      </>}
+      {data.SosialMedia.length > 0 && <>
+        <Container className="flex flex-col text-center">
+          <h3 className="bg-brand w-full center text-white py-2 rounded">
+            Media Sosial
+          </h3>
+        </Container>
+        <Container className="grid gap-3 md:grid-cols-3 mb-4">
+          {data.SosialMedia && data.SosialMedia.map((sosmed) => (
+            <Card key={sosmed.id}>
+              <Card.Body>
+                <div className="flex flex-cols-2">
+                  <div className="flex flex-row">
+                    <Card.Title className="m-auto">
+                      <Platform platform={sosmed.platform} />
+                    </Card.Title>
+                    <Card.Title className="m-auto">{sosmed.nama}</Card.Title>
+                  </div>
+                  <Link
+                    href={sosmed.url}
+                    className="bg-white border border-brand rounded text-white m-auto p-2"
+                  >
+                    <GrFormNextLink className="h-[30px] w-[30px]" />
+                  </Link>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
+        </Container>
+      </>}
     </>
   );
 }
