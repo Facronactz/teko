@@ -144,6 +144,7 @@ export default function TemanPage() {
       </main>
 
       <section>
+        <h3 className="text-center text-3xl my-3 font-bold">Teman</h3>
         <ListTemans data={temans} />
       </section>
       <TekoFooter></TekoFooter>
