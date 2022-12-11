@@ -84,19 +84,13 @@ function Temans() {
           alt={`logo ${teman.nama}`}
           className="aspect-square object-contain object-center self-center"
         />
-        <Card.Body className="h-[225px]">
-          <Card.Title>{teman.nama} </Card.Title>
+        <Card.Body className="h-[200px] border border-brand">
+          <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
+            {teman.nama}{' '}
+          </Card.Title>
           <p className="block text-ellipsis break-words overflow-hidden max-h-[100px]">
             {teman.ringkasan}
           </p>
-          <Link
-            href={{
-              pathname: `/teman/${teman.id}`,
-            }}
-            className="bg-brand border-brand no-underline absolute bottom-3 px-3 py-2 text-white rounded"
-          >
-            Lihat
-          </Link>
         </Card.Body>
       </Card>
     </Col>
