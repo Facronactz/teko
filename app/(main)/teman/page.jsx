@@ -60,7 +60,7 @@ function ListTemans({ data }) {
                   alt={`logo ${teman.nama}`}
                   className="aspect-square object-contain object-center self-center pointer-events-none"
                 />
-                <Card.Body className="h-[200px] border border-brand">
+                <Card.Body className="h-[200px] border-t border-brand">
                   <Card.Title className="block text-ellipsis break-words overflow-hidden max-h-fit">
                     {teman.nama}
                   </Card.Title>
