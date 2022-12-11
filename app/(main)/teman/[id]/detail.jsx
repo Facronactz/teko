@@ -61,8 +61,8 @@ export default function TemanDetail({ id }) {
       <Container fluid className="flex flex-col text-center justify-center">
         <Container className="flex justify-center">
           <TekoImage
-            width={200}
-            height={200}
+            width={300}
+            height={300}
             className="mb-3 rounded object-cover object-center"
             src={data.logo}
             alt="gambar hero"
