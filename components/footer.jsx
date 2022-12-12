@@ -40,14 +40,6 @@ function TekoFooter() {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
               <h5 className="uppercase mb-6 font-semibold md:text-xl">Fitur</h5>
               <p className="sm:mb-1">
-                <a
-                  href="#"
-                  className="text-grey no-underline pointer-events-none cursor-default"
-                >
-                  Donasi
-                </a>
-              </p>
-              <p className="sm:mb-1">
                 <a href="/teman" className="text-white no-underline">
                   Teman
                 </a>
