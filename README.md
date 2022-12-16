@@ -41,7 +41,7 @@
   <p align="center">
     Website penghubung masyarakat dengan berbagai komunitas dan organisasi kemanusiaan, sosial, dan lingkungan.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://documenter.getpostman.com/view/12590821/2s8YsqVuY3"><strong>API docs»</strong></a>
     <br />
     <br />
     <a href="https://teko.vercel.app">View Demo</a>
@@ -71,7 +71,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
