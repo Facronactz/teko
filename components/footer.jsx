@@ -74,7 +74,7 @@ function TekoFooter() {
           <hr className="my-3" />
           <div className="text-center">
             <p className="m-1">
-              Copyright ©2022 All rights reserved | Teko&#8482;
+              Copyright ©2022 - Teko | Built for Educational Purposes Only
             </p>
           </div>
         </Container>
