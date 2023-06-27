@@ -11,7 +11,7 @@
     "lint-fix": "next lint --fix"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.218.0",
+    "@aws-sdk/client-s3": "^3.360.0",
     "@aws-sdk/s3-request-presigner": "^3.218.0",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@next/font": "^13.0.3",
